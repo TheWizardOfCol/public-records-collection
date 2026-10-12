@@ -1,0 +1,21 @@
+# OS / editor cruft
+.DS_Store
+.idea/
+.vscode/
+*.iml
+
+# Java / Maven build output
+**/target/
+
+# Node
+**/node_modules/
+players/dist/
+
+# Godot editor cache / builds
+host/.godot/
+host/build/
+host/export/
+
+# Local environment overrides
+.env.local
+*.local

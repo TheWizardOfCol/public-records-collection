@@ -1,0 +1,2050 @@
+[
+  {
+    "id": "prompt-0001",
+    "text": "\"It's 3 AM. What's that sound?!\"",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0002",
+    "text": "\"So, how'd you end up in jail?\"",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0003",
+    "text": "\"What's inside that wrapped Christmas gift?\"",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0004",
+    "text": "\"What's that smell?\"",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0005",
+    "text": "\"where did my sandwich go?\"",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0006",
+    "text": "A battle cry",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0007",
+    "text": "A cause of death, fitting for the Darwin awards",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0008",
+    "text": "A celebrity tweet",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0009",
+    "text": "A clique in high school",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0010",
+    "text": "A clown's name",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0011",
+    "text": "A clue in a mystery",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0012",
+    "text": "A command to an evil robot",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0013",
+    "text": "A cookbook title",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0014",
+    "text": "A crowd's chant at a sports arena",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0015",
+    "text": "A description of a bird",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0016",
+    "text": "A description of a car",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0017",
+    "text": "A description of a delicious meal",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0018",
+    "text": "A description of a school lunch",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0019",
+    "text": "A description of a wine",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0020",
+    "text": "A description of a wine",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0021",
+    "text": "A description of an avant-garde modern artwork at a museum",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0022",
+    "text": "A description of New York City",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0023",
+    "text": "A fortune in a fortune cookie",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0024",
+    "text": "A fun fact",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0025",
+    "text": "A girl scout cookie",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0026",
+    "text": "A good gift for mom or dad",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0027",
+    "text": "A line in a break-up letter",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0028",
+    "text": "A line in a politician's speech",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0029",
+    "text": "A line in an insurance ad",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0030",
+    "text": "A line in emo poetry",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0031",
+    "text": "A line of dialog spoken by a Disney villain",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0032",
+    "text": "A mad scientist's invention",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0033",
+    "text": "A museum exhibit",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0034",
+    "text": "A name that if a kid had, they'd get bullied",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0035",
+    "text": "A necessity to pack on a camping trip",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0036",
+    "text": "A new kind of coffee drink",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0037",
+    "text": "A new tarot card",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0038",
+    "text": "A nickname for a biker",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0039",
+    "text": "A part of a LinkedIn bio",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0040",
+    "text": "A pet peeve",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0041",
+    "text": "A plea for help",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0042",
+    "text": "A political slogan for running for office",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0043",
+    "text": "A prisoner's final words before execution",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0044",
+    "text": "A prize on a game show",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0045",
+    "text": "A reason to go to war",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0046",
+    "text": "A scary Halloween costume",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0047",
+    "text": "A scary threat",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0048",
+    "text": "A search term for the perfect animated gif",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0049",
+    "text": "A simple pleasure",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0050",
+    "text": "A stupid question",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0051",
+    "text": "A text message nobody wants to receive",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0052",
+    "text": "A Theme for a children's birthday party",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0053",
+    "text": "A Twitch Streamer's catchphrase",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0054",
+    "text": "An advertising mascot for a cereal",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0055",
+    "text": "An advertising slogan for a new toy",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0056",
+    "text": "An inscription on a gravestone",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0057",
+    "text": "An instruction in a coffee order",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0058",
+    "text": "At the Continental breakfast at a hotel",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0059",
+    "text": "Description of a steak",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0060",
+    "text": "Found in the basement or attic",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0061",
+    "text": "Heard at a bank robbery",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0062",
+    "text": "Heard at church",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0063",
+    "text": "Heard in a courtroom",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0064",
+    "text": "Heard in an infomercial",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0065",
+    "text": "Heard on a game show",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0066",
+    "text": "Heard on the Titanic right before disaster",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0067",
+    "text": "How the Universe was created, according to myth, religion, or science",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0068",
+    "text": "How the world ends",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0069",
+    "text": "How to assemble IKEA furniture",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0070",
+    "text": "How to solve your mouse problem",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0071",
+    "text": "I dyed my hair the color of ______!",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0072",
+    "text": "I'm allergic to...",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0073",
+    "text": "If I ever buy ______, you know my card has been stolen",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0074",
+    "text": "In the far future, the world is ran by ______.",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0075",
+    "text": "Ingredient(s) for a smoothie",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0076",
+    "text": "Just the weirdest line or phrase you can find",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0077",
+    "text": "Motivation to Exercise",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0078",
+    "text": "my new hair color",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0079",
+    "text": "New from Hasbro: _______!",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0080",
+    "text": "New phobia: fear of _______",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0081",
+    "text": "New slang term for \"bad\"",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0082",
+    "text": "On a sign at a protest",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0083",
+    "text": "On the packaging of a bag of potato chips",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0084",
+    "text": "Overheard at Denny's at 1 am",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0085",
+    "text": "Overheard at the pet shop",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0086",
+    "text": "Overheard at Walmart",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0087",
+    "text": "Part of a conspiracy theory",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0088",
+    "text": "Said on a first date",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0089",
+    "text": "Something a bully would say",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0090",
+    "text": "Something a child would throw a fit over",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0091",
+    "text": "Something a creepy clown would say",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0092",
+    "text": "Something a door-to-door salesman would say on your doorstep",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0093",
+    "text": "Something a homeless person would say to you on the street",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0094",
+    "text": "Something a Karen would say when her coffee order is wrong",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0095",
+    "text": "Something a kid's parents would say when the kid's in trouble",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0096",
+    "text": "Something an inspirational speaker would say",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0097",
+    "text": "Something in a rich person's mansion",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0098",
+    "text": "Something IT support might say when troubleshooting your computer",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0099",
+    "text": "Something on a sandwich",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0100",
+    "text": "Something said during a romantic evening",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0101",
+    "text": "Something that belongs in a museum",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0102",
+    "text": "Something that every good party needs",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0103",
+    "text": "Something The annoying virtual assistant says, out of the blue, that nobody asked for",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0104",
+    "text": "Something to put googly eyes on to make it funny",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0105",
+    "text": "Something weird people like",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0106",
+    "text": "Something you could win at a carnival",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0107",
+    "text": "Something you don't want to hear your doctor say",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0108",
+    "text": "Something you find at a thrift store",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0109",
+    "text": "Something you found at a thrift store",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0110",
+    "text": "Something you might do or say at an escape room",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0111",
+    "text": "Something you shouldn't type into Google",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0112",
+    "text": "Something you'd bring to a potluck",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0113",
+    "text": "Something you'd buy or do after winning the lottery",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0114",
+    "text": "Something you'd say right before an awkward chuckle",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0115",
+    "text": "Something you'd say to a misbehaving dog",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0116",
+    "text": "Something you'd say to someone to shut them up",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0117",
+    "text": "Something you'd type into a search engine to show the elderly how it works",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0118",
+    "text": "Text on a warning sign or warning label",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0119",
+    "text": "That's how you get ants",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0120",
+    "text": "The cool substitute teacher lets us ______!",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0121",
+    "text": "The main ingredient in a sinister witch's brew",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0122",
+    "text": "The moment everything went wrong",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0123",
+    "text": "The moment the road trip goes awry",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0124",
+    "text": "The name of a card or dice game",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0125",
+    "text": "The name of a casino",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0126",
+    "text": "The name of a coffee shop",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0127",
+    "text": "The name of a cryptid",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0128",
+    "text": "The name of a dive bar",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0129",
+    "text": "The name of a fancy steakhouse",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0130",
+    "text": "The name of a fast food menu item",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0131",
+    "text": "The name of a hipster-y beer",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0132",
+    "text": "The name of a mystical forest",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0133",
+    "text": "The name of a new Energy drink",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0134",
+    "text": "The name of a new sitcom",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0135",
+    "text": "The name of a new subculture",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0136",
+    "text": "The name of a painting",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0137",
+    "text": "The name of a perfume",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0138",
+    "text": "The name of a Saturday morning cartoon",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0139",
+    "text": "The name of a signature cocktail",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0140",
+    "text": "The name of an alien race",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0141",
+    "text": "The name of an evil AI",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0142",
+    "text": "The name of an evil cyberpunk corporation",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0143",
+    "text": "The name of an evil spirit",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0144",
+    "text": "The name of an improv team",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0145",
+    "text": "The name of that huge burger, that you get a free t-shirt if you eat all of it",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0146",
+    "text": "The name of the book chapter where everything goes wrong",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0147",
+    "text": "The name of the restaurant that gave me food poisoning",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0148",
+    "text": "The new Fortnite skin",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0149",
+    "text": "The new tiktok trend",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0150",
+    "text": "The punchline of a joke",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0151",
+    "text": "The secret ingredient in a dish",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0152",
+    "text": "The sound of an alarm that would be sure to wake you up",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0153",
+    "text": "The sound you don't want to hear your car make",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0154",
+    "text": "The thieves stole ______.",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0155",
+    "text": "The worst merit badge for scouting",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0156",
+    "text": "What do you look for in a romantic partner?",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0157",
+    "text": "What the subliminal messaging says",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0158",
+    "text": "What to say after farting",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0159",
+    "text": "What to yell before jumping in the pool",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0160",
+    "text": "What was your nickname in school?",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0161",
+    "text": "What you can only find at Whole Foods, and not at Walmart",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0162",
+    "text": "What you have to do to be a cool kid",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0163",
+    "text": "What you'd do if you ruled the world",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0164",
+    "text": "What you'd say after winning a jackpot in Vegas",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0165",
+    "text": "What's in that mysterious package on your doorstep?",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0166",
+    "text": "What's in your purse or wallet?",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0167",
+    "text": "Words in a magic spell",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0168",
+    "text": "Words in an Oscar acceptance speech",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0169",
+    "text": "Words on a banner tugged by an airplane",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0170",
+    "text": "Words said when humans first walk on Mars.",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0171",
+    "text": "Words that sound weird when whispered",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0172",
+    "text": "Words to propose to your significant other with",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0173",
+    "text": "Your final words",
+    "collection": "(none)",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0174",
+    "text": "A line of dialog in a horror movie right before everyone dies",
+    "collection": "Cinematic",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0175",
+    "text": "Disney has released \"Star Wars: ______.\"",
+    "collection": "Cinematic",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0176",
+    "text": "Heard in a blockbuster movie trailer",
+    "collection": "Cinematic",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0177",
+    "text": "Indiana Jones and _____",
+    "collection": "Cinematic",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0178",
+    "text": "Something heard in a Scooby-Doo episode",
+    "collection": "Cinematic",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0179",
+    "text": "Something MacGyver would use",
+    "collection": "Cinematic",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0180",
+    "text": "The name of a grizzled pirate captain: \"Captain _____\"",
+    "collection": "Cinematic",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0181",
+    "text": "The name of a new Muppet",
+    "collection": "Cinematic",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0182",
+    "text": "The name of a new superhero",
+    "collection": "Cinematic",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0183",
+    "text": "The name of a Transformer",
+    "collection": "Cinematic",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0184",
+    "text": "The name of a wizard school",
+    "collection": "Cinematic",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0185",
+    "text": "What the aliens say to the earthlings",
+    "collection": "Cinematic",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0186",
+    "text": "What the cartoon villain says when their plans are foiled",
+    "collection": "Cinematic",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0187",
+    "text": "What the techie says when he hacks the mainframe in the heist movie",
+    "collection": "Cinematic",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0188",
+    "text": "______! At the Disco",
+    "collection": "Musical",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0189",
+    "text": "A line in a party song",
+    "collection": "Musical",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0190",
+    "text": "A lyric in a rap song by Nicki Minaj",
+    "collection": "Musical",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0191",
+    "text": "A romantic song lyric",
+    "collection": "Musical",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0192",
+    "text": "Lyrics in a break up song",
+    "collection": "Musical",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0193",
+    "text": "The name of a DJ or EDM musician",
+    "collection": "Musical",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0194",
+    "text": "The name of a new heavy metal band",
+    "collection": "Musical",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0195",
+    "text": "The name of a new national anthem",
+    "collection": "Musical",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0196",
+    "text": "The title of a dubstep song",
+    "collection": "Musical",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0197",
+    "text": "The title of that new Taylor Swift song",
+    "collection": "Musical",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0198",
+    "text": "Title of a rock and roll album",
+    "collection": "Musical",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0199",
+    "text": "A class, race, or type of character in a tabletop roleplaying game",
+    "collection": "Nerdy",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0200",
+    "text": "A Magic: The Gathering card",
+    "collection": "Nerdy",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0201",
+    "text": "A phrase in an instruction booklet of a board game",
+    "collection": "Nerdy",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0202",
+    "text": "A Pokemon name",
+    "collection": "Nerdy",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0203",
+    "text": "A weird college class",
+    "collection": "Nerdy",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0204",
+    "text": "How a character may reject you in a dating sim",
+    "collection": "Nerdy",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0205",
+    "text": "If a scholarly paper said this, you'd question the sanity of the author",
+    "collection": "Nerdy",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0206",
+    "text": "My fursona's name",
+    "collection": "Nerdy",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0207",
+    "text": "Overheard at Comic Con",
+    "collection": "Nerdy",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0208",
+    "text": "Overheard in a D&D game",
+    "collection": "Nerdy",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0209",
+    "text": "Overheard in math class",
+    "collection": "Nerdy",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0210",
+    "text": "Something the captain of a sci-fi ship would yell",
+    "collection": "Nerdy",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0211",
+    "text": "Something the final boss in a video game says before he attacks you",
+    "collection": "Nerdy",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0212",
+    "text": "Something you yell at a computer",
+    "collection": "Nerdy",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0213",
+    "text": "Technical jargon from a science fiction movie",
+    "collection": "Nerdy",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0214",
+    "text": "The name of a Dating Sim",
+    "collection": "Nerdy",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0215",
+    "text": "The name of a fantasy tavern",
+    "collection": "Nerdy",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0216",
+    "text": "The name of a Magical Girl Anime",
+    "collection": "Nerdy",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0217",
+    "text": "The name of a nerw programming language",
+    "collection": "Nerdy",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0218",
+    "text": "The name of a new My Little Pony",
+    "collection": "Nerdy",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0219",
+    "text": "The topic of a school exam",
+    "collection": "Nerdy",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0220",
+    "text": "The username of Twitch's hot new streamer",
+    "collection": "Nerdy",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0221",
+    "text": "\"How'd you get banned from Twitch?\"",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0222",
+    "text": "\"We can start a religion based on this!\"",
+    "collection": "Spicy",
+    "deck": "Default",
+    "isSpicy": false,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0223",
+    "text": "A bad safe word",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0224",
+    "text": "A description of a penis",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0225",
+    "text": "A euphemism for sex",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0226",
+    "text": "A flirt",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0227",
+    "text": "A line in a fanfiction where things get weird",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0228",
+    "text": "A new street name for a drug",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0229",
+    "text": "A street name for a drug",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0230",
+    "text": "A sweet nothing, whispered in a lover's ear",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0231",
+    "text": "A torture method",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0232",
+    "text": "An important thing to have lots of for a sex party",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0233",
+    "text": "Another name for your butt",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0234",
+    "text": "Grandma and Grandpa's big secret",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0235",
+    "text": "How to get banned from the club",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0236",
+    "text": "New word for booba",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0237",
+    "text": "Said right before the orgasm",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0238",
+    "text": "Something said that would make you block someone on the dating app",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0239",
+    "text": "Something sticky",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0240",
+    "text": "Something the high guy at the party keeps saying over and over while giggling",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0241",
+    "text": "Something you can fit in your butt",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0242",
+    "text": "Something you only see when high on LSD",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0243",
+    "text": "Something you shouldn't do in a public restroom",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0244",
+    "text": "Something you shouldn't do in public",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0245",
+    "text": "Something you'd say when walking in on an orgy",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0246",
+    "text": "That's how you get demons",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0247",
+    "text": "The name of a gigantic dildo",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0248",
+    "text": "The name of a new sex act",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0249",
+    "text": "The name of a sex club",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0250",
+    "text": "The name of a sex cult",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0251",
+    "text": "The name of a street gang",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0252",
+    "text": "There's probably porn of that if you look hard enough.",
+    "collection": "Spicy",
+    "deck": "Default",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0253",
+    "text": "What they have in Hell",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0254",
+    "text": "Where'd you lose your virginity?",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0255",
+    "text": "Words from a controversial stand-up's set",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  },
+  {
+    "id": "prompt-0256",
+    "text": "Words that sound weird when you moan them",
+    "collection": "Spicy",
+    "deck": "Spicy",
+    "isSpicy": true,
+    "isActive": true
+  }
+]

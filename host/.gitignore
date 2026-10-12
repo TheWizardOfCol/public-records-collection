@@ -1,0 +1,6 @@
+# Godot cache / editor state
+.godot/
+
+# Exported builds
+build/
+export/

@@ -1,0 +1,2372 @@
+[
+  {
+    "id": "sticker-0001",
+    "text": "50 Cent",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0002",
+    "text": "Albert Einstein",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0003",
+    "text": "Alex Trebek",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0004",
+    "text": "Alice Cooper",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0005",
+    "text": "Andy Warhol",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0006",
+    "text": "Babe Ruth",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0007",
+    "text": "Barack Obama",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0008",
+    "text": "Bear Grylls",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0009",
+    "text": "Bernie Sanders",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0010",
+    "text": "Betty White",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0011",
+    "text": "Beyonce",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0012",
+    "text": "Bill Gates",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0013",
+    "text": "Bill Nye",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0014",
+    "text": "Billie Eilish",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0015",
+    "text": "Billy Mays",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0016",
+    "text": "Bob Barker",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0017",
+    "text": "Bob Marley",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0018",
+    "text": "Bob Ross",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0019",
+    "text": "Britney Spears",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0020",
+    "text": "Bruce Lee",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0021",
+    "text": "Bruno Mars",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0022",
+    "text": "Cardi B",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0023",
+    "text": "Carl Sagan",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0024",
+    "text": "Cher",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0025",
+    "text": "Coco Chanel",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0026",
+    "text": "Conan O'Brien",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0027",
+    "text": "Cristiano Ronaldo",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0028",
+    "text": "Danny DeVito",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0029",
+    "text": "David Attenborough",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0030",
+    "text": "David Bowie",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0031",
+    "text": "David Letterman",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0032",
+    "text": "Dolly Parton",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0033",
+    "text": "Dolly Parton",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0034",
+    "text": "Dr. Seuss",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0035",
+    "text": "Elon Musk",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0036",
+    "text": "Elton John",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0037",
+    "text": "Elvis Presley",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0038",
+    "text": "Eminem",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0039",
+    "text": "Evel Knievel",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0040",
+    "text": "Freddie Mercury",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0041",
+    "text": "Gene Simmons",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0042",
+    "text": "Gordon Ramsay",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0043",
+    "text": "Guy Fieri",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0044",
+    "text": "Harry Styles",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0045",
+    "text": "Hugh Jackman",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0046",
+    "text": "Jack Black",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0047",
+    "text": "Jackie Chan",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0048",
+    "text": "James Dean",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0049",
+    "text": "Jane Goodall",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0050",
+    "text": "Jeff Bezos",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0051",
+    "text": "Jerry Seinfeld",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0052",
+    "text": "Jerry Springer",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0053",
+    "text": "Jim Carrey",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0054",
+    "text": "Jim Henson",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0055",
+    "text": "Jimmy Fallon",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0056",
+    "text": "John Lennon",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0057",
+    "text": "John Wayne",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0058",
+    "text": "Johnny Cash",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0059",
+    "text": "Judge Judy",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0060",
+    "text": "Justin Bieber",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0061",
+    "text": "Justin Timberlake",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0062",
+    "text": "Katy Perry",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0063",
+    "text": "Keanu Reeves",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0064",
+    "text": "Lady Gaga",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0065",
+    "text": "LeBron James",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0066",
+    "text": "Liam Neeson",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0067",
+    "text": "Marilyn Monroe",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0068",
+    "text": "Mark Zuckerberg",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0069",
+    "text": "Markiplier",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0070",
+    "text": "Martha Stewert",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0071",
+    "text": "Michael Jackson",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0072",
+    "text": "Michael Jordan",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0073",
+    "text": "Michael Phelps",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0074",
+    "text": "Mick Jagger",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0075",
+    "text": "Mike Tyson",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0076",
+    "text": "Mr Rogers",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0077",
+    "text": "Mr. T",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0078",
+    "text": "Muhammad Ali",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0079",
+    "text": "Neil Armstrong",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0080",
+    "text": "Nicki Minaj",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0081",
+    "text": "Oprah Winfrey",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0082",
+    "text": "Ozzy Osbourne",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0083",
+    "text": "Pablo Picasso",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0084",
+    "text": "Prince",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0085",
+    "text": "Rihanna",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0086",
+    "text": "Robin Williams",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0087",
+    "text": "Ronald Reagan",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0088",
+    "text": "RuPaul",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0089",
+    "text": "Serena Williams",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0090",
+    "text": "Shakira",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0091",
+    "text": "Shaquille O'Neal",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0092",
+    "text": "Simon Cowell",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0093",
+    "text": "Simone Biles",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0094",
+    "text": "Slash",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0095",
+    "text": "Snoop Dogg",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0096",
+    "text": "Stan Lee",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0097",
+    "text": "Stephen Hawking",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0098",
+    "text": "Stephen King",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0099",
+    "text": "Steve Harvey",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0100",
+    "text": "Steve Irwin",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0101",
+    "text": "Steve Jobs",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0102",
+    "text": "Steve Martin",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0103",
+    "text": "Stevie Wonder",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0104",
+    "text": "Sylvester Stallone",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0105",
+    "text": "Taylor Swift",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0106",
+    "text": "Tiger Woods",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0107",
+    "text": "Tim Curry",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0108",
+    "text": "Tony Hawk",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0109",
+    "text": "Usain Bolt",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0110",
+    "text": "Vanna White",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0111",
+    "text": "Walt Disney",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0112",
+    "text": "Wayne Gretzky",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0113",
+    "text": "Weird Al Yankovic",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0114",
+    "text": "Will Smith",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0115",
+    "text": "Willie Nelson",
+    "category": "celebrity",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0116",
+    "text": "127 Hours",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0117",
+    "text": "2001: A Space Odyssey",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0118",
+    "text": "28 Days Later",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0119",
+    "text": "50 First Dates",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0120",
+    "text": "Adventure Time",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0121",
+    "text": "Alien",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0122",
+    "text": "Anchorman",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0123",
+    "text": "Avatar",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0124",
+    "text": "Avengers",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0125",
+    "text": "Back to the Future",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0126",
+    "text": "Baywatch",
+    "category": "movie_tv",
+    "isActive": false
+  },
+  {
+    "id": "sticker-0127",
+    "text": "Black Swan",
+    "category": "movie_tv",
+    "isActive": false
+  },
+  {
+    "id": "sticker-0128",
+    "text": "Blade Runner",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0129",
+    "text": "Blue's Clues",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0130",
+    "text": "Breaking Bad",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0131",
+    "text": "Clueless",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0132",
+    "text": "Criminal Minds",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0133",
+    "text": "Deadpool",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0134",
+    "text": "Despicable Me",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0135",
+    "text": "Die Hard",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0136",
+    "text": "District 9",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0137",
+    "text": "Doctor Who",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0138",
+    "text": "Dora The Explorer",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0139",
+    "text": "Downton Abbey",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0140",
+    "text": "Dumb and Dumber",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0141",
+    "text": "Edward Scissorhands",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0142",
+    "text": "Elf",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0143",
+    "text": "Family Fued",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0144",
+    "text": "Forrest Gump",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0145",
+    "text": "Friends",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0146",
+    "text": "Frozen",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0147",
+    "text": "Get Out",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0148",
+    "text": "Ghostbusters",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0149",
+    "text": "Gravity",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0150",
+    "text": "Greatest Show",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0151",
+    "text": "Grey's Anatomy",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0152",
+    "text": "Halloween",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0153",
+    "text": "Hamilton",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0154",
+    "text": "Home Alone",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0155",
+    "text": "Inception",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0156",
+    "text": "Indiana Jones",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0157",
+    "text": "Inside Out",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0158",
+    "text": "It",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0159",
+    "text": "It's a Wonderful Life",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0160",
+    "text": "James Bond",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0161",
+    "text": "Jaws",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0162",
+    "text": "Jersey Shore",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0163",
+    "text": "John Wick",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0164",
+    "text": "Jurassic Park",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0165",
+    "text": "Justice League",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0166",
+    "text": "Kill Bill",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0167",
+    "text": "Kim Possible",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0168",
+    "text": "Kitchen Nightmares",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0169",
+    "text": "Knives Out",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0170",
+    "text": "Law and Order",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0171",
+    "text": "Lion King",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0172",
+    "text": "Little Mermaid",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0173",
+    "text": "Loki",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0174",
+    "text": "Lost in Space",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0175",
+    "text": "MacGyver",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0176",
+    "text": "Mad Max",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0177",
+    "text": "Mad Men",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0178",
+    "text": "Malcolm in the Middle",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0179",
+    "text": "Mandalorian",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0180",
+    "text": "Mission Impossible",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0181",
+    "text": "Monsters Inc",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0182",
+    "text": "Mythbusters",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0183",
+    "text": "Paranormal Activity",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0184",
+    "text": "Parks and Recreation",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0185",
+    "text": "Pokemon",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0186",
+    "text": "Predator",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0187",
+    "text": "Psycho",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0188",
+    "text": "Ready Player One",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0189",
+    "text": "Rick and Morty",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0190",
+    "text": "Ring",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0191",
+    "text": "Rocky",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0192",
+    "text": "Saving Private Ryan",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0193",
+    "text": "Schitt's Creek",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0194",
+    "text": "Scooby-Doo",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0195",
+    "text": "Sesame Street",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0196",
+    "text": "Shrek",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0197",
+    "text": "Silence of the Lambs",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0198",
+    "text": "Smallville",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0199",
+    "text": "Snow White",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0200",
+    "text": "Sonic The Hedgehog",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0201",
+    "text": "SpongeBob SquarePants",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0202",
+    "text": "Star Trek",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0203",
+    "text": "Star Wars",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0204",
+    "text": "Stranger Things",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0205",
+    "text": "Stranger Things",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0206",
+    "text": "Teen Titans",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0207",
+    "text": "Teletubbies",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0208",
+    "text": "The A-Team",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0209",
+    "text": "The Big Bang Theory",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0210",
+    "text": "The Big Lebowski",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0211",
+    "text": "The Blair Witch Project",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0212",
+    "text": "The Boys",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0213",
+    "text": "The Dark Knight",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0214",
+    "text": "The Exorcist",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0215",
+    "text": "The Good Place",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0216",
+    "text": "The Great British Bake Off",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0217",
+    "text": "The Human Centipede",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0218",
+    "text": "The Lego Movie",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0219",
+    "text": "The Martian",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0220",
+    "text": "The Matrix",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0221",
+    "text": "The Muppet Show",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0222",
+    "text": "The Notebook",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0223",
+    "text": "The Office",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0224",
+    "text": "The Shining",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0225",
+    "text": "The Simpsons",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0226",
+    "text": "The Sixth Sense",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0227",
+    "text": "The Sopranos",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0228",
+    "text": "The Terminator",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0229",
+    "text": "The Thing",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0230",
+    "text": "The Walking Dead",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0231",
+    "text": "The Witcher",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0232",
+    "text": "The X-Files",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0233",
+    "text": "Thor",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0234",
+    "text": "Titanic",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0235",
+    "text": "Total Recall",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0236",
+    "text": "V for Vendetta",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0237",
+    "text": "WandaVision",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0238",
+    "text": "Wizard of Oz",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0239",
+    "text": "Wreck-It Ralph",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0240",
+    "text": "Zoolander",
+    "category": "movie_tv",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0241",
+    "text": "Actor",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0242",
+    "text": "Archaeologist",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0243",
+    "text": "Architect",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0244",
+    "text": "Astronaut",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0245",
+    "text": "Author",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0246",
+    "text": "Baby",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0247",
+    "text": "Babysitter",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0248",
+    "text": "Ballerina",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0249",
+    "text": "Banker",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0250",
+    "text": "Barber",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0251",
+    "text": "Barista",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0252",
+    "text": "Barista",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0253",
+    "text": "Bartender",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0254",
+    "text": "Beekeeper",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0255",
+    "text": "Beggar",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0256",
+    "text": "bellhop",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0257",
+    "text": "Bodybuilder",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0258",
+    "text": "Boss",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0259",
+    "text": "Bowler",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0260",
+    "text": "Bride",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0261",
+    "text": "Bus driver",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0262",
+    "text": "Butcher",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0263",
+    "text": "Carpenter",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0264",
+    "text": "Cartoonist",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0265",
+    "text": "Cashier",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0266",
+    "text": "Caveman",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0267",
+    "text": "CEO",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0268",
+    "text": "Cheerleader",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0269",
+    "text": "Chef",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0270",
+    "text": "Chemist",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0271",
+    "text": "Comedian",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0272",
+    "text": "conductor",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0273",
+    "text": "Cosplayer",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0274",
+    "text": "Cowboy",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0275",
+    "text": "Crossing guard",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0276",
+    "text": "Cyclist",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0277",
+    "text": "Dancer",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0278",
+    "text": "Dentist",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0279",
+    "text": "Detective",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0280",
+    "text": "Director",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0281",
+    "text": "Dishwasher",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0282",
+    "text": "DJ",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0283",
+    "text": "Doctor",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0284",
+    "text": "Dog walker",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0285",
+    "text": "Dungeon Master",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0286",
+    "text": "Electrician",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0287",
+    "text": "Engineer",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0288",
+    "text": "Falconer",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0289",
+    "text": "Farmer",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0290",
+    "text": "Filmmaker",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0291",
+    "text": "Firefighter",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0292",
+    "text": "Fisherman",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0293",
+    "text": "Flight attendant",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0294",
+    "text": "Florist",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0295",
+    "text": "Fortune teller",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0296",
+    "text": "Furry",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0297",
+    "text": "Gambler",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0298",
+    "text": "Game show host",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0299",
+    "text": "Gamer",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0300",
+    "text": "Gardener",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0301",
+    "text": "Glassblower",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0302",
+    "text": "Graphic designer",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0303",
+    "text": "Hiker",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0304",
+    "text": "Hippie",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0305",
+    "text": "Hipster",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0306",
+    "text": "Hunter",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0307",
+    "text": "Influencer",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0308",
+    "text": "Jeweler",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0309",
+    "text": "Jock",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0310",
+    "text": "Jogger",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0311",
+    "text": "Journalist",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0312",
+    "text": "Judge",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0313",
+    "text": "King",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0314",
+    "text": "Knight",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0315",
+    "text": "Knitter",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0316",
+    "text": "Landlord",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0317",
+    "text": "Lawyer",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0318",
+    "text": "Librarian",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0319",
+    "text": "Lifeguard",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0320",
+    "text": "Lifeguard",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0321",
+    "text": "Locksmith",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0322",
+    "text": "Lunch lady",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0323",
+    "text": "Magician",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0324",
+    "text": "Maid",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0325",
+    "text": "Mechanic",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0326",
+    "text": "Mermaid",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0327",
+    "text": "Millionaire",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0328",
+    "text": "Mime",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0329",
+    "text": "Monk",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0330",
+    "text": "Nerd",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0331",
+    "text": "News anchor",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0332",
+    "text": "Ninja",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0333",
+    "text": "Nun",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0334",
+    "text": "nurse",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0335",
+    "text": "Painter",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0336",
+    "text": "Paparazzi",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0337",
+    "text": "Paramedic",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0338",
+    "text": "Park ranger",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0339",
+    "text": "Peasant",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0340",
+    "text": "Pharmacist",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0341",
+    "text": "Photographer",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0342",
+    "text": "Pilot",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0343",
+    "text": "Pirate",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0344",
+    "text": "Plumber",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0345",
+    "text": "Podcaster",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0346",
+    "text": "Police officer",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0347",
+    "text": "Politician",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0348",
+    "text": "Potter",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0349",
+    "text": "President",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0350",
+    "text": "Princess",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0351",
+    "text": "Prisoner",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0352",
+    "text": "Programmer",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0353",
+    "text": "Protester",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0354",
+    "text": "Punk",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0355",
+    "text": "Puppeteer",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0356",
+    "text": "Queen",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0357",
+    "text": "Radio host",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0358",
+    "text": "Receptionist",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0359",
+    "text": "Referee",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0360",
+    "text": "Ringmaster",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0361",
+    "text": "Rock star",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0362",
+    "text": "Sailor",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0363",
+    "text": "Samurai",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0364",
+    "text": "Scientist",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0365",
+    "text": "Scout",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0366",
+    "text": "Scuba diver",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0367",
+    "text": "Sculptor",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0368",
+    "text": "Security guard",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0369",
+    "text": "Singer",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0370",
+    "text": "Skater",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0371",
+    "text": "Skiier",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0372",
+    "text": "Soldier",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0373",
+    "text": "Spy",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0374",
+    "text": "Streamer",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0375",
+    "text": "Student",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0376",
+    "text": "Superhero",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0377",
+    "text": "Supermodel",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0378",
+    "text": "Surfer",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0379",
+    "text": "Surgeon",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0380",
+    "text": "Swimmer",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0381",
+    "text": "Tailor",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0382",
+    "text": "Tattoo artist",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0383",
+    "text": "Teacher",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0384",
+    "text": "Tennis Player",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0385",
+    "text": "Therapist",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0386",
+    "text": "Tourist",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0387",
+    "text": "Uber driver",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0388",
+    "text": "Vampire",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0389",
+    "text": "Vegan",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0390",
+    "text": "Veterinarian",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0391",
+    "text": "Welder",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0392",
+    "text": "Werewolf",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0393",
+    "text": "Witch",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0394",
+    "text": "Wizard",
+    "category": "person_type",
+    "isActive": true
+  },
+  {
+    "id": "sticker-0395",
+    "text": "Zookeeper",
+    "category": "person_type",
+    "isActive": true
+  }
+]

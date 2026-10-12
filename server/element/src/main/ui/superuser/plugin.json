@@ -1,0 +1,11 @@
+{
+  "schema": "1",
+  "entries": [
+    {
+      "label": "The Public Records Collection",
+      "icon": "Package",
+      "bundlePath": "plugin.bundle.js",
+      "route": "collection"
+    }
+  ]
+}
