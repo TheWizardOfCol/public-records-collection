@@ -106,6 +106,8 @@ The lobby and the **Get Lit** game are implemented and verified end-to-end on
 the temporary instance: room creation (REST), host/join over WebSocket, live
 roster + settings, work selection, answering (validated against the player's own
 work), anonymous voting with normal + golden hearts (self-vote and duplicate-heart
-guards), per-round scoring, and finish. Next: the Godot host game display and the
-players' game-phase UI, then the remaining four games. See the game-design repo
-for per-game rules and scoring.
+guards), per-round scoring, and finish. Both clients render every game phase: the
+Godot host shows the big-screen display with an Advance control, and the web
+players controller renders work selection, a paginated passage reader for
+answering, anonymous ♥/★ voting, and results/standings screens. Next: the
+remaining four games. See the game-design repo for per-game rules and scoring.

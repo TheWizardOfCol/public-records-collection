@@ -1,11 +1,13 @@
 extends Control
-## Host display / lobby for The Public Records Collection.
+## Host display for The Public Records Collection.
 ##
 ## The native Godot app the host runs on the shared screen. It creates a room
-## via the REST API, then holds the lobby open over WebSocket: it shows the room
-## code and join URL for players, the live player roster, and the host-only
-## controls (settings, start). Per-game display views are layered on top of this
-## lobby state machine later.
+## via the REST API, holds the lobby open over WebSocket (room code, join URL,
+## live roster, host-only settings/start), and renders the per-game public view.
+##
+## The server sends two kinds of frames: room `state` (lobby) and `game` (the
+## public, big-screen view of the running game). The host never gets the players'
+## private views.
 
 const GAME_ID := "get-lit"
 
@@ -16,20 +18,44 @@ var _host_name := "Host"
 var _room_code := ""
 var _host_token := ""
 
-# UI
+# UI — lobby
+var _lobby_panel: VBoxContainer
 var _code_label: Label
 var _url_label: Label
 var _players_label: Label
 var _status_label: Label
 var _start_button: Button
+var _advance_button: Button
 var _family_check: CheckBox
 var _timer_spin: SpinBox
 
+# UI — game
+var _game_panel: VBoxContainer
+var _game_title: Label
+var _game_body: RichTextLabel
+
+## Dev aid: when > 0, the host auto-sends `advance` every N seconds while a game
+## is running (set with --auto-advance=<seconds>). Handy for exercising the game
+## display headless; leave 0 in normal use.
+var _auto_advance := 0.0
+var _auto_accum := 0.0
+
+## Dev aid: when > 0, the host auto-starts the game once this many non-host
+## players have joined (set with --auto-start=<n>). Leave 0 in normal use.
+var _auto_start := 0
+var _did_start := false
+
 
 func _ready() -> void:
-	for arg in OS.get_cmdline_args():
+	var args := OS.get_cmdline_args()
+	args.append_array(OS.get_cmdline_user_args())
+	for arg in args:
 		if arg.begins_with("--host-name="):
 			_host_name = arg.trim_prefix("--host-name=")
+		elif arg.begins_with("--auto-advance="):
+			_auto_advance = maxf(0.0, arg.trim_prefix("--auto-advance=").to_float())
+		elif arg.begins_with("--auto-start="):
+			_auto_start = maxi(0, arg.trim_prefix("--auto-start=").to_int())
 
 	_build_ui()
 
@@ -46,7 +72,7 @@ func _ready() -> void:
 	)
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	_ws.poll()
 	match _ws.get_ready_state():
 		WebSocketPeer.STATE_OPEN:
@@ -54,6 +80,12 @@ func _process(_delta: float) -> void:
 				_on_message(_ws.get_packet().get_string_from_utf8())
 		WebSocketPeer.STATE_CLOSED:
 			pass
+
+	if _auto_advance > 0.0 and _game_panel.visible and not _advance_button.disabled:
+		_auto_accum += delta
+		if _auto_accum >= _auto_advance:
+			_auto_accum = 0.0
+			_on_advance_pressed()
 
 
 func _notification(what: int) -> void:
@@ -79,6 +111,7 @@ func _on_room_created(_result: int, response_code: int, _headers: PackedStringAr
 	_host_token = str(room["hostToken"])
 	_code_label.text = _room_code
 	_url_label.text = BackendConfig.players_url()
+	print("[host] room code ", _room_code)
 
 	_set_status("Connecting lobby…")
 	var err := _ws.connect_to_url(BackendConfig.lobby_ws_url())
@@ -86,8 +119,6 @@ func _on_room_created(_result: int, response_code: int, _headers: PackedStringAr
 		_set_status("WebSocket connect failed (error %d)." % err)
 		return
 
-	# The host message is sent once the socket opens (see _process open handler
-	# path below). We queue it by sending after the first open poll.
 	_await_open_then_host()
 
 
@@ -113,9 +144,12 @@ func _on_message(text: String) -> void:
 	match str(msg.get("type", "")):
 		"welcome", "state":
 			_render_room(msg.get("room", {}))
+		"game":
+			_render_game(msg.get("game", {}))
 		"closed":
 			_set_status("Room closed: %s" % str(msg.get("reason", "")))
 			_start_button.disabled = true
+			_advance_button.disabled = true
 		"error":
 			_set_status("Error: %s" % str(msg.get("message", "")))
 		"pong":
@@ -146,6 +180,110 @@ func _render_room(room: Dictionary) -> void:
 	else:
 		_set_status("Phase: %s" % phase)
 
+	if _auto_start > 0 and not _did_start and phase == "lobby":
+		var non_host := 0
+		for p in players:
+			if not p.get("host", false) and p.get("connected", true):
+				non_host += 1
+		if non_host >= _auto_start:
+			_did_start = true
+			_on_start_pressed()
+
+
+# --- Game display -------------------------------------------------------------
+
+func _render_game(game: Dictionary) -> void:
+	var phase := str(game.get("phase", ""))
+	var round := int(game.get("round", 0))
+	var total := int(game.get("totalRounds", 0))
+
+	# The lobby furniture only makes sense before/around a game; hide it once
+	# a game is running and show the big-screen view instead.
+	var in_game := phase != ""
+	_lobby_panel.visible = not in_game
+	_game_panel.visible = in_game
+	_advance_button.disabled = phase == "finished" or phase == ""
+
+	if not in_game:
+		_game_body.text = ""
+		return
+
+	_game_title.text = "Get Lit — Round %d / %d" % [max(round, 1), total]
+	print("[host] game phase: %s (round %d/%d)" % [phase, round, total])
+
+	var lines := PackedStringArray()
+	var prompt := str(game.get("prompt", ""))
+	if not prompt.is_empty():
+		lines.append("[font_size=34][b]%s[/b][/font_size]" % prompt)
+		lines.append("")
+
+	match phase:
+		"select":
+			lines.append("[i]Everyone is choosing a work…[/i]")
+			lines.append("")
+			for w in game.get("works", []):
+				var chosen := str(w.get("title", ""))
+				var label := chosen if not chosen.is_empty() else "[i]choosing…[/i]"
+				lines.append("%s — %s" % [str(w.get("playerName", "?")), label])
+		"answer":
+			lines.append("%d of %d players have answered." % [
+				int(game.get("submitted", 0)), int(game.get("players", 0))])
+			lines.append("")
+			lines.append(_works_list(game))
+		"vote":
+			lines.append("%d of %d players have answered. Vote now!" % [
+				int(game.get("submitted", 0)), int(game.get("players", 0))])
+			lines.append("")
+			lines.append(_answers_list(game, false))
+		"results":
+			lines.append(_answers_list(game, true))
+			lines.append("")
+			lines.append("[b]This round[/b]")
+			lines.append(_scores_list(game.get("roundScores", [])))
+			lines.append("")
+			lines.append("[b]Standings[/b]")
+			lines.append(_scores_list(game.get("scores", [])))
+		"finished":
+			lines.append("[font_size=30][b]Final Standings[/b][/font_size]")
+			lines.append(_scores_list(game.get("scores", [])))
+			var scores: Array = game.get("scores", [])
+			if not scores.is_empty():
+				lines.append("")
+				lines.append("[b]%s wins![/b]" % str(scores[0].get("name", "?")))
+
+	_game_body.text = "\n".join(lines)
+
+
+func _works_list(game: Dictionary) -> String:
+	var lines := PackedStringArray()
+	for w in game.get("works", []):
+		var title := str(w.get("title", ""))
+		if title.is_empty():
+			continue
+		lines.append("%s — %s" % [str(w.get("playerName", "?")), title])
+	return "\n".join(lines)
+
+
+func _answers_list(game: Dictionary, revealed: bool) -> String:
+	var lines := PackedStringArray()
+	for a in game.get("answers", []):
+		var text := str(a.get("text", ""))
+		if revealed:
+			var points := int(a.get("points", 0))
+			lines.append("“%s”\n    — %s  (+%d)" % [text, str(a.get("authorName", "?")), points])
+		else:
+			lines.append("“%s”" % text)
+	return "\n".join(lines)
+
+
+func _scores_list(entries: Array) -> String:
+	var lines := PackedStringArray()
+	var rank := 1
+	for e in entries:
+		lines.append("%d. %s — %d" % [rank, str(e.get("name", "?")), int(e.get("score", 0))])
+		rank += 1
+	return "\n".join(lines) if not lines.is_empty() else "[i]—[/i]"
+
 
 # --- Host controls ------------------------------------------------------------
 
@@ -165,6 +303,12 @@ func _on_start_pressed() -> void:
 	if _ws.get_ready_state() != WebSocketPeer.STATE_OPEN:
 		return
 	_ws.send_text(JSON.stringify({"type": "start", "gameId": GAME_ID}))
+
+
+func _on_advance_pressed() -> void:
+	if _ws.get_ready_state() != WebSocketPeer.STATE_OPEN:
+		return
+	_ws.send_text(JSON.stringify({"type": "advance"}))
 
 
 # --- UI construction ----------------------------------------------------------
@@ -190,9 +334,43 @@ func _build_ui() -> void:
 	title.add_theme_font_size_override("font_size", 40)
 	root.add_child(title)
 
+	_lobby_panel = VBoxContainer.new()
+	_lobby_panel.add_theme_constant_override("separation", 16)
+	root.add_child(_lobby_panel)
+
+	_game_panel = VBoxContainer.new()
+	_game_panel.add_theme_constant_override("separation", 12)
+	_game_panel.visible = false
+	root.add_child(_game_panel)
+
+	_build_lobby(_lobby_panel)
+
+	_game_title = Label.new()
+	_game_title.add_theme_font_size_override("font_size", 30)
+	_game_panel.add_child(_game_title)
+
+	_game_body = RichTextLabel.new()
+	_game_body.bbcode_enabled = true
+	_game_body.fit_content = true
+	_game_body.scroll_active = true
+	_game_body.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	_game_panel.add_child(_game_body)
+
+	_advance_button = Button.new()
+	_advance_button.text = "Advance ▸"
+	_advance_button.disabled = true
+	_advance_button.pressed.connect(_on_advance_pressed)
+	_game_panel.add_child(_advance_button)
+
+	_status_label = Label.new()
+	_status_label.add_theme_font_size_override("font_size", 18)
+	root.add_child(_status_label)
+
+
+func _build_lobby(panel: VBoxContainer) -> void:
 	var join_box := HBoxContainer.new()
 	join_box.add_theme_constant_override("separation", 24)
-	root.add_child(join_box)
+	panel.add_child(join_box)
 
 	_code_label = Label.new()
 	_code_label.add_theme_font_size_override("font_size", 72)
@@ -215,16 +393,16 @@ func _build_ui() -> void:
 	var players_caption := Label.new()
 	players_caption.text = "Players"
 	players_caption.add_theme_font_size_override("font_size", 24)
-	root.add_child(players_caption)
+	panel.add_child(players_caption)
 
 	_players_label = Label.new()
 	_players_label.add_theme_font_size_override("font_size", 22)
 	_players_label.text = "Waiting for players…"
-	root.add_child(_players_label)
+	panel.add_child(_players_label)
 
 	var controls := HBoxContainer.new()
 	controls.add_theme_constant_override("separation", 20)
-	root.add_child(controls)
+	panel.add_child(controls)
 
 	_family_check = CheckBox.new()
 	_family_check.text = "Family-friendly"
@@ -245,10 +423,6 @@ func _build_ui() -> void:
 	_start_button.disabled = true
 	_start_button.pressed.connect(_on_start_pressed)
 	controls.add_child(_start_button)
-
-	_status_label = Label.new()
-	_status_label.add_theme_font_size_override("font_size", 18)
-	root.add_child(_status_label)
 
 
 func _set_status(text: String) -> void:

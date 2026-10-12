@@ -66,6 +66,8 @@ Both clients can point at either environment without a rebuild:
 See [`docs/architecture.md`](docs/architecture.md) for the component and data
 flow, and [`content/README.md`](content/README.md) for the content pipeline.
 
-> **Status:** the lobby works end-to-end on the temporary instance — room codes,
-> host/join over WebSocket, live roster + settings, and start. Per-game logic
-> (Get Lit first) and the game display views are next.
+> **Status:** the lobby and the first game, **Get Lit**, work end-to-end on the
+> temporary instance — room codes, host/join over WebSocket, work selection,
+> validated answers, anonymous ♥/★ voting, and scoring. Both clients render every
+> phase (the Godot host big-screen display + Advance control; the web players
+> controller). The remaining four games are next.
