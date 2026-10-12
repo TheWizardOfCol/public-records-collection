@@ -34,7 +34,7 @@ and device speed.
 | Surface | Path | Notes |
 |---------|------|-------|
 | REST base | `/collection` | e.g. `GET /collection/health` |
-| WebSocket | `/collection/ws` | lobby + realtime game state |
+| WebSocket | `/collection-ws` | lobby + realtime game state |
 | Static (players app + content) | `/app/static/collection/` | built in, same-origin for players |
 | Dashboard UI plugin | `/app/ui/collection/` | admin surface |
 
@@ -54,8 +54,45 @@ Prompts/ (raw)  →  content/build_content.py  →  content/generated/*.json   �
 
 - **JSON** (prompts, books metadata, parody titles) and **sticker WebP** are
   staged into the served static tree.
-- **Gzipped book texts** are staged to the server-only classpath; the server
-  selects a passage and sends just that text to clients.
+- **Gzipped book texts** are staged to the server-only classpath. Players see
+  the **full text** of a book during a round, delivered **one passage at a
+  time**: the server selects passages and streams them incrementally (clients
+  request the next passage via a cursor) rather than shipping whole books to
+  the device. This keeps the two-column party-game layout snappy and bounds
+  per-client payloads.
+
+## Lobby protocol
+
+The lobby is a single JSON-per-frame WebSocket at `/collection-ws/lobby`.
+
+| Direction | Message |
+|-----------|---------|
+| client→server | `{"type":"host","code","token"}` · `{"type":"join","code","name","playerId"?}` · `{"type":"start","gameId"}` *(host)* · `{"type":"settings","settings":{"familyFriendly","answerTimerSeconds","rounds"}}` *(host)* · `choose-work {workId}` · `submit-answer {text}` · `cast-vote {answerId,golden}` · `advance` *(host)* · `{"type":"leave"}` *(host closes room)* · `{"type":"ping"}` |
+| server→client | `{"type":"welcome","host","playerId"?,"room":{…}}` · `{"type":"state","room":{…}}` · `{"type":"game","game":{…}}` (host) · `{"type":"game","game":{…},"you":{…}}` (player) · `{"type":"closed","reason"}` · `{"type":"pong"}` · `{"type":"error","message"}` |
+
+`room` = `{code, phase, gameId, settings, players:[{id,name,host,connected}]}`;
+the host appears as a participant with id `"host"`. Room codes are 4 chars from
+`ABCDEFGHJKLMNPQRSTUVWXYZ23456789` (no `I`/`O`/`0`/`1`); the room registry is
+in-memory (single instance) for v1.
+
+Game state is delivered on the same socket with the **two-view rule**: every
+participant receives the public `game` view (the host's big-screen view), and
+each player additionally receives their own `you` view (private hand/state).
+The server computes the public view once per broadcast and shares it.
+
+## Get Lit
+
+Phases: `select → answer → vote → results` (loops `answer` per round) `→ finished`.
+Each player picks one work at the start and answers every prompt from it. A work's
+full text is read from the server one passage at a time:
+
+- `GET /collection/books?familyFriendly=` — selectable works
+- `GET /collection/books/{id}/text?offset=&limit=` — a passage (`last` flags the end)
+
+Scoring: a normal heart is 1 point, a golden heart 3, both only on someone else's
+answer; at most one normal heart per answer per voter, one golden heart per player
+per round, no self-votes. The host advances each phase.
+
 
 ## Environments
 
@@ -65,6 +102,10 @@ selector". Clients must never hard-code a backend URL.
 
 ## Status
 
-Scaffold: Element builds and resolves its backend; the WebSocket protocol,
-lobby, and per-game logic are the next build steps. See the game-design repo for
-per-game rules and scoring.
+The lobby and the **Get Lit** game are implemented and verified end-to-end on
+the temporary instance: room creation (REST), host/join over WebSocket, live
+roster + settings, work selection, answering (validated against the player's own
+work), anonymous voting with normal + golden hearts (self-vote and duplicate-heart
+guards), per-round scoring, and finish. Next: the Godot host game display and the
+players' game-phase UI, then the remaining four games. See the game-design repo
+for per-game rules and scoring.

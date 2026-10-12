@@ -66,6 +66,28 @@
             <groupId>jakarta.websocket</groupId>
             <artifactId>jakarta.websocket-api</artifactId>
         </dependency>
+        <!--
+            The Jakarta WebSocket core API (jakarta.websocket.Session, the lifecycle
+            annotations, ...) lives in a separate artifact that the server API declares
+            as a provided dependency, so it must be added explicitly. Provided: the
+            runtime supplies it.
+        -->
+        <dependency>
+            <groupId>jakarta.websocket</groupId>
+            <artifactId>jakarta.websocket-client-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!--
+            Jackson Databind. Used to encode/decode the WebSocket wire messages (the REST
+            layer gets Jackson from the Elements runtime). Provided: the runtime already
+            ships Jackson, so it must not be bundled into the .elm's lib/ directory.
+        -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+            <scope>provided</scope>
+        </dependency>
         <!-- Swagger Annotations for API Documentation. -->
         <dependency>
             <groupId>io.swagger.core.v3</groupId>
@@ -160,6 +182,10 @@
                                 <!-- Gzipped book texts, server-side only (content/build_assets.py). -->
                                 <copy todir="${elm.element.dir}/classpath/content/books" failonerror="false">
                                     <fileset dir="${basedir}/../../content/assets/books" erroronmissingdir="false" includes="**/*"/>
+                                </copy>
+                                <!-- Get Lit prompts + book library, server-side only (content/build_content.py). -->
+                                <copy todir="${elm.element.dir}/classpath/content/get-lit" failonerror="false">
+                                    <fileset dir="${basedir}/../../content/generated/get-lit" erroronmissingdir="false" includes="*.json"/>
                                 </copy>
                             </target>
                         </configuration>

@@ -1,6 +1,8 @@
 package com.publicrecords.collection;
 
+import com.publicrecords.collection.rest.BooksResource;
 import com.publicrecords.collection.rest.Health;
+import com.publicrecords.collection.rest.RoomsResource;
 import dev.getelements.elements.sdk.annotation.ElementDefaultAttribute;
 import dev.getelements.elements.sdk.annotation.ElementServiceExport;
 import dev.getelements.elements.sdk.annotation.ElementServiceImplementation;
@@ -25,8 +27,13 @@ public class CollectionApplication extends Application {
     @ElementDefaultAttribute("/collection")
     public static final String RS_ROOT = "dev.getelements.elements.element.rs.root";
 
-    /** WebSocket base path → /collection/ws (lobby + realtime game state). */
-    @ElementDefaultAttribute("/collection/ws")
+    /**
+     * WebSocket base path → /collection-ws. Deliberately a sibling of {@link #RS_ROOT},
+     * not nested under it: the platform dispatches REST and WebSocket handlers from one
+     * ordered sequence (REST first), so an RS context at /collection would swallow any
+     * /collection/... WebSocket path before the WebSocket handler is consulted.
+     */
+    @ElementDefaultAttribute("/collection-ws")
     public static final String WS_ROOT = "dev.getelements.elements.element.ws.root";
 
     /** Static web content (the player controller app), served under /app/static/collection/. */
@@ -44,6 +51,8 @@ public class CollectionApplication extends Application {
         return Set.of(
                 // Endpoints
                 Health.class,
+                RoomsResource.class,
+                BooksResource.class,
 
                 // Declares the builtin Elements auth scheme for the generated OpenAPI document.
                 OpenAPISecurityConfig.class

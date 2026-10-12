@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => {
     base: './',
     server: {
       proxy: {
+        '/collection-ws': { target: backend, changeOrigin: true, ws: true },
         '/collection': { target: backend, changeOrigin: true, ws: true },
       },
     },
