@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.publicrecords.collection.getlit.GetLitContent;
+import com.publicrecords.collection.cryptid.CryptidCinemaContent;
 import com.publicrecords.collection.getlit.GetLitGame;
 import jakarta.websocket.Session;
 import org.slf4j.Logger;
@@ -50,12 +51,14 @@ public class LobbyRegistry {
     private final SecureRandom random = new SecureRandom();
 
     private final GetLitContent content;
+    private final CryptidCinemaContent cryptidContent;
 
     private final Map<String, Room> rooms = new ConcurrentHashMap<>();
 
     @Inject
-    public LobbyRegistry(final GetLitContent content) {
+    public LobbyRegistry(final GetLitContent content, final CryptidCinemaContent cryptidContent) {
         this.content = content;
+        this.cryptidContent = cryptidContent;
     }
 
     /**
@@ -119,7 +122,7 @@ public class LobbyRegistry {
         if (gameId == null || gameId.isBlank()) {
             throw new LobbyException("gameId is required");
         }
-        room.startGame(gameId.trim(), content);
+        room.startGame(gameId.trim(), content, cryptidContent);
         broadcastState(room);
     }
 
@@ -128,7 +131,7 @@ public class LobbyRegistry {
      */
     public void chooseWork(final Session session, final String workId) {
         final Room room = requireRoom(session);
-        requireGame(room).chooseWork(playerOf(session), workId);
+        Object g = requireGame(room); if (g instanceof com.publicrecords.collection.getlit.GetLitGame gl) gl.chooseWork(playerOf(session),workId); if (g instanceof com.publicrecords.collection.cryptid.CryptidCinemaGame cc) cc.chooseWork(playerOf(session),workId);
         broadcastGame(room);
     }
 
@@ -137,7 +140,7 @@ public class LobbyRegistry {
      */
     public void submitAnswer(final Session session, final String text) {
         final Room room = requireRoom(session);
-        requireGame(room).submitAnswer(playerOf(session), text);
+        Object g = requireGame(room); if (g instanceof com.publicrecords.collection.getlit.GetLitGame gl) gl.submitAnswer(playerOf(session),text); if (g instanceof com.publicrecords.collection.cryptid.CryptidCinemaGame cc) cc.submitAnswer(playerOf(session),text);
         broadcastGame(room);
     }
 
@@ -146,7 +149,7 @@ public class LobbyRegistry {
      */
     public void castVote(final Session session, final String answerId, final boolean golden) {
         final Room room = requireRoom(session);
-        requireGame(room).castVote(playerOf(session), answerId, golden);
+        Object g = requireGame(room); if (g instanceof com.publicrecords.collection.getlit.GetLitGame gl) gl.castVote(playerOf(session),answerId,golden); if (g instanceof com.publicrecords.collection.cryptid.CryptidCinemaGame cc) cc.castVote(playerOf(session),answerId,golden);
         broadcastGame(room);
     }
 
@@ -155,7 +158,7 @@ public class LobbyRegistry {
      */
     public void advance(final Session session) {
         final Room room = requireHost(session);
-        requireGame(room).advance();
+        Object g = requireGame(room); if (g instanceof com.publicrecords.collection.getlit.GetLitGame gl) gl.advance(); if (g instanceof com.publicrecords.collection.cryptid.CryptidCinemaGame cc) cc.advance();
         broadcastState(room);
     }
 
@@ -240,8 +243,8 @@ public class LobbyRegistry {
         return room;
     }
 
-    private static GetLitGame requireGame(final Room room) {
-        final GetLitGame game = room.game();
+    private static Object requireGame(final Room room) {
+        final Object game = room.game();
         if (game == null) {
             throw new LobbyException("no game in progress");
         }
@@ -271,17 +274,32 @@ public class LobbyRegistry {
      * and shared between frames.
      */
     private void broadcastGame(final Room room) {
-        final GetLitGame game = room.game();
+        final Object game = room.game();
         if (game == null) {
             return;
         }
-        final JsonNode publicView = Wire.value(game.publicView());
+        final JsonNode publicView;
+        final com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
+        try {
+            if (game instanceof com.publicrecords.collection.getlit.GetLitGame gl) {
+                publicView = Wire.value(gl.publicView());
+            } else if (game instanceof com.publicrecords.collection.cryptid.CryptidCinemaGame cc) {
+                publicView = Wire.value(cc.publicView());
+            } else {
+                return;
+            }
+        } catch (Exception e) { return; }
         for (final Session session : room.sessions()) {
             final ObjectNode message = Wire.object().put("type", "game");
             message.set("game", publicView);
             final Object playerId = session.getUserProperties().get(PROP_PLAYER);
             if (playerId != null) {
-                message.set("you", Wire.value(game.privateView(playerId.toString())));
+                String pid = playerId.toString();
+                if (game instanceof com.publicrecords.collection.getlit.GetLitGame gl) {
+                    message.set("you", Wire.value(gl.privateView(pid)));
+                } else if (game instanceof com.publicrecords.collection.cryptid.CryptidCinemaGame cc) {
+                    message.set("you", Wire.value(cc.privateView(pid)));
+                }
             }
             Wire.send(session, message);
         }

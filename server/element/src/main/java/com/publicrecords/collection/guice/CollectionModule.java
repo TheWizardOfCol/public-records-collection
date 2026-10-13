@@ -3,6 +3,7 @@ package com.publicrecords.collection.guice;
 import com.google.inject.PrivateModule;
 import com.google.inject.Singleton;
 import com.publicrecords.collection.getlit.GetLitContent;
+import com.publicrecords.collection.cryptid.CryptidCinemaContent;
 import com.publicrecords.collection.lobby.LobbyRegistry;
 
 public class CollectionModule extends PrivateModule {
@@ -16,6 +17,8 @@ public class CollectionModule extends PrivateModule {
         // injector by GuiceSpiModule) can inject it despite requireExplicitBindings().
         bind(GetLitContent.class).in(Singleton.class);
         expose(GetLitContent.class);
+        bind(CryptidCinemaContent.class).in(Singleton.class);
+        expose(CryptidCinemaContent.class);
 
         // The lobby hub holds live rooms and is shared by the REST and WebSocket
         // surfaces, so it is bound as a singleton and exposed for injection into

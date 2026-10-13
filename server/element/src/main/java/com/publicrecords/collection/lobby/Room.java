@@ -1,6 +1,8 @@
 package com.publicrecords.collection.lobby;
 
 import com.publicrecords.collection.getlit.GetLitContent;
+import com.publicrecords.collection.cryptid.CryptidCinemaGame;
+import com.publicrecords.collection.cryptid.CryptidCinemaContent;
 import com.publicrecords.collection.getlit.GetLitGame;
 import jakarta.websocket.Session;
 
@@ -37,7 +39,7 @@ final class Room {
     private LobbySettings settings = LobbySettings.defaults();
     private String gameId;
     private String phase = "lobby";
-    private GetLitGame game;
+    private Object game;
 
     Room(final String code, final String hostToken, final String hostName) {
         this.code = code;
@@ -92,27 +94,33 @@ final class Room {
      * Starts a game, snapshotting the current players into an authoritative
      * {@link GetLitGame}. Only Get Lit is implemented today.
      */
-    void startGame(final String gameId, final GetLitContent content) {
+    void startGame(final String gameId, final GetLitContent content, final CryptidCinemaContent ccContent) {
         synchronized (lock) {
-            if (!"get-lit".equals(gameId)) {
-                throw new LobbyException("unknown game: " + gameId);
-            }
             if (players.isEmpty()) {
                 throw new LobbyException("at least one player is required to start");
             }
             this.gameId = gameId;
-            this.game = new GetLitGame(
-                    content,
-                    new ArrayList<>(players.keySet()),
-                    namesLocked(),
-                    settings.familyFriendly(),
-                    settings.rounds(),
-                    new Random());
-            this.phase = "in-progress";
+            if ("get-lit".equals(gameId)) {
+                this.game = new GetLitGame(
+                        content,
+                        new ArrayList<>(players.keySet()),
+                        namesLocked(),
+                        settings.familyFriendly(),
+                        settings.rounds(),
+                        new Random());
+                this.phase = "in-progress";
+            } else if ("cryptid-cinema".equals(gameId)) {
+                this.game = new CryptidCinemaGame(
+                        new ArrayList<>(players.keySet()),
+                        namesLocked());
+                this.phase = "in-progress";
+            } else {
+                throw new LobbyException("unknown game: " + gameId);
+            }
         }
     }
 
-    GetLitGame game() {
+    Object game() {
         synchronized (lock) {
             return game;
         }
