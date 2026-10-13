@@ -32,11 +32,28 @@ func rest_url() -> String:
 
 
 func ws_url() -> String:
-	return url.replace("https://", "wss://").replace("http://", "ws://") + "/collection/ws"
+	return url.replace("https://", "wss://").replace("http://", "ws://") + "/collection-ws"
+
+
+## The lobby WebSocket players and the host connect to.
+func lobby_ws_url() -> String:
+	return ws_url() + "/lobby"
+
+
+## REST endpoint that creates a room (POST ?hostName=...).
+func rooms_url() -> String:
+	return rest_url() + "/rooms"
+
+
+## Public URL of the browser player controller (served by this Element).
+func players_url() -> String:
+	return url + "/app/static/collection/"
 
 
 func _resolve() -> String:
-	for arg in OS.get_cmdline_args():
+	var args := OS.get_cmdline_args()
+	args.append_array(OS.get_cmdline_user_args())
+	for arg in args:
 		if arg.begins_with("--backend-url="):
 			source = "command line"
 			return arg.trim_prefix("--backend-url=").trim_suffix("/")

@@ -54,6 +54,33 @@
       <scope>provided</scope>
     </dependency>
 
+    <!--
+      Swagger annotations only, so exported DTOs can carry @Schema hints for the
+      generated OpenAPI document. Provided: the Elements runtime supplies it, and the
+      API artifact stays free of runtime dependencies.
+    -->
+    <dependency>
+      <groupId>io.swagger.core.v3</groupId>
+      <artifactId>swagger-annotations</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <!--
+      Jakarta WebSocket, so the exported lobby surface can hand the WebSocket Session
+      through. Provided: the runtime supplies it, and the API artifact stays free of
+      runtime dependencies.
+    -->
+    <dependency>
+      <groupId>jakarta.websocket</groupId>
+      <artifactId>jakarta.websocket-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.websocket</groupId>
+      <artifactId>jakarta.websocket-client-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
   </dependencies>
 
 </project>

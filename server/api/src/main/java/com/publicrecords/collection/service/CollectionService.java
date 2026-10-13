@@ -1,7 +1,5 @@
 package com.publicrecords.collection.service;
 
-import dev.getelements.elements.sdk.annotation.ElementServiceExport;
-
 /**
  * Exported entry point for The Public Records Collection Element.
  *
@@ -10,7 +8,6 @@ import dev.getelements.elements.sdk.annotation.ElementServiceExport;
  * exposes only the Element's own identity so the wiring (Guice module, service
  * locator, REST endpoint) can be exercised end to end.</p>
  */
-@ElementServiceExport
 public interface CollectionService {
 
     /**

@@ -60,11 +60,14 @@ Both clients can point at either environment without a rebuild:
 - **Host (Godot):** `--backend-url=<url>` CLI arg, `PRC_BACKEND_URL` env var,
   or `user://settings.cfg`; defaults to production.
 - **Players (Vite dev):** set `VITE_BACKEND_URL` in `players/.env.local`; the
-  dev server proxies `/collection`. In a real deploy the Element serves the
-  built app, so calls are same-origin.
+  dev server proxies `/collection` and `/collection-ws`. In a real deploy the
+  Element serves the built app, so calls are same-origin.
 
 See [`docs/architecture.md`](docs/architecture.md) for the component and data
 flow, and [`content/README.md`](content/README.md) for the content pipeline.
 
-> **Status:** scaffold. The Element builds and resolves its backend end-to-end;
-> the lobby, WebSocket protocol, and per-game logic are next.
+> **Status:** the lobby and the first game, **Get Lit**, work end-to-end on the
+> temporary instance — room codes, host/join over WebSocket, work selection,
+> validated answers, anonymous ♥/★ voting, and scoring. Both clients render every
+> phase (the Godot host big-screen display + Advance control; the web players
+> controller). The remaining four games are next.
