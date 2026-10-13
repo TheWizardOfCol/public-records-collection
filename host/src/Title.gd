@@ -1,23 +1,27 @@
 extends Control
 
-@onready var _bg = $Background
-@onready var _host_button = $HostButton
+@onready var _start_button = $StartButton
 
 func _ready() -> void:
-  var bg_texture = load("res://assets/art/painted-fabric.webp")
-  if bg_texture:
-    _bg.texture = bg_texture
-  var notecard = load("res://assets/art/blue-notecard.webp")
-  if notecard and _host_button:
-    _host_button.texture_normal = notecard
-    _host_button.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
-    _host_button.texture_click_mask = notecard
-  if _host_button:
-    _host_button.pressed.connect(_on_host_pressed)
+  var style = StyleBoxFlat.new()
+  style.bg_color = Color(0.12, 0.12, 0.12, 0.6)
+  style.border_color = Color(0.8, 0.7, 0.5, 0.9)
+  style.border_width_top = 2
+  style.border_width_bottom = 2
+  style.border_width_left = 2
+  style.border_width_right = 2
+  style.corner_radius_top_left = 4
+  style.corner_radius_top_right = 4
+  style.corner_radius_bottom_left = 4
+  style.corner_radius_bottom_right = 4
+  _start_button.add_theme_stylebox_override("normal", style)
+  _start_button.add_theme_stylebox_override("hover", style)
+  _start_button.add_theme_stylebox_override("pressed", style)
+  var font = load("res://assets/fonts/old-standard-tt.ttf")
+  if font:
+    _start_button.add_theme_font_override("font", font)
+  _start_button.add_theme_font_size_override("font_size", 36)
+  _start_button.pressed.connect(_on_start_pressed)
 
-func _on_host_pressed() -> void:
+func _on_start_pressed() -> void:
   get_tree().change_scene_to_file("res://scenes/Main.tscn")
-
-func _input(event: InputEvent) -> void:
-  if event.is_pressed():
-    pass  # Don't auto-proceed; use the button
