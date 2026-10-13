@@ -29,7 +29,7 @@ The game-design document lives in its own repo:
 2. **Sticker Doodle** — one rotating drawer per round.
 3. **Present Time!** — simultaneous secret gift assignment.
 4. **Average Joe** — seed data + lobby survey.
-5. **Cin-A-Mouse** — *(last; nothing prepared yet)*.
+5. **Cryptid Cinema** — *(last; nothing prepared yet)*.
 
 A single family-friendly on/off toggle filters "spicy" content (`is_spicy`).
 
