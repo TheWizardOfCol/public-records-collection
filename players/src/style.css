@@ -1,6 +1,82 @@
 :root {
   color-scheme: dark;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --paper: #f2e7d6;
+  --paper-dark: #d8c9b0;
+  --ink: #1a140f;
+  --gold: #e0a458;
+}
+
+@font-face {
+  font-family: "Caveat";
+  src: url("/collection/content/fonts/caveat.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Patrick Hand";
+  src: url("/collection/content/fonts/patrick-hand.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gochi Hand";
+  src: url("/collection/content/fonts/gochi-hand.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Shadows Into Light";
+  src: url("/collection/content/fonts/shadows-into-light.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/collection/content/fonts/playfair-display.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cinzel";
+  src: url("/collection/content/fonts/cinzel.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "IM Fell English";
+  src: url("/collection/content/fonts/im-fell-english.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Special Elite";
+  src: url("/collection/content/fonts/special-elite.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Rye";
+  src: url("/collection/content/fonts/rye.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Old Standard TT";
+  src: url("/collection/content/fonts/old-standard-tt.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant SC";
+  src: url("/collection/content/fonts/cormorant-sc.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Almendra SC";
+  src: url("/collection/content/fonts/almendra-sc.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fredericka the Great";
+  src: url("/collection/content/fonts/fredericka-the-great.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "UnifrakturCook";
+  src: url("/collection/content/fonts/unifrakturcook.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 700;
 }
 
 * {
