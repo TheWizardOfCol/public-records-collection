@@ -1,0 +1,92 @@
+[
+  {
+    "slug": "blank-book-spread-1",
+    "file": "blank-book-spread-1.webp",
+    "role": "object"
+  },
+  {
+    "slug": "blank-book-spread-2",
+    "file": "blank-book-spread-2.webp",
+    "role": "background"
+  },
+  {
+    "slug": "blank-book-spread-3-with-writing",
+    "file": "blank-book-spread-3-with-writing.webp",
+    "role": "object"
+  },
+  {
+    "slug": "blue-notecard",
+    "file": "blue-notecard.webp",
+    "role": "notecard"
+  },
+  {
+    "slug": "coral-notecard",
+    "file": "coral-notecard.webp",
+    "role": "notecard"
+  },
+  {
+    "slug": "cyran-notecard",
+    "file": "cyran-notecard.webp",
+    "role": "notecard"
+  },
+  {
+    "slug": "leatherboundbook",
+    "file": "leatherboundbook.webp",
+    "role": "book"
+  },
+  {
+    "slug": "newspaper-clipping",
+    "file": "newspaper-clipping.webp",
+    "role": "object"
+  },
+  {
+    "slug": "orange-notecard",
+    "file": "orange-notecard.webp",
+    "role": "notecard"
+  },
+  {
+    "slug": "pink-notecard",
+    "file": "pink-notecard.webp",
+    "role": "notecard"
+  },
+  {
+    "slug": "pittsburgh-map",
+    "file": "pittsburgh-map.webp",
+    "role": "background"
+  },
+  {
+    "slug": "yellow-notecard",
+    "file": "yellow-notecard.webp",
+    "role": "notecard"
+  },
+  {
+    "slug": "casette",
+    "file": "casette.webp",
+    "role": "object"
+  },
+  {
+    "slug": "page-1",
+    "file": "page-1.webp",
+    "role": "object"
+  },
+  {
+    "slug": "painted-fabric",
+    "file": "painted-fabric.webp",
+    "role": "background"
+  },
+  {
+    "slug": "red-leatherbound-book",
+    "file": "red-leatherbound-book.webp",
+    "role": "book"
+  },
+  {
+    "slug": "school-report",
+    "file": "school-report.webp",
+    "role": "background"
+  },
+  {
+    "slug": "standup",
+    "file": "standup.webp",
+    "role": "background"
+  }
+]

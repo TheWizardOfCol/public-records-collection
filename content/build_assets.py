@@ -95,6 +95,81 @@ def optimize_stickers(source: str, out_dir: str):
         print(f"    skipped {name} ({size / 1e6:.1f} MB): {why}")
 
 
+# --- Photographed props + textures (the "Textures and images" scans) ----------
+# These are the hand-made assets the host and players dress the UI with:
+# index-card buttons, leatherbound book covers, and full-bleed backgrounds.
+# Cut-outs keep their alpha; backgrounds are downscaled but stay opaque.
+ART_MAX_DIMENSION = {
+    "notecard": 700,
+    "book": 900,
+    "background": 1600,
+    "object": 1200,
+}
+ART_WEBP_QUALITY = 82
+
+
+def art_role(name: str) -> str:
+    low = name.lower()
+    if "notecard" in low:
+        return "notecard"
+    if "leatherbound" in low:
+        return "book"
+    if any(
+        k in low
+        for k in (
+            "painted fabric",
+            "pittsburgh map",
+            "school report",
+            "standup",
+            "blank book spread 2",
+        )
+    ):
+        return "background"
+    return "object"
+
+
+def optimize_art(source: str, web_out: str, godot_out: str):
+    """Optimize the prop/texture scans for both the web client and the Godot host."""
+    if not os.path.isdir(source):
+        print(f"art: no source dir at {source}, skipping")
+        return
+    os.makedirs(web_out, exist_ok=True)
+    os.makedirs(godot_out, exist_ok=True)
+    index = []
+    for name in sorted(os.listdir(source)):
+        src = os.path.join(source, name)
+        if not os.path.isfile(src) or not name.lower().endswith((".png", ".jpg", ".jpeg", ".webp")):
+            continue
+        role = art_role(name)
+        slug = slugify(os.path.splitext(name)[0])
+        with Image.open(src) as im:
+            alpha = im.convert("RGBA").getchannel("A").getextrema()[0] < 255
+            im = im.convert("RGBA") if alpha else im.convert("RGB")
+            im.thumbnail((ART_MAX_DIMENSION[role], ART_MAX_DIMENSION[role]), Image.Resampling.LANCZOS)
+            width, height = im.size
+            for out in (web_out, godot_out):
+                im.save(os.path.join(out, f"{slug}.webp"), "WEBP", quality=ART_WEBP_QUALITY, method=6)
+        index.append({
+            "slug": slug,
+            "file": f"{slug}.webp",
+            "role": role,
+            "source": name,
+            "width": width,
+            "height": height,
+            "alpha": alpha,
+            "bytes": os.path.getsize(os.path.join(web_out, f"{slug}.webp")),
+        })
+    index.sort(key=lambda e: (e["role"], e["slug"]))
+    with open(os.path.join(web_out, "index.json"), "w", encoding="utf-8") as f:
+        json.dump(index, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+    total = sum(e["bytes"] for e in index)
+    by_role: dict[str, int] = {}
+    for e in index:
+        by_role[e["role"]] = by_role.get(e["role"], 0) + 1
+    print(f"art: {len(index)} textures {by_role}, {total / 1e6:.2f} MB total")
+
+
 def gzip_books(books_json: str, books_src: str, out_dir: str):
     os.makedirs(out_dir, exist_ok=True)
     with open(books_json, encoding="utf-8") as f:
@@ -130,11 +205,14 @@ def main():
     ap.add_argument("--source", default="/workspace/Prompts")
     ap.add_argument("--out", default=os.path.join(here, "assets"))
     ap.add_argument("--books-json", default=os.path.join(here, "generated", "get-lit", "books.json"))
+    ap.add_argument("--art-source", default="/workspace/public-records-collection/Textures and images")
+    ap.add_argument("--art-godot-out", default=os.path.join(here, "..", "host", "assets", "art"))
     args = ap.parse_args()
 
     optimize_stickers(args.source, os.path.join(args.out, "stickers"))
     gzip_books(args.books_json, os.path.join(args.source, "get-lit-content", "books"),
                os.path.join(args.out, "books"))
+    optimize_art(args.art_source, os.path.join(args.out, "art"), args.art_godot_out)
 
 
 if __name__ == "__main__":
