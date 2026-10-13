@@ -1,9 +1,10 @@
 extends Control
 
-@export var sticker_count := 12
-@export var speed := 0.08
+@export var sticker_count := 20
+@export var fall_speed := 30.0
 
 var _stickers := []
+var _spawn_y := -200.0
 
 func _ready() -> void:
   var dir = DirAccess.open("res://assets/art")
@@ -14,12 +15,11 @@ func _ready() -> void:
   var f := dir.get_next()
   while f != "":
     if not dir.current_is_dir() and f.ends_with(".webp"):
-      # skip very large backgrounds for small floating stickers? keep most
       files.append(f)
     f = dir.get_next()
   dir.list_dir_end()
   files.shuffle()
-  var center = size / 2
+  var w = size.x
   for i in range(min(sticker_count, files.size())):
     var tex = load("res://assets/art/" + files[i])
     if tex == null:
@@ -29,28 +29,28 @@ func _ready() -> void:
     spr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
     spr.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
     spr.pivot_offset = tex.get_size() / 2
-    spr.modulate.a = 0.55
+    spr.modulate.a = 0.25
+    spr.z_index = -1
     add_child(spr)
-    var ang = randf_range(0, TAU)
-    var r = randf_range(60, min(center.x, center.y) - 120)
+    var sc = randf_range(0.15, 0.35)
+    spr.scale = Vector2(sc, sc)
+    var x = randf_range(0, w)
+    var y = randf_range(_spawn_y - 400, _spawn_y)
+    spr.position = Vector2(x, y) - spr.pivot_offset * spr.scale
+    spr.rotation = randf_range(-0.3, 0.3)
     _stickers.append({
       "spr": spr,
-      "ang": ang,
-      "r": r,
-      "spin": randf_range(-0.2, 0.2),
-      "size": randf_range(0.25, 0.5),
-      "t0": randf_range(0, TAU),
+      "x": x,
+      "speed": randf_range(20.0, 60.0),
+      "rot": randf_range(-0.2, 0.2),
+      "t": randf_range(0, 1000),
     })
 
 func _process(delta: float) -> void:
-  var center = size / 2
+  var h = size.y
   for s in _stickers:
-    s.ang += delta * speed * (1.0 + s.spin * 0.5)
-    var r = s.r * (1.0 + sin(Time.get_ticks_msec() / 1000.0 + s.t0) * 0.1)
-    var x = center.x + cos(s.ang) * r
-    var y = center.y + sin(s.ang) * r
     var spr := s.spr as TextureRect
-    var sc = s.size * (0.9 + 0.1 * sin(Time.get_ticks_msec() / 800.0 + s.t0))
-    spr.scale = Vector2(sc, sc)
-    spr.position = Vector2(x, y) - spr.pivot_offset * spr.scale
-    spr.rotation = s.ang + sin(Time.get_ticks_msec() / 600.0 + s.t0) * 0.3
+    spr.position.y += s.speed * delta
+    spr.rotation += s.rot * delta * 0.5
+    if spr.position.y > h + 200:
+      spr.position.y = _spawn_y - randf_range(0, 300)
