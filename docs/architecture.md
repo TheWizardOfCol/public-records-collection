@@ -109,5 +109,7 @@ work), anonymous voting with normal + golden hearts (self-vote and duplicate-hea
 guards), per-round scoring, and finish. Both clients render every game phase: the
 Godot host shows the big-screen display with an Advance control, and the web
 players controller renders work selection, a paginated passage reader for
-answering, anonymous ♥/★ voting, and results/standings screens. Next: the
-remaining four games. See the game-design repo for per-game rules and scoring.
+answering, anonymous ♥/★ voting, and results/standings screens. Next: **Cryptid
+Cinema** (server scaffold merged; rounds/content and host + players UI to come),
+then Sticker Doodle, Present Time!, and Average Joe. See the game-design repo for
+per-game rules and scoring.
