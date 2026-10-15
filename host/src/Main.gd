@@ -136,6 +136,9 @@ var _auto_accum := 0.0
 var _auto_start := 0
 var _did_start := false
 
+## Keepalive: seconds accumulated since the last `ping` sent to the lobby.
+var _ping_accum := 0.0
+
 
 func _ready() -> void:
 	var args := OS.get_cmdline_args()
@@ -169,6 +172,10 @@ func _process(delta: float) -> void:
 		WebSocketPeer.STATE_OPEN:
 			while _ws.get_available_packet_count() > 0:
 				_on_message(_ws.get_packet().get_string_from_utf8())
+			_ping_accum += delta
+			if _ping_accum >= 20.0:
+				_ping_accum = 0.0
+				_ws.send_text(JSON.stringify({"type": "ping"}))
 		WebSocketPeer.STATE_CLOSED:
 			pass
 
@@ -927,7 +934,7 @@ func _style_button(btn: Button) -> void:
 
 func _update_start_label() -> void:
 	if _start_button != null:
-		_start_button.text = "Start " + str(GAME_LABELS[_game_index])
+		_start_button.text = "BEGIN THE GAME"
 
 
 func _set_status(text: String) -> void:

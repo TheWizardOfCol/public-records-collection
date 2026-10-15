@@ -144,6 +144,16 @@ let lastGame: AnyGame | null = null
 let lastYou: AnyYou | null = null
 let lastSig = ''
 
+// Connection resilience: keep the socket alive with a heartbeat, and reclaim the
+// same seat after a drop (mobile browsers suspend the page — and the socket —
+// when the tab/app is backgrounded, so the connection often dies on tab switch).
+let pingTimer = 0
+let reconnectTimer = 0
+let reconnectArmed = false
+let reconnectAttempts = 0
+let lastJoinName = ''
+let lastJoinCode = ''
+
 // Answer-phase scratch state, kept out of the DOM so a re-render can't wipe it.
 let passage: PassageView | null = null
 let passageLoading = false
@@ -257,6 +267,7 @@ function renderLobby(room: Room): void {
 
 function bindLeave(): void {
   document.querySelector<HTMLButtonElement>('#leave')?.addEventListener('click', () => {
+    reconnectArmed = false
     if (socket && socket.readyState === WebSocket.OPEN) {
       socket.send(JSON.stringify({ type: 'leave' }))
     }
@@ -1029,6 +1040,7 @@ function handle(message: ServerMessage): void {
   switch (message.type) {
     case 'welcome':
       selfId = message.playerId ?? null
+      reconnectAttempts = 0
       if (message.room) renderLobby(message.room)
       break
     case 'state':
@@ -1044,9 +1056,11 @@ function handle(message: ServerMessage): void {
       break
     }
     case 'closed':
+      reconnectArmed = false
       renderClosed(message.reason ?? 'The host closed the room.')
       break
     case 'error':
+      reconnectArmed = false
       socket?.close()
       socket = null
       lastGame = null
@@ -1063,25 +1077,76 @@ function join(name: string, code: string): void {
   const status = document.querySelector<HTMLParagraphElement>('#status')
   if (status) status.textContent = 'Connecting…'
 
+  lastJoinName = name
+  lastJoinCode = code
+  reconnectArmed = true
+
   lastGame = null
   lastYou = null
   lastSig = ''
 
-  socket = new WebSocket(wsUrl())
-  socket.addEventListener('open', () => {
-    socket!.send(JSON.stringify({ type: 'join', code, name }))
+  const ws = new WebSocket(wsUrl())
+  socket = ws
+  ws.addEventListener('open', () => {
+    // Reclaim our seat if we already have one (reconnect), else take a new one.
+    ws.send(JSON.stringify({ type: 'join', code, name, playerId: selfId ?? undefined }))
+    startHeartbeat()
   })
-  socket.addEventListener('message', (event) => {
+  ws.addEventListener('message', (event) => {
     handle(JSON.parse(String(event.data)) as ServerMessage)
   })
-  socket.addEventListener('close', () => {
-    if (selfId) renderClosed('Connection closed.')
-  })
-  socket.addEventListener('error', () => {
+  ws.addEventListener('close', () => {
+    if (socket !== ws) return
+    stopHeartbeat()
     socket = null
-    renderJoin('Could not reach the room. Check the code and try again.')
+    attemptReconnect()
+  })
+  ws.addEventListener('error', () => {
+    // A failed connect also fires `close`; reconnect is handled there.
   })
 }
+
+function startHeartbeat(): void {
+  stopHeartbeat()
+  pingTimer = window.setInterval(() => send({ type: 'ping' }), 20000)
+}
+
+function stopHeartbeat(): void {
+  if (pingTimer) {
+    window.clearInterval(pingTimer)
+    pingTimer = 0
+  }
+}
+
+function attemptReconnect(): void {
+  if (!reconnectArmed || !lastJoinCode) return
+  if (reconnectTimer) return
+  reconnectAttempts += 1
+  if (reconnectAttempts > 6) {
+    reconnectArmed = false
+    renderJoin('Connection lost. Check the room code and try again.')
+    return
+  }
+  const status = document.querySelector<HTMLParagraphElement>('#status')
+  if (status && document.getElementById('app')) status.textContent = 'Reconnecting…'
+  reconnectTimer = window.setTimeout(() => {
+    reconnectTimer = 0
+    if (reconnectArmed && lastJoinCode) join(lastJoinName, lastJoinCode)
+  }, 1500)
+}
+
+// Mobile browsers suspend the page (and its socket) when backgrounded; on return
+// the socket is usually dead, so reconnect rather than dumping to the join screen.
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState !== 'visible') return
+  if (!reconnectArmed || !lastJoinCode) return
+  if (socket && socket.readyState === WebSocket.OPEN) return
+  if (reconnectTimer) {
+    window.clearTimeout(reconnectTimer)
+    reconnectTimer = 0
+  }
+  join(lastJoinName, lastJoinCode)
+})
 
 async function checkBackend(): Promise<void> {
   const status = document.querySelector<HTMLParagraphElement>('#status')
