@@ -26,10 +26,11 @@ The game-design document lives in its own repo:
 ## The games
 
 1. **Get Lit** — *(built first)* read a passage, players answer.
-2. **Sticker Doodle** — one rotating drawer per round.
-3. **Present Time!** — simultaneous secret gift assignment.
-4. **Average Joe** — seed data + lobby survey.
-5. **Cryptid Cinema** — *(last; nothing prepared yet)*.
+2. **Cryptid Cinema** — *(in progress)* remix an old film with sound effects,
+   music, and your own voice.
+3. **Sticker Doodle** — one rotating drawer per round.
+4. **Present Time!** — simultaneous secret gift assignment.
+5. **Average Joe** — seed data + lobby survey.
 
 A single family-friendly on/off toggle filters "spicy" content (`is_spicy`).
 
@@ -70,4 +71,5 @@ flow, and [`content/README.md`](content/README.md) for the content pipeline.
 > temporary instance — room codes, host/join over WebSocket, work selection,
 > validated answers, anonymous ♥/★ voting, and scoring. Both clients render every
 > phase (the Godot host big-screen display + Advance control; the web players
-> controller). The remaining four games are next.
+> controller). **Cryptid Cinema** is next (scaffold merged); the shared design doc
+> is in the game-design repo.
