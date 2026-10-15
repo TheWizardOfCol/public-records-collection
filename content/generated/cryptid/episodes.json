@@ -35,7 +35,7 @@
         "seeStart": 41.0,
         "seeEnd": 45.0,
         "recordStart": 41.0,
-        "recordEnd": 42.0,
+        "recordEnd": 44.0,
         "maxSeconds": 3.0,
         "directorNotes": "",
         "prompts": [
@@ -83,12 +83,248 @@
         "maxSeconds": 20.0,
         "directorNotes": "Choose a song to use as this film's soundtrack.",
         "prompts": [],
-        "choices": [
-          { "id": "monkeys-spinning-monkeys", "label": "Monkeys Spinning Monkeys" },
-          { "id": "happy-happy-game-show", "label": "Happy Happy Game Show" },
-          { "id": "in-the-hall-of-the-mountain-king", "label": "In the Hall of the Mountain King" },
-          { "id": "entry-of-the-gladiators", "label": "Entry of the Gladiators" },
-          { "id": "funeral-march", "label": "Funeral March" }
+        "choices": [],
+        "deck": [
+          {
+            "id": "01-01-la-primavera-spring-allegro",
+            "label": "La Primavera"
+          },
+          {
+            "id": "adventures-in-adventureland-kevin-macleod",
+            "label": "Adventures in Adventureland"
+          },
+          {
+            "id": "amazing-grace-traditional",
+            "label": "Amazing Grace"
+          },
+          {
+            "id": "android-sock-hop-kevin-macleod",
+            "label": "Android Sock Hop"
+          },
+          {
+            "id": "army-strong-mark-isham",
+            "label": "Army Strong"
+          },
+          {
+            "id": "balloon-game-kevin-macleod",
+            "label": "Balloon Game"
+          },
+          {
+            "id": "blue-danube-johann-strauss-ii",
+            "label": "Blue Danube"
+          },
+          {
+            "id": "brain-dance-kevin-macleod",
+            "label": "Brain Dance"
+          },
+          {
+            "id": "circuit-bent-keyboard-demo-some-sicko",
+            "label": "Circuit Bent Keyboard Demo"
+          },
+          {
+            "id": "danse-macabre-camille-saint-sa-ns",
+            "label": "Danse Macabre"
+          },
+          {
+            "id": "drankin-song-kevin-macleod",
+            "label": "Drankin Song"
+          },
+          {
+            "id": "entry-of-the-gladiators-julius-fucik",
+            "label": "Entry of the Gladiators"
+          },
+          {
+            "id": "epic-score-jeremusic70",
+            "label": "Epic Score"
+          },
+          {
+            "id": "everyone-loyalty-freak-music",
+            "label": "Everyone"
+          },
+          {
+            "id": "farting-around-kevin-macleod",
+            "label": "Farting Around"
+          },
+          {
+            "id": "flying-kerfuffle-kevin-macleod",
+            "label": "Flying Kerfuffle"
+          },
+          {
+            "id": "funeral-march-chopin",
+            "label": "Funeral March"
+          },
+          {
+            "id": "funiculi-funicula-luigi-denza-and-peppino-turco",
+            "label": "Funiculi Funicula"
+          },
+          {
+            "id": "god-save-the-king",
+            "label": "God Save The King"
+          },
+          {
+            "id": "gymnopedie-no-1-erik-satie",
+            "label": "Gymnopedie No. 1"
+          },
+          {
+            "id": "habanera",
+            "label": "Habanera"
+          },
+          {
+            "id": "haiduceasca-traditional",
+            "label": "Haiduceasca"
+          },
+          {
+            "id": "halleljeah-george-frideric-handel",
+            "label": "Halleljeah"
+          },
+          {
+            "id": "happy-happy-game-show-kevin-macleod",
+            "label": "Happy Happy Game Show"
+          },
+          {
+            "id": "high-stakes-spymaster-rfm1011",
+            "label": "High Stakes Spymaster"
+          },
+          {
+            "id": "in-the-hall-of-the-mountain-king-edvard-grieg",
+            "label": "In the Hall of the Mountain King"
+          },
+          {
+            "id": "kun-khmer-fight-music-traditional",
+            "label": "Kun Khmer fight music"
+          },
+          {
+            "id": "liberty-bell-march-john-philip-sousa",
+            "label": "Liberty Bell March"
+          },
+          {
+            "id": "little-fugue-in-g-minor-bach",
+            "label": "Little Fugue in G Minor"
+          },
+          {
+            "id": "maple-leaf-rag-scott-joplin",
+            "label": "Maple Leaf Rag"
+          },
+          {
+            "id": "mass-of-the-day-gajard-dom-joseph",
+            "label": "Mass of the Day"
+          },
+          {
+            "id": "meatball-parade-kevin-macleod",
+            "label": "Meatball Parade"
+          },
+          {
+            "id": "mesmerizing-galaxy-kevin-macleod",
+            "label": "Mesmerizing Galaxy"
+          },
+          {
+            "id": "modern-lounge-prettyjohn1",
+            "label": "Modern Lounge"
+          },
+          {
+            "id": "modern-sadness-kevin-macleod",
+            "label": "Modern Sadness"
+          },
+          {
+            "id": "monkeys-spinning-monkeys-kevin-macleod",
+            "label": "Monkeys Spinning Monkeys"
+          },
+          {
+            "id": "mouthalovania-oatymilkgalaxy",
+            "label": "Mouthalovania"
+          },
+          {
+            "id": "nano-hoedown-kevin-macleod",
+            "label": "Nano Hoedown"
+          },
+          {
+            "id": "o-canada",
+            "label": "O Canada"
+          },
+          {
+            "id": "ode-to-joy-on-the-netherlands-carillon",
+            "label": "Ode to Joy on the Netherlands Carillon"
+          },
+          {
+            "id": "pomp-and-circumstance",
+            "label": "Pomp and Circumstance"
+          },
+          {
+            "id": "pookatori-and-friends-kevin-macleod",
+            "label": "Pookatori and Friends"
+          },
+          {
+            "id": "pop-goes-the-weasel-traditional",
+            "label": "Pop Goes The Weasel"
+          },
+          {
+            "id": "ride-of-the-valkyries-richard-wagner",
+            "label": "Ride of the Valkyries"
+          },
+          {
+            "id": "sabre-dance-aram-khachaturian",
+            "label": "Sabre Dance"
+          },
+          {
+            "id": "soviet-national-anthem",
+            "label": "Soviet National Anthem"
+          },
+          {
+            "id": "star-spangled-banner-francis-scott-key-and-john-stafford-smith",
+            "label": "Star Spangled Banner"
+          },
+          {
+            "id": "symphony-no-9-ludwig-van-beethoven",
+            "label": "Symphony No. 9"
+          },
+          {
+            "id": "that-zen-moment-kevin-macleod",
+            "label": "That Zen Moment"
+          },
+          {
+            "id": "the-britons-kevin-macleod",
+            "label": "The Britons"
+          },
+          {
+            "id": "the-entertainer-scott-joplin",
+            "label": "The Entertainer"
+          },
+          {
+            "id": "the-german-s-arrival-frank-wilson",
+            "label": "The German's Arrival"
+          },
+          {
+            "id": "the-laughing-record",
+            "label": "The Laughing Record"
+          },
+          {
+            "id": "the-whistling-bowery-boy-s-h-dudley",
+            "label": "The Whistling Bowery Boy"
+          },
+          {
+            "id": "toscaninini-ludwig-van-beethoven",
+            "label": "Toscanini"
+          },
+          {
+            "id": "toy-symphony-allegro-leopold-mozart",
+            "label": "Toy Symphony"
+          },
+          {
+            "id": "william-tell-overture-gioachino-rossini",
+            "label": "William Tell Overture"
+          },
+          {
+            "id": "wedding-march-felix-mendelssohn",
+            "label": "Wedding March"
+          },
+          {
+            "id": "welcome-to-horrorland-kevin-macleod",
+            "label": "Welcome to HorrorLand"
+          },
+          {
+            "id": "yankee-doodle-traditional",
+            "label": "Yankee Doodle"
+          }
         ]
       }
     ]

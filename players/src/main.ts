@@ -62,7 +62,7 @@ type PassageView = {
   text: string
 }
 
-type Choice = { id: string; label: string }
+type Choice = { id: string; label: string; audioUrl?: string | null }
 
 type CryptidSubmissionView = {
   id: string
@@ -70,6 +70,7 @@ type CryptidSubmissionView = {
   playerName: string | null
   kind: string
   label: string | null
+  choiceId: string | null
   recordingId: string | null
   audioUrl: string | null
   points: number | null
@@ -643,15 +644,20 @@ function cryptidRecord(game: CryptidPublicView, you: CryptidPrivateView): string
     const items = you.choices
       .map(
         (c) => `
-      <li>
+      <li class="work-choice">
         <button class="work" data-choice="${escapeHtml(c.id)}">
           <span class="work__title">${escapeHtml(c.label)}</span>
         </button>
+        ${c.audioUrl ? `<audio class="preview" controls preload="none" src="${escapeHtml(c.audioUrl)}"></audio>` : ''}
       </li>`,
       )
       .join('')
+    const hint = you.choices.some((c) => c.audioUrl)
+      ? '<p class="hint">Give each song a listen, then pick your favourite.</p>'
+      : ''
     return `
       <h2>Pick your option</h2>
+      ${hint}
       <ul class="works">${items}</ul>
       <p class="status">${game.submitted} of ${game.players} submitted.</p>
     `
@@ -696,15 +702,26 @@ function recordControl(you: CryptidPrivateView): string {
   `
 }
 
+// A submission's audio: the uploaded take, or — for a foundtrack song — its preview clip.
+// Both come straight off the submission (the songs are dealt as private hands, so there is
+// no shared option list to look the audio up in).
+function submissionContent(s: CryptidSubmissionView): string {
+  if (s.kind === 'recording' && s.audioUrl) {
+    return `<audio controls preload="none" src="${escapeHtml(s.audioUrl)}"></audio>`
+  }
+  if (s.kind === 'choice' && s.audioUrl) {
+    return `<audio class="preview" controls preload="none" src="${escapeHtml(s.audioUrl)}"></audio><p class="answer-card__text">${escapeHtml(s.label ?? '—')}</p>`
+  }
+  return `<p class="answer-card__text">${escapeHtml(s.label ?? '—')}</p>`
+}
+
 function cryptidVote(game: CryptidPublicView, you: CryptidPrivateView): string {
   const voted = cryptidVoted.size > 0
   const propped = cryptidPropped.size > 0
   const cards = game.submissions
     .filter((s) => s.id !== you.submissionId)
     .map((s) => {
-      const content = s.kind === 'recording' && s.audioUrl
-        ? `<audio controls src="${escapeHtml(s.audioUrl)}"></audio>`
-        : `<p class="answer-card__text">${escapeHtml(s.label ?? '—')}</p>`
+      const content = submissionContent(s)
       const heart = `<button class="vote" data-sub="${escapeHtml(s.id)}" data-prop="false" ${voted ? 'disabled' : ''} title="Vote (100 points)">♥</button>`
       const star = `<button class="vote vote--golden" data-sub="${escapeHtml(s.id)}" data-prop="true" ${propped ? 'disabled' : ''} title="Prop (10 points)">★</button>`
       return `
@@ -736,9 +753,7 @@ function cryptidResults(game: CryptidPublicView, you: CryptidPrivateView): strin
     .sort((a, b) => (b.points ?? 0) - (a.points ?? 0))
     .map((s) => {
       const mine = s.id === you.submissionId ? ' answer-card--mine' : ''
-      const content = s.kind === 'recording' && s.audioUrl
-        ? `<audio controls src="${escapeHtml(s.audioUrl)}"></audio>`
-        : `<p class="answer-card__text">${escapeHtml(s.label ?? '—')}</p>`
+      const content = submissionContent(s)
       return `
         <li class="answer-card${mine}">
           ${content}
@@ -796,6 +811,16 @@ function bindCryptid(game: CryptidPublicView, you: CryptidPrivateView): void {
       document
         .querySelectorAll<HTMLButtonElement>(`button.vote[data-sub="${subId}"]`)
         .forEach((b) => (b.disabled = true))
+    })
+  })
+
+  // Only one song preview at a time — pause the others when one starts.
+  const previews = Array.from(document.querySelectorAll<HTMLAudioElement>('audio.preview'))
+  previews.forEach((a) => {
+    a.addEventListener('play', () => {
+      previews.forEach((other) => {
+        if (other !== a) other.pause()
+      })
     })
   })
 }

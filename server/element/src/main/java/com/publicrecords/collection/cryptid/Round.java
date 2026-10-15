@@ -10,7 +10,9 @@ import java.util.List;
  *
  * <p>Timings are seconds from the top of the episode's film clip. {@code maxSeconds} caps a
  * recording when the round needs it (0 = use the marked region's own length). {@code choices}
- * is populated for choice rounds (UFSFX/FOUNDTRACK) and empty otherwise.</p>
+ * is populated for fixed-hand choice rounds (UFSFX) and empty otherwise. {@code deck} is
+ * populated for FOUNDTRACK rounds: the full library of songs the game deals hands from, five
+ * per player, rather than a fixed shared set.</p>
  */
 public record Round(
         @JsonProperty("index") int index,
@@ -22,11 +24,13 @@ public record Round(
         @JsonProperty("maxSeconds") double maxSeconds,
         @JsonProperty("directorNotes") String directorNotes,
         @JsonProperty("prompts") List<String> prompts,
-        @JsonProperty("choices") List<Choice> choices) {
+        @JsonProperty("choices") List<Choice> choices,
+        @JsonProperty("deck") List<Choice> deck) {
 
     public Round {
         prompts = prompts == null ? List.of() : List.copyOf(prompts);
         choices = choices == null ? List.of() : List.copyOf(choices);
+        deck = deck == null ? List.of() : List.copyOf(deck);
     }
 
     /** Length of the marked recording region, in seconds. */

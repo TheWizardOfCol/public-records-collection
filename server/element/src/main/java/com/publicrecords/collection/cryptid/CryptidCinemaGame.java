@@ -39,6 +39,12 @@ public class CryptidCinemaGame {
 
     private static final int VOTING_THRESHOLD = 3;
 
+    /** How many songs from the foundtrack deck each player is dealt. */
+    private static final int FOUNDTRACK_HAND_SIZE = 5;
+
+    /** Static root the foundtrack song previews are served from (see the element's pom). */
+    private static final String FOUNDTRACK_MUSIC_BASE = "/app/static/collection/assets/cryptid/music/";
+
     private final Object lock = new Object();
 
     private final Episode episode;
@@ -50,6 +56,7 @@ public class CryptidCinemaGame {
     private int roundIndex = 0;
 
     private final Map<String, String> playerPrompts = new HashMap<>();
+    private final Map<String, List<Choice>> playerHands = new HashMap<>();
     private final Map<String, Submission> submissionById = new LinkedHashMap<>();
     private final Map<String, String> playerToSubmission = new HashMap<>();
     private final Map<String, String> normalVotes = new HashMap<>();
@@ -99,13 +106,15 @@ public class CryptidCinemaGame {
 
             final Submission submission;
             if (round.isChoice()) {
-                final Choice choice = round.choices().stream()
+                final Choice choice = choicesFor(playerId, round).stream()
                         .filter(c -> c.id().equals(payload))
                         .findFirst()
                         .orElseThrow(() -> new LobbyException("no such option"));
-                submission = new Submission(UUID.randomUUID().toString(), playerId, "choice", choice.label(), null);
+                submission = new Submission(
+                        UUID.randomUUID().toString(), playerId, "choice", choice.label(), choice.id(), null);
             } else {
-                submission = new Submission(UUID.randomUUID().toString(), playerId, "recording", null, payload);
+                submission = new Submission(
+                        UUID.randomUUID().toString(), playerId, "recording", null, null, payload);
             }
             submissionById.put(submission.id, submission);
             playerToSubmission.put(playerId, submission.id);
@@ -173,18 +182,31 @@ public class CryptidCinemaGame {
 
     private void prepareRound() {
         playerPrompts.clear();
+        playerHands.clear();
         submissionById.clear();
         playerToSubmission.clear();
         normalVotes.clear();
         props.clear();
         roundScores.clear();
 
-        final List<String> pool = currentRound().prompts();
+        final Round round = currentRound();
+
+        final List<String> pool = round.prompts();
         if (!pool.isEmpty()) {
             final List<String> shuffled = new ArrayList<>(pool);
             java.util.Collections.shuffle(shuffled, random);
             for (int i = 0; i < playerIds.size(); i++) {
                 playerPrompts.put(playerIds.get(i), shuffled.get(i % shuffled.size()));
+            }
+        }
+
+        // Foundtrack is dealt like a hand of cards: every player gets their own
+        // five songs drawn at random from the full deck, rather than one shared set.
+        if (round.type() == RoundType.FOUNDTRACK && !round.deck().isEmpty()) {
+            for (final String id : playerIds) {
+                final List<Choice> shuffled = new ArrayList<>(round.deck());
+                java.util.Collections.shuffle(shuffled, random);
+                playerHands.put(id, List.copyOf(shuffled.subList(0, Math.min(FOUNDTRACK_HAND_SIZE, shuffled.size()))));
             }
         }
     }
@@ -235,8 +257,9 @@ public class CryptidCinemaGame {
                             reveal ? names.get(s.playerId) : null,
                             s.kind,
                             s.label,
+                            s.choiceId,
                             s.recordingId,
-                            s.recordingId == null ? null : "/collection/recordings/" + s.recordingId,
+                            submissionAudioUrl(s, round),
                             reveal ? pointsFor(s.id) : null));
                 }
             }
@@ -260,7 +283,7 @@ public class CryptidCinemaGame {
                     round.recordEnd(),
                     round.directorNotes(),
                     round.prompts(),
-                    round.choices(),
+                    publicChoices(round),
                     submitted,
                     playerIds.size(),
                     submissions,
@@ -286,7 +309,7 @@ public class CryptidCinemaGame {
                     round.recordStart(),
                     round.recordEnd(),
                     round.recordSeconds(),
-                    round.choices(),
+                    choicesFor(playerId, round),
                     submissionId,
                     submission == null ? null : submission.recordingId,
                     submission == null ? null : submission.label,
@@ -320,6 +343,47 @@ public class CryptidCinemaGame {
         return episode.rounds().get(roundIndex);
     }
 
+    /**
+     * The options a single player may pick from: their dealt foundtrack hand (with the
+     * preview URL attached, so a phone can listen before choosing), or the round's fixed
+     * choice list for every other choice round.
+     */
+    private List<Choice> choicesFor(final String playerId, final Round round) {
+        if (round.type() != RoundType.FOUNDTRACK) {
+            return round.choices();
+        }
+        return playerHands.getOrDefault(playerId, List.of()).stream()
+                .map(c -> new Choice(c.id(), c.label(), previewUrl(c.id())))
+                .toList();
+    }
+
+    /**
+     * The options as the host screen sees them. Foundtrack hands are private per player, so
+     * the host gets an empty list (it keys the winning song off each submission's
+     * {@code choiceId} instead); other choice rounds are passed through unchanged.
+     */
+    private List<Choice> publicChoices(final Round round) {
+        return round.type() == RoundType.FOUNDTRACK ? List.of() : round.choices();
+    }
+
+    /**
+     * Where a submission's audio lives: the uploaded recording, a foundtrack song's preview,
+     * or nothing (a non-foundtrack choice has no audio of its own).
+     */
+    private String submissionAudioUrl(final Submission s, final Round round) {
+        if (s.recordingId != null) {
+            return "/collection/recordings/" + s.recordingId;
+        }
+        if (s.choiceId != null && round.type() == RoundType.FOUNDTRACK) {
+            return previewUrl(s.choiceId);
+        }
+        return null;
+    }
+
+    private static String previewUrl(final String choiceId) {
+        return FOUNDTRACK_MUSIC_BASE + choiceId + ".mp3";
+    }
+
     private void requirePhase(final String expected) {
         if (!phase.equals(expected)) {
             throw new LobbyException("that action isn't available right now");
@@ -338,14 +402,16 @@ public class CryptidCinemaGame {
         final String playerId;
         final String kind;
         final String label;
+        final String choiceId;
         final String recordingId;
 
         Submission(final String id, final String playerId, final String kind,
-                   final String label, final String recordingId) {
+                   final String label, final String choiceId, final String recordingId) {
             this.id = id;
             this.playerId = playerId;
             this.kind = kind;
             this.label = label;
+            this.choiceId = choiceId;
             this.recordingId = recordingId;
         }
 

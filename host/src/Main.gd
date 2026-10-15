@@ -32,6 +32,13 @@ var _family_check: CheckBox
 var _timer_spin: SpinBox
 var _game_select: OptionButton
 
+# Title-page styling (mirrors scenes/Title.tscn so the lobby reads as the same game).
+const TITLE_FONT := "res://assets/fonts/playfair-display.ttf"
+const BODY_FONT := "res://assets/fonts/old-standard-tt.ttf"
+const GOLD := Color(1.0, 1.0, 0.85)
+const ACCENT := Color(0.8, 0.7, 0.5)
+var _slideshow: Control
+
 # UI — game
 var _game_panel: VBoxContainer
 var _game_title: Label
@@ -51,8 +58,72 @@ var _film_started := false
 var _audio_player: AudioStreamPlayer
 var _audio_http: HTTPRequest
 var _audio_queue: PackedStringArray = PackedStringArray()
+var _audio_res_queue: PackedStringArray = PackedStringArray() # res:// paths
 var _audio_round := -1
 var _audio_busy := false
+
+const FOUNDTRACK_MUSIC := {
+	"01-01-la-primavera-spring-allegro": "res://assets/cryptid/music/01-01-la-primavera-spring-allegro.mp3",
+	"adventures-in-adventureland-kevin-macleod": "res://assets/cryptid/music/adventures-in-adventureland-kevin-macleod.mp3",
+	"amazing-grace-traditional": "res://assets/cryptid/music/amazing-grace-traditional.mp3",
+	"android-sock-hop-kevin-macleod": "res://assets/cryptid/music/android-sock-hop-kevin-macleod.mp3",
+	"army-strong-mark-isham": "res://assets/cryptid/music/army-strong-mark-isham.mp3",
+	"balloon-game-kevin-macleod": "res://assets/cryptid/music/balloon-game-kevin-macleod.mp3",
+	"blue-danube-johann-strauss-ii": "res://assets/cryptid/music/blue-danube-johann-strauss-ii.mp3",
+	"brain-dance-kevin-macleod": "res://assets/cryptid/music/brain-dance-kevin-macleod.mp3",
+	"circuit-bent-keyboard-demo-some-sicko": "res://assets/cryptid/music/circuit-bent-keyboard-demo-some-sicko.mp3",
+	"danse-macabre-camille-saint-sa-ns": "res://assets/cryptid/music/danse-macabre-camille-saint-sa-ns.mp3",
+	"drankin-song-kevin-macleod": "res://assets/cryptid/music/drankin-song-kevin-macleod.mp3",
+	"entry-of-the-gladiators-julius-fucik": "res://assets/cryptid/music/entry-of-the-gladiators-julius-fucik.mp3",
+	"epic-score-jeremusic70": "res://assets/cryptid/music/epic-score-jeremusic70.mp3",
+	"everyone-loyalty-freak-music": "res://assets/cryptid/music/everyone-loyalty-freak-music.mp3",
+	"farting-around-kevin-macleod": "res://assets/cryptid/music/farting-around-kevin-macleod.mp3",
+	"flying-kerfuffle-kevin-macleod": "res://assets/cryptid/music/flying-kerfuffle-kevin-macleod.mp3",
+	"funeral-march-chopin": "res://assets/cryptid/music/funeral-march-chopin.mp3",
+	"funiculi-funicula-luigi-denza-and-peppino-turco": "res://assets/cryptid/music/funiculi-funicula-luigi-denza-and-peppino-turco.mp3",
+	"god-save-the-king": "res://assets/cryptid/music/god-save-the-king.mp3",
+	"gymnopedie-no-1-erik-satie": "res://assets/cryptid/music/gymnopedie-no-1-erik-satie.mp3",
+	"habanera": "res://assets/cryptid/music/habanera.mp3",
+	"haiduceasca-traditional": "res://assets/cryptid/music/haiduceasca-traditional.mp3",
+	"halleljeah-george-frideric-handel": "res://assets/cryptid/music/halleljeah-george-frideric-handel.mp3",
+	"happy-happy-game-show-kevin-macleod": "res://assets/cryptid/music/happy-happy-game-show-kevin-macleod.mp3",
+	"high-stakes-spymaster-rfm1011": "res://assets/cryptid/music/high-stakes-spymaster-rfm1011.mp3",
+	"in-the-hall-of-the-mountain-king-edvard-grieg": "res://assets/cryptid/music/in-the-hall-of-the-mountain-king-edvard-grieg.mp3",
+	"kun-khmer-fight-music-traditional": "res://assets/cryptid/music/kun-khmer-fight-music-traditional.mp3",
+	"liberty-bell-march-john-philip-sousa": "res://assets/cryptid/music/liberty-bell-march-john-philip-sousa.mp3",
+	"little-fugue-in-g-minor-bach": "res://assets/cryptid/music/little-fugue-in-g-minor-bach.mp3",
+	"maple-leaf-rag-scott-joplin": "res://assets/cryptid/music/maple-leaf-rag-scott-joplin.mp3",
+	"mass-of-the-day-gajard-dom-joseph": "res://assets/cryptid/music/mass-of-the-day-gajard-dom-joseph.mp3",
+	"meatball-parade-kevin-macleod": "res://assets/cryptid/music/meatball-parade-kevin-macleod.mp3",
+	"mesmerizing-galaxy-kevin-macleod": "res://assets/cryptid/music/mesmerizing-galaxy-kevin-macleod.mp3",
+	"modern-lounge-prettyjohn1": "res://assets/cryptid/music/modern-lounge-prettyjohn1.mp3",
+	"modern-sadness-kevin-macleod": "res://assets/cryptid/music/modern-sadness-kevin-macleod.mp3",
+	"monkeys-spinning-monkeys-kevin-macleod": "res://assets/cryptid/music/monkeys-spinning-monkeys-kevin-macleod.mp3",
+	"mouthalovania-oatymilkgalaxy": "res://assets/cryptid/music/mouthalovania-oatymilkgalaxy.mp3",
+	"nano-hoedown-kevin-macleod": "res://assets/cryptid/music/nano-hoedown-kevin-macleod.mp3",
+	"o-canada": "res://assets/cryptid/music/o-canada.mp3",
+	"ode-to-joy-on-the-netherlands-carillon": "res://assets/cryptid/music/ode-to-joy-on-the-netherlands-carillon.mp3",
+	"pomp-and-circumstance": "res://assets/cryptid/music/pomp-and-circumstance.mp3",
+	"pookatori-and-friends-kevin-macleod": "res://assets/cryptid/music/pookatori-and-friends-kevin-macleod.mp3",
+	"pop-goes-the-weasel-traditional": "res://assets/cryptid/music/pop-goes-the-weasel-traditional.mp3",
+	"ride-of-the-valkyries-richard-wagner": "res://assets/cryptid/music/ride-of-the-valkyries-richard-wagner.mp3",
+	"sabre-dance-aram-khachaturian": "res://assets/cryptid/music/sabre-dance-aram-khachaturian.mp3",
+	"soviet-national-anthem": "res://assets/cryptid/music/soviet-national-anthem.mp3",
+	"star-spangled-banner-francis-scott-key-and-john-stafford-smith": "res://assets/cryptid/music/star-spangled-banner-francis-scott-key-and-john-stafford-smith.mp3",
+	"symphony-no-9-ludwig-van-beethoven": "res://assets/cryptid/music/symphony-no-9-ludwig-van-beethoven.mp3",
+	"that-zen-moment-kevin-macleod": "res://assets/cryptid/music/that-zen-moment-kevin-macleod.mp3",
+	"the-britons-kevin-macleod": "res://assets/cryptid/music/the-britons-kevin-macleod.mp3",
+	"the-entertainer-scott-joplin": "res://assets/cryptid/music/the-entertainer-scott-joplin.mp3",
+	"the-german-s-arrival-frank-wilson": "res://assets/cryptid/music/the-german-s-arrival-frank-wilson.mp3",
+	"the-laughing-record": "res://assets/cryptid/music/the-laughing-record.mp3",
+	"the-whistling-bowery-boy-s-h-dudley": "res://assets/cryptid/music/the-whistling-bowery-boy-s-h-dudley.mp3",
+	"toscaninini-ludwig-van-beethoven": "res://assets/cryptid/music/toscaninini-ludwig-van-beethoven.mp3",
+	"toy-symphony-allegro-leopold-mozart": "res://assets/cryptid/music/toy-symphony-allegro-leopold-mozart.mp3",
+	"william-tell-overture-gioachino-rossini": "res://assets/cryptid/music/william-tell-overture-gioachino-rossini.mp3",
+	"wedding-march-felix-mendelssohn": "res://assets/cryptid/music/wedding-march-felix-mendelssohn.mp3",
+	"welcome-to-horrorland-kevin-macleod": "res://assets/cryptid/music/welcome-to-horrorland-kevin-macleod.mp3",
+	"yankee-doodle-traditional": "res://assets/cryptid/music/yankee-doodle-traditional.mp3",
+}
 
 ## Dev aid: when > 0, the host auto-sends `advance` every N seconds while a game
 ## is running (set with --auto-advance=<seconds>). Handy for exercising the game
@@ -136,6 +207,9 @@ func _on_room_created(_result: int, response_code: int, _headers: PackedStringAr
 	print("[host] room code ", _room_code)
 
 	_set_status("Connecting lobby…")
+	# The Namazu Cloud edge rejects handshakes with no User-Agent (403) — the
+	# browser and Godot's HTTPRequest send one, but WebSocketPeer does not.
+	_ws.set_handshake_headers(PackedStringArray(["User-Agent: PublicRecordsCollection-Host/1.0 (Godot Engine)"]))
 	var err := _ws.connect_to_url(BackendConfig.lobby_ws_url())
 	if err != OK:
 		_set_status("WebSocket connect failed (error %d)." % err)
@@ -219,9 +293,12 @@ func _render_game(game: Dictionary) -> void:
 	var in_game := phase != ""
 
 	# The lobby furniture only makes sense before/around a game; hide it once
-	# a game is running and show the big-screen view instead.
+	# a game is running and show the big-screen view instead. The drifting
+	# slideshow is a lobby/title backdrop, so it goes away with the lobby too.
 	_lobby_panel.visible = not in_game
 	_game_panel.visible = in_game
+	if _slideshow != null:
+		_slideshow.visible = not in_game
 	_advance_button.disabled = phase == "finished" or phase == ""
 
 	if not in_game:
@@ -297,11 +374,18 @@ func _render_getlit(game: Dictionary, phase: String) -> void:
 func _render_cryptid(game: Dictionary, phase: String) -> void:
 	var round := int(game.get("round", 0))
 	var total := int(game.get("totalRounds", 0))
-	var rtype := _round_type_label(str(game.get("roundType", "")))
+	var round_type := str(game.get("roundType", ""))
+	var is_foundtrack := round_type == "FOUNDTRACK"
+	var rtype := _round_type_label(round_type)
 	_game_title.text = "Cryptid Cinema — Round %d / %d · %s" % [max(round, 1), total, rtype]
 	print("[host] cryptid phase: %s (round %d/%d)" % [phase, round, total])
 
-	var video := str(game.get("video", ""))
+	# Up to the foundtrack round the film plays with its own music; from the
+	# foundtrack screening on, the host uses the music-less cut and layers the
+	# chosen track and the players' takes over it.
+	var video := str(game.get("videoNoMusic", "")) if is_foundtrack else str(game.get("video", ""))
+	if video.is_empty():
+		video = str(game.get("video", ""))
 	if not video.is_empty():
 		_ensure_film(video)
 
@@ -330,7 +414,10 @@ func _render_cryptid(game: Dictionary, phase: String) -> void:
 			lines.append("")
 			lines.append(_cryptid_submissions(game, false))
 		"results":
-			_pause_film()
+			if is_foundtrack:
+				_replay_film_from_start()
+			else:
+				_pause_film()
 			lines.append(_cryptid_submissions(game, true))
 			lines.append("")
 			lines.append("[b]This round[/b]")
@@ -435,6 +522,18 @@ func _stop_film() -> void:
 	_film_target = -1.0
 
 
+## The Screening: the foundtrack winner is in, so roll the music-less cut from
+## the top and let the recorded takes and the chosen song play over it.
+func _replay_film_from_start() -> void:
+	if _film == null or _film.stream == null:
+		return
+	_film.stop()
+	_film.play()
+	_film.paused = false
+	_film_started = true
+	_film_target = -1.0
+
+
 func _update_film() -> void:
 	if _film == null or _film_target < 0.0 or _film.stream == null:
 		return
@@ -451,18 +550,57 @@ func _enqueue_screening(game: Dictionary) -> void:
 		return
 	_audio_round = round
 	_audio_queue = PackedStringArray()
-	var subs: Array = game.get("submissions", []).duplicate()
-	subs.sort_custom(func(a, b): return int(a.get("points", 0)) > int(b.get("points", 0)))
-	for s in subs:
-		var url := str(s.get("audioUrl", ""))
-		if not url.is_empty():
-			_audio_queue.append(url)
+	_audio_res_queue = PackedStringArray()
+
+	var subs: Array = game.get("submissions", [])
+	var winners := _top_submissions(subs)
+
+	if str(game.get("roundType", "")) == "FOUNDTRACK":
+		# Only the winning song plays: the track the players voted for, keyed off
+		# the submission's choice id (each player was dealt a private hand, so the
+		# public option list is empty).
+		if not winners.is_empty():
+			var cid := str(winners[0].get("choiceId", ""))
+			if FOUNDTRACK_MUSIC.has(cid):
+				_audio_res_queue.append(FOUNDTRACK_MUSIC[cid])
+	else:
+		# Only the winning take(s) play — never every player's.
+		for s in winners:
+			var url := str(s.get("audioUrl", ""))
+			if not url.is_empty():
+				_audio_queue.append(url)
+
 	_pump_audio()
+
+
+## The submissions tied for the most points this round. Used to screen only the
+## winners, not every take. (When no votes were cast — e.g. one or two players —
+## every submission is tied at zero and all play, matching "used directly".)
+func _top_submissions(subs: Array) -> Array:
+	if subs.is_empty():
+		return []
+	var best := int(subs[0].get("points", 0))
+	for s in subs:
+		best = maxi(best, int(s.get("points", 0)))
+	var winners: Array = []
+	for s in subs:
+		if int(s.get("points", 0)) == best:
+			winners.append(s)
+	return winners
 
 
 func _pump_audio() -> void:
 	if _audio_player == null or _audio_busy or _audio_player.playing:
 		return
+	# A queued local track (foundtrack song) plays straight from res://.
+	if not _audio_res_queue.is_empty():
+		var res_path := _audio_res_queue[0]
+		_audio_res_queue.remove_at(0)
+		var stream := load(res_path)
+		if stream is AudioStream:
+			_audio_player.stream = stream
+			_audio_player.play()
+			return
 	if _audio_queue.is_empty():
 		return
 	_audio_busy = true
@@ -579,6 +717,19 @@ func _build_ui() -> void:
 	for child in get_children():
 		child.queue_free()
 
+	# Same backdrop as the title screen: a near-black wash, then the drifting
+	# slideshow, then the UI on top of both.
+	var background := ColorRect.new()
+	background.set_anchors_preset(Control.PRESET_FULL_RECT)
+	background.color = Color(0.08, 0.07, 0.06, 1.0)
+	background.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(background)
+
+	_slideshow = load("res://src/Slideshow.gd").new()
+	_slideshow.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_slideshow.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(_slideshow)
+
 	var margin := MarginContainer.new()
 	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
 	margin.add_theme_constant_override("margin_left", 48)
@@ -592,8 +743,12 @@ func _build_ui() -> void:
 	margin.add_child(root)
 
 	var title := Label.new()
-	title.text = "The Public Records Collection"
-	title.add_theme_font_size_override("font_size", 40)
+	title.text = "THE PUBLIC RECORDS COLLECTION"
+	title.add_theme_color_override("font_color", GOLD)
+	var title_font := load(TITLE_FONT)
+	if title_font:
+		title.add_theme_font_override("font", title_font)
+	title.add_theme_font_size_override("font_size", 52)
 	root.add_child(title)
 
 	_lobby_panel = VBoxContainer.new()
@@ -651,9 +806,11 @@ func _build_ui() -> void:
 	_advance_button.disabled = true
 	_advance_button.pressed.connect(_on_advance_pressed)
 	_game_panel.add_child(_advance_button)
+	_style_button(_advance_button)
 
 	_status_label = Label.new()
-	_status_label.add_theme_font_size_override("font_size", 18)
+	_status_label.add_theme_color_override("font_color", Color(0.85, 0.82, 0.72))
+	_apply_font(_status_label, BODY_FONT, 18)
 	root.add_child(_status_label)
 
 	_audio_player = AudioStreamPlayer.new()
@@ -671,8 +828,9 @@ func _build_lobby(panel: VBoxContainer) -> void:
 	panel.add_child(join_box)
 
 	_code_label = Label.new()
-	_code_label.add_theme_font_size_override("font_size", 72)
 	_code_label.text = "····"
+	_code_label.add_theme_color_override("font_color", GOLD)
+	_apply_font(_code_label, TITLE_FONT, 88)
 	join_box.add_child(_code_label)
 
 	var url_col := VBoxContainer.new()
@@ -681,21 +839,26 @@ func _build_lobby(panel: VBoxContainer) -> void:
 
 	var url_caption := Label.new()
 	url_caption.text = "Join at"
+	url_caption.add_theme_color_override("font_color", ACCENT)
+	_apply_font(url_caption, BODY_FONT, 22)
 	url_col.add_child(url_caption)
 
 	_url_label = Label.new()
-	_url_label.add_theme_font_size_override("font_size", 20)
 	_url_label.text = BackendConfig.players_url()
+	_url_label.add_theme_color_override("font_color", Color(0.92, 0.9, 0.82))
+	_apply_font(_url_label, BODY_FONT, 24)
 	url_col.add_child(_url_label)
 
 	var players_caption := Label.new()
 	players_caption.text = "Players"
-	players_caption.add_theme_font_size_override("font_size", 24)
+	players_caption.add_theme_color_override("font_color", ACCENT)
+	_apply_font(players_caption, BODY_FONT, 26)
 	panel.add_child(players_caption)
 
 	_players_label = Label.new()
-	_players_label.add_theme_font_size_override("font_size", 22)
 	_players_label.text = "Waiting for players…"
+	_players_label.add_theme_color_override("font_color", Color(0.92, 0.9, 0.82))
+	_apply_font(_players_label, BODY_FONT, 24)
 	panel.add_child(_players_label)
 
 	var controls := HBoxContainer.new()
@@ -705,6 +868,8 @@ func _build_lobby(panel: VBoxContainer) -> void:
 	_family_check = CheckBox.new()
 	_family_check.text = "Family-friendly"
 	_family_check.button_pressed = true
+	_family_check.add_theme_color_override("font_color", Color(0.92, 0.9, 0.82))
+	_apply_font(_family_check, BODY_FONT, 22)
 	_family_check.toggled.connect(func(_on: bool) -> void: _send_settings())
 	controls.add_child(_family_check)
 
@@ -720,6 +885,7 @@ func _build_lobby(panel: VBoxContainer) -> void:
 	for i in GAME_LABELS.size():
 		_game_select.add_item(str(GAME_LABELS[i]), i)
 	_game_select.selected = _game_index
+	_style_button(_game_select)
 	_game_select.item_selected.connect(func(idx: int) -> void:
 		_game_index = idx
 		_update_start_label())
@@ -728,8 +894,35 @@ func _build_lobby(panel: VBoxContainer) -> void:
 	_start_button = Button.new()
 	_start_button.disabled = true
 	_start_button.pressed.connect(_on_start_pressed)
+	_style_button(_start_button)
 	controls.add_child(_start_button)
 	_update_start_label()
+
+
+## Apply one of the title-screen fonts (Playfair for display text, Old Standard
+## for body/UI text) at the given size.
+func _apply_font(node: Control, path: String, size: int) -> void:
+	var font := load(path)
+	if font:
+		node.add_theme_font_override("font", font)
+	node.add_theme_font_size_override("font_size", size)
+
+
+## Give a button the title screen's look: translucent dark fill, gold hairline
+## border, Old Standard label.
+func _style_button(btn: Button) -> void:
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color(0.12, 0.12, 0.12, 0.6)
+	style.border_color = ACCENT
+	style.set_border_width_all(2)
+	style.set_corner_radius_all(4)
+	btn.add_theme_stylebox_override("normal", style)
+	btn.add_theme_stylebox_override("hover", style)
+	btn.add_theme_stylebox_override("pressed", style)
+	btn.add_theme_stylebox_override("disabled", style)
+	btn.add_theme_color_override("font_color", GOLD)
+	btn.add_theme_color_override("font_disabled_color", Color(0.6, 0.56, 0.48))
+	_apply_font(btn, BODY_FONT, 24)
 
 
 func _update_start_label() -> void:

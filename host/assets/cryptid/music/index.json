@@ -1,0 +1,302 @@
+[
+  {
+    "id": "01-01-la-primavera-spring-allegro",
+    "label": "La Primavera",
+    "file": "res://assets/cryptid/music/01-01-la-primavera-spring-allegro.mp3"
+  },
+  {
+    "id": "adventures-in-adventureland-kevin-macleod",
+    "label": "Adventures in Adventureland",
+    "file": "res://assets/cryptid/music/adventures-in-adventureland-kevin-macleod.mp3"
+  },
+  {
+    "id": "amazing-grace-traditional",
+    "label": "Amazing Grace",
+    "file": "res://assets/cryptid/music/amazing-grace-traditional.mp3"
+  },
+  {
+    "id": "android-sock-hop-kevin-macleod",
+    "label": "Android Sock Hop",
+    "file": "res://assets/cryptid/music/android-sock-hop-kevin-macleod.mp3"
+  },
+  {
+    "id": "army-strong-mark-isham",
+    "label": "Army Strong",
+    "file": "res://assets/cryptid/music/army-strong-mark-isham.mp3"
+  },
+  {
+    "id": "balloon-game-kevin-macleod",
+    "label": "Balloon Game",
+    "file": "res://assets/cryptid/music/balloon-game-kevin-macleod.mp3"
+  },
+  {
+    "id": "blue-danube-johann-strauss-ii",
+    "label": "Blue Danube",
+    "file": "res://assets/cryptid/music/blue-danube-johann-strauss-ii.mp3"
+  },
+  {
+    "id": "brain-dance-kevin-macleod",
+    "label": "Brain Dance",
+    "file": "res://assets/cryptid/music/brain-dance-kevin-macleod.mp3"
+  },
+  {
+    "id": "circuit-bent-keyboard-demo-some-sicko",
+    "label": "Circuit Bent Keyboard Demo",
+    "file": "res://assets/cryptid/music/circuit-bent-keyboard-demo-some-sicko.mp3"
+  },
+  {
+    "id": "danse-macabre-camille-saint-sa-ns",
+    "label": "Danse Macabre",
+    "file": "res://assets/cryptid/music/danse-macabre-camille-saint-sa-ns.mp3"
+  },
+  {
+    "id": "drankin-song-kevin-macleod",
+    "label": "Drankin Song",
+    "file": "res://assets/cryptid/music/drankin-song-kevin-macleod.mp3"
+  },
+  {
+    "id": "entry-of-the-gladiators-julius-fucik",
+    "label": "Entry of the Gladiators",
+    "file": "res://assets/cryptid/music/entry-of-the-gladiators-julius-fucik.mp3"
+  },
+  {
+    "id": "epic-score-jeremusic70",
+    "label": "Epic Score",
+    "file": "res://assets/cryptid/music/epic-score-jeremusic70.mp3"
+  },
+  {
+    "id": "everyone-loyalty-freak-music",
+    "label": "Everyone",
+    "file": "res://assets/cryptid/music/everyone-loyalty-freak-music.mp3"
+  },
+  {
+    "id": "farting-around-kevin-macleod",
+    "label": "Farting Around",
+    "file": "res://assets/cryptid/music/farting-around-kevin-macleod.mp3"
+  },
+  {
+    "id": "flying-kerfuffle-kevin-macleod",
+    "label": "Flying Kerfuffle",
+    "file": "res://assets/cryptid/music/flying-kerfuffle-kevin-macleod.mp3"
+  },
+  {
+    "id": "funeral-march-chopin",
+    "label": "Funeral March",
+    "file": "res://assets/cryptid/music/funeral-march-chopin.mp3"
+  },
+  {
+    "id": "funiculi-funicula-luigi-denza-and-peppino-turco",
+    "label": "Funiculi Funicula",
+    "file": "res://assets/cryptid/music/funiculi-funicula-luigi-denza-and-peppino-turco.mp3"
+  },
+  {
+    "id": "god-save-the-king",
+    "label": "God Save The King",
+    "file": "res://assets/cryptid/music/god-save-the-king.mp3"
+  },
+  {
+    "id": "gymnopedie-no-1-erik-satie",
+    "label": "Gymnopedie No. 1",
+    "file": "res://assets/cryptid/music/gymnopedie-no-1-erik-satie.mp3"
+  },
+  {
+    "id": "habanera",
+    "label": "Habanera",
+    "file": "res://assets/cryptid/music/habanera.mp3"
+  },
+  {
+    "id": "haiduceasca-traditional",
+    "label": "Haiduceasca",
+    "file": "res://assets/cryptid/music/haiduceasca-traditional.mp3"
+  },
+  {
+    "id": "halleljeah-george-frideric-handel",
+    "label": "Halleljeah",
+    "file": "res://assets/cryptid/music/halleljeah-george-frideric-handel.mp3"
+  },
+  {
+    "id": "happy-happy-game-show-kevin-macleod",
+    "label": "Happy Happy Game Show",
+    "file": "res://assets/cryptid/music/happy-happy-game-show-kevin-macleod.mp3"
+  },
+  {
+    "id": "high-stakes-spymaster-rfm1011",
+    "label": "High Stakes Spymaster",
+    "file": "res://assets/cryptid/music/high-stakes-spymaster-rfm1011.mp3"
+  },
+  {
+    "id": "in-the-hall-of-the-mountain-king-edvard-grieg",
+    "label": "In the Hall of the Mountain King",
+    "file": "res://assets/cryptid/music/in-the-hall-of-the-mountain-king-edvard-grieg.mp3"
+  },
+  {
+    "id": "kun-khmer-fight-music-traditional",
+    "label": "Kun Khmer fight music",
+    "file": "res://assets/cryptid/music/kun-khmer-fight-music-traditional.mp3"
+  },
+  {
+    "id": "liberty-bell-march-john-philip-sousa",
+    "label": "Liberty Bell March",
+    "file": "res://assets/cryptid/music/liberty-bell-march-john-philip-sousa.mp3"
+  },
+  {
+    "id": "little-fugue-in-g-minor-bach",
+    "label": "Little Fugue in G Minor",
+    "file": "res://assets/cryptid/music/little-fugue-in-g-minor-bach.mp3"
+  },
+  {
+    "id": "maple-leaf-rag-scott-joplin",
+    "label": "Maple Leaf Rag",
+    "file": "res://assets/cryptid/music/maple-leaf-rag-scott-joplin.mp3"
+  },
+  {
+    "id": "mass-of-the-day-gajard-dom-joseph",
+    "label": "Mass of the Day",
+    "file": "res://assets/cryptid/music/mass-of-the-day-gajard-dom-joseph.mp3"
+  },
+  {
+    "id": "meatball-parade-kevin-macleod",
+    "label": "Meatball Parade",
+    "file": "res://assets/cryptid/music/meatball-parade-kevin-macleod.mp3"
+  },
+  {
+    "id": "mesmerizing-galaxy-kevin-macleod",
+    "label": "Mesmerizing Galaxy",
+    "file": "res://assets/cryptid/music/mesmerizing-galaxy-kevin-macleod.mp3"
+  },
+  {
+    "id": "modern-lounge-prettyjohn1",
+    "label": "Modern Lounge",
+    "file": "res://assets/cryptid/music/modern-lounge-prettyjohn1.mp3"
+  },
+  {
+    "id": "modern-sadness-kevin-macleod",
+    "label": "Modern Sadness",
+    "file": "res://assets/cryptid/music/modern-sadness-kevin-macleod.mp3"
+  },
+  {
+    "id": "monkeys-spinning-monkeys-kevin-macleod",
+    "label": "Monkeys Spinning Monkeys",
+    "file": "res://assets/cryptid/music/monkeys-spinning-monkeys-kevin-macleod.mp3"
+  },
+  {
+    "id": "mouthalovania-oatymilkgalaxy",
+    "label": "Mouthalovania",
+    "file": "res://assets/cryptid/music/mouthalovania-oatymilkgalaxy.mp3"
+  },
+  {
+    "id": "nano-hoedown-kevin-macleod",
+    "label": "Nano Hoedown",
+    "file": "res://assets/cryptid/music/nano-hoedown-kevin-macleod.mp3"
+  },
+  {
+    "id": "o-canada",
+    "label": "O Canada",
+    "file": "res://assets/cryptid/music/o-canada.mp3"
+  },
+  {
+    "id": "ode-to-joy-on-the-netherlands-carillon",
+    "label": "Ode to Joy on the Netherlands Carillon",
+    "file": "res://assets/cryptid/music/ode-to-joy-on-the-netherlands-carillon.mp3"
+  },
+  {
+    "id": "pomp-and-circumstance",
+    "label": "Pomp and Circumstance",
+    "file": "res://assets/cryptid/music/pomp-and-circumstance.mp3"
+  },
+  {
+    "id": "pookatori-and-friends-kevin-macleod",
+    "label": "Pookatori and Friends",
+    "file": "res://assets/cryptid/music/pookatori-and-friends-kevin-macleod.mp3"
+  },
+  {
+    "id": "pop-goes-the-weasel-traditional",
+    "label": "Pop Goes The Weasel",
+    "file": "res://assets/cryptid/music/pop-goes-the-weasel-traditional.mp3"
+  },
+  {
+    "id": "ride-of-the-valkyries-richard-wagner",
+    "label": "Ride of the Valkyries",
+    "file": "res://assets/cryptid/music/ride-of-the-valkyries-richard-wagner.mp3"
+  },
+  {
+    "id": "sabre-dance-aram-khachaturian",
+    "label": "Sabre Dance",
+    "file": "res://assets/cryptid/music/sabre-dance-aram-khachaturian.mp3"
+  },
+  {
+    "id": "soviet-national-anthem",
+    "label": "Soviet National Anthem",
+    "file": "res://assets/cryptid/music/soviet-national-anthem.mp3"
+  },
+  {
+    "id": "star-spangled-banner-francis-scott-key-and-john-stafford-smith",
+    "label": "Star Spangled Banner",
+    "file": "res://assets/cryptid/music/star-spangled-banner-francis-scott-key-and-john-stafford-smith.mp3"
+  },
+  {
+    "id": "symphony-no-9-ludwig-van-beethoven",
+    "label": "Symphony No. 9",
+    "file": "res://assets/cryptid/music/symphony-no-9-ludwig-van-beethoven.mp3"
+  },
+  {
+    "id": "that-zen-moment-kevin-macleod",
+    "label": "That Zen Moment",
+    "file": "res://assets/cryptid/music/that-zen-moment-kevin-macleod.mp3"
+  },
+  {
+    "id": "the-britons-kevin-macleod",
+    "label": "The Britons",
+    "file": "res://assets/cryptid/music/the-britons-kevin-macleod.mp3"
+  },
+  {
+    "id": "the-entertainer-scott-joplin",
+    "label": "The Entertainer",
+    "file": "res://assets/cryptid/music/the-entertainer-scott-joplin.mp3"
+  },
+  {
+    "id": "the-german-s-arrival-frank-wilson",
+    "label": "The German's Arrival",
+    "file": "res://assets/cryptid/music/the-german-s-arrival-frank-wilson.mp3"
+  },
+  {
+    "id": "the-laughing-record",
+    "label": "The Laughing Record",
+    "file": "res://assets/cryptid/music/the-laughing-record.mp3"
+  },
+  {
+    "id": "the-whistling-bowery-boy-s-h-dudley",
+    "label": "The Whistling Bowery Boy",
+    "file": "res://assets/cryptid/music/the-whistling-bowery-boy-s-h-dudley.mp3"
+  },
+  {
+    "id": "toscaninini-ludwig-van-beethoven",
+    "label": "Toscanini",
+    "file": "res://assets/cryptid/music/toscaninini-ludwig-van-beethoven.mp3"
+  },
+  {
+    "id": "toy-symphony-allegro-leopold-mozart",
+    "label": "Toy Symphony",
+    "file": "res://assets/cryptid/music/toy-symphony-allegro-leopold-mozart.mp3"
+  },
+  {
+    "id": "william-tell-overture-gioachino-rossini",
+    "label": "WIlliam Tell Overture",
+    "file": "res://assets/cryptid/music/william-tell-overture-gioachino-rossini.mp3"
+  },
+  {
+    "id": "wedding-march-felix-mendelssohn",
+    "label": "Wedding March",
+    "file": "res://assets/cryptid/music/wedding-march-felix-mendelssohn.mp3"
+  },
+  {
+    "id": "welcome-to-horrorland-kevin-macleod",
+    "label": "Welcome to HorrorLand",
+    "file": "res://assets/cryptid/music/welcome-to-horrorland-kevin-macleod.mp3"
+  },
+  {
+    "id": "yankee-doodle-traditional",
+    "label": "Yankee Doodle",
+    "file": "res://assets/cryptid/music/yankee-doodle-traditional.mp3"
+  }
+]

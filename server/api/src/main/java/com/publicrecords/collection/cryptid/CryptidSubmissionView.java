@@ -15,8 +15,9 @@ public record CryptidSubmissionView(
         @Schema(description = "Author display name; null while anonymous.") String playerName,
         @Schema(description = "recording | choice") String kind,
         @Schema(description = "Chosen option label (choice rounds); null for recordings.") String label,
+        @Schema(description = "Chosen option id (choice rounds); null for recordings. The host maps this to its own asset.") String choiceId,
         @Schema(description = "Uploaded recording id (recording rounds); null for choices.") String recordingId,
-        @Schema(description = "Relative URL to fetch the recording audio; null for choices.") String audioUrl,
+        @Schema(description = "Relative URL to fetch the submission's audio (recording, or a choice's preview); null when it has none.") String audioUrl,
         @Schema(description = "Points this submission earned; null until scored.") Integer points) {
 
 }

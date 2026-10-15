@@ -64,7 +64,11 @@ public class CryptidCinemaContent {
                 }
                 final List<Choice> choices = new ArrayList<>();
                 for (final JsonNode c : r.path("choices")) {
-                    choices.add(new Choice(c.path("id").asText(), c.path("label").asText()));
+                    choices.add(new Choice(c.path("id").asText(), c.path("label").asText(), null));
+                }
+                final List<Choice> deck = new ArrayList<>();
+                for (final JsonNode c : r.path("deck")) {
+                    deck.add(new Choice(c.path("id").asText(), c.path("label").asText(), null));
                 }
                 rounds.add(new Round(
                         r.path("index").asInt(),
@@ -76,7 +80,8 @@ public class CryptidCinemaContent {
                         r.path("maxSeconds").asDouble(),
                         r.path("directorNotes").asText(""),
                         prompts,
-                        choices));
+                        choices,
+                        deck));
             }
             result.add(new Episode(
                     node.path("id").asText(),

@@ -9,6 +9,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @Schema(description = "A selectable option in a Cryptid Cinema choice round.")
 public record Choice(
         @Schema(description = "Stable option id.") String id,
-        @Schema(description = "Label shown to players.") String label) {
+        @Schema(description = "Label shown to players.") String label,
+        @Schema(description = "Root-relative URL of the option's audio preview, when it has one; null otherwise.")
+        String audioUrl) {
 
 }
