@@ -16,6 +16,9 @@ host/.godot/
 host/build/
 host/export/
 
+# Godot import metadata (regenerated per-machine on open)
+*.import
+
 # Local environment overrides
 .env.local
 *.local

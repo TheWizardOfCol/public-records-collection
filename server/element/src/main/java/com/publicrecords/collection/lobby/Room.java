@@ -91,8 +91,8 @@ final class Room {
     }
 
     /**
-     * Starts a game, snapshotting the current players into an authoritative
-     * {@link GetLitGame}. Only Get Lit is implemented today.
+     * Starts a game, snapshotting the current players into the authoritative game object
+     * for {@code gameId} — Get Lit or Cryptid Cinema.
      */
     void startGame(final String gameId, final GetLitContent content, final CryptidCinemaContent ccContent) {
         synchronized (lock) {
@@ -110,9 +110,13 @@ final class Room {
                         new Random());
                 this.phase = "in-progress";
             } else if ("cryptid-cinema".equals(gameId)) {
+                final var episode = ccContent.first()
+                        .orElseThrow(() -> new LobbyException("no Cryptid Cinema episodes are available"));
                 this.game = new CryptidCinemaGame(
+                        episode,
                         new ArrayList<>(players.keySet()),
-                        namesLocked());
+                        namesLocked(),
+                        new Random());
                 this.phase = "in-progress";
             } else {
                 throw new LobbyException("unknown game: " + gameId);

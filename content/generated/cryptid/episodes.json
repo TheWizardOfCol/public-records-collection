@@ -1,0 +1,96 @@
+[
+  {
+    "id": "house-in-the-middle",
+    "title": "The House in the Middle",
+    "blurb": "The mice present a public-service picture about keeping a tidy home. Things get messy.",
+    "video": "res://assets/cryptid/house-in-the-middle.ogv",
+    "videoNoMusic": "res://assets/cryptid/house-in-the-middle-no-music.ogv",
+    "hasFoundtrack": true,
+    "rounds": [
+      {
+        "index": 1,
+        "type": "UNDYINGALOG",
+        "seeStart": 0.0,
+        "seeEnd": 24.0,
+        "recordStart": 20.0,
+        "recordEnd": 24.0,
+        "maxSeconds": 0.0,
+        "directorNotes": "You're a narrator talking about how gross and messy this house is.",
+        "prompts": []
+      },
+      {
+        "index": 2,
+        "type": "UNDYINGALOG",
+        "seeStart": 24.0,
+        "seeEnd": 37.0,
+        "recordStart": 30.0,
+        "recordEnd": 37.0,
+        "maxSeconds": 0.0,
+        "directorNotes": "You're a narrator talking about how \"spic and span\" this house is.",
+        "prompts": []
+      },
+      {
+        "index": 3,
+        "type": "UNKNOWABLE_SFX",
+        "seeStart": 41.0,
+        "seeEnd": 45.0,
+        "recordStart": 41.0,
+        "recordEnd": 42.0,
+        "maxSeconds": 3.0,
+        "directorNotes": "",
+        "prompts": [
+          "A cartoon \"boing\"",
+          "The sound of a magical spell being cast"
+        ]
+      },
+      {
+        "index": 4,
+        "type": "UNKNOWABLE_SFX",
+        "seeStart": 48.5,
+        "seeEnd": 55.0,
+        "recordStart": 48.5,
+        "recordEnd": 55.0,
+        "maxSeconds": 0.0,
+        "directorNotes": "",
+        "prompts": [
+          "The sound of a gentle breeze from a fan on a hot summer day",
+          "The sound effect that plays in a movie when time slows down or stops",
+          "A spooky wind storm with thunder and lightning"
+        ]
+      },
+      {
+        "index": 5,
+        "type": "UNKNOWABLE_SFX",
+        "seeStart": 59.0,
+        "seeEnd": 62.0,
+        "recordStart": 59.0,
+        "recordEnd": 62.0,
+        "maxSeconds": 0.0,
+        "directorNotes": "",
+        "prompts": [
+          "Act like you just spilled a soda all over your nice rug",
+          "Give me an agitated \"Oh C'mon!\"",
+          "Excuse yourself from a party that got a little too crazy"
+        ]
+      },
+      {
+        "index": 6,
+        "type": "FOUNDTRACK",
+        "seeStart": 0.0,
+        "seeEnd": 0.0,
+        "recordStart": 0.0,
+        "recordEnd": 0.0,
+        "maxSeconds": 20.0,
+        "directorNotes": "Choose a song to use as this film's soundtrack.",
+        "prompts": [],
+        "choices": [
+          { "id": "monkeys-spinning-monkeys", "label": "Monkeys Spinning Monkeys" },
+          { "id": "happy-happy-game-show", "label": "Happy Happy Game Show" },
+          { "id": "in-the-hall-of-the-mountain-king", "label": "In the Hall of the Mountain King" },
+          { "id": "entry-of-the-gladiators", "label": "Entry of the Gladiators" },
+          { "id": "funeral-march", "label": "Funeral March" }
+        ]
+      }
+    ]
+  }
+]
