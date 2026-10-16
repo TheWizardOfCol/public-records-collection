@@ -248,8 +248,14 @@ function renderLobby(room: Room): void {
   app.innerHTML = `
     <main class="lobby">
       <header class="lobby__head">
-        <span class="lobby__code-label">Room code</span>
-        <span class="lobby__code">${room.code}</span>
+        <div class="lobby__code-wrap">
+          <span class="lobby__code-label">Room code</span>
+          <span class="lobby__code">${room.code}</span>
+          <div class="lobby__copy">
+            <button type="button" id="copy-code" class="ghost">Copy room code</button>
+            <button type="button" id="copy-url" class="ghost">Copy join URL</button>
+          </div>
+        </div>
       </header>
       <section class="lobby__body">
         <h2>${isLobby ? 'Waiting room' : 'Starting…'}</h2>
@@ -262,6 +268,16 @@ function renderLobby(room: Room): void {
     </main>
   `
 
+  bindLobby(room)
+}
+
+function bindLobby(room: Room): void {
+  document.querySelector<HTMLButtonElement>('#copy-code')?.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(room.code); } catch (e) {}
+  })
+  document.querySelector<HTMLButtonElement>('#copy-url')?.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(location.href); } catch (e) {}
+  })
   bindLeave()
 }
 
@@ -668,6 +684,7 @@ function cryptidRecord(game: CryptidPublicView, you: CryptidPrivateView): string
       : ''
     return `
       <h2>Pick your option</h2>
+      ${you.prompt ? `<p class="prompt">${escapeHtml(you.prompt)}</p>` : ''}
       ${hint}
       <ul class="works">${items}</ul>
       <p class="status">${game.submitted} of ${game.players} submitted.</p>
@@ -909,14 +926,45 @@ async function submitRecording(you: CryptidPrivateView): Promise<void> {
   recError = ''
   renderCryptid(lastGame as CryptidPublicView, you)
   try {
-    const res = await fetch('/collection/recordings', {
-      method: 'POST',
-      headers: { 'Content-Type': 'audio/wav' },
-      body: recBlob,
-    })
-    if (!res.ok) throw new Error(`HTTP ${res.status}`)
-    const data = (await res.json()) as { id: string }
-    send({ type: 'submit-answer', text: data.id })
+    const buf = await recBlob.arrayBuffer()
+    const bytes = new Uint8Array(buf)
+    const CHUNK = 8000
+    if (bytes.length <= CHUNK) {
+      const res = await fetch('/collection/recordings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'audio/wav' },
+        body: recBlob,
+      })
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      const data = (await res.json()) as { id: string }
+      send({ type: 'submit-answer', text: data.id })
+    } else {
+      const chunks = Math.ceil(bytes.length / CHUNK)
+      const start = await fetch('/collection/recordings/chunked/start', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ totalChunks: chunks, expectedSize: bytes.length, contentType: 'audio/wav' }),
+      })
+      if (!start.ok) throw new Error(`HTTP ${start.status}`)
+      const { uploadId } = (await start.json()) as { uploadId: string }
+      for (let i = 0; i < chunks; i++) {
+        const slice = bytes.slice(i * CHUNK, Math.min((i + 1) * CHUNK, bytes.length))
+        const r = await fetch(`/collection/recordings/chunked/${uploadId}/${i}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/octet-stream' },
+          body: slice,
+        })
+        if (!r.ok) throw new Error(`HTTP ${r.status}`)
+      }
+      const fin = await fetch(`/collection/recordings/chunked/${uploadId}/finish`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'audio/wav' },
+        body: recBlob,
+      })
+      if (!fin.ok) throw new Error(`HTTP ${fin.status}`)
+      const data = (await fin.json()) as { id: string }
+      send({ type: 'submit-answer', text: data.id })
+    }
   } catch (err) {
     recError = `Upload failed: ${(err as Error).message}`
     recState = 'ready'

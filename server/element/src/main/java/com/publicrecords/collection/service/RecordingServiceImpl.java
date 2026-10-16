@@ -34,6 +34,23 @@ public class RecordingServiceImpl implements RecordingService {
         return store.get(id).map(RecordingServiceImpl::toTake);
     }
 
+
+    @Override
+    public String startChunked(final int totalChunks, final int expectedSize) {
+        return store.startChunked(totalChunks, expectedSize);
+    }
+
+    @Override
+    public void addChunk(final String uploadId, final int index, final byte[] bytes) {
+        store.addChunk(uploadId, index, bytes);
+    }
+
+    @Override
+    public Take finishChunked(final String uploadId, final String contentType) {
+        return toTake(store.finishChunked(uploadId, contentType));
+    }
+
+
     private static Take toTake(final RecordingStore.Recording recording) {
         return new Take(recording.id(), recording.contentType(), recording.bytes());
     }

@@ -76,4 +76,44 @@ public class RecordingsResource {
                 .orElseGet(() -> Response.status(Response.Status.NOT_FOUND).build());
     }
 
+
+    @POST
+    @Path("/chunked/start")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response startChunked(final Map<String, Object> req) {
+        final int totalChunks = ((Number) req.getOrDefault("totalChunks", 0)).intValue();
+        final int expectedSize = ((Number) req.getOrDefault("expectedSize", 0)).intValue();
+        final String contentType = req.getOrDefault("contentType", "audio/wav").toString();
+        final String uploadId = recordings.startChunked(totalChunks, expectedSize);
+        return Response.ok(Map.of("uploadId", uploadId, "contentType", contentType)).build();
+    }
+
+    @POST
+    @Path("/chunked/{uploadId}/{index}")
+    @Consumes(MediaType.WILDCARD)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response addChunk(
+            @PathParam("uploadId") final String uploadId,
+            @PathParam("index") final int index,
+            final byte[] body) {
+        recordings.addChunk(uploadId, index, body);
+        return Response.ok().build();
+    }
+
+    @POST
+    @Path("/chunked/{uploadId}/finish")
+    @Consumes(MediaType.WILDCARD)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response finishChunked(
+            @PathParam("uploadId") final String uploadId,
+            @Context final HttpHeaders headers) {
+        final MediaType type = headers.getMediaType();
+        final RecordingService.Take recording = recordings.finishChunked(uploadId,
+                type == null ? null : type.toString());
+        return Response.ok(Map.of(
+                "id", recording.id(),
+                "url", "/collection/recordings/" + recording.id())).build();
+    }
+
 }

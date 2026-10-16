@@ -59,4 +59,65 @@ public class RecordingStore {
 
     }
 
+
+    private final Map<String, ChunkedUpload> chunks = new ConcurrentHashMap<>();
+
+    public static class ChunkedUpload {
+        final String id;
+        final int totalChunks;
+        final int expectedSize;
+        final byte[][] parts;
+        int received;
+        long started = System.currentTimeMillis();
+
+        ChunkedUpload(final String id, final int totalChunks, final int expectedSize) {
+            this.id = id;
+            this.totalChunks = totalChunks;
+            this.expectedSize = expectedSize;
+            this.parts = new byte[totalChunks][];
+            this.received = 0;
+        }
+    }
+
+    public String startChunked(final int totalChunks, final int expectedSize) {
+        final String id = UUID.randomUUID().toString();
+        chunks.put(id, new ChunkedUpload(id, totalChunks, expectedSize));
+        return id;
+    }
+
+    public synchronized void addChunk(final String uploadId, final int index, final byte[] bytes) {
+        final ChunkedUpload upload = chunks.get(uploadId);
+        if (upload == null) throw new IllegalArgumentException("unknown upload");
+        if (index < 0 || index >= upload.parts.length) throw new IllegalArgumentException("invalid chunk index");
+        if (upload.parts[index] != null) throw new IllegalArgumentException("chunk already received");
+        upload.parts[index] = bytes;
+        upload.received++;
+    }
+
+    public synchronized Recording finishChunked(final String uploadId, final String contentType) {
+        final ChunkedUpload upload = chunks.remove(uploadId);
+        if (upload == null) throw new IllegalArgumentException("unknown upload");
+        if (upload.received != upload.parts.length) throw new IllegalArgumentException("incomplete upload");
+        int total = 0;
+        for (byte[] p : upload.parts) total += p.length;
+        if (total > MAX_RECORDING_BYTES) throw new IllegalArgumentException("recording too large");
+        if (upload.expectedSize > 0 && total != upload.expectedSize) throw new IllegalArgumentException("size mismatch");
+        final byte[] combined = new byte[total];
+        int pos = 0;
+        for (byte[] p : upload.parts) {
+            System.arraycopy(p, 0, combined, pos, p.length);
+            pos += p.length;
+        }
+        if (totalBytes + total > MAX_TOTAL_BYTES) {
+            throw new IllegalStateException("recording storage full");
+        }
+        final String id = UUID.randomUUID().toString();
+        final String type = (contentType == null || contentType.isBlank()) ? "application/octet-stream" : contentType;
+        final Recording recording = new Recording(id, type, combined);
+        recordings.put(id, recording);
+        totalBytes += total;
+        logger.info("stored chunked recording {} ({} bytes, {}), {} total", id, total, type, totalBytes);
+        return recording;
+    }
+
 }

@@ -709,7 +709,13 @@ func _send_settings() -> void:
 func _on_start_pressed() -> void:
 	if _ws.get_ready_state() != WebSocketPeer.STATE_OPEN:
 		return
-	_ws.send_text(JSON.stringify({"type": "start", "gameId": GAME_IDS[_game_index]}))
+	var payload = {"type": "start", "gameId": GAME_IDS[_game_index]}
+	if GAME_IDS[_game_index] == "cryptid-cinema":
+		if has_node("/root/EpisodeSelect"):
+			payload["episodeId"] = EpisodeSelect.selected_episode
+		else:
+			payload["episodeId"] = 0
+	_ws.send_text(JSON.stringify(payload))
 
 
 func _on_advance_pressed() -> void:
@@ -855,6 +861,22 @@ func _build_lobby(panel: VBoxContainer) -> void:
 	_url_label.add_theme_color_override("font_color", Color(0.92, 0.9, 0.82))
 	_apply_font(_url_label, BODY_FONT, 24)
 	url_col.add_child(_url_label)
+	var url_btns := HBoxContainer.new()
+	url_btns.add_theme_constant_override("separation", 8)
+	url_col.add_child(url_btns)
+
+	var copy_url_btn := Button.new()
+	copy_url_btn.text = "Copy join URL"
+	_style_button(copy_url_btn)
+	copy_url_btn.pressed.connect(func() -> void: DisplayServer.clipboard_set(BackendConfig.players_url()))
+	url_btns.add_child(copy_url_btn)
+
+	var copy_code_btn := Button.new()
+	copy_code_btn.text = "Copy room code"
+	_style_button(copy_code_btn)
+	copy_code_btn.pressed.connect(func() -> void: DisplayServer.clipboard_set(_room_code))
+	url_btns.add_child(copy_code_btn)
+
 
 	var players_caption := Label.new()
 	players_caption.text = "Players"

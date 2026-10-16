@@ -20,6 +20,14 @@ public interface RecordingService {
     Optional<Take> get(String id);
 
     /** A stored take: its id, the content type it was uploaded with, and its raw bytes. */
+
+    String startChunked(int totalChunks, int expectedSize);
+
+    void addChunk(String uploadId, int index, byte[] bytes);
+
+    Take finishChunked(String uploadId, String contentType);
+
+
     record Take(String id, String contentType, byte[] bytes) {
     }
 

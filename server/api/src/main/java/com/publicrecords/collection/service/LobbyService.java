@@ -52,7 +52,7 @@ public interface LobbyService {
     /**
      * Host-only: records the chosen game and moves the room into its starting phase.
      */
-    void startGame(Session session, String gameId);
+    void startGame(Session session, String gameId, String episodeId);
 
     /**
      * Host-only: replaces the lobby settings for the sender's room.
