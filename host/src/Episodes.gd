@@ -1,6 +1,5 @@
 extends Control
 
-const EpisodeButton := preload("res://src/EpisodeButton.gd")
 
 @onready var _scroll = $ScrollContainer
 @onready var _list = $ScrollContainer/VBoxContainer
