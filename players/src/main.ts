@@ -959,7 +959,6 @@ async function submitRecording(you: CryptidPrivateView): Promise<void> {
       const fin = await fetch(`/collection/recordings/chunked/${uploadId}/finish`, {
         method: 'POST',
         headers: { 'Content-Type': 'audio/wav' },
-        body: recBlob,
       })
       if (!fin.ok) throw new Error(`HTTP ${fin.status}`)
       const data = (await fin.json()) as { id: string }

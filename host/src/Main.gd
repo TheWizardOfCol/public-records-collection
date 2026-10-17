@@ -153,6 +153,13 @@ func _ready() -> void:
 
 	_build_ui()
 
+	if has_node("/root/EpisodeSelect") and get_node("/root/EpisodeSelect").should_start:
+		get_node("/root/EpisodeSelect").should_start = false
+		var payload = {"type": "start", "gameId": "cryptid-cinema"}
+		payload["episodeId"] = get_node("/root/EpisodeSelect").selected_episode
+		if _ws.get_ready_state() == WebSocketPeer.STATE_OPEN:
+			_ws.send_text(JSON.stringify(payload))
+
 	_http = HTTPRequest.new()
 	add_child(_http)
 	_http.request_completed.connect(_on_room_created)
@@ -709,12 +716,11 @@ func _send_settings() -> void:
 func _on_start_pressed() -> void:
 	if _ws.get_ready_state() != WebSocketPeer.STATE_OPEN:
 		return
-	var payload = {"type": "start", "gameId": GAME_IDS[_game_index]}
 	if GAME_IDS[_game_index] == "cryptid-cinema":
-		if has_node("/root/EpisodeSelect"):
-			payload["episodeId"] = EpisodeSelect.selected_episode
-		else:
-			payload["episodeId"] = 0
+		# go to episode chooser after room code screen
+		get_tree().change_scene_to_file("res://scenes/Episodes.tscn")
+		return
+	var payload = {"type": "start", "gameId": GAME_IDS[_game_index]}
 	_ws.send_text(JSON.stringify(payload))
 
 

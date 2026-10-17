@@ -32,15 +32,12 @@ func _load_episodes() -> void:
 			_list.add_child(btn)
 
 func _select_episode(idx: int) -> void:
-	var main = load("res://scenes/Main.tscn").instantiate()
-	get_tree().root.add_child(main)
-	# store selection? Main reads from global or we could pass via autoload; Main uses _game_index + cryptid based on game type
-	# but episode is cryptid-specific - for now just go to Main and let user select; better to set a var
-	# easier: set a global
 	if has_node("/root/EpisodeSelect"):
 		get_node("/root/EpisodeSelect").selected_episode = idx
-	get_tree().current_scene.queue_free()
-	get_tree().current_scene = main
+	# go back to previous scene (Main)
+	# go back and signal main to start
+	var main_scene = load("res://scenes/Main.tscn")
+	get_tree().change_scene_to_file("res://scenes/Main.tscn")
 
 func _load_json(path: String) -> Variant:
 	var f = FileAccess.open(path, FileAccess.READ)
