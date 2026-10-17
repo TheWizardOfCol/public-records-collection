@@ -7,11 +7,11 @@
     <parent>
         <groupId>com.publicrecords</groupId>
         <artifactId>parent</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.1.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>element</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1.1-SNAPSHOT</version>
 
     <!--
         This includes a variety of dependencies which the Element uses. An Element may use some or all of these. Note
@@ -78,15 +78,15 @@
             <scope>provided</scope>
         </dependency>
         <!--
-            Jackson Databind. Used to encode/decode the WebSocket wire messages (the REST
-            layer gets Jackson from the Elements runtime). Provided: the runtime already
-            ships Jackson, so it must not be bundled into the .elm's lib/ directory.
+            Jackson Databind. Used to encode/decode the WebSocket wire messages. Bundled
+            (not provided): the element classloader is self-first, so the databind classes
+            referenced by the bundled Jackson jars (core/annotations/jakarta-rs/yaml) must
+            be present in lib/ alongside them, and must match their version (2.20.1).
         -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
-            <scope>provided</scope>
         </dependency>
         <!-- Swagger Annotations for API Documentation. -->
         <dependency>
@@ -187,6 +187,10 @@
                                 <copy todir="${elm.element.dir}/classpath/content/get-lit" failonerror="false">
                                     <fileset dir="${basedir}/../../content/generated/get-lit" erroronmissingdir="false" includes="*.json"/>
                                 </copy>
+                                <!-- Cryptid Cinema episode definitions, server-side only. -->
+                                <copy todir="${elm.element.dir}/classpath/content/cryptid" failonerror="false">
+                                    <fileset dir="${basedir}/../../content/generated/cryptid" erroronmissingdir="false" includes="*.json"/>
+                                </copy>
                             </target>
                         </configuration>
                     </execution>
@@ -279,7 +283,7 @@ Element-Builtin-Spis=${elm.builtin.spis}
                 Attaches the .elm archive to the build so it is installed and deployed alongside
                 the standard jar artifact. After mvn install the artifact is available in the
                 local Maven repository as:
-                    com.publicrecords:element:1.0-SNAPSHOT:elm
+                    com.publicrecords:element:1.1.0-SNAPSHOT:elm
                 and can be published to a remote repository with mvn deploy.
             -->
             <plugin>

@@ -91,10 +91,10 @@ final class Room {
     }
 
     /**
-     * Starts a game, snapshotting the current players into an authoritative
-     * {@link GetLitGame}. Only Get Lit is implemented today.
+     * Starts a game, snapshotting the current players into the authoritative game object
+     * for {@code gameId} — Get Lit or Cryptid Cinema.
      */
-    void startGame(final String gameId, final GetLitContent content, final CryptidCinemaContent ccContent) {
+    void startGame(final String gameId, final String episodeId, final GetLitContent content, final CryptidCinemaContent ccContent) {
         synchronized (lock) {
             if (players.isEmpty()) {
                 throw new LobbyException("at least one player is required to start");
@@ -110,9 +110,16 @@ final class Room {
                         new Random());
                 this.phase = "in-progress";
             } else if ("cryptid-cinema".equals(gameId)) {
+                final var episode = (episodeId != null && !episodeId.isBlank())
+                        ? ccContent.episode(episodeId)
+                                .orElseThrow(() -> new LobbyException("no such episode: " + episodeId))
+                        : ccContent.first()
+                                .orElseThrow(() -> new LobbyException("no Cryptid Cinema episodes are available"));
                 this.game = new CryptidCinemaGame(
+                        episode,
                         new ArrayList<>(players.keySet()),
-                        namesLocked());
+                        namesLocked(),
+                        new Random());
                 this.phase = "in-progress";
             } else {
                 throw new LobbyException("unknown game: " + gameId);

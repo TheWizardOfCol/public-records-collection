@@ -16,6 +16,13 @@ host/.godot/
 host/build/
 host/export/
 
+# Godot import metadata (regenerated per-machine on open)
+*.import
+
 # Local environment overrides
 .env.local
 *.local
+
+# Raw upload sources — processed assets are checked in under host/assets and content/
+/Cryptid Cinema stuff/
+/*.jpg
