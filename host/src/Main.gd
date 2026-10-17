@@ -394,6 +394,11 @@ func _render_cryptid(game: Dictionary, phase: String) -> void:
 	_game_title.text = "Cryptid Cinema — Round %d / %d · %s" % [max(round, 1), total, rtype]
 	print("[host] cryptid phase: %s (round %d/%d)" % [phase, round, total])
 
+	# Minimal on-screen text while the video plays; narration/notes appear as HUD.
+	_game_title.visible = not _video_playing_now(game, phase)
+	if not _video_playing_now(game, phase):
+		_game_title.text = "Cryptid Cinema — Round %d / %d · %s" % [max(round, 1), total, rtype]
+
 	# Up to the foundtrack round the film plays with its own music; from the
 	# foundtrack screening on, the host uses the music-less cut and layers the
 	# chosen track and the players' takes over it.
@@ -449,7 +454,18 @@ func _render_cryptid(game: Dictionary, phase: String) -> void:
 				lines.append("")
 				lines.append("[b]%s wins![/b]" % str(scores[0].get("name", "?")))
 
-	_cryptid_notes.text = "\n".join(lines)
+	# show only minimal info when video is playing
+	if _video_playing_now(game, phase):
+		var submitted = 0
+		var players_list = game.get("players", [])
+		for p in players_list:
+			if p.get("submitted", false) or p.get("ready", false):
+				submitted += 1
+		_cryptid_notes.text = "[b]Round %d/%d[/b] — Submitted: %d/%d" % [max(round, 1), total, submitted, len(players_list)]
+		_cryptid_notes.visible = true
+	else:
+		_cryptid_notes.text = "\n".join(lines)
+		_cryptid_notes.visible = true
 
 
 func _round_type_label(t: String) -> String:
@@ -793,8 +809,8 @@ func _build_ui() -> void:
 	_game_panel.add_child(_cryptid_view)
 
 	var film_aspect := AspectRatioContainer.new()
-	film_aspect.ratio = 4.0 / 3.0
-	film_aspect.custom_minimum_size = Vector2(640, 480)
+	film_aspect.ratio = 16.0 / 9.0
+	film_aspect.custom_minimum_size = Vector2(960, 720)
 	film_aspect.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	film_aspect.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	_cryptid_view.add_child(film_aspect)
@@ -969,3 +985,5 @@ func _set_status(text: String) -> void:
 	if _status_label != null:
 		_status_label.text = text
 	print("[host] ", text)
+func _video_playing_now(game: Dictionary, phase: String) -> bool:
+	return phase in ["play", "film", "review"] and not phase.begins_with("vote") and not phase.begins_with("record") and not phase.begins_with("waiting")
