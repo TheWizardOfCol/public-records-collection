@@ -928,7 +928,7 @@ async function submitRecording(you: CryptidPrivateView): Promise<void> {
   try {
     const buf = await recBlob.arrayBuffer()
     const bytes = new Uint8Array(buf)
-    const CHUNK = 8000
+    const CHUNK = 4000
     if (bytes.length <= CHUNK) {
       const res = await fetch('/collection/recordings', {
         method: 'POST',
