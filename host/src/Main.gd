@@ -817,6 +817,7 @@ func _build_ui() -> void:
 
 	_film = VideoStreamPlayer.new()
 	_film.expand = true
+	_film.set("stretch_mode", VideoStreamPlayer.STRETCH_KEEP_ASPECT_COVERED)
 	_film.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_film.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	film_aspect.add_child(_film)
