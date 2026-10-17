@@ -34,10 +34,11 @@ func _load_episodes() -> void:
 func _select_episode(idx: int) -> void:
 	if has_node("/root/EpisodeSelect"):
 		get_node("/root/EpisodeSelect").selected_episode = idx
-	# go back to previous scene (Main)
-	# go back and signal main to start
-	var main_scene = load("res://scenes/Main.tscn")
-	get_tree().change_scene_to_file("res://scenes/Main.tscn")
+	var parent = get_parent()
+	if parent != null and parent.has_method("_on_episode_selected"):
+		parent.call("_on_episode_selected", idx)
+	else:
+		queue_free()
 
 func _load_json(path: String) -> Variant:
 	var f = FileAccess.open(path, FileAccess.READ)

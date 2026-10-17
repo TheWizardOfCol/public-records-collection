@@ -153,12 +153,6 @@ func _ready() -> void:
 
 	_build_ui()
 
-	if has_node("/root/EpisodeSelect") and get_node("/root/EpisodeSelect").should_start:
-		get_node("/root/EpisodeSelect").should_start = false
-		var payload = {"type": "start", "gameId": "cryptid-cinema"}
-		payload["episodeId"] = get_node("/root/EpisodeSelect").selected_episode
-		if _ws.get_ready_state() == WebSocketPeer.STATE_OPEN:
-			_ws.send_text(JSON.stringify(payload))
 
 	_http = HTTPRequest.new()
 	add_child(_http)
@@ -733,8 +727,8 @@ func _on_start_pressed() -> void:
 	if _ws.get_ready_state() != WebSocketPeer.STATE_OPEN:
 		return
 	if GAME_IDS[_game_index] == "cryptid-cinema":
-		# go to episode chooser after room code screen
-		get_tree().change_scene_to_file("res://scenes/Episodes.tscn")
+		# show episode chooser in same scene to preserve room state
+		_show_episodes()
 		return
 	var payload = {"type": "start", "gameId": GAME_IDS[_game_index]}
 	_ws.send_text(JSON.stringify(payload))
@@ -987,3 +981,22 @@ func _set_status(text: String) -> void:
 	print("[host] ", text)
 func _video_playing_now(game: Dictionary, phase: String) -> bool:
 	return phase in ["play", "film", "review"] and not phase.begins_with("vote") and not phase.begins_with("record") and not phase.begins_with("waiting")
+
+
+var _episodes_panel: Control = null
+
+func _show_episodes() -> void:
+	if _episodes_panel != null:
+		return
+	var episodes = load("res://scenes/Episodes.tscn").instantiate()
+	add_child(episodes)
+	_episodes_panel = episodes
+
+func _on_episode_selected(idx: int) -> void:
+	if _episodes_panel != null:
+		_episodes_panel.queue_free()
+		_episodes_panel = null
+	var payload = {"type": "start", "gameId": "cryptid-cinema"}
+	payload["episodeId"] = idx
+	if _ws.get_ready_state() == WebSocketPeer.STATE_OPEN:
+		_ws.send_text(JSON.stringify(payload))
