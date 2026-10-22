@@ -14,7 +14,7 @@ element/   REST endpoints, services, Guice modules → compiles to the .elm arch
 debug/     Local Elements runtime harness (never deployed)
 ```
 
-- **Element coordinate:** `com.publicrecords:element:1.0-SNAPSHOT:elm`
+- **Element coordinate:** `com.publicrecords:element:1.1.0-SNAPSHOT:elm`
 - **REST root:** `/collection` (e.g. `/collection/health`)
 - **WebSocket root:** `/collection-ws`
 - **Static player content:** `/app/static/collection/`

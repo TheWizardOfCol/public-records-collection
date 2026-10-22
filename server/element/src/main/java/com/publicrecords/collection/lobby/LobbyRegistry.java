@@ -117,12 +117,12 @@ public class LobbyRegistry {
     /**
      * Host-only: records the chosen game and moves the room into its {@code starting} phase.
      */
-    public void startGame(final Session session, final String gameId) {
+    public void startGame(final Session session, final String gameId, final String episodeId) {
         final Room room = requireHost(session);
         if (gameId == null || gameId.isBlank()) {
             throw new LobbyException("gameId is required");
         }
-        room.startGame(gameId.trim(), content, cryptidContent);
+        room.startGame(gameId.trim(), episodeId, content, cryptidContent);
         broadcastState(room);
     }
 

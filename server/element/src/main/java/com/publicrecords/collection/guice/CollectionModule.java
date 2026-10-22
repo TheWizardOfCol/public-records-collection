@@ -5,6 +5,7 @@ import com.google.inject.Singleton;
 import com.publicrecords.collection.getlit.GetLitContent;
 import com.publicrecords.collection.cryptid.CryptidCinemaContent;
 import com.publicrecords.collection.lobby.LobbyRegistry;
+import com.publicrecords.collection.media.RecordingStore;
 
 public class CollectionModule extends PrivateModule {
 
@@ -19,6 +20,11 @@ public class CollectionModule extends PrivateModule {
         expose(GetLitContent.class);
         bind(CryptidCinemaContent.class).in(Singleton.class);
         expose(CryptidCinemaContent.class);
+
+        // Ephemeral store for player audio takes, shared by the recording REST endpoint
+        // and the game engine.
+        bind(RecordingStore.class).in(Singleton.class);
+        expose(RecordingStore.class);
 
         // The lobby hub holds live rooms and is shared by the REST and WebSocket
         // surfaces, so it is bound as a singleton and exposed for injection into

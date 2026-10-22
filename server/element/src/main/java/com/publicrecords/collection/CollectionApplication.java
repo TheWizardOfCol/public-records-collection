@@ -2,6 +2,7 @@ package com.publicrecords.collection;
 
 import com.publicrecords.collection.rest.BooksResource;
 import com.publicrecords.collection.rest.Health;
+import com.publicrecords.collection.rest.RecordingsResource;
 import com.publicrecords.collection.rest.RoomsResource;
 import dev.getelements.elements.sdk.annotation.ElementDefaultAttribute;
 import dev.getelements.elements.sdk.annotation.ElementServiceExport;
@@ -53,6 +54,7 @@ public class CollectionApplication extends Application {
                 Health.class,
                 RoomsResource.class,
                 BooksResource.class,
+                RecordingsResource.class,
 
                 // Declares the builtin Elements auth scheme for the generated OpenAPI document.
                 OpenAPISecurityConfig.class

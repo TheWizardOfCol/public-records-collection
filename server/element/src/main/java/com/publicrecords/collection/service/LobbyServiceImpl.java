@@ -50,8 +50,8 @@ public class LobbyServiceImpl implements LobbyService {
     }
 
     @Override
-    public void startGame(final Session session, final String gameId) {
-        registry.startGame(session, gameId);
+    public void startGame(final Session session, final String gameId, final String episodeId) {
+        registry.startGame(session, gameId, episodeId);
     }
 
     @Override

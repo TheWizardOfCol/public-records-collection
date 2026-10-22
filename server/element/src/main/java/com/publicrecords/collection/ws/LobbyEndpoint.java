@@ -59,7 +59,7 @@ public class LobbyEndpoint {
             switch (type) {
                 case "host" -> lobby().hostConnect(text(node, "code"), text(node, "token"), session);
                 case "join" -> lobby().join(text(node, "code"), text(node, "name"), text(node, "playerId"), session);
-                case "start" -> lobby().startGame(session, text(node, "gameId"));
+                case "start" -> lobby().startGame(session, text(node, "gameId"), text(node, "episodeId"));
                 case "settings" -> lobby().updateSettings(session, settings(node));
                 case "choose-work" -> lobby().chooseWork(session, text(node, "workId"));
                 case "submit-answer" -> lobby().submitAnswer(session, text(node, "text"));
