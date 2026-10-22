@@ -656,6 +656,9 @@ function cryptidBrief(game: CryptidPublicView, you: CryptidPrivateView): string 
 }
 
 function cryptidRecord(game: CryptidPublicView, you: CryptidPrivateView): string {
+  const notesHtml = you.directorNotes
+    ? `<section class="recite"><h3>Director's notes</h3><p class="notes">${escapeHtml(you.directorNotes)}</p></section>`
+    : ''
   if (you.submissionId) {
     const chosen = you.choiceLabel
       ? `<p class="chosen">${escapeHtml(you.choiceLabel)}</p>`
@@ -684,6 +687,7 @@ function cryptidRecord(game: CryptidPublicView, you: CryptidPrivateView): string
       : ''
     return `
       <h2>Pick your option</h2>
+      ${notesHtml}
       ${you.prompt ? `<p class="prompt">${escapeHtml(you.prompt)}</p>` : ''}
       ${hint}
       <ul class="works">${items}</ul>
@@ -694,6 +698,7 @@ function cryptidRecord(game: CryptidPublicView, you: CryptidPrivateView): string
   const prompt = you.prompt ? `<p class="prompt">${escapeHtml(you.prompt)}</p>` : ''
   return `
     <h2>Record your take</h2>
+    ${notesHtml}
     ${prompt}
     ${recordControl(you)}
     <p class="status">${game.submitted} of ${game.players} submitted.</p>
