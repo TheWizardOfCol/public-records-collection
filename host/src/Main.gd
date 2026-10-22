@@ -478,13 +478,9 @@ func _render_cryptid(game: Dictionary, phase: String) -> void:
 	# While the film plays, all side text goes away; a small HUD over the
 	# picture keeps the round counter and submitted count.
 	if _video_playing_now(game, phase):
-		var submitted = 0
-		var players_list = game.get("players", [])
-		for p in players_list:
-			if p.get("submitted", false) or p.get("ready", false):
-				submitted += 1
 		_cryptid_hud.text = "Round %d / %d   ·   Submitted %d / %d" % [
-			max(round, 1), total, submitted, len(players_list)]
+			max(round, 1), total,
+			int(game.get("submitted", 0)), int(game.get("players", 0))]
 		_cryptid_hud.visible = true
 		_cryptid_notes.visible = false
 	else:
