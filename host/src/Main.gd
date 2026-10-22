@@ -63,6 +63,21 @@ var _audio_res_queue: PackedStringArray = PackedStringArray() # res:// paths
 var _audio_round := -1
 var _audio_busy := false
 
+# Winner screening: the film replays 0..recordEnd with the original audio muted
+# inside [recordStart, recordEnd) while the winning take plays over it.
+var _screen_player: AudioStreamPlayer
+var _screen_http: HTTPRequest
+var _screening_active := false
+var _screening_round := -1
+var _screening_winners: Array = [] # [{audioUrl}] for the current round
+var _screening_index := 0
+var _screening_cue := 0.0          # recordStart of the current round
+var _screening_endt := 0.0         # recordEnd of the current round
+var _screening_played := false     # winner wav armed/started this window
+var _screening_have := false       # this window's wav fetched and ready
+var _mute_start := -1.0            # original-audio mute window for the current roll
+var _mute_end := -1.0
+
 const FOUNDTRACK_MUSIC := {
 	"01-01-la-primavera-spring-allegro": "res://assets/cryptid/music/01-01-la-primavera-spring-allegro.mp3",
 	"adventures-in-adventureland-kevin-macleod": "res://assets/cryptid/music/adventures-in-adventureland-kevin-macleod.mp3",
@@ -413,10 +428,17 @@ func _render_cryptid(game: Dictionary, phase: String) -> void:
 
 	match phase:
 		"brief":
-			_play_film_until(float(game.get("seeEnd", 0.0)))
-			lines.append("Roll film — get ready to record.")
-			lines.append("")
-			lines.append(_prompt_pool(game))
+			# A new round cancels any screening left over from the last one.
+			if _screening_active and _screening_round != round:
+				_screening_active = false
+				_screen_player.stop()
+			var see_end := float(game.get("seeEnd", 0.0))
+			if see_end > 0.0:
+				_roll_window(see_end)
+			else:
+				# FOUNDTRACK-style rounds screen the full music-less cut.
+				_replay_film_from_start()
+			lines.append("Roll film — players are reading their lines on their devices.")
 		"record":
 			_pause_film()
 			lines.append("Recording…  %d of %d submitted." % [
@@ -430,8 +452,13 @@ func _render_cryptid(game: Dictionary, phase: String) -> void:
 		"results":
 			if is_foundtrack:
 				_replay_film_from_start()
-			else:
+				_enqueue_screening(game)
+			elif round_type == "UNKNOWABLE_SFX":
+				# Unknowable Sound screens without the film — the takes stand alone.
 				_pause_film()
+				_enqueue_screening(game)
+			else:
+				_start_screening(game)
 			lines.append(_cryptid_submissions(game, true))
 			lines.append("")
 			lines.append("[b]This round[/b]")
@@ -439,7 +466,6 @@ func _render_cryptid(game: Dictionary, phase: String) -> void:
 			lines.append("")
 			lines.append("[b]Standings[/b]")
 			lines.append(_scores_list(game.get("scores", [])))
-			_enqueue_screening(game)
 		"finished":
 			_pause_film()
 			lines.append("[font_size=26][b]Final Standings[/b][/font_size]")
@@ -481,17 +507,6 @@ func _round_type_label(t: String) -> String:
 			return t
 
 
-func _prompt_pool(game: Dictionary) -> String:
-	var prompts: Array = game.get("prompts", [])
-	if prompts.is_empty():
-		return ""
-	var lines := PackedStringArray()
-	lines.append("[b]Possible lines[/b]")
-	for p in prompts:
-		lines.append("• %s" % str(p))
-	return "\n".join(lines)
-
-
 func _cryptid_submissions(game: Dictionary, revealed: bool) -> String:
 	var subs: Array = game.get("submissions", [])
 	if subs.is_empty():
@@ -523,18 +538,25 @@ func _ensure_film(path: String) -> void:
 	_film_target = -1.0
 
 
-func _play_film_until(seconds: float) -> void:
+## Roll the film up to `to` (seconds). Because VideoStreamPlayer cannot seek,
+## a window that is already behind is reached by restarting from the top; the
+## lead-up rolls with the original audio freely (it is part of the picture).
+## [mute_start, mute_end) silences the film's own audio while it passes.
+func _roll_window(to: float, mute_start := -1.0, mute_end := -1.0) -> void:
 	if _film.stream == null:
 		return
-	if seconds > 0.0 and _film.stream_position >= seconds:
-		_film.paused = true
-		_film_target = -1.0
-		return
+	_mute_start = mute_start
+	_mute_end = mute_end
+	_film.volume_db = 0.0
+	if to > 0.0 and _film_started and _film.stream_position >= to - 0.05:
+		# Already past it — restart so the window still gets shown.
+		_film.stop()
+		_film_started = false
 	if not _film_started:
 		_film.play()
 		_film_started = true
 	_film.paused = false
-	_film_target = seconds
+	_film_target = to
 
 
 func _pause_film() -> void:
@@ -566,12 +588,88 @@ func _replay_film_from_start() -> void:
 func _update_film() -> void:
 	if _film == null or _film_target < 0.0 or _film.stream == null:
 		return
-	if _film.stream_position >= _film_target:
+	var pos := _film.stream_position
+	if pos >= _film_target:
 		_film.paused = true
 		_film_target = -1.0
+		_film.volume_db = 0.0
+		if _screening_active:
+			_on_screen_window_done()
+		return
+	# Mute the film's own audio through the designated stretches.
+	if pos >= _mute_start and pos < _mute_end:
+		_film.volume_db = -80.0
+		# The winner's take takes over the picture here.
+		if _screening_active and not _screening_played:
+			_screening_played = true
+			if _screening_have and _screen_player.stream != null:
+				_screen_player.play()
+	else:
+		_film.volume_db = 0.0
 
 
 # --- Host-side screening of player recordings ---------------------------------
+
+## The screening: roll the film from the top through the round's recorded
+## window; the film's own audio goes quiet just inside the window and the
+## winning take plays over it. Ties roll the window once per winner.
+func _start_screening(game: Dictionary) -> void:
+	var round := int(game.get("round", 0))
+	if _screening_active and _screening_round == round:
+		return # already screening this round
+	_screening_active = false
+	_screening_round = round
+	_screening_winners = []
+	_screening_index = 0
+	_screening_endt = float(game.get("recordEnd", 0.0))
+	_screening_cue = float(game.get("recordStart", 0.0))
+	var subs: Array = game.get("submissions", [])
+	for s in _top_submissions(subs):
+		if not str(s.get("audioUrl", "")).is_empty():
+			_screening_winners.append(s)
+	if _screening_winners.is_empty() or _screening_endt <= 0.0:
+		# Nothing to screen over the film (single-player, no takes) — hold.
+		_pause_film()
+		_screening_round = -1
+		return
+	_screening_active = true
+	_run_screen_window()
+
+func _run_screen_window() -> void:
+	if _screening_index >= _screening_winners.size():
+		_screening_active = false
+		_pause_film()
+		return
+	_screening_played = false
+	_screening_have = false
+	# Prime the winner's take while the film's lead-up rolls.
+	var url := str(_screening_winners[_screening_index].get("audioUrl", ""))
+	_screen_http.cancel_request()
+	var err := _screen_http.request(
+		BackendConfig.url + url, PackedStringArray(), HTTPClient.METHOD_GET)
+	if err != OK:
+		_screening_have = true
+		_screen_player.stream = null
+		_screen_player.stop()
+	_roll_window(_screening_endt, _screening_cue, _screening_endt)
+
+func _on_screen_window_done() -> void:
+	_screening_index += 1
+	_screening_played = false
+	_screen_player.stop()
+	_run_screen_window()
+
+func _on_screen_wav_fetched(result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+	if result == HTTPRequest.RESULT_SUCCESS and response_code == 200:
+		var wav := _wav_from_bytes(body)
+		if wav != null:
+			_screen_player.stream = wav
+			_screening_have = true
+			return
+	# Fetch failed — the window rolls silently.
+	_screening_have = true
+	_screen_player.stream = null
+
 
 func _enqueue_screening(game: Dictionary) -> void:
 	var round := int(game.get("round", 0))
@@ -869,6 +967,13 @@ func _build_ui() -> void:
 	add_child(_audio_http)
 	_audio_http.request_completed.connect(_on_audio_fetched)
 
+	_screen_player = AudioStreamPlayer.new()
+	add_child(_screen_player)
+
+	_screen_http = HTTPRequest.new()
+	_screen_http.request_completed.connect(_on_screen_wav_fetched)
+	add_child(_screen_http)
+
 
 func _build_lobby(panel: VBoxContainer) -> void:
 	var join_box := HBoxContainer.new()
@@ -999,7 +1104,7 @@ func _set_status(text: String) -> void:
 		_status_label.text = text
 	print("[host] ", text)
 func _video_playing_now(game: Dictionary, phase: String) -> bool:
-	return phase in ["play", "film", "review"] and not phase.begins_with("vote") and not phase.begins_with("record") and not phase.begins_with("waiting")
+	return phase in ["play", "film", "brief"] and not phase.begins_with("vote") and not phase.begins_with("record") and not phase.begins_with("waiting")
 
 
 var _episodes_panel: Control = null

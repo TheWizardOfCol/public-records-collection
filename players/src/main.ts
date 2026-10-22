@@ -701,17 +701,27 @@ function cryptidRecord(game: CryptidPublicView, you: CryptidPrivateView): string
 }
 
 function recordControl(you: CryptidPrivateView): string {
+  // The assigned line stays on screen (prominently) through the whole take,
+  // so the player can read it while recording.
+  const recite = you.prompt
+    ? `<section class="recite"><h3>Recite</h3><p class="prompt prompt--big">${escapeHtml(you.prompt)}</p></section>`
+    : ''
   if (recState === 'recording') {
     return `
+      ${recite}
       <p class="hint" id="rec-count">● Recording…</p>
       <div class="answer-actions"><button id="rec-stop">Stop</button></div>
     `
   }
   if (recState === 'uploading') {
-    return '<p class="status">Uploading your take…</p>'
+    return `
+      ${recite}
+      <p class="status">Uploading your take…</p>
+    `
   }
   if (recState === 'ready' && recUrl) {
     return `
+      ${recite}
       <audio id="rec-playback" controls src="${recUrl}"></audio>
       <div class="answer-actions">
         <button id="rec-again" class="ghost">Re-record</button>
@@ -725,6 +735,7 @@ function recordControl(you: CryptidPrivateView): string {
       ? `<p class="status" data-state="error">${escapeHtml(recError)}</p>`
       : `<p class="hint">Deliver your line — about ${Math.round(you.recordSeconds)}s.</p>`
   return `
+    ${recite}
     <div class="answer-actions"><button id="rec-start">Record</button></div>
     ${hint}
   `

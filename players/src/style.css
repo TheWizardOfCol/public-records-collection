@@ -267,6 +267,27 @@ button:hover {
   color: #f6e8d0;
 }
 
+.prompt--big {
+  font-size: 1.9rem;
+  font-style: normal;
+}
+
+.recite {
+  border: 1px solid rgba(246, 232, 208, 0.35);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.recite h3 {
+  margin: 0 0 6px;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
 .hint {
   margin: 0;
   font-size: 0.82rem;
