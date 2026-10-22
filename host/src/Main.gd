@@ -48,6 +48,7 @@ var _game_body: RichTextLabel
 var _cryptid_view: HBoxContainer
 var _film: VideoStreamPlayer
 var _cryptid_notes: RichTextLabel
+var _cryptid_hud: Label
 
 # Film scheduling (Godot can't seek Theora, so we play forward and pause at a mark).
 var _film_path := ""
@@ -448,16 +449,20 @@ func _render_cryptid(game: Dictionary, phase: String) -> void:
 				lines.append("")
 				lines.append("[b]%s wins![/b]" % str(scores[0].get("name", "?")))
 
-	# show only minimal info when video is playing
+	# While the film plays, all side text goes away; a small HUD over the
+	# picture keeps the round counter and submitted count.
 	if _video_playing_now(game, phase):
 		var submitted = 0
 		var players_list = game.get("players", [])
 		for p in players_list:
 			if p.get("submitted", false) or p.get("ready", false):
 				submitted += 1
-		_cryptid_notes.text = "[b]Round %d/%d[/b] — Submitted: %d/%d" % [max(round, 1), total, submitted, len(players_list)]
-		_cryptid_notes.visible = true
+		_cryptid_hud.text = "Round %d / %d   ·   Submitted %d / %d" % [
+			max(round, 1), total, submitted, len(players_list)]
+		_cryptid_hud.visible = true
+		_cryptid_notes.visible = false
 	else:
+		_cryptid_hud.visible = false
 		_cryptid_notes.text = "\n".join(lines)
 		_cryptid_notes.visible = true
 
@@ -802,12 +807,16 @@ func _build_ui() -> void:
 	_cryptid_view.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	_game_panel.add_child(_cryptid_view)
 
+	var film_wrap := Control.new()
+	film_wrap.clip_contents = true
+	film_wrap.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	film_wrap.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	_cryptid_view.add_child(film_wrap)
+
 	var film_aspect := AspectRatioContainer.new()
 	film_aspect.ratio = 16.0 / 9.0
-	film_aspect.custom_minimum_size = Vector2(960, 720)
-	film_aspect.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	film_aspect.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	_cryptid_view.add_child(film_aspect)
+	film_aspect.set_anchors_preset(Control.PRESET_FULL_RECT)
+	film_wrap.add_child(film_aspect)
 
 	_film = VideoStreamPlayer.new()
 	_film.expand = true
@@ -815,11 +824,21 @@ func _build_ui() -> void:
 	_film.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	film_aspect.add_child(_film)
 
+	# Scratchpad counter shown over the film while it plays (round + submissions).
+	_cryptid_hud = Label.new()
+	_cryptid_hud.add_theme_color_override("font_color", GOLD)
+	_cryptid_hud.add_theme_font_size_override("font_size", 28)
+	_cryptid_hud.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT)
+	_cryptid_hud.offset_left = 16
+	_cryptid_hud.offset_top = -48
+	_cryptid_hud.visible = false
+	film_wrap.add_child(_cryptid_hud)
+
 	_cryptid_notes = RichTextLabel.new()
 	_cryptid_notes.bbcode_enabled = true
 	_cryptid_notes.fit_content = true
 	_cryptid_notes.scroll_active = true
-	_cryptid_notes.custom_minimum_size = Vector2(420, 0)
+	_cryptid_notes.custom_minimum_size = Vector2(320, 0)
 	_cryptid_notes.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	_cryptid_view.add_child(_cryptid_notes)
 
