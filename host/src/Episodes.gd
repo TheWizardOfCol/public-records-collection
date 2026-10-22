@@ -15,28 +15,26 @@ func _load_episodes() -> void:
 	if episodes is Array:
 		for i in episodes.size():
 			var ep = episodes[i]
-			var btn = Button.new()
-			btn.text = str(ep.get("title", "Episode"))
-			btn.custom_minimum_size = Vector2(280, 80)
-			# simple styling
-			btn.pressed.connect(func(): _select_episode(i))
-			_list.add_child(btn)
+			_add_button(ep)
 	elif episodes is Dictionary and episodes.has("episodes"):
 		var list = episodes["episodes"]
 		for i in list.size():
-			var ep = list[i]
-			var btn = Button.new()
-			btn.text = str(ep.get("title", "Episode"))
-			btn.custom_minimum_size = Vector2(280, 80)
-			btn.pressed.connect(func(): _select_episode(i))
-			_list.add_child(btn)
+			_add_button(list[i])
 
-func _select_episode(idx: int) -> void:
+func _add_button(ep: Dictionary) -> void:
+	var btn = Button.new()
+	btn.text = str(ep.get("title", "Episode"))
+	btn.custom_minimum_size = Vector2(280, 80)
+	var episode_id := str(ep.get("id", ""))
+	btn.pressed.connect(func(): _select_episode(episode_id))
+	_list.add_child(btn)
+
+func _select_episode(episode_id: String) -> void:
 	if has_node("/root/EpisodeSelect"):
-		get_node("/root/EpisodeSelect").selected_episode = idx
+		get_node("/root/EpisodeSelect").selected_id = episode_id
 	var parent = get_parent()
 	if parent != null and parent.has_method("_on_episode_selected"):
-		parent.call("_on_episode_selected", idx)
+		parent.call("_on_episode_selected", episode_id)
 	else:
 		queue_free()
 

@@ -992,11 +992,11 @@ func _show_episodes() -> void:
 	add_child(episodes)
 	_episodes_panel = episodes
 
-func _on_episode_selected(idx: int) -> void:
+func _on_episode_selected(episode_id: String) -> void:
 	if _episodes_panel != null:
 		_episodes_panel.queue_free()
 		_episodes_panel = null
 	var payload = {"type": "start", "gameId": "cryptid-cinema"}
-	payload["episodeId"] = idx
+	payload["episodeId"] = episode_id
 	if _ws.get_ready_state() == WebSocketPeer.STATE_OPEN:
 		_ws.send_text(JSON.stringify(payload))
