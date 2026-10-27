@@ -2,8 +2,8 @@
 
 A Jackbox-style party pack built on [Namazu Elements](https://namazustudios.com).
 One player runs the host **display** app; everyone else joins from a phone
-browser with a room code. Five games are planned; the platform and **Get Lit**
-are built first.
+browser with a room code. Five games are planned; the platform and
+**Cryptid Cinema** are built so far.
 
 Everything is **server-authoritative**: the Collection Element owns lobby
 membership, room codes, and all game state, and pushes realtime updates to the
@@ -25,12 +25,20 @@ The game-design document lives in its own repo:
 
 ## The games
 
-1. **Get Lit** — *(built first)* read a passage, players answer.
-2. **Cryptid Cinema** — *(in progress)* remix an old film with sound effects,
+1. **Super Sticker Vandalz** — drawing guessing with mandatory stickers:
+   a public-domain person sticker anchors the doodle; players guess it.
+   Graffiti-visual, prompt packs (movies, TV, celebs, occupations).
+2. **Mall Rats** — *(next up)* 1980s mall of rat people: rate the gift pool
+   0–5, then shop for everyone else; points both for giving and receiving.
+   First to 30 wins. Host picks the Store (a set of gifts) at game start.
+3. **Average Joe** — Guesspionage-style data guessing with several answer
+   shapes (yes/no, 1–5, multi-select, point-on-diagram, percent-trivia);
+   lobby surveys feed the data while players wait.
+4. **Cryptid Cinema** — *(built)* remix an old film with sound effects,
    music, and your own voice.
-3. **Sticker Doodle** — one rotating drawer per round.
-4. **Present Time!** — simultaneous secret gift assignment.
-5. **Average Joe** — seed data + lobby survey.
+5. **Time-Traveling Stalker Simulator 3027** — help Scary Guy stalk history:
+   where/when-photo mini-rounds and a final escape trivia.
+   *(Get Lit and Present Time! were retired from the pack.)*
 
 A single family-friendly on/off toggle filters "spicy" content (`is_spicy`).
 
@@ -67,9 +75,9 @@ Both clients can point at either environment without a rebuild:
 See [`docs/architecture.md`](docs/architecture.md) for the component and data
 flow, and [`content/README.md`](content/README.md) for the content pipeline.
 
-> **Status:** the lobby and the first game, **Get Lit**, work end-to-end on the
-> temporary instance — room codes, host/join over WebSocket, work selection,
-> validated answers, anonymous ♥/★ voting, and scoring. Both clients render every
-> phase (the Godot host big-screen display + Advance control; the web players
-> controller). **Cryptid Cinema** is next (scaffold merged); the shared design doc
-> is in the game-design repo.
+> **Status:** the lobby and **Cryptid Cinema** work end-to-end on production —
+> room codes, host/join over WebSocket, episodes, rounds (recording + choice),
+> winner screenings, and scoring. Both clients render every phase (the Godot
+> host big-screen display + Advance control; the web players controller).
+> **Mall Rats** is next (scaffold planned); the shared design doc lives in the
+> game-design repo.

@@ -9,8 +9,8 @@ extends Control
 ## public, big-screen view of the running game). The host never gets the players'
 ## private views.
 
-const GAME_LABELS := ["Cryptid Cinema", "Get Lit"]
-const GAME_IDS := ["cryptid-cinema", "get-lit"]
+const GAME_LABELS := ["Cryptid Cinema", "Mall Rats", "Super Sticker Vandalz", "Average Joe", "Time-Traveling Stalker Simulator 3027"]
+const GAME_IDS := ["cryptid-cinema", "mall-rats", "sticker-vandalz", "average-joe", "ttss-3027"]
 
 var _http: HTTPRequest
 var _ws := WebSocketPeer.new()

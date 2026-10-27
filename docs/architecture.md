@@ -80,7 +80,10 @@ participant receives the public `game` view (the host's big-screen view), and
 each player additionally receives their own `you` view (private hand/state).
 The server computes the public view once per broadcast and shares it.
 
-## Get Lit
+## Get Lit (retired from the pack)
+
+*Kept for reference — the game was removed from the pack in 2026; the server
+module is still supported by the Element but no longer appears in the roster.*
 
 Phases: `select → answer → vote → results` (loops `answer` per round) `→ finished`.
 Each player picks one work at the start and answers every prompt from it. A work's
@@ -111,5 +114,7 @@ Godot host shows the big-screen display with an Advance control, and the web
 players controller renders work selection, a paginated passage reader for
 answering, anonymous ♥/★ voting, and results/standings screens. Next: **Cryptid
 Cinema** (server scaffold merged; rounds/content and host + players UI to come),
-then Sticker Doodle, Present Time!, and Average Joe. See the game-design repo for
+then the rest of the pack: **Mall Rats**, **Super Sticker Vandalz**,
+**Average Joe**, and **Time-Traveling Stalker Simulator 3027**
+(Get Lit and Present Time! were retired). See the game-design repo for
 per-game rules and scoring.
