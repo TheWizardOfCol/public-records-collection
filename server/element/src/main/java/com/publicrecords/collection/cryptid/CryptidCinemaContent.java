@@ -83,7 +83,10 @@ public class CryptidCinemaContent {
                         r.path("directorNotes").asText(""),
                         prompts,
                         choices,
-                        deck));
+                        deck,
+                        r.path("soundCutoff").asDouble(0.0),
+                        r.path("screenMode").asText(""),
+                        r.path("promptMode").asText("")));
             }
             result.add(new Episode(
                     node.path("id").asText(),

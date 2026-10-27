@@ -2,6 +2,8 @@ package com.publicrecords.collection.cryptid;
 
 import com.publicrecords.collection.getlit.ScoreEntry;
 import com.publicrecords.collection.lobby.LobbyException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -28,11 +30,16 @@ import java.util.UUID;
  */
 public class CryptidCinemaGame {
 
+    private static final Logger logger = LoggerFactory.getLogger(CryptidCinemaGame.class);
+
     public static final String PHASE_BRIEF = "brief";
     public static final String PHASE_RECORD = "record";
     public static final String PHASE_VOTE = "vote";
     public static final String PHASE_RESULTS = "results";
     public static final String PHASE_FINISHED = "finished";
+    public static final String PHASE_FINALE = "finale";
+    /** Seconds between layered winners that share one window. */
+    private static final double LAYER_STAGGER = 0.6;
 
     private static final int VOTE_POINTS = 100;
     private static final int PROP_POINTS = 10;
@@ -64,6 +71,11 @@ public class CryptidCinemaGame {
 
     private final Map<String, Integer> totals = new HashMap<>();
     private final Map<String, Integer> roundScores = new HashMap<>();
+
+    /** The screened winners per finished round (round index -> submissions, vote order). */
+    private final Map<Integer, List<Submission>> screenedWinners = new HashMap<>();
+    /** Winning song of the session (foundtrack choice id, when the episode has one). */
+    private String winningSongId;
 
     public CryptidCinemaGame(
             final Episode episode,
@@ -157,6 +169,9 @@ public class CryptidCinemaGame {
                 case PHASE_BRIEF -> phase = PHASE_RECORD;
                 case PHASE_RECORD -> {
                     requireEveryoneSubmitted();
+                    // Small groups skip the vote; the round is scored either way
+                    // so the grand screening has its winners.
+                    scoreRound();
                     phase = (playerIds.size() >= VOTING_THRESHOLD) ? PHASE_VOTE : PHASE_RESULTS;
                 }
                 case PHASE_VOTE -> {
@@ -169,9 +184,10 @@ public class CryptidCinemaGame {
                         prepareRound();
                         phase = PHASE_BRIEF;
                     } else {
-                        phase = PHASE_FINISHED;
+                        phase = PHASE_FINALE;
                     }
                 }
+                case PHASE_FINALE -> phase = PHASE_FINISHED;
                 case PHASE_FINISHED -> {
                     // nothing left to advance
                 }
@@ -193,10 +209,17 @@ public class CryptidCinemaGame {
 
         final List<String> pool = round.prompts();
         if (!pool.isEmpty()) {
-            final List<String> shuffled = new ArrayList<>(pool);
-            java.util.Collections.shuffle(shuffled, random);
-            for (int i = 0; i < playerIds.size(); i++) {
-                playerPrompts.put(playerIds.get(i), shuffled.get(i % shuffled.size()));
+            if ("same".equals(round.promptMode())) {
+                // "Make the sound of..." — every player gets the same one.
+                for (final String id : playerIds) {
+                    playerPrompts.put(id, pool.get(0));
+                }
+            } else {
+                final List<String> shuffled = new ArrayList<>(pool);
+                java.util.Collections.shuffle(shuffled, random);
+                for (int i = 0; i < playerIds.size(); i++) {
+                    playerPrompts.put(playerIds.get(i), shuffled.get(i % shuffled.size()));
+                }
             }
         }
 
@@ -222,12 +245,83 @@ public class CryptidCinemaGame {
     }
 
     private void scoreRound() {
+        logger.info("[score] scoring round {} ({} submissions)", roundIndex + 1, playerToSubmission.size());
         for (final String id : playerIds) {
             roundScores.put(id, 0);
         }
         normalVotes.values().forEach(submissionId -> award(submissionId, VOTE_POINTS));
         props.values().forEach(submissionId -> award(submissionId, PROP_POINTS));
         roundScores.forEach((id, points) -> totals.merge(id, points, Integer::sum));
+        // Remember this round's screened winners for the grand screening — the
+        // Unknowable rounds layer their top three moments apart.
+        final int roundNo = roundIndex;
+        final List<Submission> ranked = new ArrayList<>();
+        for (final String id : playerIds) {
+            final String sid = playerToSubmission.get(id);
+            if (sid != null) {
+                ranked.add(submissionById.get(sid));
+            }
+        }
+        ranked.sort((a, b) -> Integer.compare(pointsFor(b.id), pointsFor(a.id)));
+        final int cap = currentRound().type() == RoundType.UNKNOWABLE_SFX ? 3 : 1;
+        screenedWinners.put(roundNo, new ArrayList<>(ranked.subList(0, Math.min(cap, ranked.size()))));
+        if (currentRound().type() == RoundType.FOUNDTRACK && !ranked.isEmpty()) {
+            winningSongId = ranked.get(0).choiceId;
+        }
+    }
+
+    /** The grand screening's schedule, in episode order, winners layered per window. */
+    private List<FinaleSegmentView> finaleSchedule() {
+        logger.info("[finale] screened rounds: {}", screenedWinners.keySet());
+        for (final Map.Entry<Integer, List<Submission>> e : screenedWinners.entrySet()) {
+            logger.info("[finale] round {} winners: {}", e.getKey() + 1,
+                    e.getValue().stream().map(w -> w.playerId).toList());
+        }
+        logger.info("[finale] song: {}", winningSongId);
+        final List<FinaleSegmentView> schedule = new ArrayList<>();
+        for (int i = 0; i < episode.rounds().size(); i++) {
+            final Round round = episode.rounds().get(i);
+            final List<Submission> winners = screenedWinners.getOrDefault(i, List.of());
+            if (round.type() == RoundType.FOUNDTRACK) {
+                final String url = winningSongId == null ? null : episode.songUrl(winningSongId);
+                schedule.add(new FinaleSegmentView(
+                        i + 1, "song", 0.0, 0.0, 0.0, List.of(), url,
+                        winners.isEmpty() ? null : names.get(winners.get(0).playerId)));
+                continue;
+            }
+            if (winners.isEmpty()) {
+                continue;
+            }
+            final double start = Math.max(round.recordStart(), 0.0);
+            final double end = Math.max(round.recordEnd(), start);
+            final List<CryptidSubmissionView> winnerViews = new ArrayList<>();
+            for (final Submission w : winners) {
+                winnerViews.add(submissionView(w, round));
+            }
+            schedule.add(new FinaleSegmentView(
+                    i + 1,
+                    "audio",
+                    start,
+                    end,
+                    winners.size() > 1 ? LAYER_STAGGER : 0.0,
+                    winnerViews,
+                    submissionAudioUrl(winners.get(0), round),
+                    names.get(winners.get(0).playerId)));
+        }
+        return schedule;
+    }
+
+    private CryptidSubmissionView submissionView(final Submission s, final Round round) {
+        return new CryptidSubmissionView(
+                s.id,
+                s.playerId,
+                names.get(s.playerId),
+                s.kind,
+                s.label,
+                s.choiceId,
+                s.recordingId,
+                submissionAudioUrl(s, round),
+                pointsFor(s.id));
     }
 
     private void award(final String submissionId, final int points) {
@@ -269,12 +363,14 @@ public class CryptidCinemaGame {
             final int submitted = (int) playerIds.stream().filter(playerToSubmission::containsKey).count();
             final List<ScoreEntry> roundEntries = reveal ? sortedScores(roundScores) : List.of();
 
+            final boolean finale = phase.equals(PHASE_FINALE);
+            final List<FinaleSegmentView> schedule = finale ? finaleSchedule() : List.of();
             return new CryptidPublicView(
                     phase,
                     episode.id(),
                     episode.title(),
                     episode.blurb(),
-                    episode.video(),
+                    finale ? episode.videoNoMusic() : episode.video(),
                     episode.videoNoMusic(),
                     roundIndex + 1,
                     episode.rounds().size(),
@@ -283,6 +379,9 @@ public class CryptidCinemaGame {
                     round.seeEnd(),
                     round.recordStart(),
                     round.recordEnd(),
+                    round.soundCutoff(),
+                    round.screenMode(),
+                    round.promptMode(),
                     round.directorNotes(),
                     round.prompts(),
                     publicChoices(round),
@@ -290,7 +389,8 @@ public class CryptidCinemaGame {
                     playerIds.size(),
                     submissions,
                     roundEntries,
-                    sortedScores(totals));
+                    sortedScores(totals),
+                    schedule);
         }
     }
 

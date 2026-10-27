@@ -25,4 +25,19 @@ public record Episode(
         return rounds.size();
     }
 
+    /** Where a foundtrack song's mp3 lives (the deck ids map to the music dir). */
+    public String songUrl(final String choiceId) {
+        if (choiceId == null) {
+            return null;
+        }
+        for (final Round round : rounds) {
+            for (final Choice choice : round.deck()) {
+                if (choiceId.equals(choice.id()) && choice.audioUrl() != null && !choice.audioUrl().isBlank()) {
+                    return choice.audioUrl();
+                }
+            }
+        }
+        return "/app/static/collection/assets/cryptid/music/" + choiceId + ".mp3";
+    }
+
 }

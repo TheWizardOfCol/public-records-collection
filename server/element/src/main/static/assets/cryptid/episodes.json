@@ -87,243 +87,303 @@
         "deck": [
           {
             "id": "01-01-la-primavera-spring-allegro",
-            "label": "La Primavera"
+            "label": "La Primavera",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/01-01-la-primavera-spring-allegro.mp3"
           },
           {
             "id": "adventures-in-adventureland-kevin-macleod",
-            "label": "Adventures in Adventureland"
+            "label": "Adventures in Adventureland",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/adventures-in-adventureland-kevin-macleod.mp3"
           },
           {
             "id": "amazing-grace-traditional",
-            "label": "Amazing Grace"
+            "label": "Amazing Grace",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/amazing-grace-traditional.mp3"
           },
           {
             "id": "android-sock-hop-kevin-macleod",
-            "label": "Android Sock Hop"
+            "label": "Android Sock Hop",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/android-sock-hop-kevin-macleod.mp3"
           },
           {
             "id": "army-strong-mark-isham",
-            "label": "Army Strong"
+            "label": "Army Strong",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/army-strong-mark-isham.mp3"
           },
           {
             "id": "balloon-game-kevin-macleod",
-            "label": "Balloon Game"
+            "label": "Balloon Game",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/balloon-game-kevin-macleod.mp3"
           },
           {
             "id": "blue-danube-johann-strauss-ii",
-            "label": "Blue Danube"
+            "label": "Blue Danube",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/blue-danube-johann-strauss-ii.mp3"
           },
           {
             "id": "brain-dance-kevin-macleod",
-            "label": "Brain Dance"
+            "label": "Brain Dance",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/brain-dance-kevin-macleod.mp3"
           },
           {
             "id": "circuit-bent-keyboard-demo-some-sicko",
-            "label": "Circuit Bent Keyboard Demo"
+            "label": "Circuit Bent Keyboard Demo",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/circuit-bent-keyboard-demo-some-sicko.mp3"
           },
           {
             "id": "danse-macabre-camille-saint-sa-ns",
-            "label": "Danse Macabre"
+            "label": "Danse Macabre",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/danse-macabre-camille-saint-sa-ns.mp3"
           },
           {
             "id": "drankin-song-kevin-macleod",
-            "label": "Drankin Song"
+            "label": "Drankin Song",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/drankin-song-kevin-macleod.mp3"
           },
           {
             "id": "entry-of-the-gladiators-julius-fucik",
-            "label": "Entry of the Gladiators"
+            "label": "Entry of the Gladiators",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/entry-of-the-gladiators-julius-fucik.mp3"
           },
           {
             "id": "epic-score-jeremusic70",
-            "label": "Epic Score"
+            "label": "Epic Score",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/epic-score-jeremusic70.mp3"
           },
           {
             "id": "everyone-loyalty-freak-music",
-            "label": "Everyone"
+            "label": "Everyone",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/everyone-loyalty-freak-music.mp3"
           },
           {
             "id": "farting-around-kevin-macleod",
-            "label": "Farting Around"
+            "label": "Farting Around",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/farting-around-kevin-macleod.mp3"
           },
           {
             "id": "flying-kerfuffle-kevin-macleod",
-            "label": "Flying Kerfuffle"
+            "label": "Flying Kerfuffle",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/flying-kerfuffle-kevin-macleod.mp3"
           },
           {
             "id": "funeral-march-chopin",
-            "label": "Funeral March"
+            "label": "Funeral March",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/funeral-march-chopin.mp3"
           },
           {
             "id": "funiculi-funicula-luigi-denza-and-peppino-turco",
-            "label": "Funiculi Funicula"
+            "label": "Funiculi Funicula",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/funiculi-funicula-luigi-denza-and-peppino-turco.mp3"
           },
           {
             "id": "god-save-the-king",
-            "label": "God Save The King"
+            "label": "God Save The King",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/god-save-the-king.mp3"
           },
           {
             "id": "gymnopedie-no-1-erik-satie",
-            "label": "Gymnopedie No. 1"
+            "label": "Gymnopedie No. 1",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/gymnopedie-no-1-erik-satie.mp3"
           },
           {
             "id": "habanera",
-            "label": "Habanera"
+            "label": "Habanera",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/habanera.mp3"
           },
           {
             "id": "haiduceasca-traditional",
-            "label": "Haiduceasca"
+            "label": "Haiduceasca",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/haiduceasca-traditional.mp3"
           },
           {
             "id": "halleljeah-george-frideric-handel",
-            "label": "Halleljeah"
+            "label": "Halleljeah",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/halleljeah-george-frideric-handel.mp3"
           },
           {
             "id": "happy-happy-game-show-kevin-macleod",
-            "label": "Happy Happy Game Show"
+            "label": "Happy Happy Game Show",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/happy-happy-game-show-kevin-macleod.mp3"
           },
           {
             "id": "high-stakes-spymaster-rfm1011",
-            "label": "High Stakes Spymaster"
+            "label": "High Stakes Spymaster",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/high-stakes-spymaster-rfm1011.mp3"
           },
           {
             "id": "in-the-hall-of-the-mountain-king-edvard-grieg",
-            "label": "In the Hall of the Mountain King"
+            "label": "In the Hall of the Mountain King",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/in-the-hall-of-the-mountain-king-edvard-grieg.mp3"
           },
           {
             "id": "kun-khmer-fight-music-traditional",
-            "label": "Kun Khmer fight music"
+            "label": "Kun Khmer fight music",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/kun-khmer-fight-music-traditional.mp3"
           },
           {
             "id": "liberty-bell-march-john-philip-sousa",
-            "label": "Liberty Bell March"
+            "label": "Liberty Bell March",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/liberty-bell-march-john-philip-sousa.mp3"
           },
           {
             "id": "little-fugue-in-g-minor-bach",
-            "label": "Little Fugue in G Minor"
+            "label": "Little Fugue in G Minor",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/little-fugue-in-g-minor-bach.mp3"
           },
           {
             "id": "maple-leaf-rag-scott-joplin",
-            "label": "Maple Leaf Rag"
+            "label": "Maple Leaf Rag",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/maple-leaf-rag-scott-joplin.mp3"
           },
           {
             "id": "mass-of-the-day-gajard-dom-joseph",
-            "label": "Mass of the Day"
+            "label": "Mass of the Day",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/mass-of-the-day-gajard-dom-joseph.mp3"
           },
           {
             "id": "meatball-parade-kevin-macleod",
-            "label": "Meatball Parade"
+            "label": "Meatball Parade",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/meatball-parade-kevin-macleod.mp3"
           },
           {
             "id": "mesmerizing-galaxy-kevin-macleod",
-            "label": "Mesmerizing Galaxy"
+            "label": "Mesmerizing Galaxy",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/mesmerizing-galaxy-kevin-macleod.mp3"
           },
           {
             "id": "modern-lounge-prettyjohn1",
-            "label": "Modern Lounge"
+            "label": "Modern Lounge",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/modern-lounge-prettyjohn1.mp3"
           },
           {
             "id": "modern-sadness-kevin-macleod",
-            "label": "Modern Sadness"
+            "label": "Modern Sadness",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/modern-sadness-kevin-macleod.mp3"
           },
           {
             "id": "monkeys-spinning-monkeys-kevin-macleod",
-            "label": "Monkeys Spinning Monkeys"
+            "label": "Monkeys Spinning Monkeys",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/monkeys-spinning-monkeys-kevin-macleod.mp3"
           },
           {
             "id": "mouthalovania-oatymilkgalaxy",
-            "label": "Mouthalovania"
+            "label": "Mouthalovania",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/mouthalovania-oatymilkgalaxy.mp3"
           },
           {
             "id": "nano-hoedown-kevin-macleod",
-            "label": "Nano Hoedown"
+            "label": "Nano Hoedown",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/nano-hoedown-kevin-macleod.mp3"
           },
           {
             "id": "o-canada",
-            "label": "O Canada"
+            "label": "O Canada",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/o-canada.mp3"
           },
           {
             "id": "ode-to-joy-on-the-netherlands-carillon",
-            "label": "Ode to Joy on the Netherlands Carillon"
+            "label": "Ode to Joy on the Netherlands Carillon",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/ode-to-joy-on-the-netherlands-carillon.mp3"
           },
           {
             "id": "pomp-and-circumstance",
-            "label": "Pomp and Circumstance"
+            "label": "Pomp and Circumstance",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/pomp-and-circumstance.mp3"
           },
           {
             "id": "pookatori-and-friends-kevin-macleod",
-            "label": "Pookatori and Friends"
+            "label": "Pookatori and Friends",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/pookatori-and-friends-kevin-macleod.mp3"
           },
           {
             "id": "pop-goes-the-weasel-traditional",
-            "label": "Pop Goes The Weasel"
+            "label": "Pop Goes The Weasel",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/pop-goes-the-weasel-traditional.mp3"
           },
           {
             "id": "ride-of-the-valkyries-richard-wagner",
-            "label": "Ride of the Valkyries"
+            "label": "Ride of the Valkyries",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/ride-of-the-valkyries-richard-wagner.mp3"
           },
           {
             "id": "sabre-dance-aram-khachaturian",
-            "label": "Sabre Dance"
+            "label": "Sabre Dance",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/sabre-dance-aram-khachaturian.mp3"
           },
           {
             "id": "soviet-national-anthem",
-            "label": "Soviet National Anthem"
+            "label": "Soviet National Anthem",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/soviet-national-anthem.mp3"
           },
           {
             "id": "star-spangled-banner-francis-scott-key-and-john-stafford-smith",
-            "label": "Star Spangled Banner"
+            "label": "Star Spangled Banner",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/star-spangled-banner-francis-scott-key-and-john-stafford-smith.mp3"
           },
           {
             "id": "symphony-no-9-ludwig-van-beethoven",
-            "label": "Symphony No. 9"
+            "label": "Symphony No. 9",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/symphony-no-9-ludwig-van-beethoven.mp3"
           },
           {
             "id": "that-zen-moment-kevin-macleod",
-            "label": "That Zen Moment"
+            "label": "That Zen Moment",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/that-zen-moment-kevin-macleod.mp3"
           },
           {
             "id": "the-britons-kevin-macleod",
-            "label": "The Britons"
+            "label": "The Britons",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/the-britons-kevin-macleod.mp3"
           },
           {
             "id": "the-entertainer-scott-joplin",
-            "label": "The Entertainer"
+            "label": "The Entertainer",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/the-entertainer-scott-joplin.mp3"
           },
           {
             "id": "the-german-s-arrival-frank-wilson",
-            "label": "The German's Arrival"
+            "label": "The German's Arrival",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/the-german-s-arrival-frank-wilson.mp3"
           },
           {
             "id": "the-laughing-record",
-            "label": "The Laughing Record"
+            "label": "The Laughing Record",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/the-laughing-record.mp3"
           },
           {
             "id": "the-whistling-bowery-boy-s-h-dudley",
-            "label": "The Whistling Bowery Boy"
+            "label": "The Whistling Bowery Boy",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/the-whistling-bowery-boy-s-h-dudley.mp3"
           },
           {
             "id": "toscaninini-ludwig-van-beethoven",
-            "label": "Toscanini"
+            "label": "Toscanini",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/toscaninini-ludwig-van-beethoven.mp3"
           },
           {
             "id": "toy-symphony-allegro-leopold-mozart",
-            "label": "Toy Symphony"
+            "label": "Toy Symphony",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/toy-symphony-allegro-leopold-mozart.mp3"
           },
           {
             "id": "william-tell-overture-gioachino-rossini",
-            "label": "William Tell Overture"
+            "label": "William Tell Overture",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/william-tell-overture-gioachino-rossini.mp3"
           },
           {
             "id": "wedding-march-felix-mendelssohn",
-            "label": "Wedding March"
+            "label": "Wedding March",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/wedding-march-felix-mendelssohn.mp3"
           },
           {
             "id": "welcome-to-horrorland-kevin-macleod",
-            "label": "Welcome to HorrorLand"
+            "label": "Welcome to HorrorLand",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/welcome-to-horrorland-kevin-macleod.mp3"
           },
           {
             "id": "yankee-doodle-traditional",
-            "label": "Yankee Doodle"
+            "label": "Yankee Doodle",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/yankee-doodle-traditional.mp3"
           }
         ]
       }
@@ -338,27 +398,87 @@
     "hasFoundtrack": true,
     "rounds": [
       {
-        "index": 1,
-        "type": "UNDYINGALOG",
+        "index": 0,
+        "type": "UNKNOWABLE_SFX",
         "seeStart": 0.0,
-        "seeEnd": 16.0,
-        "recordStart": 8.0,
-        "recordEnd": 16.0,
-        "maxSeconds": 0.0,
-        "directorNotes": "Narrate the zombie mayhem.",
-        "prompts": [],
+        "seeEnd": 4.5,
+        "recordStart": 0.0,
+        "recordEnd": 4.5,
+        "maxSeconds": 4.5,
+        "soundCutoff": 0.0,
+        "screenMode": "deferred",
+        "promptMode": "same",
+        "directorNotes": "Make the sound of...  You will not see the clip — the reveal comes at the grand screening.",
+        "prompts": [
+          "Something some obnoxious person would say during black friday"
+        ],
+        "choices": [],
+        "deck": []
+      },
+      {
+        "index": 1,
+        "type": "UNKNOWABLE_SFX",
+        "seeStart": 0.0,
+        "seeEnd": 4.5,
+        "recordStart": 0.0,
+        "recordEnd": 4.5,
+        "maxSeconds": 4.5,
+        "soundCutoff": 0.0,
+        "screenMode": "deferred",
+        "promptMode": "same",
+        "directorNotes": "Another sound for the same moment — this one layers next to the last.",
+        "prompts": [
+          "Sound of a bunch of Karens waiting in line at a coffee shop"
+        ],
         "choices": [],
         "deck": []
       },
       {
         "index": 2,
-        "type": "UFSFX",
-        "seeStart": 16.0,
-        "seeEnd": 36.0,
+        "type": "UNKNOWABLE_SFX",
+        "seeStart": 0.0,
+        "seeEnd": 4.5,
         "recordStart": 0.0,
-        "recordEnd": 0.0,
-        "maxSeconds": 0.0,
-        "directorNotes": "Choose an appropriate sound effect.",
+        "recordEnd": 4.5,
+        "maxSeconds": 4.5,
+        "soundCutoff": 0.0,
+        "screenMode": "deferred",
+        "promptMode": "same",
+        "directorNotes": "One more sound for the same moment — it stacks behind the others.",
+        "prompts": [
+          "The sound of straining on the toilet"
+        ],
+        "choices": [],
+        "deck": []
+      },
+      {
+        "index": 3,
+        "type": "UNDYINGALOG",
+        "seeStart": 7.75,
+        "seeEnd": 18.0,
+        "recordStart": 8.0,
+        "recordEnd": 9.33,
+        "maxSeconds": 1.33,
+        "soundCutoff": 8.0,
+        "screenMode": "now",
+        "promptMode": "same",
+        "directorNotes": "You're a guy telling another guy to start throwing explosives out the window.",
+        "prompts": [],
+        "choices": [],
+        "deck": []
+      },
+      {
+        "index": 4,
+        "type": "UFSFX",
+        "seeStart": 18.0,
+        "seeEnd": 36.0,
+        "recordStart": 18.0,
+        "recordEnd": 18.6,
+        "maxSeconds": 0,
+        "soundCutoff": 18.0,
+        "screenMode": "audio",
+        "promptMode": "varied",
+        "directorNotes": "This quiet stretch needs a sound effect. Pick one from your hand.",
         "prompts": [],
         "choices": [],
         "deck": [
@@ -875,256 +995,319 @@
         ]
       },
       {
-        "index": 3,
+        "index": 5,
         "type": "FOUNDTRACK",
         "seeStart": 0.0,
         "seeEnd": 0.0,
         "recordStart": 0.0,
         "recordEnd": 0.0,
         "maxSeconds": 20.0,
-        "directorNotes": "Choose a song to use as this film's soundtrack.",
+        "soundCutoff": 0.0,
+        "screenMode": "song",
+        "promptMode": "varied",
+        "directorNotes": "Pick the movie's new score from your hand of songs.",
         "prompts": [],
         "choices": [],
         "deck": [
           {
             "id": "01-01-la-primavera-spring-allegro",
-            "label": "La Primavera"
+            "label": "La Primavera",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/01-01-la-primavera-spring-allegro.mp3"
           },
           {
             "id": "adventures-in-adventureland-kevin-macleod",
-            "label": "Adventures in Adventureland"
+            "label": "Adventures in Adventureland",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/adventures-in-adventureland-kevin-macleod.mp3"
           },
           {
             "id": "amazing-grace-traditional",
-            "label": "Amazing Grace"
+            "label": "Amazing Grace",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/amazing-grace-traditional.mp3"
           },
           {
             "id": "android-sock-hop-kevin-macleod",
-            "label": "Android Sock Hop"
+            "label": "Android Sock Hop",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/android-sock-hop-kevin-macleod.mp3"
           },
           {
             "id": "army-strong-mark-isham",
-            "label": "Army Strong"
+            "label": "Army Strong",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/army-strong-mark-isham.mp3"
           },
           {
             "id": "balloon-game-kevin-macleod",
-            "label": "Balloon Game"
+            "label": "Balloon Game",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/balloon-game-kevin-macleod.mp3"
           },
           {
             "id": "blue-danube-johann-strauss-ii",
-            "label": "Blue Danube"
+            "label": "Blue Danube",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/blue-danube-johann-strauss-ii.mp3"
           },
           {
             "id": "brain-dance-kevin-macleod",
-            "label": "Brain Dance"
+            "label": "Brain Dance",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/brain-dance-kevin-macleod.mp3"
           },
           {
             "id": "circuit-bent-keyboard-demo-some-sicko",
-            "label": "Circuit Bent Keyboard Demo"
+            "label": "Circuit Bent Keyboard Demo",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/circuit-bent-keyboard-demo-some-sicko.mp3"
           },
           {
             "id": "danse-macabre-camille-saint-sa-ns",
-            "label": "Danse Macabre"
+            "label": "Danse Macabre",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/danse-macabre-camille-saint-sa-ns.mp3"
           },
           {
             "id": "drankin-song-kevin-macleod",
-            "label": "Drankin Song"
+            "label": "Drankin Song",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/drankin-song-kevin-macleod.mp3"
           },
           {
             "id": "entry-of-the-gladiators-julius-fucik",
-            "label": "Entry of the Gladiators"
+            "label": "Entry of the Gladiators",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/entry-of-the-gladiators-julius-fucik.mp3"
           },
           {
             "id": "epic-score-jeremusic70",
-            "label": "Epic Score"
+            "label": "Epic Score",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/epic-score-jeremusic70.mp3"
           },
           {
             "id": "everyone-loyalty-freak-music",
-            "label": "Everyone"
+            "label": "Everyone",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/everyone-loyalty-freak-music.mp3"
           },
           {
             "id": "farting-around-kevin-macleod",
-            "label": "Farting Around"
+            "label": "Farting Around",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/farting-around-kevin-macleod.mp3"
           },
           {
             "id": "flying-kerfuffle-kevin-macleod",
-            "label": "Flying Kerfuffle"
+            "label": "Flying Kerfuffle",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/flying-kerfuffle-kevin-macleod.mp3"
           },
           {
             "id": "funeral-march-chopin",
-            "label": "Funeral March"
+            "label": "Funeral March",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/funeral-march-chopin.mp3"
           },
           {
             "id": "funiculi-funicula-luigi-denza-and-peppino-turco",
-            "label": "Funiculi Funicula"
+            "label": "Funiculi Funicula",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/funiculi-funicula-luigi-denza-and-peppino-turco.mp3"
           },
           {
             "id": "god-save-the-king",
-            "label": "God Save The King"
+            "label": "God Save The King",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/god-save-the-king.mp3"
           },
           {
             "id": "gymnopedie-no-1-erik-satie",
-            "label": "Gymnopedie No. 1"
+            "label": "Gymnopedie No. 1",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/gymnopedie-no-1-erik-satie.mp3"
           },
           {
             "id": "habanera",
-            "label": "Habanera"
+            "label": "Habanera",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/habanera.mp3"
           },
           {
             "id": "haiduceasca-traditional",
-            "label": "Haiduceasca"
+            "label": "Haiduceasca",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/haiduceasca-traditional.mp3"
           },
           {
             "id": "halleljeah-george-frideric-handel",
-            "label": "Halleljeah"
+            "label": "Halleljeah",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/halleljeah-george-frideric-handel.mp3"
           },
           {
             "id": "happy-happy-game-show-kevin-macleod",
-            "label": "Happy Happy Game Show"
+            "label": "Happy Happy Game Show",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/happy-happy-game-show-kevin-macleod.mp3"
           },
           {
             "id": "high-stakes-spymaster-rfm1011",
-            "label": "High Stakes Spymaster"
+            "label": "High Stakes Spymaster",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/high-stakes-spymaster-rfm1011.mp3"
           },
           {
             "id": "in-the-hall-of-the-mountain-king-edvard-grieg",
-            "label": "In the Hall of the Mountain King"
+            "label": "In the Hall of the Mountain King",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/in-the-hall-of-the-mountain-king-edvard-grieg.mp3"
           },
           {
             "id": "kun-khmer-fight-music-traditional",
-            "label": "Kun Khmer fight music"
+            "label": "Kun Khmer fight music",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/kun-khmer-fight-music-traditional.mp3"
           },
           {
             "id": "liberty-bell-march-john-philip-sousa",
-            "label": "Liberty Bell March"
+            "label": "Liberty Bell March",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/liberty-bell-march-john-philip-sousa.mp3"
           },
           {
             "id": "little-fugue-in-g-minor-bach",
-            "label": "Little Fugue in G Minor"
+            "label": "Little Fugue in G Minor",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/little-fugue-in-g-minor-bach.mp3"
           },
           {
             "id": "maple-leaf-rag-scott-joplin",
-            "label": "Maple Leaf Rag"
+            "label": "Maple Leaf Rag",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/maple-leaf-rag-scott-joplin.mp3"
           },
           {
             "id": "mass-of-the-day-gajard-dom-joseph",
-            "label": "Mass of the Day"
+            "label": "Mass of the Day",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/mass-of-the-day-gajard-dom-joseph.mp3"
           },
           {
             "id": "meatball-parade-kevin-macleod",
-            "label": "Meatball Parade"
+            "label": "Meatball Parade",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/meatball-parade-kevin-macleod.mp3"
           },
           {
             "id": "mesmerizing-galaxy-kevin-macleod",
-            "label": "Mesmerizing Galaxy"
+            "label": "Mesmerizing Galaxy",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/mesmerizing-galaxy-kevin-macleod.mp3"
           },
           {
             "id": "modern-lounge-prettyjohn1",
-            "label": "Modern Lounge"
+            "label": "Modern Lounge",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/modern-lounge-prettyjohn1.mp3"
           },
           {
             "id": "modern-sadness-kevin-macleod",
-            "label": "Modern Sadness"
+            "label": "Modern Sadness",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/modern-sadness-kevin-macleod.mp3"
           },
           {
             "id": "monkeys-spinning-monkeys-kevin-macleod",
-            "label": "Monkeys Spinning Monkeys"
+            "label": "Monkeys Spinning Monkeys",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/monkeys-spinning-monkeys-kevin-macleod.mp3"
           },
           {
             "id": "mouthalovania-oatymilkgalaxy",
-            "label": "Mouthalovania"
+            "label": "Mouthalovania",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/mouthalovania-oatymilkgalaxy.mp3"
           },
           {
             "id": "nano-hoedown-kevin-macleod",
-            "label": "Nano Hoedown"
+            "label": "Nano Hoedown",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/nano-hoedown-kevin-macleod.mp3"
           },
           {
             "id": "o-canada",
-            "label": "O Canada"
+            "label": "O Canada",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/o-canada.mp3"
           },
           {
             "id": "ode-to-joy-on-the-netherlands-carillon",
-            "label": "Ode to Joy on the Netherlands Carillon"
+            "label": "Ode to Joy on the Netherlands Carillon",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/ode-to-joy-on-the-netherlands-carillon.mp3"
           },
           {
             "id": "pomp-and-circumstance",
-            "label": "Pomp and Circumstance"
+            "label": "Pomp and Circumstance",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/pomp-and-circumstance.mp3"
           },
           {
             "id": "pookatori-and-friends-kevin-macleod",
-            "label": "Pookatori and Friends"
+            "label": "Pookatori and Friends",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/pookatori-and-friends-kevin-macleod.mp3"
           },
           {
             "id": "pop-goes-the-weasel-traditional",
-            "label": "Pop Goes The Weasel"
+            "label": "Pop Goes The Weasel",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/pop-goes-the-weasel-traditional.mp3"
           },
           {
             "id": "ride-of-the-valkyries-richard-wagner",
-            "label": "Ride of the Valkyries"
+            "label": "Ride of the Valkyries",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/ride-of-the-valkyries-richard-wagner.mp3"
           },
           {
             "id": "sabre-dance-aram-khachaturian",
-            "label": "Sabre Dance"
+            "label": "Sabre Dance",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/sabre-dance-aram-khachaturian.mp3"
           },
           {
             "id": "soviet-national-anthem",
-            "label": "Soviet National Anthem"
+            "label": "Soviet National Anthem",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/soviet-national-anthem.mp3"
           },
           {
             "id": "star-spangled-banner-francis-scott-key-and-john-stafford-smith",
-            "label": "Star Spangled Banner"
+            "label": "Star Spangled Banner",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/star-spangled-banner-francis-scott-key-and-john-stafford-smith.mp3"
           },
           {
             "id": "symphony-no-9-ludwig-van-beethoven",
-            "label": "Symphony No. 9"
+            "label": "Symphony No. 9",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/symphony-no-9-ludwig-van-beethoven.mp3"
           },
           {
             "id": "that-zen-moment-kevin-macleod",
-            "label": "That Zen Moment"
+            "label": "That Zen Moment",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/that-zen-moment-kevin-macleod.mp3"
           },
           {
             "id": "the-britons-kevin-macleod",
-            "label": "The Britons"
+            "label": "The Britons",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/the-britons-kevin-macleod.mp3"
           },
           {
             "id": "the-entertainer-scott-joplin",
-            "label": "The Entertainer"
+            "label": "The Entertainer",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/the-entertainer-scott-joplin.mp3"
           },
           {
             "id": "the-german-s-arrival-frank-wilson",
-            "label": "The German's Arrival"
+            "label": "The German's Arrival",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/the-german-s-arrival-frank-wilson.mp3"
           },
           {
             "id": "the-laughing-record",
-            "label": "The Laughing Record"
+            "label": "The Laughing Record",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/the-laughing-record.mp3"
           },
           {
             "id": "the-whistling-bowery-boy-s-h-dudley",
-            "label": "The Whistling Bowery Boy"
+            "label": "The Whistling Bowery Boy",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/the-whistling-bowery-boy-s-h-dudley.mp3"
           },
           {
             "id": "toscaninini-ludwig-van-beethoven",
-            "label": "Toscanini"
+            "label": "Toscanini",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/toscaninini-ludwig-van-beethoven.mp3"
           },
           {
             "id": "toy-symphony-allegro-leopold-mozart",
-            "label": "Toy Symphony"
+            "label": "Toy Symphony",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/toy-symphony-allegro-leopold-mozart.mp3"
           },
           {
             "id": "william-tell-overture-gioachino-rossini",
-            "label": "William Tell Overture"
+            "label": "William Tell Overture",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/william-tell-overture-gioachino-rossini.mp3"
           },
           {
             "id": "wedding-march-felix-mendelssohn",
-            "label": "Wedding March"
+            "label": "Wedding March",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/wedding-march-felix-mendelssohn.mp3"
           },
           {
             "id": "welcome-to-horrorland-kevin-macleod",
-            "label": "Welcome to HorrorLand"
+            "label": "Welcome to HorrorLand",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/welcome-to-horrorland-kevin-macleod.mp3"
           },
           {
             "id": "yankee-doodle-traditional",
-            "label": "Yankee Doodle"
+            "label": "Yankee Doodle",
+            "audioUrl": "/app/static/collection/assets/cryptid/music/yankee-doodle-traditional.mp3"
           }
         ]
       }

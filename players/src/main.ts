@@ -818,6 +818,13 @@ function renderCryptid(game: CryptidPublicView, you: CryptidPrivateView): void {
     case 'results':
       body = cryptidResults(game, you)
       break
+    case 'finale':
+      body = `
+        <h2>The Masterpiece</h2>
+        <p class="hint">The grand screening — the winning takes, sounds, and the new score over the finished cut.</p>
+        <p class="status">Sit tight and watch the host screen.</p>
+      `
+      break
     case 'finished':
       body = cryptidFinished(game, you)
       break

@@ -50,6 +50,13 @@ var _film: VideoStreamPlayer
 var _cryptid_notes: RichTextLabel
 var _mall_view: VBoxContainer
 var _crackle_player: AudioStreamPlayer
+
+# --- Grand finale ("the Masterpiece") ------------------------------------------
+# The music-less cut runs from the top; the winning song plays under everything
+# and each round's winners layer in at their spots, ties staggered moments apart.
+var _finale_lane_count := 0
+var _finale_lanes: Array = []          # per segment: {players: [AudioStreamPlayer,...], cues: [float,...], urls: [...], played: [bool,...]}
+var _finale_armed := false
 var _cryptid_hud: Label
 
 # Film scheduling (Godot can't seek Theora, so we play forward and pause at a mark).
@@ -449,6 +456,8 @@ func _render_cryptid(game: Dictionary, phase: String) -> void:
 
 	# The crackle vinyl only rides the record phase.
 	_set_crackle(phase == "record")
+	if phase != "finale":
+		_finale_armed = false
 
 	match phase:
 		"brief":
@@ -457,8 +466,13 @@ func _render_cryptid(game: Dictionary, phase: String) -> void:
 				_screening_active = false
 				_screen_player.stop()
 			var see_end := float(game.get("seeEnd", 0.0))
+			var sound_cutoff := float(game.get("soundCutoff", 0.0))
+			var record_start := float(game.get("recordStart", 0.0))
+			var record_end := float(game.get("recordEnd", 0.0))
 			if see_end > 0.0:
-				_roll_window(see_end)
+				# The round's see window: sound until its cutoff, then dead until
+				# the recorded region ends, then sound again for context.
+				_roll_window(see_end, sound_cutoff, record_end)
 			else:
 				# FOUNDTRACK-style rounds screen the full music-less cut.
 				_replay_film_from_start()
@@ -478,16 +492,23 @@ func _render_cryptid(game: Dictionary, phase: String) -> void:
 			lines.append("")
 			lines.append(_cryptid_submissions(game, false))
 		"results":
-			if is_foundtrack:
+			var mode := str(game.get("screenMode", "now"))
+			if mode == "deferred":
+				# This round's winners wait for the grand screening.
+				_pause_film()
+				_stop_screening_pieces()
+				lines.append("The reveal waits for the grand screening — keep those seats warm.")
+			elif is_foundtrack:
 				_replay_film_from_start()
 				_enqueue_screening(game)
-			elif round_type == "UNKNOWABLE_SFX" or round_type == "UFSFX":
-				# Unknowable Sound has no take to screen over the picture and the
-				# U.F.S.F.X. pick has no window — both screen audio-only.
+			elif round_type == "UNKNOWABLE_SFX" or round_type == "UFSFX" or mode == "audio":
+				# No window to roll — the winners screen as sound.
 				_pause_film()
 				_enqueue_screening(game)
 			else:
-				_start_screening(game)
+				# Its own screening: film rolls 0..seeEnd, original stays dead
+				# from the sound cutoff on, and the winners play over their window.
+				_run_now_screening(game)
 			lines.append(_cryptid_submissions(game, true))
 			lines.append("")
 			lines.append("[b]This round[/b]")
@@ -495,8 +516,20 @@ func _render_cryptid(game: Dictionary, phase: String) -> void:
 			lines.append("")
 			lines.append("[b]Standings[/b]")
 			lines.append(_scores_list(game.get("scores", [])))
+			lines.append(_cryptid_submissions(game, true))
+			lines.append("")
+			lines.append("[b]This round[/b]")
+			lines.append(_scores_list(game.get("roundScores", [])))
+			lines.append("")
+			lines.append("[b]Standings[/b]")
+			lines.append(_scores_list(game.get("scores", [])))
+		"finale":
+			_run_finale(game)
+			lines.append("The Masterpiece — sit back.")
+			lines.append(_scores_list(game.get("scores", [])))
 		"finished":
 			_pause_film()
+			_set_crackle(false)
 			lines.append("[font_size=26][b]Final Standings[/b][/font_size]")
 			lines.append(_scores_list(game.get("scores", [])))
 			var scores: Array = game.get("scores", [])
@@ -525,6 +558,141 @@ func _set_crackle(active: bool) -> void:
 		_crackle_player.play()
 	elif not active and _crackle_player.playing:
 		_crackle_player.stop()
+
+## Grand screening: the music-less cut rolls from the top; every round's
+## winners layer in at their windows, the session's song runs underneath.
+func _run_finale(game: Dictionary) -> void:
+	if _screening_active:
+		_stop_screening_pieces()
+	_set_crackle(false)
+	if _film.stream != null and str(game.get("video", "")).is_empty():
+		pass
+	# The cut to use: the server flips `video` to the music-less variant in the
+	# finale, so _ensure_film reloads only when it differs.
+	_ensure_film(str(game.get("video", "")))
+	if not _finale_armed:
+		_replay_film_from_start()
+		_finale_armed = true
+		_arm_finale_lanes(game)
+
+func _arm_finale_lanes(game: Dictionary) -> void:
+	for lane in _finale_lanes:
+		for p in lane.players:
+			p.stop()
+	_finale_lanes.clear()
+	var schedule: Array = game.get("schedule", [])
+	var song_lane := _finale_lane(game, "song", 0.0)
+	if not song_lane.is_empty():
+		_finale_lanes.append(song_lane)
+	for seg in schedule:
+		var mode := str(seg.get("mode", ""))
+		if mode != "window" and mode != "audio":
+			continue
+		var lane := _finale_lane(game, mode, float(seg.get("start", 0.0)), seg)
+		if not lane.is_empty():
+			_finale_lanes.append(lane)
+	print("[host] finale armed with ", _finale_lanes.size(), " lanes")
+
+## Builds one lane (players + cues) for a segment. audioUrl may be a static mp3
+## or a recording wav — the fetcher handles both.
+func _finale_lane(game: Dictionary, mode: String, start: float, seg: Dictionary = {}) -> Dictionary:
+	var players: Array = []
+	var cues: Array = []
+	var urls: Array = []
+	var played_flag: Array = []
+	if mode == "song":
+		var players_song := AudioStreamPlayer.new()
+		players_song.bus = "Music"
+		add_child(players_song)
+		players.append(players_song)
+		cues.append(0.0)
+		urls.append(str(seg.get("audioUrl", "")))
+		played_flag.append(false)
+		return {"players": players, "cues": cues, "urls": urls, "played": played_flag, "mode": "song"}
+	var winners: Array = seg.get("winners", [])
+	if winners.is_empty():
+		return {}
+	var stagger := float(seg.get("stagger", 0.0))
+	for i in winners.size():
+		var p := AudioStreamPlayer.new()
+		p.bus = "Voice"
+		add_child(p)
+		players.append(p)
+		cues.append(start + i * stagger)
+		urls.append(str(winners[i].get("audioUrl", "")))
+		played_flag.append(false)
+	return {"players": players, "cues": cues, "urls": urls, "played": played_flag, "mode": "layer"}
+
+func _update_finale_lanes() -> void:
+	if not _finale_armed or _finale_lanes.is_empty():
+		return
+	var pos := _film.stream_position if _film.stream != null else -1.0
+	if pos < 0.0:
+		return
+	var pending: Array = []
+	for li in _finale_lanes.size():
+		var lane: Dictionary = _finale_lanes[li]
+		for wi in lane.urls.size():
+			if lane.played[wi]:
+				continue
+			var cue := float(lane.cues[wi])
+			var url := str(lane.urls[wi])
+			if url.is_empty():
+				lane.played[wi] = true
+				continue
+			if pos >= cue:
+				pending.append([li, wi])
+	if pending.is_empty():
+		return
+	# fetch the first due lane item; everything else waits its turn
+	var item = pending[0]
+	var li: int = item[0]
+	var wi: int = item[1]
+	var url: String = _finale_lanes[li].urls[wi]
+	_finale_fetch(url, _finale_lanes[li].players[wi], li, wi)
+
+var _finale_fetch_http: HTTPRequest
+func _finale_fetch(url: String, player: AudioStreamPlayer, li: int, wi: int) -> void:
+	if _finale_fetch_http == null:
+		_finale_fetch_http = HTTPRequest.new()
+		_finale_fetch_http.request_completed.connect(func(result: int, code: int, _h: PackedStringArray, body: PackedByteArray) -> void:
+			_finale_fetch_done(result, code, body)
+			var cur: Array = _finale_current
+			_finale_current = []
+			# the lane item keeps whatever stream it got
+			if _finale_fetch_stream.get_stream() != null:
+				_finale_fetch_stream.play()
+			)
+	# stream setup per fetch
+	_finale_current = [li, wi]
+	_finale_fetch_stream = player
+	_finale_fetch_http.cancel_request()
+	_finale_fetch_http.request(BackendConfig.url + url, PackedStringArray(), HTTPClient.METHOD_GET)
+
+var _finale_current: Array = []
+var _finale_fetch_stream: AudioStreamPlayer
+
+func _finale_fetch_done(result: int, code: int, body: PackedByteArray) -> void:
+	if _finale_fetch_stream == null:
+		return
+	if result == HTTPRequest.RESULT_SUCCESS and code == 200:
+		var wav := _wav_from_bytes(body)
+		if wav != null:
+			_finale_fetch_stream.stream = wav
+		else:
+			var mp3 := AudioStreamMP3.new()
+			mp3.data = body
+			_finale_fetch_stream.stream = mp3
+	else:
+		_finale_fetch_stream.stream = null
+	# mark the lane item played so we never double-fire
+	if _finale_current.size() == 2:
+		var li: int = _finale_current[0]
+		var wi: int = _finale_current[1]
+		if li < _finale_lanes.size():
+			var lane: Dictionary = _finale_lanes[li]
+			if wi < lane.played.size():
+				lane.played[wi] = true
 
 func _round_type_label(t: String) -> String:
 	match t:
@@ -619,6 +787,7 @@ func _replay_film_from_start() -> void:
 
 
 func _update_film() -> void:
+	_update_finale_lanes()
 	if _film == null or _film_target < 0.0 or _film.stream == null:
 		return
 	var pos := _film.stream_position
@@ -654,8 +823,10 @@ func _start_screening(game: Dictionary) -> void:
 	_screening_round = round
 	_screening_winners = []
 	_screening_index = 0
-	_screening_endt = float(game.get("recordEnd", 0.0))
+	_screening_endt = float(game.get("seeEnd", 0.0))
 	_screening_cue = float(game.get("recordStart", 0.0))
+	_mute_start = float(game.get("soundCutoff", 0.0))
+	_mute_end = _screening_endt
 	var subs: Array = game.get("submissions", [])
 	for s in _top_submissions(subs):
 		if not str(s.get("audioUrl", "")).is_empty():
@@ -685,6 +856,17 @@ func _run_screen_window() -> void:
 		_screen_player.stream = null
 		_screen_player.stop()
 	_roll_window(_screening_endt, _screening_cue, _screening_endt)
+
+func _stop_screening_pieces() -> void:
+	_screening_active = false
+	_screening_round = -1
+	_screening_index = 0
+	_screening_winners = []
+	_screen_player.stop()
+	_screen_http.cancel_request()
+	_mute_start = -1.0
+	_mute_end = -1.0
+	_film_target = -1.0
 
 func _on_screen_window_done() -> void:
 	_screening_index += 1

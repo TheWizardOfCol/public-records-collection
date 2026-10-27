@@ -31,6 +31,9 @@ public record CryptidPublicView(
         @Schema(description = "Seconds: clip the players watch to.") double seeEnd,
         @Schema(description = "Seconds: where the recorded/chosen audio lands.") double recordStart,
         @Schema(description = "Seconds: end of the recorded/chosen region.") double recordEnd,
+        @Schema(description = "Seconds: where the clip's own sound drops out before the recorded region; seeEnd when the round keeps its sound.") double soundCutoff,
+        @Schema(description = "now | deferred | audio — whose screening shows this round's winners.") String screenMode,
+        @Schema(description = "same | varied — how the round's prompts reach the players.") String promptMode,
         @Schema(description = "Director's-notes line for the round.") String directorNotes,
         @Schema(description = "Prompt pool for the round (empty for non-prompt rounds).") List<String> prompts,
         @Schema(description = "Selectable options (choice rounds only; empty otherwise).") List<Choice> choices,
@@ -38,6 +41,7 @@ public record CryptidPublicView(
         @Schema(description = "Number of players in the game.") int players,
         @Schema(description = "The round's submissions (anonymous until results).") List<CryptidSubmissionView> submissions,
         @Schema(description = "Points awarded this round, highest first (results only).") List<ScoreEntry> roundScores,
-        @Schema(description = "Cumulative scores, highest first.") List<ScoreEntry> scores) {
+        @Schema(description = "Cumulative scores, highest first.") List<ScoreEntry> scores,
+        @Schema(description = "The grand-screening segments (populated in the finale phase only).") List<FinaleSegmentView> schedule) {
 
 }

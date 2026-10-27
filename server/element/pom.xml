@@ -7,11 +7,11 @@
     <parent>
         <groupId>com.publicrecords</groupId>
         <artifactId>parent</artifactId>
-        <version>1.1.16-SNAPSHOT</version>
+        <version>1.1.21-SNAPSHOT</version>
     </parent>
 
     <artifactId>element</artifactId>
-    <version>1.1.16-SNAPSHOT</version>
+    <version>1.1.21-SNAPSHOT</version>
 
     <!--
         This includes a variety of dependencies which the Element uses. An Element may use some or all of these. Note

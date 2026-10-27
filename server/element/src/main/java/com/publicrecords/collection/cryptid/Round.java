@@ -25,12 +25,28 @@ public record Round(
         @JsonProperty("directorNotes") String directorNotes,
         @JsonProperty("prompts") List<String> prompts,
         @JsonProperty("choices") List<Choice> choices,
-        @JsonProperty("deck") List<Choice> deck) {
+        @JsonProperty("deck") List<Choice> deck,
+        @JsonProperty("soundCutoff") double soundCutoff,
+        @JsonProperty("screenMode") String screenMode,
+        @JsonProperty("promptMode") String promptMode) {
 
     public Round {
         prompts = prompts == null ? List.of() : List.copyOf(prompts);
         choices = choices == null ? List.of() : List.copyOf(choices);
         deck = deck == null ? List.of() : List.copyOf(deck);
+        screenMode = (screenMode == null || screenMode.isBlank()) ? "now" : screenMode;
+        promptMode = (promptMode == null || promptMode.isBlank()) ? "varied" : promptMode;
+        soundCutoff = soundCutoff <= 0.0 ? recordEnd : soundCutoff;
+    }
+
+    /** Screening mode: now (its own winner screening), deferred (finale only), audio (audio-only). */
+    public String screenMode() {
+        return screenMode;
+    }
+
+    /** "same" gives every player this round's first prompt; "varied" deals them out. */
+    public String promptMode() {
+        return promptMode;
     }
 
     /** Length of the marked recording region, in seconds. */
