@@ -1210,11 +1210,12 @@ func _on_stores_fetched(result: int, code: int, _headers: PackedStringArray, bod
 	var box: VBoxContainer = _stores_panel.get_meta("box")
 	for store in stores:
 		var btn := Button.new()
-		btn.text = "%s   %s   ·   %d gifts" % [
-			str(store.get("meter", "$")), str(store.get("name", "?")),
-			str(store.get("gifts", []) as Array).length()]
 		btn.custom_minimum_size = Vector2(460, 64)
+		var gift_list: Array = store.get("gifts", [])
+		var gift_count := gift_list.size()
 		var sid := str(store.get("id", ""))
+		btn.text = "%s   %s   ·   %d gifts" % [
+			str(store.get("meter", "$")), str(store.get("name", "?")), gift_count]
 		btn.pressed.connect(func() -> void: _on_store_selected(sid))
 		box.add_child(btn)
 
