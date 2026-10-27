@@ -1,0 +1,1133 @@
+[
+  {
+    "id": "house-in-the-middle",
+    "title": "The House in the Middle",
+    "blurb": "The mice present a public-service picture about keeping a tidy home. Things get messy.",
+    "video": "res://assets/cryptid/house-in-the-middle.ogv",
+    "videoNoMusic": "res://assets/cryptid/house-in-the-middle-no-music.ogv",
+    "hasFoundtrack": true,
+    "rounds": [
+      {
+        "index": 1,
+        "type": "UNDYINGALOG",
+        "seeStart": 0.0,
+        "seeEnd": 24.0,
+        "recordStart": 20.0,
+        "recordEnd": 24.0,
+        "maxSeconds": 0.0,
+        "directorNotes": "You're a narrator talking about how gross and messy this house is.",
+        "prompts": []
+      },
+      {
+        "index": 2,
+        "type": "UNDYINGALOG",
+        "seeStart": 24.0,
+        "seeEnd": 37.0,
+        "recordStart": 30.0,
+        "recordEnd": 37.0,
+        "maxSeconds": 0.0,
+        "directorNotes": "You're a narrator talking about how \"spic and span\" this house is.",
+        "prompts": []
+      },
+      {
+        "index": 3,
+        "type": "UNKNOWABLE_SFX",
+        "seeStart": 41.0,
+        "seeEnd": 45.0,
+        "recordStart": 41.0,
+        "recordEnd": 44.0,
+        "maxSeconds": 3.0,
+        "directorNotes": "",
+        "prompts": [
+          "A cartoon \"boing\"",
+          "The sound of a magical spell being cast"
+        ]
+      },
+      {
+        "index": 4,
+        "type": "UNKNOWABLE_SFX",
+        "seeStart": 48.5,
+        "seeEnd": 55.0,
+        "recordStart": 48.5,
+        "recordEnd": 55.0,
+        "maxSeconds": 0.0,
+        "directorNotes": "",
+        "prompts": [
+          "The sound of a gentle breeze from a fan on a hot summer day",
+          "The sound effect that plays in a movie when time slows down or stops",
+          "A spooky wind storm with thunder and lightning"
+        ]
+      },
+      {
+        "index": 5,
+        "type": "UNKNOWABLE_SFX",
+        "seeStart": 59.0,
+        "seeEnd": 62.0,
+        "recordStart": 59.0,
+        "recordEnd": 62.0,
+        "maxSeconds": 0.0,
+        "directorNotes": "",
+        "prompts": [
+          "Act like you just spilled a soda all over your nice rug",
+          "Give me an agitated \"Oh C'mon!\"",
+          "Excuse yourself from a party that got a little too crazy"
+        ]
+      },
+      {
+        "index": 6,
+        "type": "FOUNDTRACK",
+        "seeStart": 0.0,
+        "seeEnd": 0.0,
+        "recordStart": 0.0,
+        "recordEnd": 0.0,
+        "maxSeconds": 20.0,
+        "directorNotes": "Choose a song to use as this film's soundtrack.",
+        "prompts": [],
+        "choices": [],
+        "deck": [
+          {
+            "id": "01-01-la-primavera-spring-allegro",
+            "label": "La Primavera"
+          },
+          {
+            "id": "adventures-in-adventureland-kevin-macleod",
+            "label": "Adventures in Adventureland"
+          },
+          {
+            "id": "amazing-grace-traditional",
+            "label": "Amazing Grace"
+          },
+          {
+            "id": "android-sock-hop-kevin-macleod",
+            "label": "Android Sock Hop"
+          },
+          {
+            "id": "army-strong-mark-isham",
+            "label": "Army Strong"
+          },
+          {
+            "id": "balloon-game-kevin-macleod",
+            "label": "Balloon Game"
+          },
+          {
+            "id": "blue-danube-johann-strauss-ii",
+            "label": "Blue Danube"
+          },
+          {
+            "id": "brain-dance-kevin-macleod",
+            "label": "Brain Dance"
+          },
+          {
+            "id": "circuit-bent-keyboard-demo-some-sicko",
+            "label": "Circuit Bent Keyboard Demo"
+          },
+          {
+            "id": "danse-macabre-camille-saint-sa-ns",
+            "label": "Danse Macabre"
+          },
+          {
+            "id": "drankin-song-kevin-macleod",
+            "label": "Drankin Song"
+          },
+          {
+            "id": "entry-of-the-gladiators-julius-fucik",
+            "label": "Entry of the Gladiators"
+          },
+          {
+            "id": "epic-score-jeremusic70",
+            "label": "Epic Score"
+          },
+          {
+            "id": "everyone-loyalty-freak-music",
+            "label": "Everyone"
+          },
+          {
+            "id": "farting-around-kevin-macleod",
+            "label": "Farting Around"
+          },
+          {
+            "id": "flying-kerfuffle-kevin-macleod",
+            "label": "Flying Kerfuffle"
+          },
+          {
+            "id": "funeral-march-chopin",
+            "label": "Funeral March"
+          },
+          {
+            "id": "funiculi-funicula-luigi-denza-and-peppino-turco",
+            "label": "Funiculi Funicula"
+          },
+          {
+            "id": "god-save-the-king",
+            "label": "God Save The King"
+          },
+          {
+            "id": "gymnopedie-no-1-erik-satie",
+            "label": "Gymnopedie No. 1"
+          },
+          {
+            "id": "habanera",
+            "label": "Habanera"
+          },
+          {
+            "id": "haiduceasca-traditional",
+            "label": "Haiduceasca"
+          },
+          {
+            "id": "halleljeah-george-frideric-handel",
+            "label": "Halleljeah"
+          },
+          {
+            "id": "happy-happy-game-show-kevin-macleod",
+            "label": "Happy Happy Game Show"
+          },
+          {
+            "id": "high-stakes-spymaster-rfm1011",
+            "label": "High Stakes Spymaster"
+          },
+          {
+            "id": "in-the-hall-of-the-mountain-king-edvard-grieg",
+            "label": "In the Hall of the Mountain King"
+          },
+          {
+            "id": "kun-khmer-fight-music-traditional",
+            "label": "Kun Khmer fight music"
+          },
+          {
+            "id": "liberty-bell-march-john-philip-sousa",
+            "label": "Liberty Bell March"
+          },
+          {
+            "id": "little-fugue-in-g-minor-bach",
+            "label": "Little Fugue in G Minor"
+          },
+          {
+            "id": "maple-leaf-rag-scott-joplin",
+            "label": "Maple Leaf Rag"
+          },
+          {
+            "id": "mass-of-the-day-gajard-dom-joseph",
+            "label": "Mass of the Day"
+          },
+          {
+            "id": "meatball-parade-kevin-macleod",
+            "label": "Meatball Parade"
+          },
+          {
+            "id": "mesmerizing-galaxy-kevin-macleod",
+            "label": "Mesmerizing Galaxy"
+          },
+          {
+            "id": "modern-lounge-prettyjohn1",
+            "label": "Modern Lounge"
+          },
+          {
+            "id": "modern-sadness-kevin-macleod",
+            "label": "Modern Sadness"
+          },
+          {
+            "id": "monkeys-spinning-monkeys-kevin-macleod",
+            "label": "Monkeys Spinning Monkeys"
+          },
+          {
+            "id": "mouthalovania-oatymilkgalaxy",
+            "label": "Mouthalovania"
+          },
+          {
+            "id": "nano-hoedown-kevin-macleod",
+            "label": "Nano Hoedown"
+          },
+          {
+            "id": "o-canada",
+            "label": "O Canada"
+          },
+          {
+            "id": "ode-to-joy-on-the-netherlands-carillon",
+            "label": "Ode to Joy on the Netherlands Carillon"
+          },
+          {
+            "id": "pomp-and-circumstance",
+            "label": "Pomp and Circumstance"
+          },
+          {
+            "id": "pookatori-and-friends-kevin-macleod",
+            "label": "Pookatori and Friends"
+          },
+          {
+            "id": "pop-goes-the-weasel-traditional",
+            "label": "Pop Goes The Weasel"
+          },
+          {
+            "id": "ride-of-the-valkyries-richard-wagner",
+            "label": "Ride of the Valkyries"
+          },
+          {
+            "id": "sabre-dance-aram-khachaturian",
+            "label": "Sabre Dance"
+          },
+          {
+            "id": "soviet-national-anthem",
+            "label": "Soviet National Anthem"
+          },
+          {
+            "id": "star-spangled-banner-francis-scott-key-and-john-stafford-smith",
+            "label": "Star Spangled Banner"
+          },
+          {
+            "id": "symphony-no-9-ludwig-van-beethoven",
+            "label": "Symphony No. 9"
+          },
+          {
+            "id": "that-zen-moment-kevin-macleod",
+            "label": "That Zen Moment"
+          },
+          {
+            "id": "the-britons-kevin-macleod",
+            "label": "The Britons"
+          },
+          {
+            "id": "the-entertainer-scott-joplin",
+            "label": "The Entertainer"
+          },
+          {
+            "id": "the-german-s-arrival-frank-wilson",
+            "label": "The German's Arrival"
+          },
+          {
+            "id": "the-laughing-record",
+            "label": "The Laughing Record"
+          },
+          {
+            "id": "the-whistling-bowery-boy-s-h-dudley",
+            "label": "The Whistling Bowery Boy"
+          },
+          {
+            "id": "toscaninini-ludwig-van-beethoven",
+            "label": "Toscanini"
+          },
+          {
+            "id": "toy-symphony-allegro-leopold-mozart",
+            "label": "Toy Symphony"
+          },
+          {
+            "id": "william-tell-overture-gioachino-rossini",
+            "label": "William Tell Overture"
+          },
+          {
+            "id": "wedding-march-felix-mendelssohn",
+            "label": "Wedding March"
+          },
+          {
+            "id": "welcome-to-horrorland-kevin-macleod",
+            "label": "Welcome to HorrorLand"
+          },
+          {
+            "id": "yankee-doodle-traditional",
+            "label": "Yankee Doodle"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "night-of-the-living-dead",
+    "title": "Night of the Living Dead",
+    "blurb": "Public domain zombie classic. Let the audience suffer.",
+    "video": "res://assets/cryptid/night-of-the-living-dead.ogv",
+    "videoNoMusic": "res://assets/cryptid/night-of-the-living-dead-no-music.ogv",
+    "hasFoundtrack": true,
+    "rounds": [
+      {
+        "index": 1,
+        "type": "UNDYINGALOG",
+        "seeStart": 0.0,
+        "seeEnd": 16.0,
+        "recordStart": 8.0,
+        "recordEnd": 16.0,
+        "maxSeconds": 0.0,
+        "directorNotes": "Narrate the zombie mayhem.",
+        "prompts": [],
+        "choices": [],
+        "deck": []
+      },
+      {
+        "index": 2,
+        "type": "UFSFX",
+        "seeStart": 16.0,
+        "seeEnd": 36.0,
+        "recordStart": 0.0,
+        "recordEnd": 0.0,
+        "maxSeconds": 0.0,
+        "directorNotes": "Choose an appropriate sound effect.",
+        "prompts": [],
+        "choices": [],
+        "deck": [
+          {
+            "id": "airhorn",
+            "label": "Airhorn",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/airhorn.mp3"
+          },
+          {
+            "id": "angelic-chorus",
+            "label": "Angelic Chorus",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/angelic-chorus.mp3"
+          },
+          {
+            "id": "angry-cat",
+            "label": "Angry cat",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/angry-cat.mp3"
+          },
+          {
+            "id": "anime-dramatic-ting-sound",
+            "label": "Anime Dramatic TING sound",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/anime-dramatic-ting-sound.mp3"
+          },
+          {
+            "id": "anime-girl-wow",
+            "label": "Anime Girl WOW",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/anime-girl-wow.mp3"
+          },
+          {
+            "id": "anime-nya",
+            "label": "Anime Nya!~",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/anime-nya.mp3"
+          },
+          {
+            "id": "anvil-hit",
+            "label": "Anvil hit",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/anvil-hit.mp3"
+          },
+          {
+            "id": "applause-and-cheering",
+            "label": "Applause and Cheering",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/applause-and-cheering.mp3"
+          },
+          {
+            "id": "bonk",
+            "label": "BONK",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/bonk.mp3"
+          },
+          {
+            "id": "baby-crying",
+            "label": "Baby crying",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/baby-crying.mp3"
+          },
+          {
+            "id": "balloon-pop",
+            "label": "Balloon pop",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/balloon-pop.mp3"
+          },
+          {
+            "id": "baseball-fanfare",
+            "label": "Baseball Fanfare",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/baseball-fanfare.mp3"
+          },
+          {
+            "id": "bicycle-horn",
+            "label": "Bicycle Horn",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/bicycle-horn.mp3"
+          },
+          {
+            "id": "bowling-ball-hitting-pins",
+            "label": "Bowling ball hitting pins",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/bowling-ball-hitting-pins.mp3"
+          },
+          {
+            "id": "cartoon-wobble",
+            "label": "Cartoon Wobble",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/cartoon-wobble.mp3"
+          },
+          {
+            "id": "cash-register-ka-ching",
+            "label": "Cash register ka-ching",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/cash-register-ka-ching.mp3"
+          },
+          {
+            "id": "ceramic-plate-breaking",
+            "label": "Ceramic plate breaking",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/ceramic-plate-breaking.mp3"
+          },
+          {
+            "id": "chiptune-victory-fanfare",
+            "label": "Chiptune victory fanfare",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/chiptune-victory-fanfare.mp3"
+          },
+          {
+            "id": "church-bell",
+            "label": "Church bell",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/church-bell.mp3"
+          },
+          {
+            "id": "circus-organ-tune",
+            "label": "Circus Organ Tune",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/circus-organ-tune.mp3"
+          },
+          {
+            "id": "clown-honk",
+            "label": "Clown Honk",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/clown-honk.mp3"
+          },
+          {
+            "id": "cow-moo",
+            "label": "Cow moo",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/cow-moo.mp3"
+          },
+          {
+            "id": "cowbell",
+            "label": "Cowbell",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/cowbell.mp3"
+          },
+          {
+            "id": "creepy-accordion",
+            "label": "Creepy Accordion",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/creepy-accordion.mp3"
+          },
+          {
+            "id": "crickets",
+            "label": "Crickets",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/crickets.mp3"
+          },
+          {
+            "id": "crow-caw",
+            "label": "Crow caw",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/crow-caw.mp3"
+          },
+          {
+            "id": "crunch",
+            "label": "Crunch",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/crunch.mp3"
+          },
+          {
+            "id": "dial-up-internet",
+            "label": "Dial-up internet",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/dial-up-internet.mp3"
+          },
+          {
+            "id": "dog-bark",
+            "label": "Dog bark",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/dog-bark.mp3"
+          },
+          {
+            "id": "door-slam",
+            "label": "Door slam",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/door-slam.mp3"
+          },
+          {
+            "id": "dramatic-cinematic-bwoooomp",
+            "label": "Dramatic Cinematic bwoooomp",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/dramatic-cinematic-bwoooomp.mp3"
+          },
+          {
+            "id": "dramatic-horn",
+            "label": "Dramatic horn",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/dramatic-horn.mp3"
+          },
+          {
+            "id": "electronic-blip",
+            "label": "Electronic blip",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/electronic-blip.mp3"
+          },
+          {
+            "id": "evil-laughter",
+            "label": "Evil Laughter",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/evil-laughter.mp3"
+          },
+          {
+            "id": "glass-breaking",
+            "label": "Glass breaking",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/glass-breaking.mp3"
+          },
+          {
+            "id": "goblin-cackle",
+            "label": "Goblin cackle",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/goblin-cackle.mp3"
+          },
+          {
+            "id": "gospel-chior",
+            "label": "Gospel Chior",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/gospel-chior.mp3"
+          },
+          {
+            "id": "happy-baby",
+            "label": "Happy baby",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/happy-baby.mp3"
+          },
+          {
+            "id": "harp-flourish",
+            "label": "Harp flourish",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/harp-flourish.mp3"
+          },
+          {
+            "id": "hawk-caw",
+            "label": "Hawk caw",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/hawk-caw.mp3"
+          },
+          {
+            "id": "high-pitched-cackling",
+            "label": "High pitched cackling",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/high-pitched-cackling.mp3"
+          },
+          {
+            "id": "high-pitched-gulp",
+            "label": "High-pitched gulp",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/high-pitched-gulp.mp3"
+          },
+          {
+            "id": "horse-neigh",
+            "label": "Horse neigh",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/horse-neigh.mp3"
+          },
+          {
+            "id": "human-inhale",
+            "label": "Human inhale",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/human-inhale.mp3"
+          },
+          {
+            "id": "kazoo-fanfare",
+            "label": "Kazoo Fanfare",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/kazoo-fanfare.mp3"
+          },
+          {
+            "id": "large-explosion",
+            "label": "Large explosion",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/large-explosion.mp3"
+          },
+          {
+            "id": "male-huh",
+            "label": "Male HUH",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/male-huh.mp3"
+          },
+          {
+            "id": "male-gasp",
+            "label": "Male gasp",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/male-gasp.mp3"
+          },
+          {
+            "id": "male-snore",
+            "label": "Male snore",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/male-snore.mp3"
+          },
+          {
+            "id": "male-terrified-scream",
+            "label": "Male terrified scream",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/male-terrified-scream.mp3"
+          },
+          {
+            "id": "man-burp",
+            "label": "Man Burp",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/man-burp.mp3"
+          },
+          {
+            "id": "meow",
+            "label": "Meow",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/meow.mp3"
+          },
+          {
+            "id": "ooga-booga",
+            "label": "Ooga Booga",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/ooga-booga.mp3"
+          },
+          {
+            "id": "party-blower",
+            "label": "Party Blower",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/party-blower.mp3"
+          },
+          {
+            "id": "peek-a-boo",
+            "label": "Peek-a-boo",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/peek-a-boo.mp3"
+          },
+          {
+            "id": "pig-oink",
+            "label": "Pig oink",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/pig-oink.mp3"
+          },
+          {
+            "id": "police-siren",
+            "label": "Police Siren",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/police-siren.mp3"
+          },
+          {
+            "id": "potato-chip-chomp",
+            "label": "Potato Chip Chomp",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/potato-chip-chomp.mp3"
+          },
+          {
+            "id": "raspberry",
+            "label": "Raspberry",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/raspberry.mp3"
+          },
+          {
+            "id": "rimshot",
+            "label": "Rimshot",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/rimshot.mp3"
+          },
+          {
+            "id": "rooster-crow",
+            "label": "Rooster crow",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/rooster-crow.mp3"
+          },
+          {
+            "id": "sitcom-laugh-track",
+            "label": "SItcom laugh track",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/sitcom-laugh-track.mp3"
+          },
+          {
+            "id": "sad-trumpet",
+            "label": "Sad trumpet",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/sad-trumpet.mp3"
+          },
+          {
+            "id": "scary-dragon-roar",
+            "label": "Scary Dragon Roar",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/scary-dragon-roar.mp3"
+          },
+          {
+            "id": "sheep-baah",
+            "label": "Sheep baah",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/sheep-baah.mp3"
+          },
+          {
+            "id": "singing-bowl-ding",
+            "label": "Singing Bowl Ding",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/singing-bowl-ding.mp3"
+          },
+          {
+            "id": "single-clap",
+            "label": "Single clap",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/single-clap.mp3"
+          },
+          {
+            "id": "slide-whistle-down",
+            "label": "Slide whistle down",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/slide-whistle-down.mp3"
+          },
+          {
+            "id": "slide-whistle-up",
+            "label": "Slide whistle up",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/slide-whistle-up.mp3"
+          },
+          {
+            "id": "smack",
+            "label": "Smack",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/smack.mp3"
+          },
+          {
+            "id": "small-crowd-booing",
+            "label": "Small crowd booing",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/small-crowd-booing.mp3"
+          },
+          {
+            "id": "small-crowd-saying-woah",
+            "label": "Small crowd saying woah",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/small-crowd-saying-woah.mp3"
+          },
+          {
+            "id": "sneeze",
+            "label": "Sneeze",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/sneeze.mp3"
+          },
+          {
+            "id": "soda-can-opening",
+            "label": "Soda can opening",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/soda-can-opening.mp3"
+          },
+          {
+            "id": "something-breaking-in-old-school-video-game",
+            "label": "Something breaking in old school video game",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/something-breaking-in-old-school-video-game.mp3"
+          },
+          {
+            "id": "splat",
+            "label": "Splat",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/splat.mp3"
+          },
+          {
+            "id": "spooky-ghost-boo",
+            "label": "Spooky Ghost Boo",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/spooky-ghost-boo.mp3"
+          },
+          {
+            "id": "spooky-organ",
+            "label": "Spooky organ",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/spooky-organ.mp3"
+          },
+          {
+            "id": "spring-boing",
+            "label": "Spring boing",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/spring-boing.mp3"
+          },
+          {
+            "id": "squeaky-toy",
+            "label": "Squeaky toy",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/squeaky-toy.mp3"
+          },
+          {
+            "id": "synthy-stab",
+            "label": "Synthy Stab",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/synthy-stab.mp3"
+          },
+          {
+            "id": "tada-fanfare",
+            "label": "Tada fanfare",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/tada-fanfare.mp3"
+          },
+          {
+            "id": "tea-kettle-whistle",
+            "label": "Tea Kettle Whistle",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/tea-kettle-whistle.mp3"
+          },
+          {
+            "id": "thunderous-sports-applause",
+            "label": "Thunderous Sports Applause",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/thunderous-sports-applause.mp3"
+          },
+          {
+            "id": "uwu",
+            "label": "UwU",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/uwu.mp3"
+          },
+          {
+            "id": "vintage-phone-ringing",
+            "label": "Vintage phone ringing",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/vintage-phone-ringing.mp3"
+          },
+          {
+            "id": "wacky-cartoon-machine",
+            "label": "Wacky cartoon machine",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/wacky-cartoon-machine.mp3"
+          },
+          {
+            "id": "weird-female-oohohohoo-laugh",
+            "label": "Weird Female Oohohohoo Laugh",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/weird-female-oohohohoo-laugh.mp3"
+          },
+          {
+            "id": "weird-horn-meledy",
+            "label": "Weird horn meledy",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/weird-horn-meledy.mp3"
+          },
+          {
+            "id": "wet-fart",
+            "label": "Wet Fart",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/wet-fart.mp3"
+          },
+          {
+            "id": "wine-cork-pop",
+            "label": "Wine cork pop",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/wine-cork-pop.mp3"
+          },
+          {
+            "id": "wolf-howl",
+            "label": "Wolf howl",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/wolf-howl.mp3"
+          },
+          {
+            "id": "woman-clearing-throat",
+            "label": "Woman Clearing Throat",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/woman-clearing-throat.mp3"
+          },
+          {
+            "id": "woman-crying",
+            "label": "Woman crying",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/woman-crying.mp3"
+          },
+          {
+            "id": "woosh",
+            "label": "Woosh",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/woosh.mp3"
+          },
+          {
+            "id": "wrong-answer-buzzer",
+            "label": "Wrong Answer Buzzer",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/wrong-answer-buzzer.mp3"
+          },
+          {
+            "id": "wuh-oh",
+            "label": "Wuh oh",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/wuh-oh.mp3"
+          },
+          {
+            "id": "boing",
+            "label": "boing",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/boing.mp3"
+          },
+          {
+            "id": "car-horn",
+            "label": "car horn",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/car-horn.mp3"
+          },
+          {
+            "id": "distorted-cat-meow",
+            "label": "distorted cat meow",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/distorted-cat-meow.mp3"
+          },
+          {
+            "id": "fart",
+            "label": "fart",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/fart.mp3"
+          },
+          {
+            "id": "gun-shot",
+            "label": "gun shot",
+            "audioUrl": "/app/static/collection/assets/cryptid/sfx/gun-shot.mp3"
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "FOUNDTRACK",
+        "seeStart": 0.0,
+        "seeEnd": 0.0,
+        "recordStart": 0.0,
+        "recordEnd": 0.0,
+        "maxSeconds": 20.0,
+        "directorNotes": "Choose a song to use as this film's soundtrack.",
+        "prompts": [],
+        "choices": [],
+        "deck": [
+          {
+            "id": "01-01-la-primavera-spring-allegro",
+            "label": "La Primavera"
+          },
+          {
+            "id": "adventures-in-adventureland-kevin-macleod",
+            "label": "Adventures in Adventureland"
+          },
+          {
+            "id": "amazing-grace-traditional",
+            "label": "Amazing Grace"
+          },
+          {
+            "id": "android-sock-hop-kevin-macleod",
+            "label": "Android Sock Hop"
+          },
+          {
+            "id": "army-strong-mark-isham",
+            "label": "Army Strong"
+          },
+          {
+            "id": "balloon-game-kevin-macleod",
+            "label": "Balloon Game"
+          },
+          {
+            "id": "blue-danube-johann-strauss-ii",
+            "label": "Blue Danube"
+          },
+          {
+            "id": "brain-dance-kevin-macleod",
+            "label": "Brain Dance"
+          },
+          {
+            "id": "circuit-bent-keyboard-demo-some-sicko",
+            "label": "Circuit Bent Keyboard Demo"
+          },
+          {
+            "id": "danse-macabre-camille-saint-sa-ns",
+            "label": "Danse Macabre"
+          },
+          {
+            "id": "drankin-song-kevin-macleod",
+            "label": "Drankin Song"
+          },
+          {
+            "id": "entry-of-the-gladiators-julius-fucik",
+            "label": "Entry of the Gladiators"
+          },
+          {
+            "id": "epic-score-jeremusic70",
+            "label": "Epic Score"
+          },
+          {
+            "id": "everyone-loyalty-freak-music",
+            "label": "Everyone"
+          },
+          {
+            "id": "farting-around-kevin-macleod",
+            "label": "Farting Around"
+          },
+          {
+            "id": "flying-kerfuffle-kevin-macleod",
+            "label": "Flying Kerfuffle"
+          },
+          {
+            "id": "funeral-march-chopin",
+            "label": "Funeral March"
+          },
+          {
+            "id": "funiculi-funicula-luigi-denza-and-peppino-turco",
+            "label": "Funiculi Funicula"
+          },
+          {
+            "id": "god-save-the-king",
+            "label": "God Save The King"
+          },
+          {
+            "id": "gymnopedie-no-1-erik-satie",
+            "label": "Gymnopedie No. 1"
+          },
+          {
+            "id": "habanera",
+            "label": "Habanera"
+          },
+          {
+            "id": "haiduceasca-traditional",
+            "label": "Haiduceasca"
+          },
+          {
+            "id": "halleljeah-george-frideric-handel",
+            "label": "Halleljeah"
+          },
+          {
+            "id": "happy-happy-game-show-kevin-macleod",
+            "label": "Happy Happy Game Show"
+          },
+          {
+            "id": "high-stakes-spymaster-rfm1011",
+            "label": "High Stakes Spymaster"
+          },
+          {
+            "id": "in-the-hall-of-the-mountain-king-edvard-grieg",
+            "label": "In the Hall of the Mountain King"
+          },
+          {
+            "id": "kun-khmer-fight-music-traditional",
+            "label": "Kun Khmer fight music"
+          },
+          {
+            "id": "liberty-bell-march-john-philip-sousa",
+            "label": "Liberty Bell March"
+          },
+          {
+            "id": "little-fugue-in-g-minor-bach",
+            "label": "Little Fugue in G Minor"
+          },
+          {
+            "id": "maple-leaf-rag-scott-joplin",
+            "label": "Maple Leaf Rag"
+          },
+          {
+            "id": "mass-of-the-day-gajard-dom-joseph",
+            "label": "Mass of the Day"
+          },
+          {
+            "id": "meatball-parade-kevin-macleod",
+            "label": "Meatball Parade"
+          },
+          {
+            "id": "mesmerizing-galaxy-kevin-macleod",
+            "label": "Mesmerizing Galaxy"
+          },
+          {
+            "id": "modern-lounge-prettyjohn1",
+            "label": "Modern Lounge"
+          },
+          {
+            "id": "modern-sadness-kevin-macleod",
+            "label": "Modern Sadness"
+          },
+          {
+            "id": "monkeys-spinning-monkeys-kevin-macleod",
+            "label": "Monkeys Spinning Monkeys"
+          },
+          {
+            "id": "mouthalovania-oatymilkgalaxy",
+            "label": "Mouthalovania"
+          },
+          {
+            "id": "nano-hoedown-kevin-macleod",
+            "label": "Nano Hoedown"
+          },
+          {
+            "id": "o-canada",
+            "label": "O Canada"
+          },
+          {
+            "id": "ode-to-joy-on-the-netherlands-carillon",
+            "label": "Ode to Joy on the Netherlands Carillon"
+          },
+          {
+            "id": "pomp-and-circumstance",
+            "label": "Pomp and Circumstance"
+          },
+          {
+            "id": "pookatori-and-friends-kevin-macleod",
+            "label": "Pookatori and Friends"
+          },
+          {
+            "id": "pop-goes-the-weasel-traditional",
+            "label": "Pop Goes The Weasel"
+          },
+          {
+            "id": "ride-of-the-valkyries-richard-wagner",
+            "label": "Ride of the Valkyries"
+          },
+          {
+            "id": "sabre-dance-aram-khachaturian",
+            "label": "Sabre Dance"
+          },
+          {
+            "id": "soviet-national-anthem",
+            "label": "Soviet National Anthem"
+          },
+          {
+            "id": "star-spangled-banner-francis-scott-key-and-john-stafford-smith",
+            "label": "Star Spangled Banner"
+          },
+          {
+            "id": "symphony-no-9-ludwig-van-beethoven",
+            "label": "Symphony No. 9"
+          },
+          {
+            "id": "that-zen-moment-kevin-macleod",
+            "label": "That Zen Moment"
+          },
+          {
+            "id": "the-britons-kevin-macleod",
+            "label": "The Britons"
+          },
+          {
+            "id": "the-entertainer-scott-joplin",
+            "label": "The Entertainer"
+          },
+          {
+            "id": "the-german-s-arrival-frank-wilson",
+            "label": "The German's Arrival"
+          },
+          {
+            "id": "the-laughing-record",
+            "label": "The Laughing Record"
+          },
+          {
+            "id": "the-whistling-bowery-boy-s-h-dudley",
+            "label": "The Whistling Bowery Boy"
+          },
+          {
+            "id": "toscaninini-ludwig-van-beethoven",
+            "label": "Toscanini"
+          },
+          {
+            "id": "toy-symphony-allegro-leopold-mozart",
+            "label": "Toy Symphony"
+          },
+          {
+            "id": "william-tell-overture-gioachino-rossini",
+            "label": "William Tell Overture"
+          },
+          {
+            "id": "wedding-march-felix-mendelssohn",
+            "label": "Wedding March"
+          },
+          {
+            "id": "welcome-to-horrorland-kevin-macleod",
+            "label": "Welcome to HorrorLand"
+          },
+          {
+            "id": "yankee-doodle-traditional",
+            "label": "Yankee Doodle"
+          }
+        ]
+      }
+    ]
+  }
+]

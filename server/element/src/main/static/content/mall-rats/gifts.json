@@ -1,0 +1,1622 @@
+{
+  "stores": [
+    {
+      "id": "cheap",
+      "name": "The Bargian Rac.",
+      "meter": "$",
+      "gifts": [
+        {
+          "id": "a-day-at-a-thrift-store",
+          "name": "A Day at a thrift store",
+          "image": "/app/static/collection/assets/mall-rats/cheap/a-day-at-a-thrift-store.webp",
+          "bytes": 90580
+        },
+        {
+          "id": "a-whole-bunch-of-your-favorite-snack",
+          "name": "A Whole bunch of your favorite snack",
+          "image": "/app/static/collection/assets/mall-rats/cheap/a-whole-bunch-of-your-favorite-snack.webp",
+          "bytes": 119636
+        },
+        {
+          "id": "assorted-gummy-candy",
+          "name": "An Assorted Gummy Candy",
+          "image": "/app/static/collection/assets/mall-rats/cheap/assorted-gummy-candy.webp",
+          "bytes": 50840
+        },
+        {
+          "id": "bestselling-cookbook",
+          "name": "A Bestselling cookbook",
+          "image": "/app/static/collection/assets/mall-rats/cheap/bestselling-cookbook.webp",
+          "bytes": 126386
+        },
+        {
+          "id": "board-game",
+          "name": "A Board Game",
+          "image": "/app/static/collection/assets/mall-rats/cheap/board-game.webp",
+          "bytes": 105470
+        },
+        {
+          "id": "book-you-might-like",
+          "name": "A Book you might like",
+          "image": "/app/static/collection/assets/mall-rats/cheap/book-you-might-like.webp",
+          "bytes": 52314
+        },
+        {
+          "id": "bowtie",
+          "name": "A Bowtie",
+          "image": "/app/static/collection/assets/mall-rats/cheap/bowtie.webp",
+          "bytes": 54014
+        },
+        {
+          "id": "boxed-sitcom-set",
+          "name": "A Boxed sitcom set",
+          "image": "/app/static/collection/assets/mall-rats/cheap/boxed-sitcom-set.webp",
+          "bytes": 47936
+        },
+        {
+          "id": "character-slippers",
+          "name": "Character Slippers",
+          "image": "/app/static/collection/assets/mall-rats/cheap/character-slippers.webp",
+          "bytes": 58578
+        },
+        {
+          "id": "character-onesie",
+          "name": "A Character onesie",
+          "image": "/app/static/collection/assets/mall-rats/cheap/character-onesie.webp",
+          "bytes": 27368
+        },
+        {
+          "id": "chemsitry-set",
+          "name": "A Chemsitry set",
+          "image": "/app/static/collection/assets/mall-rats/cheap/chemsitry-set.webp",
+          "bytes": 49830
+        },
+        {
+          "id": "chess-set",
+          "name": "A Chess Set",
+          "image": "/app/static/collection/assets/mall-rats/cheap/chess-set.webp",
+          "bytes": 62966
+        },
+        {
+          "id": "clown-figurine",
+          "name": "A Clown Figurine",
+          "image": "/app/static/collection/assets/mall-rats/cheap/clown-figurine.webp",
+          "bytes": 29168
+        },
+        {
+          "id": "coffee-shop-gift-card",
+          "name": "A Coffee shop gift card",
+          "image": "/app/static/collection/assets/mall-rats/cheap/coffee-shop-gift-card.webp",
+          "bytes": 36690
+        },
+        {
+          "id": "complete-works-of-poe",
+          "name": "A Complete Works of Poe",
+          "image": "/app/static/collection/assets/mall-rats/cheap/complete-works-of-poe.webp",
+          "bytes": 137528
+        },
+        {
+          "id": "cool-knife",
+          "name": "A Cool Knife",
+          "image": "/app/static/collection/assets/mall-rats/cheap/cool-knife.webp",
+          "bytes": 11538
+        },
+        {
+          "id": "creepy-face-mug",
+          "name": "A Creepy Face Mug",
+          "image": "/app/static/collection/assets/mall-rats/cheap/creepy-face-mug.webp",
+          "bytes": 16292
+        },
+        {
+          "id": "cupcakes",
+          "name": "Cupcakes",
+          "image": "/app/static/collection/assets/mall-rats/cheap/cupcakes.webp",
+          "bytes": 38776
+        },
+        {
+          "id": "custom-emote",
+          "name": "A Custom Emote",
+          "image": "/app/static/collection/assets/mall-rats/cheap/custom-emote.webp",
+          "bytes": 17846
+        },
+        {
+          "id": "custom-t-shirt",
+          "name": "A Custom T-Shirt",
+          "image": "/app/static/collection/assets/mall-rats/cheap/custom-t-shirt.webp",
+          "bytes": 32522
+        },
+        {
+          "id": "day-at-museum",
+          "name": "A Day at museum",
+          "image": "/app/static/collection/assets/mall-rats/cheap/day-at-museum.webp",
+          "bytes": 34912
+        },
+        {
+          "id": "decent-meal-of-choice",
+          "name": "A Decent meal of choice",
+          "image": "/app/static/collection/assets/mall-rats/cheap/decent-meal-of-choice.webp",
+          "bytes": 29294
+        },
+        {
+          "id": "detective-novel",
+          "name": "A Detective Novel",
+          "image": "/app/static/collection/assets/mall-rats/cheap/detective-novel.webp",
+          "bytes": 27196
+        },
+        {
+          "id": "dozen-roses",
+          "name": "Dozen Roses",
+          "image": "/app/static/collection/assets/mall-rats/cheap/dozen-roses.webp",
+          "bytes": 122218
+        },
+        {
+          "id": "fancy-burger-and-fries",
+          "name": "Fancy Burger and Fries",
+          "image": "/app/static/collection/assets/mall-rats/cheap/fancy-burger-and-fries.webp",
+          "bytes": 70066
+        },
+        {
+          "id": "fancy-ish-chocolates",
+          "name": "Fancy-ish Chocolates",
+          "image": "/app/static/collection/assets/mall-rats/cheap/fancy-ish-chocolates.webp",
+          "bytes": 49812
+        },
+        {
+          "id": "firestarter",
+          "name": "A Firestarter",
+          "image": "/app/static/collection/assets/mall-rats/cheap/firestarter.webp",
+          "bytes": 42340
+        },
+        {
+          "id": "friendslop-game",
+          "name": "A Friendslop Game",
+          "image": "/app/static/collection/assets/mall-rats/cheap/friendslop-game.webp",
+          "bytes": 32874
+        },
+        {
+          "id": "funny-glasses",
+          "name": "Funny Glasses",
+          "image": "/app/static/collection/assets/mall-rats/cheap/funny-glasses.webp",
+          "bytes": 61154
+        },
+        {
+          "id": "funny-pins",
+          "name": "Funny Pins",
+          "image": "/app/static/collection/assets/mall-rats/cheap/funny-pins.webp",
+          "bytes": 74816
+        },
+        {
+          "id": "funny-sign",
+          "name": "A Funny Sign",
+          "image": "/app/static/collection/assets/mall-rats/cheap/funny-sign.webp",
+          "bytes": 45340
+        },
+        {
+          "id": "geode",
+          "name": "A Geode",
+          "image": "/app/static/collection/assets/mall-rats/cheap/geode.webp",
+          "bytes": 97798
+        },
+        {
+          "id": "global-snacks",
+          "name": "Global Snacks",
+          "image": "/app/static/collection/assets/mall-rats/cheap/global-snacks.webp",
+          "bytes": 77482
+        },
+        {
+          "id": "glow-in-the-dark-stars",
+          "name": "Glow in the dark stars",
+          "image": "/app/static/collection/assets/mall-rats/cheap/glow-in-the-dark-stars.webp",
+          "bytes": 13708
+        },
+        {
+          "id": "gold-fish",
+          "name": "A Gold Fish",
+          "image": "/app/static/collection/assets/mall-rats/cheap/gold-fish.webp",
+          "bytes": 19802
+        },
+        {
+          "id": "handful-of-cool-rocks",
+          "name": "Handful of cool rocks",
+          "image": "/app/static/collection/assets/mall-rats/cheap/handful-of-cool-rocks.webp",
+          "bytes": 38770
+        },
+        {
+          "id": "haunted-attraction-tickets",
+          "name": "Haunted Attraction Tickets",
+          "image": "/app/static/collection/assets/mall-rats/cheap/haunted-attraction-tickets.webp",
+          "bytes": 52746
+        },
+        {
+          "id": "hawaiin-shirt",
+          "name": "A Hawaiin Shirt",
+          "image": "/app/static/collection/assets/mall-rats/cheap/hawaiin-shirt.webp",
+          "bytes": 115528
+        },
+        {
+          "id": "horse-mask",
+          "name": "A Horse Mask",
+          "image": "/app/static/collection/assets/mall-rats/cheap/horse-mask.webp",
+          "bytes": 70956
+        },
+        {
+          "id": "hottest-hot-sauce",
+          "name": "A Hottest Hot Sauce",
+          "image": "/app/static/collection/assets/mall-rats/cheap/hottest-hot-sauce.webp",
+          "bytes": 45304
+        },
+        {
+          "id": "japanese-soda",
+          "name": "A Japanese Soda",
+          "image": "/app/static/collection/assets/mall-rats/cheap/japanese-soda.webp",
+          "bytes": 33320
+        },
+        {
+          "id": "meal-delivery-gift-card",
+          "name": "A Meal Delivery Gift Card",
+          "image": "/app/static/collection/assets/mall-rats/cheap/meal-delivery-gift-card.webp",
+          "bytes": 57288
+        },
+        {
+          "id": "milk-frother",
+          "name": "A Milk frother",
+          "image": "/app/static/collection/assets/mall-rats/cheap/milk-frother.webp",
+          "bytes": 29438
+        },
+        {
+          "id": "mushroom-grow-kit",
+          "name": "A Mushroom grow kit",
+          "image": "/app/static/collection/assets/mall-rats/cheap/mushroom-grow-kit.webp",
+          "bytes": 96868
+        },
+        {
+          "id": "night-at-a-dive-bar",
+          "name": "A Night at a dive bar",
+          "image": "/app/static/collection/assets/mall-rats/cheap/night-at-a-dive-bar.webp",
+          "bytes": 142212
+        },
+        {
+          "id": "novelty-socks",
+          "name": "Novelty socks",
+          "image": "/app/static/collection/assets/mall-rats/cheap/novelty-socks.webp",
+          "bytes": 85034
+        },
+        {
+          "id": "one-short-premium-ride-share",
+          "name": "An ONE (Short) Premium Ride Share",
+          "image": "/app/static/collection/assets/mall-rats/cheap/one-short-premium-ride-share.webp",
+          "bytes": 8798
+        },
+        {
+          "id": "peach-jam",
+          "name": "A Peach Jam",
+          "image": "/app/static/collection/assets/mall-rats/cheap/peach-jam.webp",
+          "bytes": 57166
+        },
+        {
+          "id": "preserved-bugs",
+          "name": "Preserved Bugs",
+          "image": "/app/static/collection/assets/mall-rats/cheap/preserved-bugs.webp",
+          "bytes": 110494
+        },
+        {
+          "id": "robot-toy",
+          "name": "A RObot Toy",
+          "image": "/app/static/collection/assets/mall-rats/cheap/robot-toy.webp",
+          "bytes": 30134
+        },
+        {
+          "id": "rpg-dice",
+          "name": "A RPG Dice",
+          "image": "/app/static/collection/assets/mall-rats/cheap/rpg-dice.webp",
+          "bytes": 40606
+        },
+        {
+          "id": "silly-wig",
+          "name": "A Silly wig",
+          "image": "/app/static/collection/assets/mall-rats/cheap/silly-wig.webp",
+          "bytes": 28290
+        },
+        {
+          "id": "small-cactus",
+          "name": "Small Cactus",
+          "image": "/app/static/collection/assets/mall-rats/cheap/small-cactus.webp",
+          "bytes": 47750
+        },
+        {
+          "id": "stickers",
+          "name": "Stickers",
+          "image": "/app/static/collection/assets/mall-rats/cheap/stickers.webp",
+          "bytes": 143844
+        },
+        {
+          "id": "ttrpg-rulebook",
+          "name": "A TTRPG Rulebook",
+          "image": "/app/static/collection/assets/mall-rats/cheap/ttrpg-rulebook.webp",
+          "bytes": 54542
+        },
+        {
+          "id": "tea-party",
+          "name": "A Tea Party",
+          "image": "/app/static/collection/assets/mall-rats/cheap/tea-party.webp",
+          "bytes": 39284
+        },
+        {
+          "id": "tin-of-cookies",
+          "name": "Tin of cookies",
+          "image": "/app/static/collection/assets/mall-rats/cheap/tin-of-cookies.webp",
+          "bytes": 41234
+        },
+        {
+          "id": "toy-dart-gun",
+          "name": "A Toy Dart Gun",
+          "image": "/app/static/collection/assets/mall-rats/cheap/toy-dart-gun.webp",
+          "bytes": 45114
+        },
+        {
+          "id": "toy-laser-sword",
+          "name": "A Toy Laser Sword",
+          "image": "/app/static/collection/assets/mall-rats/cheap/toy-laser-sword.webp",
+          "bytes": 12430
+        },
+        {
+          "id": "vintage-cat-figurine",
+          "name": "A Vintage Cat Figurine",
+          "image": "/app/static/collection/assets/mall-rats/cheap/vintage-cat-figurine.webp",
+          "bytes": 16408
+        },
+        {
+          "id": "vinyl-record",
+          "name": "A Vinyl Record",
+          "image": "/app/static/collection/assets/mall-rats/cheap/vinyl-record.webp",
+          "bytes": 21792
+        },
+        {
+          "id": "weird-soda",
+          "name": "A Weird Soda",
+          "image": "/app/static/collection/assets/mall-rats/cheap/weird-soda.webp",
+          "bytes": 113688
+        },
+        {
+          "id": "comfy-sweater",
+          "name": "A comfy sweater",
+          "image": "/app/static/collection/assets/mall-rats/cheap/comfy-sweater.webp",
+          "bytes": 105750
+        },
+        {
+          "id": "dinosaur-plush",
+          "name": "A dinosaur plush",
+          "image": "/app/static/collection/assets/mall-rats/cheap/dinosaur-plush.webp",
+          "bytes": 76504
+        },
+        {
+          "id": "donuts",
+          "name": "donuts",
+          "image": "/app/static/collection/assets/mall-rats/cheap/donuts.webp",
+          "bytes": 51026
+        },
+        {
+          "id": "fire-extinguisher",
+          "name": "A fire-extinguisher",
+          "image": "/app/static/collection/assets/mall-rats/cheap/fire-extinguisher.webp",
+          "bytes": 43266
+        },
+        {
+          "id": "fuzzy-blanket",
+          "name": "A fuzzy blanket",
+          "image": "/app/static/collection/assets/mall-rats/cheap/fuzzy-blanket.webp",
+          "bytes": 96896
+        },
+        {
+          "id": "laser-tag",
+          "name": "A laser tag",
+          "image": "/app/static/collection/assets/mall-rats/cheap/laser-tag.webp",
+          "bytes": 28092
+        },
+        {
+          "id": "megaphone",
+          "name": "A megaphone",
+          "image": "/app/static/collection/assets/mall-rats/cheap/megaphone.webp",
+          "bytes": 30920
+        },
+        {
+          "id": "movie-poster",
+          "name": "A movie poster",
+          "image": "/app/static/collection/assets/mall-rats/cheap/movie-poster.webp",
+          "bytes": 48180
+        },
+        {
+          "id": "movie-tickets",
+          "name": "movie tickets",
+          "image": "/app/static/collection/assets/mall-rats/cheap/movie-tickets.webp",
+          "bytes": 27598
+        },
+        {
+          "id": "pizza-party",
+          "name": "A pizza party",
+          "image": "/app/static/collection/assets/mall-rats/cheap/pizza-party.webp",
+          "bytes": 55888
+        },
+        {
+          "id": "recentish-video-game",
+          "name": "A recentish video game",
+          "image": "/app/static/collection/assets/mall-rats/cheap/recentish-video-game.webp",
+          "bytes": 9678
+        },
+        {
+          "id": "scarf",
+          "name": "A scarf",
+          "image": "/app/static/collection/assets/mall-rats/cheap/scarf.webp",
+          "bytes": 50480
+        },
+        {
+          "id": "sunglasses",
+          "name": "sunglasses",
+          "image": "/app/static/collection/assets/mall-rats/cheap/sunglasses.webp",
+          "bytes": 34822
+        },
+        {
+          "id": "teddy-bear",
+          "name": "A teddy bear",
+          "image": "/app/static/collection/assets/mall-rats/cheap/teddy-bear.webp",
+          "bytes": 12678
+        },
+        {
+          "id": "trilobite-fossil",
+          "name": "A trilobite fossil",
+          "image": "/app/static/collection/assets/mall-rats/cheap/trilobite-fossil.webp",
+          "bytes": 50578
+        },
+        {
+          "id": "1-insert-relationship-here-mug",
+          "name": "A “#1 (insert relationship here)” Mug",
+          "image": "/app/static/collection/assets/mall-rats/cheap/1-insert-relationship-here-mug.webp",
+          "bytes": 17578
+        }
+      ]
+    },
+    {
+      "id": "mid-range",
+      "name": "JC Possum",
+      "meter": "$$",
+      "gifts": [
+        {
+          "id": "450-gift-card-to-chain-restaraunt",
+          "name": "$450 Gift card to chain restaraunt",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/450-gift-card-to-chain-restaraunt.webp",
+          "bytes": 71608
+        },
+        {
+          "id": "ancestrery-dna-test",
+          "name": "Ancestrery DNA Test",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/ancestrery-dna-test.webp",
+          "bytes": 25940
+        },
+        {
+          "id": "antique-doll",
+          "name": "Antique Doll",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/antique-doll.webp",
+          "bytes": 57510
+        },
+        {
+          "id": "balloon-artist",
+          "name": "Balloon artist",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/balloon-artist.webp",
+          "bytes": 27994
+        },
+        {
+          "id": "big-building-block-set",
+          "name": "Big Building Block Set",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/big-building-block-set.webp",
+          "bytes": 24586
+        },
+        {
+          "id": "big-tv",
+          "name": "Big TV",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/big-tv.webp",
+          "bytes": 55836
+        },
+        {
+          "id": "bills-for-a-month",
+          "name": "Bills For a month",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/bills-for-a-month.webp",
+          "bytes": 70846
+        },
+        {
+          "id": "camping-tent",
+          "name": "Camping tent",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/camping-tent.webp",
+          "bytes": 41706
+        },
+        {
+          "id": "caviar",
+          "name": "Caviar",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/caviar.webp",
+          "bytes": 50686
+        },
+        {
+          "id": "chef-s-knives",
+          "name": "Chef's Knives",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/chef-s-knives.webp",
+          "bytes": 40188
+        },
+        {
+          "id": "cigars",
+          "name": "Cigars",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/cigars.webp",
+          "bytes": 13018
+        },
+        {
+          "id": "clowning-workshop",
+          "name": "Clowning Workshop",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/clowning-workshop.webp",
+          "bytes": 17188
+        },
+        {
+          "id": "concert-tickets",
+          "name": "Concert tickets",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/concert-tickets.webp",
+          "bytes": 22098
+        },
+        {
+          "id": "cooking-class",
+          "name": "Cooking class",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/cooking-class.webp",
+          "bytes": 31400
+        },
+        {
+          "id": "custom-neon-sign",
+          "name": "Custom Neon Sign",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/custom-neon-sign.webp",
+          "bytes": 23124
+        },
+        {
+          "id": "custom-plush",
+          "name": "Custom Plush",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/custom-plush.webp",
+          "bytes": 73238
+        },
+        {
+          "id": "dj-d-party",
+          "name": "DJ'd party",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/dj-d-party.webp",
+          "bytes": 46122
+        },
+        {
+          "id": "deep-fryer",
+          "name": "Deep Fryer",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/deep-fryer.webp",
+          "bytes": 53162
+        },
+        {
+          "id": "drawing-tablet",
+          "name": "Drawing tablet",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/drawing-tablet.webp",
+          "bytes": 15874
+        },
+        {
+          "id": "exotic-cheeses",
+          "name": "Exotic Cheeses",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/exotic-cheeses.webp",
+          "bytes": 28676
+        },
+        {
+          "id": "extotic-fish-tank",
+          "name": "Extotic Fish Tank",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/extotic-fish-tank.webp",
+          "bytes": 104188
+        },
+        {
+          "id": "fancy-handbag",
+          "name": "Fancy Handbag",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/fancy-handbag.webp",
+          "bytes": 65172
+        },
+        {
+          "id": "fancy-perfume",
+          "name": "Fancy Perfume",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/fancy-perfume.webp",
+          "bytes": 24850
+        },
+        {
+          "id": "ghost-hunting",
+          "name": "Ghost hunting",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/ghost-hunting.webp",
+          "bytes": 21010
+        },
+        {
+          "id": "giant-wheel-of-cheese",
+          "name": "Giant Wheel of Cheese",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/giant-wheel-of-cheese.webp",
+          "bytes": 62172
+        },
+        {
+          "id": "gym-membership",
+          "name": "Gym Membership",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/gym-membership.webp",
+          "bytes": 36956
+        },
+        {
+          "id": "high-heels",
+          "name": "High Heels",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/high-heels.webp",
+          "bytes": 50260
+        },
+        {
+          "id": "improv-classes",
+          "name": "Improv CLasses",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/improv-classes.webp",
+          "bytes": 13994
+        },
+        {
+          "id": "juicer",
+          "name": "Juicer",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/juicer.webp",
+          "bytes": 21682
+        },
+        {
+          "id": "katana",
+          "name": "Katana",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/katana.webp",
+          "bytes": 19000
+        },
+        {
+          "id": "kitten",
+          "name": "Kitten",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/kitten.webp",
+          "bytes": 89272
+        },
+        {
+          "id": "mini-fridge",
+          "name": "Mini Fridge",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/mini-fridge.webp",
+          "bytes": 24030
+        },
+        {
+          "id": "novelty-suit",
+          "name": "Novelty Suit",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/novelty-suit.webp",
+          "bytes": 67538
+        },
+        {
+          "id": "pet-dna-test",
+          "name": "Pet DNA Test",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/pet-dna-test.webp",
+          "bytes": 42352
+        },
+        {
+          "id": "popcorn-machine",
+          "name": "Popcorn machine",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/popcorn-machine.webp",
+          "bytes": 34976
+        },
+        {
+          "id": "programmable-led-sign",
+          "name": "Programmable LED SIgn",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/programmable-led-sign.webp",
+          "bytes": 110586
+        },
+        {
+          "id": "punk-rock-vest",
+          "name": "Punk Rock vest",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/punk-rock-vest.webp",
+          "bytes": 14580
+        },
+        {
+          "id": "puppet-classes",
+          "name": "Puppet Classes",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/puppet-classes.webp",
+          "bytes": 16640
+        },
+        {
+          "id": "puppy",
+          "name": "Puppy",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/puppy.webp",
+          "bytes": 81180
+        },
+        {
+          "id": "rage-room-rental",
+          "name": "Rage Room Rental",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/rage-room-rental.webp",
+          "bytes": 72716
+        },
+        {
+          "id": "record-player",
+          "name": "Record player",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/record-player.webp",
+          "bytes": 52892
+        },
+        {
+          "id": "rent-a-magician",
+          "name": "Rent a -magician",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/rent-a-magician.webp",
+          "bytes": 41454
+        },
+        {
+          "id": "rent-a-movie-theater",
+          "name": "Rent a movie theater",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/rent-a-movie-theater.webp",
+          "bytes": 19422
+        },
+        {
+          "id": "replica-human-skeleton",
+          "name": "Replica Human Skeleton",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/replica-human-skeleton.webp",
+          "bytes": 33468
+        },
+        {
+          "id": "retro-video-game",
+          "name": "Retro Video Game",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/retro-video-game.webp",
+          "bytes": 30072
+        },
+        {
+          "id": "season-passes-to-amusement-park",
+          "name": "Season passes to amusement park",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/season-passes-to-amusement-park.webp",
+          "bytes": 105416
+        },
+        {
+          "id": "see-the-statue-of-liberty",
+          "name": "See the statue of liberty",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/see-the-statue-of-liberty.webp",
+          "bytes": 37634
+        },
+        {
+          "id": "smart-home-assistant",
+          "name": "Smart Home Assistant",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/smart-home-assistant.webp",
+          "bytes": 16358
+        },
+        {
+          "id": "steakhouse-dinner",
+          "name": "Steakhouse dinner",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/steakhouse-dinner.webp",
+          "bytes": 70534
+        },
+        {
+          "id": "tattoo-session",
+          "name": "Tattoo Session",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/tattoo-session.webp",
+          "bytes": 45330
+        },
+        {
+          "id": "therapy",
+          "name": "Therapy",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/therapy.webp",
+          "bytes": 66974
+        },
+        {
+          "id": "tickets-to-a-sporting-event",
+          "name": "Tickets to a sporting event",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/tickets-to-a-sporting-event.webp",
+          "bytes": 38468
+        },
+        {
+          "id": "unicycle",
+          "name": "Unicycle",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/unicycle.webp",
+          "bytes": 34132
+        },
+        {
+          "id": "vr-set-up",
+          "name": "VR Set-up",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/vr-set-up.webp",
+          "bytes": 31206
+        },
+        {
+          "id": "video-message-from-a-content-creator",
+          "name": "Video Message from a Content Creator",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/video-message-from-a-content-creator.webp",
+          "bytes": 13918
+        },
+        {
+          "id": "vintage-wine",
+          "name": "Vintage wine",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/vintage-wine.webp",
+          "bytes": 34580
+        },
+        {
+          "id": "vtuber-model",
+          "name": "Vtuber Model",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/vtuber-model.webp",
+          "bytes": 25682
+        },
+        {
+          "id": "weird-synth",
+          "name": "Weird Synth",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/weird-synth.webp",
+          "bytes": 53334
+        },
+        {
+          "id": "whiteboard-wall",
+          "name": "Whiteboard Wall",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/whiteboard-wall.webp",
+          "bytes": 34320
+        },
+        {
+          "id": "wrestling-tickets",
+          "name": "Wrestling tickets",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/wrestling-tickets.webp",
+          "bytes": 23454
+        },
+        {
+          "id": "air-hockey-table",
+          "name": "air hockey table",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/air-hockey-table.webp",
+          "bytes": 23372
+        },
+        {
+          "id": "electric-guitar",
+          "name": "electric-guitar",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/electric-guitar.webp",
+          "bytes": 45646
+        },
+        {
+          "id": "espresso-machine",
+          "name": "espresso machine",
+          "image": "/app/static/collection/assets/mall-rats/mid-range/espresso-machine.webp",
+          "bytes": 14710
+        }
+      ]
+    },
+    {
+      "id": "expensive",
+      "name": "Amber-Claw and Finch",
+      "meter": "$$$",
+      "gifts": [
+        {
+          "id": "all-expense-paid-trip-to-comic-con",
+          "name": "All-expense paid trip to comic con",
+          "image": "/app/static/collection/assets/mall-rats/expensive/all-expense-paid-trip-to-comic-con.webp",
+          "bytes": 15484
+        },
+        {
+          "id": "an-acre-of-forest",
+          "name": "An acre of forest",
+          "image": "/app/static/collection/assets/mall-rats/expensive/an-acre-of-forest.webp",
+          "bytes": 49574
+        },
+        {
+          "id": "antique-pocket-watch",
+          "name": "Antique pocket watch",
+          "image": "/app/static/collection/assets/mall-rats/expensive/antique-pocket-watch.webp",
+          "bytes": 42684
+        },
+        {
+          "id": "arcade-machine",
+          "name": "Arcade Machine",
+          "image": "/app/static/collection/assets/mall-rats/expensive/arcade-machine.webp",
+          "bytes": 47646
+        },
+        {
+          "id": "autograph-from-any-living-celeb",
+          "name": "Autograph from any living celeb",
+          "image": "/app/static/collection/assets/mall-rats/expensive/autograph-from-any-living-celeb.webp",
+          "bytes": 17042
+        },
+        {
+          "id": "autographed-guitar",
+          "name": "Autographed Guitar",
+          "image": "/app/static/collection/assets/mall-rats/expensive/autographed-guitar.webp",
+          "bytes": 42146
+        },
+        {
+          "id": "classic-comic-book",
+          "name": "Classic Comic Book",
+          "image": "/app/static/collection/assets/mall-rats/expensive/classic-comic-book.webp",
+          "bytes": 19546
+        },
+        {
+          "id": "classic-car",
+          "name": "Classic car",
+          "image": "/app/static/collection/assets/mall-rats/expensive/classic-car.webp",
+          "bytes": 103560
+        },
+        {
+          "id": "college-tuition",
+          "name": "College Tuition",
+          "image": "/app/static/collection/assets/mall-rats/expensive/college-tuition.webp",
+          "bytes": 75294
+        },
+        {
+          "id": "debt-be-gone",
+          "name": "Debt-Be-Gone",
+          "image": "/app/static/collection/assets/mall-rats/expensive/debt-be-gone.webp",
+          "bytes": 70968
+        },
+        {
+          "id": "european-castle",
+          "name": "European castle",
+          "image": "/app/static/collection/assets/mall-rats/expensive/european-castle.webp",
+          "bytes": 92858
+        },
+        {
+          "id": "fancy-streaming-set-up",
+          "name": "Fancy Streaming Set-Up",
+          "image": "/app/static/collection/assets/mall-rats/expensive/fancy-streaming-set-up.webp",
+          "bytes": 25604
+        },
+        {
+          "id": "fursuit",
+          "name": "Fursuit",
+          "image": "/app/static/collection/assets/mall-rats/expensive/fursuit.webp",
+          "bytes": 40808
+        },
+        {
+          "id": "gaming-computer",
+          "name": "Gaming COmputer",
+          "image": "/app/static/collection/assets/mall-rats/expensive/gaming-computer.webp",
+          "bytes": 31274
+        },
+        {
+          "id": "gold-plated-toilet",
+          "name": "Gold-Plated Toilet",
+          "image": "/app/static/collection/assets/mall-rats/expensive/gold-plated-toilet.webp",
+          "bytes": 85832
+        },
+        {
+          "id": "horse-and-stables",
+          "name": "Horse and Stables",
+          "image": "/app/static/collection/assets/mall-rats/expensive/horse-and-stables.webp",
+          "bytes": 28946
+        },
+        {
+          "id": "hot-tub",
+          "name": "Hot tub",
+          "image": "/app/static/collection/assets/mall-rats/expensive/hot-tub.webp",
+          "bytes": 107930
+        },
+        {
+          "id": "housecleaners-for-a-year",
+          "name": "Housecleaners for a year",
+          "image": "/app/static/collection/assets/mall-rats/expensive/housecleaners-for-a-year.webp",
+          "bytes": 22274
+        },
+        {
+          "id": "ice-cream-truck",
+          "name": "Ice cream truck",
+          "image": "/app/static/collection/assets/mall-rats/expensive/ice-cream-truck.webp",
+          "bytes": 97466
+        },
+        {
+          "id": "imax-home-theater",
+          "name": "Imax home theater",
+          "image": "/app/static/collection/assets/mall-rats/expensive/imax-home-theater.webp",
+          "bytes": 28904
+        },
+        {
+          "id": "london-vacation",
+          "name": "London vacation",
+          "image": "/app/static/collection/assets/mall-rats/expensive/london-vacation.webp",
+          "bytes": 75816
+        },
+        {
+          "id": "make-your-own-blockbuster-budget-movie",
+          "name": "Make your Own Blockbuster Budget Movie",
+          "image": "/app/static/collection/assets/mall-rats/expensive/make-your-own-blockbuster-budget-movie.webp",
+          "bytes": 52544
+        },
+        {
+          "id": "meet-all-of-your-online-friends",
+          "name": "Meet All of Your Online Friends",
+          "image": "/app/static/collection/assets/mall-rats/expensive/meet-all-of-your-online-friends.webp",
+          "bytes": 72268
+        },
+        {
+          "id": "original-movie-script",
+          "name": "Original Movie Script",
+          "image": "/app/static/collection/assets/mall-rats/expensive/original-movie-script.webp",
+          "bytes": 58734
+        },
+        {
+          "id": "original-picasso",
+          "name": "Original Picasso",
+          "image": "/app/static/collection/assets/mall-rats/expensive/original-picasso.webp",
+          "bytes": 25260
+        },
+        {
+          "id": "original-warhol",
+          "name": "Original Warhol",
+          "image": "/app/static/collection/assets/mall-rats/expensive/original-warhol.webp",
+          "bytes": 42000
+        },
+        {
+          "id": "paris-vacation",
+          "name": "Paris Vacation",
+          "image": "/app/static/collection/assets/mall-rats/expensive/paris-vacation.webp",
+          "bytes": 41286
+        },
+        {
+          "id": "personal-chef-for-year",
+          "name": "Personal Chef for year",
+          "image": "/app/static/collection/assets/mall-rats/expensive/personal-chef-for-year.webp",
+          "bytes": 31218
+        },
+        {
+          "id": "private-island",
+          "name": "Private Island",
+          "image": "/app/static/collection/assets/mall-rats/expensive/private-island.webp",
+          "bytes": 24168
+        },
+        {
+          "id": "private-beach",
+          "name": "Private beach",
+          "image": "/app/static/collection/assets/mall-rats/expensive/private-beach.webp",
+          "bytes": 21642
+        },
+        {
+          "id": "put-whatever-you-want-on-a-times-square-sign",
+          "name": "Put WHatever You Want on a Times Square Sign",
+          "image": "/app/static/collection/assets/mall-rats/expensive/put-whatever-you-want-on-a-times-square-sign.webp",
+          "bytes": 17268
+        },
+        {
+          "id": "rv",
+          "name": "RV",
+          "image": "/app/static/collection/assets/mall-rats/expensive/rv.webp",
+          "bytes": 125154
+        },
+        {
+          "id": "rare-trading-cards",
+          "name": "Rare Trading cards",
+          "image": "/app/static/collection/assets/mall-rats/expensive/rare-trading-cards.webp",
+          "bytes": 34946
+        },
+        {
+          "id": "rare-shakespeare-book",
+          "name": "Rare shakespeare book",
+          "image": "/app/static/collection/assets/mall-rats/expensive/rare-shakespeare-book.webp",
+          "bytes": 197482
+        },
+        {
+          "id": "red-panda",
+          "name": "Red panda",
+          "image": "/app/static/collection/assets/mall-rats/expensive/red-panda.webp",
+          "bytes": 61596
+        },
+        {
+          "id": "replica-t-rex-skeleton",
+          "name": "Replica T-Rex Skeleton",
+          "image": "/app/static/collection/assets/mall-rats/expensive/replica-t-rex-skeleton.webp",
+          "bytes": 23752
+        },
+        {
+          "id": "see-all-50-states",
+          "name": "See All 50 States",
+          "image": "/app/static/collection/assets/mall-rats/expensive/see-all-50-states.webp",
+          "bytes": 56716
+        },
+        {
+          "id": "self-driving-car",
+          "name": "Self driving car",
+          "image": "/app/static/collection/assets/mall-rats/expensive/self-driving-car.webp",
+          "bytes": 31048
+        },
+        {
+          "id": "sensory-deprivation-tank",
+          "name": "Sensory deprivation tank",
+          "image": "/app/static/collection/assets/mall-rats/expensive/sensory-deprivation-tank.webp",
+          "bytes": 13436
+        },
+        {
+          "id": "signed-baseball",
+          "name": "Signed baseball",
+          "image": "/app/static/collection/assets/mall-rats/expensive/signed-baseball.webp",
+          "bytes": 38438
+        },
+        {
+          "id": "skee-ball-machine",
+          "name": "Skee Ball Machine",
+          "image": "/app/static/collection/assets/mall-rats/expensive/skee-ball-machine.webp",
+          "bytes": 38456
+        },
+        {
+          "id": "suit-of-armor",
+          "name": "Suit of Armor",
+          "image": "/app/static/collection/assets/mall-rats/expensive/suit-of-armor.webp",
+          "bytes": 43232
+        },
+        {
+          "id": "tailor-suit",
+          "name": "Tailor suit",
+          "image": "/app/static/collection/assets/mall-rats/expensive/tailor-suit.webp",
+          "bytes": 12174
+        },
+        {
+          "id": "tokyo-vacation",
+          "name": "Tokyo vacation",
+          "image": "/app/static/collection/assets/mall-rats/expensive/tokyo-vacation.webp",
+          "bytes": 26716
+        },
+        {
+          "id": "tropical-birds",
+          "name": "Tropical Birds",
+          "image": "/app/static/collection/assets/mall-rats/expensive/tropical-birds.webp",
+          "bytes": 37512
+        },
+        {
+          "id": "victorian-mansion",
+          "name": "Victorian Mansion",
+          "image": "/app/static/collection/assets/mall-rats/expensive/victorian-mansion.webp",
+          "bytes": 43128
+        },
+        {
+          "id": "violin-and-lessons",
+          "name": "Violin and lessons",
+          "image": "/app/static/collection/assets/mall-rats/expensive/violin-and-lessons.webp",
+          "bytes": 20124
+        },
+        {
+          "id": "waterslide-and-pool",
+          "name": "Waterslide and Pool",
+          "image": "/app/static/collection/assets/mall-rats/expensive/waterslide-and-pool.webp",
+          "bytes": 7960
+        },
+        {
+          "id": "your-very-own-restaurant",
+          "name": "Your Very Own restaurant",
+          "image": "/app/static/collection/assets/mall-rats/expensive/your-very-own-restaurant.webp",
+          "bytes": 80106
+        },
+        {
+          "id": "grand-piano",
+          "name": "grand-piano",
+          "image": "/app/static/collection/assets/mall-rats/expensive/grand-piano.webp",
+          "bytes": 80684
+        },
+        {
+          "id": "military-tank",
+          "name": "military tank",
+          "image": "/app/static/collection/assets/mall-rats/expensive/military-tank.webp",
+          "bytes": 75100
+        },
+        {
+          "id": "taxidermied-bear",
+          "name": "taxidermied bear",
+          "image": "/app/static/collection/assets/mall-rats/expensive/taxidermied-bear.webp",
+          "bytes": 28066
+        },
+        {
+          "id": "ten-thousand-dollars-cash",
+          "name": "ten thousand dollars cash",
+          "image": "/app/static/collection/assets/mall-rats/expensive/ten-thousand-dollars-cash.webp",
+          "bytes": 71648
+        },
+        {
+          "id": "hawaiian-cruise",
+          "name": "Hawaiian Cruise",
+          "image": "/app/static/collection/assets/mall-rats/expensive/hawaiian-cruise.webp",
+          "bytes": 12306
+        }
+      ]
+    },
+    {
+      "id": "impossible",
+      "name": "Amonkipawstale",
+      "meter": "∞",
+      "gifts": [
+        {
+          "id": "a-week-with-your-favorite-fictional-character",
+          "name": "A Week with your favorite fictional character",
+          "image": "/app/static/collection/assets/mall-rats/impossible/a-week-with-your-favorite-fictional-character.webp",
+          "bytes": 47228
+        },
+        {
+          "id": "a-chance-at-love-with-any-celeb-or-fictional-character",
+          "name": "A chance at love with any celeb or fictional character",
+          "image": "/app/static/collection/assets/mall-rats/impossible/a-chance-at-love-with-any-celeb-or-fictional-character.webp",
+          "bytes": 102806
+        },
+        {
+          "id": "a-trip-to-space-but-sci-fi-space-not-real-boring-space",
+          "name": "A trip to space, but sci-fi space, not real boring space",
+          "image": "/app/static/collection/assets/mall-rats/impossible/a-trip-to-space-but-sci-fi-space-not-real-boring-space.webp",
+          "bytes": 31258
+        },
+        {
+          "id": "all-your-pets-live-as-long-as-you-do",
+          "name": "All Your Pets live as long as you do",
+          "image": "/app/static/collection/assets/mall-rats/impossible/all-your-pets-live-as-long-as-you-do.webp",
+          "bytes": 27704
+        },
+        {
+          "id": "all-expense-paid-shopping-trip-to-any-shopping-area-of-the-past-100-years",
+          "name": "All-expense paid shopping trip to any shopping area of the past 100 years",
+          "image": "/app/static/collection/assets/mall-rats/impossible/all-expense-paid-shopping-trip-to-any-shopping-area-of-the-past-100-years.webp",
+          "bytes": 20850
+        },
+        {
+          "id": "always-have-friends",
+          "name": "Always have friends",
+          "image": "/app/static/collection/assets/mall-rats/impossible/always-have-friends.webp",
+          "bytes": 24622
+        },
+        {
+          "id": "an-army-of-goblins-that-obey-your-every-word",
+          "name": "An army of goblins that obey your every word",
+          "image": "/app/static/collection/assets/mall-rats/impossible/an-army-of-goblins-that-obey-your-every-word.webp",
+          "bytes": 21496
+        },
+        {
+          "id": "anime-style-cat-ears-for-real",
+          "name": "Anime-style Cat Ears for real",
+          "image": "/app/static/collection/assets/mall-rats/impossible/anime-style-cat-ears-for-real.webp",
+          "bytes": 17750
+        },
+        {
+          "id": "appear-on-your-favorite-tv-show",
+          "name": "Appear on your favorite TV Show",
+          "image": "/app/static/collection/assets/mall-rats/impossible/appear-on-your-favorite-tv-show.webp",
+          "bytes": 22050
+        },
+        {
+          "id": "ask-god-a-question",
+          "name": "Ask God a question",
+          "image": "/app/static/collection/assets/mall-rats/impossible/ask-god-a-question.webp",
+          "bytes": 20444
+        },
+        {
+          "id": "become-the-leader-of-your-country",
+          "name": "Become the Leader of Your Country",
+          "image": "/app/static/collection/assets/mall-rats/impossible/become-the-leader-of-your-country.webp",
+          "bytes": 31234
+        },
+        {
+          "id": "bring-one-person-back-from-the-dead",
+          "name": "Bring One Person Back From the Dead",
+          "image": "/app/static/collection/assets/mall-rats/impossible/bring-one-person-back-from-the-dead.webp",
+          "bytes": 51932
+        },
+        {
+          "id": "bring-an-extinct-species-back",
+          "name": "Bring an extinct species back",
+          "image": "/app/static/collection/assets/mall-rats/impossible/bring-an-extinct-species-back.webp",
+          "bytes": 30352
+        },
+        {
+          "id": "change-the-hollywood-sign",
+          "name": "Change the Hollywood sign",
+          "image": "/app/static/collection/assets/mall-rats/impossible/change-the-hollywood-sign.webp",
+          "bytes": 113054
+        },
+        {
+          "id": "change-who-is-on-the-dollar-bill",
+          "name": "Change who is on the dollar bill",
+          "image": "/app/static/collection/assets/mall-rats/impossible/change-who-is-on-the-dollar-bill.webp",
+          "bytes": 50012
+        },
+        {
+          "id": "choose-when-and-how-you-die",
+          "name": "Choose when and how you die",
+          "image": "/app/static/collection/assets/mall-rats/impossible/choose-when-and-how-you-die.webp",
+          "bytes": 28642
+        },
+        {
+          "id": "cinderella-story-literally",
+          "name": "Cinderella story (literally)",
+          "image": "/app/static/collection/assets/mall-rats/impossible/cinderella-story-literally.webp",
+          "bytes": 110134
+        },
+        {
+          "id": "d-d-campaign-with-literally-anyone-that-lasts-as-long-as-you-want",
+          "name": "D&D campaign with literally anyone that lasts as long as you want",
+          "image": "/app/static/collection/assets/mall-rats/impossible/d-d-campaign-with-literally-anyone-that-lasts-as-long-as-you-want.webp",
+          "bytes": 50912
+        },
+        {
+          "id": "dead-artist-of-your-choice-comes-back-to-paint-your-portrait",
+          "name": "Dead artist of your choice comes back to paint your portrait",
+          "image": "/app/static/collection/assets/mall-rats/impossible/dead-artist-of-your-choice-comes-back-to-paint-your-portrait.webp",
+          "bytes": 40088
+        },
+        {
+          "id": "dimension-hopping-powers",
+          "name": "Dimension Hopping Powers",
+          "image": "/app/static/collection/assets/mall-rats/impossible/dimension-hopping-powers.webp",
+          "bytes": 34858
+        },
+        {
+          "id": "everything-bat-man-owns",
+          "name": "Everything Bat Man Owns",
+          "image": "/app/static/collection/assets/mall-rats/impossible/everything-bat-man-owns.webp",
+          "bytes": 57028
+        },
+        {
+          "id": "flying-powers",
+          "name": "Flying powers",
+          "image": "/app/static/collection/assets/mall-rats/impossible/flying-powers.webp",
+          "bytes": 8060
+        },
+        {
+          "id": "free-pass-to-any-afterlife-you-choose",
+          "name": "Free pass to any afterlife you choose",
+          "image": "/app/static/collection/assets/mall-rats/impossible/free-pass-to-any-afterlife-you-choose.webp",
+          "bytes": 92650
+        },
+        {
+          "id": "get-accurate-visions-of-the-future-a-week-in-advance-every-week",
+          "name": "Get accurate visions of the future a week in advance, every week",
+          "image": "/app/static/collection/assets/mall-rats/impossible/get-accurate-visions-of-the-future-a-week-in-advance-every-week.webp",
+          "bytes": 20136
+        },
+        {
+          "id": "give-the-younger-you-advice",
+          "name": "Give the younger you advice",
+          "image": "/app/static/collection/assets/mall-rats/impossible/give-the-younger-you-advice.webp",
+          "bytes": 8940
+        },
+        {
+          "id": "go-back-to-see-the-dinosaurs-if-you-die-you-come-back-but-the-trip-ends",
+          "name": "Go back to see the dinosaurs (if you die you come back, but the trip ends)",
+          "image": "/app/static/collection/assets/mall-rats/impossible/go-back-to-see-the-dinosaurs-if-you-die-you-come-back-but-the-trip-ends.webp",
+          "bytes": 30084
+        },
+        {
+          "id": "guaranteed-success-for-your-children-current-or-future",
+          "name": "Guaranteed success for your children (current or future)",
+          "image": "/app/static/collection/assets/mall-rats/impossible/guaranteed-success-for-your-children-current-or-future.webp",
+          "bytes": 30898
+        },
+        {
+          "id": "irl-get-out-of-jail-free-card",
+          "name": "IRL Get out of jail free card",
+          "image": "/app/static/collection/assets/mall-rats/impossible/irl-get-out-of-jail-free-card.webp",
+          "bytes": 28094
+        },
+        {
+          "id": "immortality",
+          "name": "Immortality",
+          "image": "/app/static/collection/assets/mall-rats/impossible/immortality.webp",
+          "bytes": 12080
+        },
+        {
+          "id": "infinite-supply-of-your-favorite-food-for-the-rest-of-your-life",
+          "name": "Infinite supply of your favorite food for the rest of your life",
+          "image": "/app/static/collection/assets/mall-rats/impossible/infinite-supply-of-your-favorite-food-for-the-rest-of-your-life.webp",
+          "bytes": 67434
+        },
+        {
+          "id": "instant-bff-with-any-living-person",
+          "name": "Instant BFF with any living person",
+          "image": "/app/static/collection/assets/mall-rats/impossible/instant-bff-with-any-living-person.webp",
+          "bytes": 65154
+        },
+        {
+          "id": "instant-celeberty-actor",
+          "name": "Instant Celeberty Actor",
+          "image": "/app/static/collection/assets/mall-rats/impossible/instant-celeberty-actor.webp",
+          "bytes": 18200
+        },
+        {
+          "id": "instant-fame",
+          "name": "Instant Fame",
+          "image": "/app/static/collection/assets/mall-rats/impossible/instant-fame.webp",
+          "bytes": 85334
+        },
+        {
+          "id": "instant-gifted-visual-artist",
+          "name": "Instant Gifted Visual ARtist",
+          "image": "/app/static/collection/assets/mall-rats/impossible/instant-gifted-visual-artist.webp",
+          "bytes": 199178
+        },
+        {
+          "id": "instant-happy-marraige",
+          "name": "Instant Happy Marraige",
+          "image": "/app/static/collection/assets/mall-rats/impossible/instant-happy-marraige.webp",
+          "bytes": 25968
+        },
+        {
+          "id": "instant-teleportation-device",
+          "name": "Instant Teleportation device",
+          "image": "/app/static/collection/assets/mall-rats/impossible/instant-teleportation-device.webp",
+          "bytes": 35762
+        },
+        {
+          "id": "instant-lifetime-fitness",
+          "name": "Instant lifetime fitness",
+          "image": "/app/static/collection/assets/mall-rats/impossible/instant-lifetime-fitness.webp",
+          "bytes": 52522
+        },
+        {
+          "id": "instant-musical-genius",
+          "name": "Instant musical genius",
+          "image": "/app/static/collection/assets/mall-rats/impossible/instant-musical-genius.webp",
+          "bytes": 50824
+        },
+        {
+          "id": "instantly-know-who-your-soulmate-is-and-when-you-ll-meet",
+          "name": "Instantly know who your soulmate is, and when you’ll meet",
+          "image": "/app/static/collection/assets/mall-rats/impossible/instantly-know-who-your-soulmate-is-and-when-you-ll-meet.webp",
+          "bytes": 18180
+        },
+        {
+          "id": "instantly-remove-all-the-plastic-from-the-oceans",
+          "name": "Instantly remove all the plastic from the oceans",
+          "image": "/app/static/collection/assets/mall-rats/impossible/instantly-remove-all-the-plastic-from-the-oceans.webp",
+          "bytes": 96498
+        },
+        {
+          "id": "instantly-solve-climate-change",
+          "name": "Instantly solve climate change",
+          "image": "/app/static/collection/assets/mall-rats/impossible/instantly-solve-climate-change.webp",
+          "bytes": 44174
+        },
+        {
+          "id": "learn-all-languages-instantly",
+          "name": "Learn all languages instantly",
+          "image": "/app/static/collection/assets/mall-rats/impossible/learn-all-languages-instantly.webp",
+          "bytes": 105256
+        },
+        {
+          "id": "learn-what-your-life-for-the-next-15-years-is-like",
+          "name": "Learn what your life for the next 15 years is like",
+          "image": "/app/static/collection/assets/mall-rats/impossible/learn-what-your-life-for-the-next-15-years-is-like.webp",
+          "bytes": 37896
+        },
+        {
+          "id": "lifetime-pass-to-every-museum",
+          "name": "Lifetime pass to every museum",
+          "image": "/app/static/collection/assets/mall-rats/impossible/lifetime-pass-to-every-museum.webp",
+          "bytes": 54158
+        },
+        {
+          "id": "lifetime-pass-to-every-theme-park",
+          "name": "Lifetime pass to every theme park",
+          "image": "/app/static/collection/assets/mall-rats/impossible/lifetime-pass-to-every-theme-park.webp",
+          "bytes": 68140
+        },
+        {
+          "id": "lifetime-pass-to-every-zoo-or-aquarium",
+          "name": "Lifetime pass to every zoo or aquarium",
+          "image": "/app/static/collection/assets/mall-rats/impossible/lifetime-pass-to-every-zoo-or-aquarium.webp",
+          "bytes": 22742
+        },
+        {
+          "id": "meet-a-peaceful-alien-race",
+          "name": "Meet a peaceful alien race",
+          "image": "/app/static/collection/assets/mall-rats/impossible/meet-a-peaceful-alien-race.webp",
+          "bytes": 34942
+        },
+        {
+          "id": "never-need-sleep",
+          "name": "Never Need sleep",
+          "image": "/app/static/collection/assets/mall-rats/impossible/never-need-sleep.webp",
+          "bytes": 25906
+        },
+        {
+          "id": "never-fail-at-cooking-at-any-dish-and-always-have-the-ingredients-you-need",
+          "name": "Never fail at cooking at any dish and always have the ingredients you need",
+          "image": "/app/static/collection/assets/mall-rats/impossible/never-fail-at-cooking-at-any-dish-and-always-have-the-ingredients-you-need.webp",
+          "bytes": 18500
+        },
+        {
+          "id": "never-get-sick",
+          "name": "Never get sick",
+          "image": "/app/static/collection/assets/mall-rats/impossible/never-get-sick.webp",
+          "bytes": 31222
+        },
+        {
+          "id": "prevent-the-apocoplyse-for-at-least-100-years",
+          "name": "Prevent the Apocoplyse for at least 100 years",
+          "image": "/app/static/collection/assets/mall-rats/impossible/prevent-the-apocoplyse-for-at-least-100-years.webp",
+          "bytes": 45330
+        },
+        {
+          "id": "reset-the-world-to-2015",
+          "name": "Reset the world to 2015",
+          "image": "/app/static/collection/assets/mall-rats/impossible/reset-the-world-to-2015.webp",
+          "bytes": 75840
+        },
+        {
+          "id": "robotic-butler",
+          "name": "Robotic Butler",
+          "image": "/app/static/collection/assets/mall-rats/impossible/robotic-butler.webp",
+          "bytes": 23170
+        },
+        {
+          "id": "solve-any-one-scientific-mystery",
+          "name": "Solve any one scientific mystery",
+          "image": "/app/static/collection/assets/mall-rats/impossible/solve-any-one-scientific-mystery.webp",
+          "bytes": 74850
+        },
+        {
+          "id": "take-any-drug-without-any-downsides",
+          "name": "Take any drug without any downsides",
+          "image": "/app/static/collection/assets/mall-rats/impossible/take-any-drug-without-any-downsides.webp",
+          "bytes": 43468
+        },
+        {
+          "id": "talk-to-animals",
+          "name": "Talk to animals",
+          "image": "/app/static/collection/assets/mall-rats/impossible/talk-to-animals.webp",
+          "bytes": 34064
+        },
+        {
+          "id": "talking-animal-of-your-choice",
+          "name": "Talking animal of your choice",
+          "image": "/app/static/collection/assets/mall-rats/impossible/talking-animal-of-your-choice.webp",
+          "bytes": 63232
+        },
+        {
+          "id": "the-purge-but-only-you-get-to-break-the-law",
+          "name": "The Purge, But Only You Get to break the law",
+          "image": "/app/static/collection/assets/mall-rats/impossible/the-purge-but-only-you-get-to-break-the-law.webp",
+          "bytes": 43058
+        },
+        {
+          "id": "the-replicator-from-star-trek-but-real",
+          "name": "The Replicator from Star Trek but real",
+          "image": "/app/static/collection/assets/mall-rats/impossible/the-replicator-from-star-trek-but-real.webp",
+          "bytes": 24170
+        },
+        {
+          "id": "three-wishes",
+          "name": "Three wishes",
+          "image": "/app/static/collection/assets/mall-rats/impossible/three-wishes.webp",
+          "bytes": 23092
+        },
+        {
+          "id": "turn-into-a-dog-or-cat-on-command",
+          "name": "Turn into a dog OR cat on command",
+          "image": "/app/static/collection/assets/mall-rats/impossible/turn-into-a-dog-or-cat-on-command.webp",
+          "bytes": 20548
+        },
+        {
+          "id": "turn-into-a-dragon-on-command",
+          "name": "Turn into a dragon on command",
+          "image": "/app/static/collection/assets/mall-rats/impossible/turn-into-a-dragon-on-command.webp",
+          "bytes": 40688
+        },
+        {
+          "id": "turn-into-a-wolf-on-command",
+          "name": "Turn into a wolf on command",
+          "image": "/app/static/collection/assets/mall-rats/impossible/turn-into-a-wolf-on-command.webp",
+          "bytes": 47834
+        },
+        {
+          "id": "video-game-character-customization-but-in-real-life",
+          "name": "Video Game Character customization, but in real life",
+          "image": "/app/static/collection/assets/mall-rats/impossible/video-game-character-customization-but-in-real-life.webp",
+          "bytes": 33466
+        },
+        {
+          "id": "video-game-character-customization-but-in-real-life-64",
+          "name": "Video Game Character customization, but in real life",
+          "image": "/app/static/collection/assets/mall-rats/impossible/video-game-character-customization-but-in-real-life-64.webp",
+          "bytes": 38802
+        },
+        {
+          "id": "weeklong-time-travel-vacation",
+          "name": "Weeklong Time Travel Vacation",
+          "image": "/app/static/collection/assets/mall-rats/impossible/weeklong-time-travel-vacation.webp",
+          "bytes": 97124
+        },
+        {
+          "id": "world-domination",
+          "name": "World Domination",
+          "image": "/app/static/collection/assets/mall-rats/impossible/world-domination.webp",
+          "bytes": 55486
+        },
+        {
+          "id": "world-peace",
+          "name": "World peace",
+          "image": "/app/static/collection/assets/mall-rats/impossible/world-peace.webp",
+          "bytes": 106914
+        },
+        {
+          "id": "your-dream-job-for-the-rest-of-your-working-life",
+          "name": "Your dream job, for the rest of your working life",
+          "image": "/app/static/collection/assets/mall-rats/impossible/your-dream-job-for-the-rest-of-your-working-life.webp",
+          "bytes": 27598
+        },
+        {
+          "id": "your-face-on-mt-rushmore",
+          "name": "Your face on Mt Rushmore",
+          "image": "/app/static/collection/assets/mall-rats/impossible/your-face-on-mt-rushmore.webp",
+          "bytes": 25746
+        }
+      ]
+    }
+  ]
+}

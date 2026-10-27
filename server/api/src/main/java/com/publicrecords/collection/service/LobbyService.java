@@ -52,7 +52,7 @@ public interface LobbyService {
     /**
      * Host-only: records the chosen game and moves the room into its starting phase.
      */
-    void startGame(Session session, String gameId);
+    void startGame(Session session, String gameId, String episodeId);
 
     /**
      * Host-only: replaces the lobby settings for the sender's room.
@@ -83,6 +83,20 @@ public interface LobbyService {
      * @throws com.publicrecords.collection.lobby.LobbyException if the passage is invalid
      */
     void submitAnswer(Session session, String text);
+
+    /**
+     * Player action: star a Mall Rats pool gift (0-5 stars).
+     *
+     * @throws com.publicrecords.collection.lobby.LobbyException if the phase or gift is not valid
+     */
+    void rateGift(Session session, String giftId, int stars);
+
+    /**
+     * Player action: assign a Mall Rats pool gift to another player.
+     *
+     * @throws com.publicrecords.collection.lobby.LobbyException if the assignment is not allowed
+     */
+    void shopGift(Session session, String recipientId, String giftId);
 
     /**
      * Player action: spend a normal or golden heart on another player's answer.

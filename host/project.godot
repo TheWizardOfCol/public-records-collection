@@ -13,6 +13,10 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 [autoload]
 
 BackendConfig="*res://src/autoload/BackendConfig.gd"
+EpisodeSelect="*res://src/EpisodeSelect.gd"
+MenuMusic="*res://src/autoload/MenuMusic.gd"
+PauseMenu="*res://src/autoload/PauseMenu.gd"
+
 
 [display]
 

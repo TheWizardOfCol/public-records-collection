@@ -50,8 +50,8 @@ public class LobbyServiceImpl implements LobbyService {
     }
 
     @Override
-    public void startGame(final Session session, final String gameId) {
-        registry.startGame(session, gameId);
+    public void startGame(final Session session, final String gameId, final String episodeId) {
+        registry.startGame(session, gameId, episodeId);
     }
 
     @Override
@@ -82,6 +82,16 @@ public class LobbyServiceImpl implements LobbyService {
     @Override
     public void castVote(final Session session, final String answerId, final boolean golden) {
         registry.castVote(session, answerId, golden);
+    }
+
+    @Override
+    public void rateGift(final Session session, final String giftId, final int stars) {
+        registry.rateGift(session, giftId, stars);
+    }
+
+    @Override
+    public void shopGift(final Session session, final String recipientId, final String giftId) {
+        registry.shopGift(session, recipientId, giftId);
     }
 
     @Override

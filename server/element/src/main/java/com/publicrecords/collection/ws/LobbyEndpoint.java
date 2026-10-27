@@ -59,12 +59,16 @@ public class LobbyEndpoint {
             switch (type) {
                 case "host" -> lobby().hostConnect(text(node, "code"), text(node, "token"), session);
                 case "join" -> lobby().join(text(node, "code"), text(node, "name"), text(node, "playerId"), session);
-                case "start" -> lobby().startGame(session, text(node, "gameId"));
+                case "start" -> lobby().startGame(session, text(node, "gameId"), text(node, "episodeId"));
                 case "settings" -> lobby().updateSettings(session, settings(node));
                 case "choose-work" -> lobby().chooseWork(session, text(node, "workId"));
                 case "submit-answer" -> lobby().submitAnswer(session, text(node, "text"));
                 case "cast-vote" -> lobby().castVote(
                         session, text(node, "answerId"), node.path("golden").asBoolean(false));
+                case "rate-gift" -> lobby().rateGift(
+                        session, text(node, "giftId"), node.path("stars").asInt(-1));
+                case "shop-gift" -> lobby().shopGift(
+                        session, text(node, "recipientId"), text(node, "giftId"));
                 case "advance" -> lobby().advance(session);
                 case "leave" -> lobby().closeRoom(session);
                 case "ping" -> Wire.send(session, Wire.object().put("type", "pong"));

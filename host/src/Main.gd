@@ -9,11 +9,13 @@ extends Control
 ## public, big-screen view of the running game). The host never gets the players'
 ## private views.
 
-const GAME_ID := "get-lit"
+const GAME_LABELS := ["Cryptid Cinema", "Mall Rats", "Super Sticker Vandalz", "Average Joe", "Time-Traveling Stalker Simulator 3027"]
+const GAME_IDS := ["cryptid-cinema", "mall-rats", "sticker-vandalz", "average-joe", "ttss-3027"]
 
 var _http: HTTPRequest
 var _ws := WebSocketPeer.new()
 var _host_name := "Host"
+var _game_index := 0
 
 var _room_code := ""
 var _host_token := ""
@@ -28,11 +30,118 @@ var _start_button: Button
 var _advance_button: Button
 var _family_check: CheckBox
 var _timer_spin: SpinBox
+var _game_select: OptionButton
+
+# Title-page styling (mirrors scenes/Title.tscn so the lobby reads as the same game).
+const TITLE_FONT := "res://assets/fonts/playfair-display.ttf"
+const BODY_FONT := "res://assets/fonts/old-standard-tt.ttf"
+const GOLD := Color(1.0, 1.0, 0.85)
+const ACCENT := Color(0.8, 0.7, 0.5)
+var _slideshow: Control
 
 # UI — game
 var _game_panel: VBoxContainer
 var _game_title: Label
 var _game_body: RichTextLabel
+
+# UI — Cryptid Cinema (big screen film + notes)
+var _cryptid_view: HBoxContainer
+var _film: VideoStreamPlayer
+var _cryptid_notes: RichTextLabel
+var _mall_view: VBoxContainer
+var _crackle_player: AudioStreamPlayer
+var _cryptid_hud: Label
+
+# Film scheduling (Godot can't seek Theora, so we play forward and pause at a mark).
+var _film_path := ""
+var _film_target := -1.0
+var _film_started := false
+
+# Host-side screening of player recordings (WAV, one after another).
+var _audio_player: AudioStreamPlayer
+var _audio_http: HTTPRequest
+var _audio_queue: PackedStringArray = PackedStringArray()
+var _audio_res_queue: PackedStringArray = PackedStringArray() # res:// paths
+var _audio_round := -1
+var _audio_busy := false
+
+# Winner screening: the film replays 0..recordEnd with the original audio muted
+# inside [recordStart, recordEnd) while the winning take plays over it.
+var _screen_player: AudioStreamPlayer
+var _screen_http: HTTPRequest
+var _screening_active := false
+var _screening_round := -1
+var _screening_winners: Array = [] # [{audioUrl}] for the current round
+var _screening_index := 0
+var _screening_cue := 0.0          # recordStart of the current round
+var _screening_endt := 0.0         # recordEnd of the current round
+var _screening_played := false     # winner wav armed/started this window
+var _screening_have := false       # this window's wav fetched and ready
+var _mute_start := -1.0            # original-audio mute window for the current roll
+var _mute_end := -1.0
+
+const FOUNDTRACK_MUSIC := {
+	"01-01-la-primavera-spring-allegro": "res://assets/cryptid/music/01-01-la-primavera-spring-allegro.mp3",
+	"adventures-in-adventureland-kevin-macleod": "res://assets/cryptid/music/adventures-in-adventureland-kevin-macleod.mp3",
+	"amazing-grace-traditional": "res://assets/cryptid/music/amazing-grace-traditional.mp3",
+	"android-sock-hop-kevin-macleod": "res://assets/cryptid/music/android-sock-hop-kevin-macleod.mp3",
+	"army-strong-mark-isham": "res://assets/cryptid/music/army-strong-mark-isham.mp3",
+	"balloon-game-kevin-macleod": "res://assets/cryptid/music/balloon-game-kevin-macleod.mp3",
+	"blue-danube-johann-strauss-ii": "res://assets/cryptid/music/blue-danube-johann-strauss-ii.mp3",
+	"brain-dance-kevin-macleod": "res://assets/cryptid/music/brain-dance-kevin-macleod.mp3",
+	"circuit-bent-keyboard-demo-some-sicko": "res://assets/cryptid/music/circuit-bent-keyboard-demo-some-sicko.mp3",
+	"danse-macabre-camille-saint-sa-ns": "res://assets/cryptid/music/danse-macabre-camille-saint-sa-ns.mp3",
+	"drankin-song-kevin-macleod": "res://assets/cryptid/music/drankin-song-kevin-macleod.mp3",
+	"entry-of-the-gladiators-julius-fucik": "res://assets/cryptid/music/entry-of-the-gladiators-julius-fucik.mp3",
+	"epic-score-jeremusic70": "res://assets/cryptid/music/epic-score-jeremusic70.mp3",
+	"everyone-loyalty-freak-music": "res://assets/cryptid/music/everyone-loyalty-freak-music.mp3",
+	"farting-around-kevin-macleod": "res://assets/cryptid/music/farting-around-kevin-macleod.mp3",
+	"flying-kerfuffle-kevin-macleod": "res://assets/cryptid/music/flying-kerfuffle-kevin-macleod.mp3",
+	"funeral-march-chopin": "res://assets/cryptid/music/funeral-march-chopin.mp3",
+	"funiculi-funicula-luigi-denza-and-peppino-turco": "res://assets/cryptid/music/funiculi-funicula-luigi-denza-and-peppino-turco.mp3",
+	"god-save-the-king": "res://assets/cryptid/music/god-save-the-king.mp3",
+	"gymnopedie-no-1-erik-satie": "res://assets/cryptid/music/gymnopedie-no-1-erik-satie.mp3",
+	"habanera": "res://assets/cryptid/music/habanera.mp3",
+	"haiduceasca-traditional": "res://assets/cryptid/music/haiduceasca-traditional.mp3",
+	"halleljeah-george-frideric-handel": "res://assets/cryptid/music/halleljeah-george-frideric-handel.mp3",
+	"happy-happy-game-show-kevin-macleod": "res://assets/cryptid/music/happy-happy-game-show-kevin-macleod.mp3",
+	"high-stakes-spymaster-rfm1011": "res://assets/cryptid/music/high-stakes-spymaster-rfm1011.mp3",
+	"in-the-hall-of-the-mountain-king-edvard-grieg": "res://assets/cryptid/music/in-the-hall-of-the-mountain-king-edvard-grieg.mp3",
+	"kun-khmer-fight-music-traditional": "res://assets/cryptid/music/kun-khmer-fight-music-traditional.mp3",
+	"liberty-bell-march-john-philip-sousa": "res://assets/cryptid/music/liberty-bell-march-john-philip-sousa.mp3",
+	"little-fugue-in-g-minor-bach": "res://assets/cryptid/music/little-fugue-in-g-minor-bach.mp3",
+	"maple-leaf-rag-scott-joplin": "res://assets/cryptid/music/maple-leaf-rag-scott-joplin.mp3",
+	"mass-of-the-day-gajard-dom-joseph": "res://assets/cryptid/music/mass-of-the-day-gajard-dom-joseph.mp3",
+	"meatball-parade-kevin-macleod": "res://assets/cryptid/music/meatball-parade-kevin-macleod.mp3",
+	"mesmerizing-galaxy-kevin-macleod": "res://assets/cryptid/music/mesmerizing-galaxy-kevin-macleod.mp3",
+	"modern-lounge-prettyjohn1": "res://assets/cryptid/music/modern-lounge-prettyjohn1.mp3",
+	"modern-sadness-kevin-macleod": "res://assets/cryptid/music/modern-sadness-kevin-macleod.mp3",
+	"monkeys-spinning-monkeys-kevin-macleod": "res://assets/cryptid/music/monkeys-spinning-monkeys-kevin-macleod.mp3",
+	"mouthalovania-oatymilkgalaxy": "res://assets/cryptid/music/mouthalovania-oatymilkgalaxy.mp3",
+	"nano-hoedown-kevin-macleod": "res://assets/cryptid/music/nano-hoedown-kevin-macleod.mp3",
+	"o-canada": "res://assets/cryptid/music/o-canada.mp3",
+	"ode-to-joy-on-the-netherlands-carillon": "res://assets/cryptid/music/ode-to-joy-on-the-netherlands-carillon.mp3",
+	"pomp-and-circumstance": "res://assets/cryptid/music/pomp-and-circumstance.mp3",
+	"pookatori-and-friends-kevin-macleod": "res://assets/cryptid/music/pookatori-and-friends-kevin-macleod.mp3",
+	"pop-goes-the-weasel-traditional": "res://assets/cryptid/music/pop-goes-the-weasel-traditional.mp3",
+	"ride-of-the-valkyries-richard-wagner": "res://assets/cryptid/music/ride-of-the-valkyries-richard-wagner.mp3",
+	"sabre-dance-aram-khachaturian": "res://assets/cryptid/music/sabre-dance-aram-khachaturian.mp3",
+	"soviet-national-anthem": "res://assets/cryptid/music/soviet-national-anthem.mp3",
+	"star-spangled-banner-francis-scott-key-and-john-stafford-smith": "res://assets/cryptid/music/star-spangled-banner-francis-scott-key-and-john-stafford-smith.mp3",
+	"symphony-no-9-ludwig-van-beethoven": "res://assets/cryptid/music/symphony-no-9-ludwig-van-beethoven.mp3",
+	"that-zen-moment-kevin-macleod": "res://assets/cryptid/music/that-zen-moment-kevin-macleod.mp3",
+	"the-britons-kevin-macleod": "res://assets/cryptid/music/the-britons-kevin-macleod.mp3",
+	"the-entertainer-scott-joplin": "res://assets/cryptid/music/the-entertainer-scott-joplin.mp3",
+	"the-german-s-arrival-frank-wilson": "res://assets/cryptid/music/the-german-s-arrival-frank-wilson.mp3",
+	"the-laughing-record": "res://assets/cryptid/music/the-laughing-record.mp3",
+	"the-whistling-bowery-boy-s-h-dudley": "res://assets/cryptid/music/the-whistling-bowery-boy-s-h-dudley.mp3",
+	"toscaninini-ludwig-van-beethoven": "res://assets/cryptid/music/toscaninini-ludwig-van-beethoven.mp3",
+	"toy-symphony-allegro-leopold-mozart": "res://assets/cryptid/music/toy-symphony-allegro-leopold-mozart.mp3",
+	"william-tell-overture-gioachino-rossini": "res://assets/cryptid/music/william-tell-overture-gioachino-rossini.mp3",
+	"wedding-march-felix-mendelssohn": "res://assets/cryptid/music/wedding-march-felix-mendelssohn.mp3",
+	"welcome-to-horrorland-kevin-macleod": "res://assets/cryptid/music/welcome-to-horrorland-kevin-macleod.mp3",
+	"yankee-doodle-traditional": "res://assets/cryptid/music/yankee-doodle-traditional.mp3",
+}
 
 ## Dev aid: when > 0, the host auto-sends `advance` every N seconds while a game
 ## is running (set with --auto-advance=<seconds>). Handy for exercising the game
@@ -44,6 +153,9 @@ var _auto_accum := 0.0
 ## players have joined (set with --auto-start=<n>). Leave 0 in normal use.
 var _auto_start := 0
 var _did_start := false
+
+## Keepalive: seconds accumulated since the last `ping` sent to the lobby.
+var _ping_accum := 0.0
 
 
 func _ready() -> void:
@@ -58,6 +170,7 @@ func _ready() -> void:
 			_auto_start = maxi(0, arg.trim_prefix("--auto-start=").to_int())
 
 	_build_ui()
+
 
 	_http = HTTPRequest.new()
 	add_child(_http)
@@ -78,8 +191,14 @@ func _process(delta: float) -> void:
 		WebSocketPeer.STATE_OPEN:
 			while _ws.get_available_packet_count() > 0:
 				_on_message(_ws.get_packet().get_string_from_utf8())
+			_ping_accum += delta
+			if _ping_accum >= 20.0:
+				_ping_accum = 0.0
+				_ws.send_text(JSON.stringify({"type": "ping"}))
 		WebSocketPeer.STATE_CLOSED:
 			pass
+
+	_update_film()
 
 	if _auto_advance > 0.0 and _game_panel.visible and not _advance_button.disabled:
 		_auto_accum += delta
@@ -114,6 +233,9 @@ func _on_room_created(_result: int, response_code: int, _headers: PackedStringAr
 	print("[host] room code ", _room_code)
 
 	_set_status("Connecting lobby…")
+	# The Namazu Cloud edge rejects handshakes with no User-Agent (403) — the
+	# browser and Godot's HTTPRequest send one, but WebSocketPeer does not.
+	_ws.set_handshake_headers(PackedStringArray(["User-Agent: PublicRecordsCollection-Host/1.0 (Godot Engine)"]))
 	var err := _ws.connect_to_url(BackendConfig.lobby_ws_url())
 	if err != OK:
 		_set_status("WebSocket connect failed (error %d)." % err)
@@ -194,20 +316,58 @@ func _render_room(room: Dictionary) -> void:
 
 func _render_game(game: Dictionary) -> void:
 	var phase := str(game.get("phase", ""))
-	var round := int(game.get("round", 0))
-	var total := int(game.get("totalRounds", 0))
+	var in_game := phase != ""
 
 	# The lobby furniture only makes sense before/around a game; hide it once
-	# a game is running and show the big-screen view instead.
-	var in_game := phase != ""
+	# a game is running and show the big-screen view instead. The drifting
+	# slideshow is a lobby/title backdrop, so it goes away with the lobby too.
 	_lobby_panel.visible = not in_game
 	_game_panel.visible = in_game
+	if _slideshow != null:
+		_slideshow.visible = not in_game
 	_advance_button.disabled = phase == "finished" or phase == ""
 
 	if not in_game:
 		_game_body.text = ""
+		_cryptid_view.visible = false
+		_mall_view.visible = false
+		_stop_film()
+		_audio_round = -1
+		_audio_queue = PackedStringArray()
+		_audio_gate("")
 		return
 
+	_audio_gate(phase)
+
+	last_room_state["game"] = game
+	var cryptid := game.has("episodeId")
+	var mall := game.has("storeId")
+	_cryptid_view.visible = cryptid
+	_game_body.visible = not cryptid and not mall
+	_mall_view.visible = mall
+
+	if cryptid:
+		_render_cryptid(game, phase)
+	elif mall:
+		_stop_film()
+		_render_mallrats(game, phase)
+	else:
+		_stop_film()
+		_render_getlit(game, phase)
+
+
+func _audio_gate(game_phase: String) -> void:
+	# Menu music only owns the title and lobby screens; the movies and rounds
+	# bring their own sound.
+	if has_node("/root/MenuMusic"):
+		if game_phase == "":
+			MenuMusic.play_menu()
+		else:
+			MenuMusic.stop_menu()
+
+func _render_getlit(game: Dictionary, phase: String) -> void:
+	var round := int(game.get("round", 0))
+	var total := int(game.get("totalRounds", 0))
 	_game_title.text = "Get Lit — Round %d / %d" % [max(round, 1), total]
 	print("[host] game phase: %s (round %d/%d)" % [phase, round, total])
 
@@ -252,6 +412,412 @@ func _render_game(game: Dictionary) -> void:
 				lines.append("[b]%s wins![/b]" % str(scores[0].get("name", "?")))
 
 	_game_body.text = "\n".join(lines)
+
+
+# --- Cryptid Cinema display ---------------------------------------------------
+
+func _render_cryptid(game: Dictionary, phase: String) -> void:
+	var round := int(game.get("round", 0))
+	var total := int(game.get("totalRounds", 0))
+	var round_type := str(game.get("roundType", ""))
+	var is_foundtrack := round_type == "FOUNDTRACK"
+	var rtype := _round_type_label(round_type)
+	_game_title.text = "Cryptid Cinema — Round %d / %d · %s" % [max(round, 1), total, rtype]
+	print("[host] cryptid phase: %s (round %d/%d)" % [phase, round, total])
+
+	# Minimal on-screen text while the video plays; narration/notes appear as HUD.
+	_game_title.visible = not _video_playing_now(game, phase)
+	if not _video_playing_now(game, phase):
+		_game_title.text = "Cryptid Cinema — Round %d / %d · %s" % [max(round, 1), total, rtype]
+
+	# Up to the foundtrack round the film plays with its own music; from the
+	# foundtrack screening on, the host uses the music-less cut and layers the
+	# chosen track and the players' takes over it.
+	var video := str(game.get("videoNoMusic", "")) if is_foundtrack else str(game.get("video", ""))
+	if video.is_empty():
+		video = str(game.get("video", ""))
+	if not video.is_empty():
+		_ensure_film(video)
+
+	var lines := PackedStringArray()
+	lines.append("[font_size=26][b]%s[/b][/font_size]" % str(game.get("episodeTitle", "")))
+	lines.append("")
+	var notes := str(game.get("directorNotes", ""))
+	if not notes.is_empty():
+		lines.append("[i]%s[/i]" % notes)
+		lines.append("")
+
+	# The crackle vinyl only rides the record phase.
+	_set_crackle(phase == "record")
+
+	match phase:
+		"brief":
+			# A new round cancels any screening left over from the last one.
+			if _screening_active and _screening_round != round:
+				_screening_active = false
+				_screen_player.stop()
+			var see_end := float(game.get("seeEnd", 0.0))
+			if see_end > 0.0:
+				_roll_window(see_end)
+			else:
+				# FOUNDTRACK-style rounds screen the full music-less cut.
+				_replay_film_from_start()
+			lines.append("Roll film — players are reading their lines on their devices.")
+		"record":
+			_pause_film()
+			# Mics open: leftover music dead-quiet, the vinyl keeps the room
+			# alive at a whisper.
+			_audio_player.stop()
+			_set_crackle(true)
+			lines.append("Recording…  %d of %d submitted." % [
+				int(game.get("submitted", 0)), int(game.get("players", 0))])
+		"vote":
+			_pause_film()
+			lines.append("%d of %d submitted — vote now!" % [
+				int(game.get("submitted", 0)), int(game.get("players", 0))])
+			lines.append("")
+			lines.append(_cryptid_submissions(game, false))
+		"results":
+			if is_foundtrack:
+				_replay_film_from_start()
+				_enqueue_screening(game)
+			elif round_type == "UNKNOWABLE_SFX" or round_type == "UFSFX":
+				# Unknowable Sound has no take to screen over the picture and the
+				# U.F.S.F.X. pick has no window — both screen audio-only.
+				_pause_film()
+				_enqueue_screening(game)
+			else:
+				_start_screening(game)
+			lines.append(_cryptid_submissions(game, true))
+			lines.append("")
+			lines.append("[b]This round[/b]")
+			lines.append(_scores_list(game.get("roundScores", [])))
+			lines.append("")
+			lines.append("[b]Standings[/b]")
+			lines.append(_scores_list(game.get("scores", [])))
+		"finished":
+			_pause_film()
+			lines.append("[font_size=26][b]Final Standings[/b][/font_size]")
+			lines.append(_scores_list(game.get("scores", [])))
+			var scores: Array = game.get("scores", [])
+			if not scores.is_empty():
+				lines.append("")
+				lines.append("[b]%s wins![/b]" % str(scores[0].get("name", "?")))
+
+	# While the film plays, all side text goes away; a small HUD over the
+	# picture keeps the round counter and submitted count.
+	if _video_playing_now(game, phase):
+		_cryptid_hud.text = "Round %d / %d   ·   Submitted %d / %d" % [
+			max(round, 1), total,
+			int(game.get("submitted", 0)), int(game.get("players", 0))]
+		_cryptid_hud.visible = true
+		_cryptid_notes.visible = false
+	else:
+		_cryptid_hud.visible = false
+		_cryptid_notes.text = "\n".join(lines)
+		_cryptid_notes.visible = true
+
+
+func _set_crackle(active: bool) -> void:
+	if _crackle_player == null:
+		return
+	if active and not _crackle_player.playing:
+		_crackle_player.play()
+	elif not active and _crackle_player.playing:
+		_crackle_player.stop()
+
+func _round_type_label(t: String) -> String:
+	match t:
+		"UNDYINGALOG":
+			return "Undyingalog"
+		"FOLEY":
+			return "Foley"
+		"UNKNOWABLE_SFX", "UFSFX":
+			return "Unknowable SFX"
+		"FOUNDTRACK":
+			return "Foundtrack"
+		_:
+			return t
+
+
+func _cryptid_submissions(game: Dictionary, revealed: bool) -> String:
+	var subs: Array = game.get("submissions", [])
+	if subs.is_empty():
+		return "[i]No takes yet.[/i]"
+	var lines := PackedStringArray()
+	for s in subs:
+		var who := str(s.get("playerName", "")) if revealed else "a player"
+		var tail := "  (+%d)" % int(s.get("points", 0)) if revealed else ""
+		if str(s.get("kind", "")) == "recording":
+			lines.append("♪ %s%s" % [who, tail])
+		else:
+			lines.append("“%s” — %s%s" % [str(s.get("label", "")), who, tail])
+	return "\n".join(lines)
+
+
+# --- Film playback ------------------------------------------------------------
+
+func _ensure_film(path: String) -> void:
+	if path == _film_path and _film.stream != null:
+		return
+	_film_path = path
+	var stream := load(path)
+	if stream == null:
+		push_warning("[host] could not load film: " + path)
+		return
+	_film.stream = stream
+	_film.stop()
+	_film_started = false
+	_film_target = -1.0
+
+
+## Roll the film up to `to` (seconds). Because VideoStreamPlayer cannot seek,
+## a window that is already behind is reached by restarting from the top; the
+## lead-up rolls with the original audio freely (it is part of the picture).
+## [mute_start, mute_end) silences the film's own audio while it passes.
+func _roll_window(to: float, mute_start := -1.0, mute_end := -1.0) -> void:
+	if _film.stream == null:
+		return
+	_mute_start = mute_start
+	_mute_end = mute_end
+	_film.volume_db = 0.0
+	if to > 0.0 and _film_started and _film.stream_position >= to - 0.05:
+		# Already past it — restart so the window still gets shown.
+		_film.stop()
+		_film_started = false
+	if not _film_started:
+		_film.play()
+		_film_started = true
+	_film.paused = false
+	_film_target = to
+
+
+func _pause_film() -> void:
+	if _film.stream != null:
+		_film.paused = true
+	_film_target = -1.0
+
+
+func _stop_film() -> void:
+	if _film == null:
+		return
+	_film.stop()
+	_film_started = false
+	_film_target = -1.0
+
+
+## The Screening: the foundtrack winner is in, so roll the music-less cut from
+## the top and let the recorded takes and the chosen song play over it.
+func _replay_film_from_start() -> void:
+	if _film == null or _film.stream == null:
+		return
+	_film.stop()
+	_film.play()
+	_film.paused = false
+	_film_started = true
+	_film_target = -1.0
+
+
+func _update_film() -> void:
+	if _film == null or _film_target < 0.0 or _film.stream == null:
+		return
+	var pos := _film.stream_position
+	if pos >= _film_target:
+		_film.paused = true
+		_film_target = -1.0
+		_film.volume_db = 0.0
+		if _screening_active:
+			_on_screen_window_done()
+		return
+	# Mute the film's own audio through the designated stretches.
+	if pos >= _mute_start and pos < _mute_end:
+		_film.volume_db = -80.0
+		# The winner's take takes over the picture here.
+		if _screening_active and not _screening_played:
+			_screening_played = true
+			if _screening_have and _screen_player.stream != null:
+				_screen_player.play()
+	else:
+		_film.volume_db = 0.0
+
+
+# --- Host-side screening of player recordings ---------------------------------
+
+## The screening: roll the film from the top through the round's recorded
+## window; the film's own audio goes quiet just inside the window and the
+## winning take plays over it. Ties roll the window once per winner.
+func _start_screening(game: Dictionary) -> void:
+	var round := int(game.get("round", 0))
+	if _screening_active and _screening_round == round:
+		return # already screening this round
+	_screening_active = false
+	_screening_round = round
+	_screening_winners = []
+	_screening_index = 0
+	_screening_endt = float(game.get("recordEnd", 0.0))
+	_screening_cue = float(game.get("recordStart", 0.0))
+	var subs: Array = game.get("submissions", [])
+	for s in _top_submissions(subs):
+		if not str(s.get("audioUrl", "")).is_empty():
+			_screening_winners.append(s)
+	if _screening_winners.is_empty() or _screening_endt <= 0.0:
+		# Nothing to screen over the film (single-player, no takes) — hold.
+		_pause_film()
+		_screening_round = -1
+		return
+	_screening_active = true
+	_run_screen_window()
+
+func _run_screen_window() -> void:
+	if _screening_index >= _screening_winners.size():
+		_screening_active = false
+		_pause_film()
+		return
+	_screening_played = false
+	_screening_have = false
+	# Prime the winner's take while the film's lead-up rolls.
+	var url := str(_screening_winners[_screening_index].get("audioUrl", ""))
+	_screen_http.cancel_request()
+	var err := _screen_http.request(
+		BackendConfig.url + url, PackedStringArray(), HTTPClient.METHOD_GET)
+	if err != OK:
+		_screening_have = true
+		_screen_player.stream = null
+		_screen_player.stop()
+	_roll_window(_screening_endt, _screening_cue, _screening_endt)
+
+func _on_screen_window_done() -> void:
+	_screening_index += 1
+	_screening_played = false
+	_screen_player.stop()
+	_run_screen_window()
+
+func _on_screen_wav_fetched(result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+	if result == HTTPRequest.RESULT_SUCCESS and response_code == 200:
+		var wav := _wav_from_bytes(body)
+		if wav != null:
+			_screen_player.stream = wav
+			_screening_have = true
+			return
+	# Fetch failed — the window rolls silently.
+	_screening_have = true
+	_screen_player.stream = null
+
+
+func _enqueue_screening(game: Dictionary) -> void:
+	var round := int(game.get("round", 0))
+	if round == _audio_round:
+		return
+	_audio_round = round
+	_audio_queue = PackedStringArray()
+	_audio_res_queue = PackedStringArray()
+
+	var subs: Array = game.get("submissions", [])
+	var winners := _top_submissions(subs)
+
+	if str(game.get("roundType", "")) == "FOUNDTRACK":
+		# Only the winning song plays: the track the players voted for, keyed off
+		# the submission's choice id (each player was dealt a private hand, so the
+		# public option list is empty).
+		if not winners.is_empty():
+			var cid := str(winners[0].get("choiceId", ""))
+			if FOUNDTRACK_MUSIC.has(cid):
+				_audio_res_queue.append(FOUNDTRACK_MUSIC[cid])
+	else:
+		# Only the winning take(s) play — never every player's.
+		for s in winners:
+			var url := str(s.get("audioUrl", ""))
+			if not url.is_empty():
+				_audio_queue.append(url)
+
+	_pump_audio()
+
+
+## The submissions tied for the most points this round. Used to screen only the
+## winners, not every take. (When no votes were cast — e.g. one or two players —
+## every submission is tied at zero and all play, matching "used directly".)
+func _top_submissions(subs: Array) -> Array:
+	if subs.is_empty():
+		return []
+	var best := int(subs[0].get("points", 0))
+	for s in subs:
+		best = maxi(best, int(s.get("points", 0)))
+	var winners: Array = []
+	for s in subs:
+		if int(s.get("points", 0)) == best:
+			winners.append(s)
+	return winners
+
+
+func _pump_audio() -> void:
+	if _audio_player == null or _audio_busy or _audio_player.playing:
+		return
+	# A queued local track (foundtrack song) plays straight from res://.
+	if not _audio_res_queue.is_empty():
+		var res_path := _audio_res_queue[0]
+		_audio_res_queue.remove_at(0)
+		var stream := load(res_path)
+		if stream is AudioStream:
+			_audio_player.stream = stream
+			_audio_player.play()
+			return
+	if _audio_queue.is_empty():
+		return
+	_audio_busy = true
+	var path := _audio_queue[0]
+	_audio_queue.remove_at(0)
+	var err := _audio_http.request(
+		BackendConfig.url + path, PackedStringArray(), HTTPClient.METHOD_GET)
+	if err != OK:
+		_audio_busy = false
+
+
+func _on_audio_fetched(result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+	_audio_busy = false
+	if result == HTTPRequest.RESULT_SUCCESS and response_code == 200:
+		var wav := _wav_from_bytes(body)
+		if wav != null:
+			_audio_player.stream = wav
+			_audio_player.play()
+			return
+		# Non-WAV bodies (the SFX library ships as mp3) play through the mp3 stream.
+		var mp3 := AudioStreamMP3.new()
+		mp3.data = body
+		_audio_player.stream = mp3
+		_audio_player.play()
+		return
+	_pump_audio()
+
+
+func _wav_from_bytes(bytes: PackedByteArray) -> AudioStreamWAV:
+	if bytes.size() < 44 or bytes.slice(0, 4).get_string_from_ascii() != "RIFF":
+		return null
+	var channels := 1
+	var mix_rate := 44100
+	var bits := 16
+	var data_offset := -1
+	var data_size := 0
+	var pos := 12
+	while pos + 8 <= bytes.size():
+		var chunk_id := bytes.slice(pos, pos + 4).get_string_from_ascii()
+		var chunk_size := bytes.decode_u32(pos + 4)
+		if chunk_id == "fmt ":
+			channels = bytes.decode_u16(pos + 10)
+			mix_rate = bytes.decode_u32(pos + 12)
+			bits = bytes.decode_u16(pos + 22)
+		elif chunk_id == "data":
+			data_offset = pos + 8
+			data_size = chunk_size
+			break
+		pos += 8 + chunk_size + (chunk_size & 1)
+	if data_offset < 0 or data_offset + data_size > bytes.size():
+		return null
+	var wav := AudioStreamWAV.new()
+	wav.mix_rate = mix_rate
+	wav.stereo = channels == 2
+	wav.format = AudioStreamWAV.FORMAT_16_BITS if bits == 16 else AudioStreamWAV.FORMAT_8_BITS
+	wav.data = bytes.slice(data_offset, data_offset + data_size)
+	return wav
 
 
 func _works_list(game: Dictionary) -> String:
@@ -302,7 +868,16 @@ func _send_settings() -> void:
 func _on_start_pressed() -> void:
 	if _ws.get_ready_state() != WebSocketPeer.STATE_OPEN:
 		return
-	_ws.send_text(JSON.stringify({"type": "start", "gameId": GAME_ID}))
+	if GAME_IDS[_game_index] == "cryptid-cinema":
+		# show episode chooser in same scene to preserve room state
+		_show_episodes()
+		return
+	if GAME_IDS[_game_index] == "mall-rats":
+		# the host picks which mall store the game shops at
+		_show_stores()
+		return
+	var payload = {"type": "start", "gameId": GAME_IDS[_game_index]}
+	_ws.send_text(JSON.stringify(payload))
 
 
 func _on_advance_pressed() -> void:
@@ -317,6 +892,19 @@ func _build_ui() -> void:
 	for child in get_children():
 		child.queue_free()
 
+	# Same backdrop as the title screen: a near-black wash, then the drifting
+	# slideshow, then the UI on top of both.
+	var background := ColorRect.new()
+	background.set_anchors_preset(Control.PRESET_FULL_RECT)
+	background.color = Color(0.08, 0.07, 0.06, 1.0)
+	background.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(background)
+
+	_slideshow = load("res://src/Slideshow.gd").new()
+	_slideshow.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_slideshow.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(_slideshow)
+
 	var margin := MarginContainer.new()
 	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
 	margin.add_theme_constant_override("margin_left", 48)
@@ -330,8 +918,12 @@ func _build_ui() -> void:
 	margin.add_child(root)
 
 	var title := Label.new()
-	title.text = "The Public Records Collection"
-	title.add_theme_font_size_override("font_size", 40)
+	title.text = "THE PUBLIC RECORDS COLLECTION"
+	title.add_theme_color_override("font_color", GOLD)
+	var title_font := load(TITLE_FONT)
+	if title_font:
+		title.add_theme_font_override("font", title_font)
+	title.add_theme_font_size_override("font_size", 52)
 	root.add_child(title)
 
 	_lobby_panel = VBoxContainer.new()
@@ -340,6 +932,7 @@ func _build_ui() -> void:
 
 	_game_panel = VBoxContainer.new()
 	_game_panel.add_theme_constant_override("separation", 12)
+	_game_panel.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	_game_panel.visible = false
 	root.add_child(_game_panel)
 
@@ -348,6 +941,82 @@ func _build_ui() -> void:
 	_game_title = Label.new()
 	_game_title.add_theme_font_size_override("font_size", 30)
 	_game_panel.add_child(_game_title)
+
+	_cryptid_view = HBoxContainer.new()
+	_cryptid_view.add_theme_constant_override("separation", 16)
+	_cryptid_view.visible = false
+	_cryptid_view.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	_game_panel.add_child(_cryptid_view)
+
+	var film_wrap := Control.new()
+	film_wrap.clip_contents = true
+	film_wrap.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	film_wrap.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	_cryptid_view.add_child(film_wrap)
+
+	var film_aspect := AspectRatioContainer.new()
+	film_aspect.ratio = 16.0 / 9.0
+	film_aspect.set_anchors_preset(Control.PRESET_FULL_RECT)
+	film_wrap.add_child(film_aspect)
+
+	_film = VideoStreamPlayer.new()
+	_film.expand = true
+	_film.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_film.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	film_aspect.add_child(_film)
+
+	# Scratchpad counter shown over the film while it plays (round + submissions).
+	_cryptid_hud = Label.new()
+	_cryptid_hud.add_theme_color_override("font_color", GOLD)
+	_cryptid_hud.add_theme_font_size_override("font_size", 28)
+	_cryptid_hud.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT)
+	_cryptid_hud.offset_left = 16
+	_cryptid_hud.offset_top = -48
+	_cryptid_hud.visible = false
+	film_wrap.add_child(_cryptid_hud)
+
+	_cryptid_notes = RichTextLabel.new()
+	_cryptid_notes.bbcode_enabled = true
+	_cryptid_notes.fit_content = true
+	_cryptid_notes.scroll_active = true
+	_cryptid_notes.custom_minimum_size = Vector2(320, 0)
+	_cryptid_notes.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	_cryptid_view.add_child(_cryptid_notes)
+
+	_mall_view = VBoxContainer.new()
+	_mall_view.add_theme_constant_override("separation", 10)
+	_mall_view.visible = false
+	_game_panel.add_child(_mall_view)
+
+	_mall_store_title = Label.new()
+	_mall_store_title.add_theme_font_size_override("font_size", 30)
+	_mall_view.add_child(_mall_store_title)
+
+	var mall_body := HBoxContainer.new()
+	mall_body.add_theme_constant_override("separation", 20)
+	mall_body.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	_mall_view.add_child(mall_body)
+
+	_mall_standings = RichTextLabel.new()
+	_mall_standings.bbcode_enabled = true
+	_mall_standings.fit_content = true
+	_mall_standings.custom_minimum_size = Vector2(300, 0)
+	mall_body.add_child(_mall_standings)
+
+	var mall_right := VBoxContainer.new()
+	mall_right.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	mall_right.add_theme_constant_override("separation", 8)
+	mall_body.add_child(mall_right)
+
+	_mall_status_label = Label.new()
+	_mall_status_label.add_theme_font_size_override("font_size", 20)
+	mall_right.add_child(_mall_status_label)
+
+	_mall_grid = HFlowContainer.new()
+	_mall_grid.add_theme_constant_override("h_separation", 10)
+	_mall_grid.add_theme_constant_override("v_separation", 10)
+	_mall_grid.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	mall_right.add_child(_mall_grid)
 
 	_game_body = RichTextLabel.new()
 	_game_body.bbcode_enabled = true
@@ -361,10 +1030,39 @@ func _build_ui() -> void:
 	_advance_button.disabled = true
 	_advance_button.pressed.connect(_on_advance_pressed)
 	_game_panel.add_child(_advance_button)
+	_style_button(_advance_button)
 
 	_status_label = Label.new()
-	_status_label.add_theme_font_size_override("font_size", 18)
+	_status_label.add_theme_color_override("font_color", Color(0.85, 0.82, 0.72))
+	_apply_font(_status_label, BODY_FONT, 18)
 	root.add_child(_status_label)
+
+	_audio_player = AudioStreamPlayer.new()
+	_audio_player.bus = "Music"
+	_audio_player.finished.connect(_pump_audio)
+	add_child(_audio_player)
+
+	_audio_http = HTTPRequest.new()
+	add_child(_audio_http)
+	_audio_http.request_completed.connect(_on_audio_fetched)
+
+	# Loops softly while players speak into their mics (record phase).
+	_crackle_player = AudioStreamPlayer.new()
+	_crackle_player.bus = "Music"
+	_crackle_player.volume_db = -18.0
+	var crackle_stream := load("res://assets/sfx/vinyl-crackle.mp3")
+	if crackle_stream is AudioStreamMP3:
+		crackle_stream.loop = true
+	_crackle_player.stream = crackle_stream
+	add_child(_crackle_player)
+
+	_screen_player = AudioStreamPlayer.new()
+	_screen_player.bus = "Voice"
+	add_child(_screen_player)
+
+	_screen_http = HTTPRequest.new()
+	_screen_http.request_completed.connect(_on_screen_wav_fetched)
+	add_child(_screen_http)
 
 
 func _build_lobby(panel: VBoxContainer) -> void:
@@ -373,8 +1071,9 @@ func _build_lobby(panel: VBoxContainer) -> void:
 	panel.add_child(join_box)
 
 	_code_label = Label.new()
-	_code_label.add_theme_font_size_override("font_size", 72)
 	_code_label.text = "····"
+	_code_label.add_theme_color_override("font_color", GOLD)
+	_apply_font(_code_label, TITLE_FONT, 88)
 	join_box.add_child(_code_label)
 
 	var url_col := VBoxContainer.new()
@@ -383,21 +1082,42 @@ func _build_lobby(panel: VBoxContainer) -> void:
 
 	var url_caption := Label.new()
 	url_caption.text = "Join at"
+	url_caption.add_theme_color_override("font_color", ACCENT)
+	_apply_font(url_caption, BODY_FONT, 22)
 	url_col.add_child(url_caption)
 
 	_url_label = Label.new()
-	_url_label.add_theme_font_size_override("font_size", 20)
 	_url_label.text = BackendConfig.players_url()
+	_url_label.add_theme_color_override("font_color", Color(0.92, 0.9, 0.82))
+	_apply_font(_url_label, BODY_FONT, 24)
 	url_col.add_child(_url_label)
+	var url_btns := HBoxContainer.new()
+	url_btns.add_theme_constant_override("separation", 8)
+	url_col.add_child(url_btns)
+
+	var copy_url_btn := Button.new()
+	copy_url_btn.text = "Copy join URL"
+	_style_button(copy_url_btn)
+	copy_url_btn.pressed.connect(func() -> void: DisplayServer.clipboard_set(BackendConfig.players_url()))
+	url_btns.add_child(copy_url_btn)
+
+	var copy_code_btn := Button.new()
+	copy_code_btn.text = "Copy room code"
+	_style_button(copy_code_btn)
+	copy_code_btn.pressed.connect(func() -> void: DisplayServer.clipboard_set(_room_code))
+	url_btns.add_child(copy_code_btn)
+
 
 	var players_caption := Label.new()
 	players_caption.text = "Players"
-	players_caption.add_theme_font_size_override("font_size", 24)
+	players_caption.add_theme_color_override("font_color", ACCENT)
+	_apply_font(players_caption, BODY_FONT, 26)
 	panel.add_child(players_caption)
 
 	_players_label = Label.new()
-	_players_label.add_theme_font_size_override("font_size", 22)
 	_players_label.text = "Waiting for players…"
+	_players_label.add_theme_color_override("font_color", Color(0.92, 0.9, 0.82))
+	_apply_font(_players_label, BODY_FONT, 24)
 	panel.add_child(_players_label)
 
 	var controls := HBoxContainer.new()
@@ -407,6 +1127,8 @@ func _build_lobby(panel: VBoxContainer) -> void:
 	_family_check = CheckBox.new()
 	_family_check.text = "Family-friendly"
 	_family_check.button_pressed = true
+	_family_check.add_theme_color_override("font_color", Color(0.92, 0.9, 0.82))
+	_apply_font(_family_check, BODY_FONT, 22)
 	_family_check.toggled.connect(func(_on: bool) -> void: _send_settings())
 	controls.add_child(_family_check)
 
@@ -418,14 +1140,265 @@ func _build_lobby(panel: VBoxContainer) -> void:
 	_timer_spin.value_changed.connect(func(_v: float) -> void: _send_settings())
 	controls.add_child(_timer_spin)
 
+	_game_select = OptionButton.new()
+	for i in GAME_LABELS.size():
+		_game_select.add_item(str(GAME_LABELS[i]), i)
+	_game_select.selected = _game_index
+	_style_button(_game_select)
+	_game_select.item_selected.connect(func(idx: int) -> void:
+		_game_index = idx
+		_update_start_label())
+	controls.add_child(_game_select)
+
 	_start_button = Button.new()
-	_start_button.text = "Start Get Lit"
 	_start_button.disabled = true
 	_start_button.pressed.connect(_on_start_pressed)
+	_style_button(_start_button)
 	controls.add_child(_start_button)
+	_update_start_label()
+
+
+## Apply one of the title-screen fonts (Playfair for display text, Old Standard
+## for body/UI text) at the given size.
+func _apply_font(node: Control, path: String, size: int) -> void:
+	var font := load(path)
+	if font:
+		node.add_theme_font_override("font", font)
+	node.add_theme_font_size_override("font_size", size)
+
+
+## Give a button the title screen's look: translucent dark fill, gold hairline
+## border, Old Standard label.
+func _style_button(btn: Button) -> void:
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color(0.12, 0.12, 0.12, 0.6)
+	style.border_color = ACCENT
+	style.set_border_width_all(2)
+	style.set_corner_radius_all(4)
+	btn.add_theme_stylebox_override("normal", style)
+	btn.add_theme_stylebox_override("hover", style)
+	btn.add_theme_stylebox_override("pressed", style)
+	btn.add_theme_stylebox_override("disabled", style)
+	btn.add_theme_color_override("font_color", GOLD)
+	btn.add_theme_color_override("font_disabled_color", Color(0.6, 0.56, 0.48))
+	_apply_font(btn, BODY_FONT, 24)
+
+
+func _update_start_label() -> void:
+	if _start_button != null:
+		_start_button.text = "BEGIN THE GAME"
 
 
 func _set_status(text: String) -> void:
 	if _status_label != null:
 		_status_label.text = text
 	print("[host] ", text)
+func _video_playing_now(game: Dictionary, phase: String) -> bool:
+	return phase in ["play", "film", "brief"] and not phase.begins_with("vote") and not phase.begins_with("record") and not phase.begins_with("waiting")
+
+
+var _episodes_panel: Control = null
+
+func _show_episodes() -> void:
+	if _episodes_panel != null:
+		return
+	var episodes = load("res://scenes/Episodes.tscn").instantiate()
+	add_child(episodes)
+	_episodes_panel = episodes
+
+func _on_episode_selected(episode_id: String) -> void:
+	if _episodes_panel != null:
+		_episodes_panel.queue_free()
+		_episodes_panel = null
+	var payload = {"type": "start", "gameId": "cryptid-cinema"}
+	payload["episodeId"] = episode_id
+	if _ws.get_ready_state() == WebSocketPeer.STATE_OPEN:
+		_ws.send_text(JSON.stringify(payload))
+
+
+# --- Mall Rats ----------------------------------------------------------------
+
+var _stores_panel: Control = null
+var _stores_http: HTTPRequest
+var _mall_texture_cache: Dictionary = {}
+var _mall_http_requests: Dictionary = {}
+var _mall_store_title: Label
+var _mall_standings: RichTextLabel
+var _mall_status_label: Label
+var _mall_grid: HFlowContainer
+
+func _show_stores() -> void:
+	if _stores_panel != null:
+		return
+	if _stores_http == null:
+		_stores_http = HTTPRequest.new()
+		_stores_http.request_completed.connect(_on_stores_fetched)
+		add_child(_stores_http)
+	_set_status("Deciding where to shop…")
+	var err := _stores_http.request(
+		BackendConfig.url + "/app/static/collection/content/mall-rats/gifts.json",
+		PackedStringArray(), HTTPClient.METHOD_GET)
+	if err != OK:
+		_set_status("Could not reach the store list — check the backend.")
+
+func _on_stores_fetched(result: int, code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+	if result != HTTPRequest.RESULT_SUCCESS or code != 200:
+		_set_status("Store list failed to load (HTTP %d)." % code)
+		return
+	var parsed = JSON.parse_string(body.get_string_from_utf8())
+	var stores: Array = []
+	if parsed is Dictionary and parsed.has("stores"):
+		stores = parsed["stores"]
+	if stores.is_empty():
+		_set_status("No stores available.")
+		return
+	_stores_panel = _build_overlay_panel("PICK A STORE TO SHOP AT")
+	var box: VBoxContainer = _stores_panel.get_meta("box")
+	for store in stores:
+		var btn := Button.new()
+		btn.custom_minimum_size = Vector2(460, 64)
+		var gift_list: Array = store.get("gifts", [])
+		var gift_count := gift_list.size()
+		var sid := str(store.get("id", ""))
+		btn.text = "%s   %s   ·   %d gifts" % [
+			str(store.get("meter", "$")), str(store.get("name", "?")), gift_count]
+		btn.pressed.connect(func() -> void: _on_store_selected(sid))
+		box.add_child(btn)
+
+func _build_overlay_panel(title_text: String) -> Control:
+	var panel := PanelContainer.new()
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color(0.08, 0.07, 0.06, 0.98)
+	style.border_color = GOLD
+	style.set_border_width_all(2)
+	style.set_corner_radius_all(8)
+	style.set_content_margin_all(28)
+	panel.add_theme_stylebox_override("panel", style)
+	panel.set_anchors_preset(Control.PRESET_CENTER)
+	add_child(panel)
+	_stores_panel = panel
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 10)
+	panel.add_child(box)
+	var title := Label.new()
+	title.text = title_text
+	title.add_theme_font_size_override("font_size", 26)
+	title.add_theme_color_override("font_color", GOLD)
+	box.add_child(title)
+	panel.set_meta("box", box)
+	return panel
+
+func _on_store_selected(store_id: String) -> void:
+	if _stores_panel != null:
+		_stores_panel.queue_free()
+		_stores_panel = null
+	var payload := {"type": "start", "gameId": "mall-rats"}
+	payload["episodeId"] = store_id
+	if _ws.get_ready_state() == WebSocketPeer.STATE_OPEN:
+		_ws.send_text(JSON.stringify(payload))
+
+func _render_mallrats(game: Dictionary, phase: String) -> void:
+	_game_title.text = "Mall Rats — %s %s · to %d pts · cycle %d" % [
+		str(game.get("storeMeter", "$")), str(game.get("storeName", "?")),
+		int(game.get("targetScore", 30)), int(game.get("cycle", 1))]
+	_mall_view.visible = true
+	_mall_store_title.text = "Shopping at %s %s" % [
+		str(game.get("storeMeter", "$")), str(game.get("storeName", "?"))]
+
+	var progress := ""
+	match phase:
+		"brief":
+			progress = "Doors opening — the gifts come out next."
+		"rate":
+			progress = "Rating %d / %d" % [
+				int(game.get("ratedBy", 0)), int(game.get("players", 0))]
+		"shop":
+			progress = "Shopped %d / %d" % [
+				int(game.get("shoppedBy", 0)), int(game.get("players", 0))]
+		"results":
+			progress = "Cycle scored!"
+		"finished":
+			progress = "%s bought out!" % str(game.get("winnerName", "?"))
+	if _mall_status_label != null:
+		_mall_status_label.text = progress
+
+	# standings
+	var scores: Array = game.get("scores", [])
+	var lines := PackedStringArray()
+	for s in scores:
+		lines.append("%s — %d / %d" % [str(s.get("name", "?")), int(s.get("score", 0)), int(game.get("targetScore", 30))])
+	_mall_standings.text = "\n".join(lines)
+
+	# gift grid (photos cached by url)
+	for child in _mall_grid.get_children():
+		child.queue_free()
+	var pool: Array = game.get("pool", [])
+	if phase == "brief":
+		var waiting := Label.new()
+		waiting.text = "The store opens…"
+		_mall_grid.add_child(waiting)
+		return
+	for gift in pool:
+		_mall_grid.add_child(_mall_gift_card(
+			str(gift.get("name", "?")),
+			str(gift.get("image", "")),
+			gift.get("avgStars")))
+
+func _mall_gift_card(name_text: String, image_url: String, avg_stars) -> Control:
+	var card := VBoxContainer.new()
+	card.custom_minimum_size = Vector2(190, 0)
+	card.add_theme_constant_override("separation", 6)
+	var icon := TextureRect.new()
+	icon.texture = _mall_cached_texture(image_url)
+	icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	icon.stretch_mode = TextureRect.STRETCH_SCALE
+	icon.custom_minimum_size = Vector2(190, 150)
+	var holder := PanelContainer.new()
+	holder.add_child(icon)
+	card.add_child(holder)
+	var caption := Label.new()
+	caption.text = name_text
+	caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	caption.add_theme_font_size_override("font_size", 15)
+	card.add_child(caption)
+	var stars_text := "—"
+	if avg_stars != null:
+		stars_text = "%.1f ★" % float(avg_stars)
+	var stars := Label.new()
+	stars.text = stars_text
+	stars.add_theme_font_size_override("font_size", 18)
+	stars.add_theme_color_override("font_color", GOLD)
+	card.add_child(stars)
+	return card
+
+func _mall_cached_texture(url: String) -> Texture2D:
+	if _mall_texture_cache.has(url):
+		return _mall_texture_cache[url]
+	_mall_texture_cache[url] = null
+	if not _mall_http_requests.is_empty() and _mall_http_requests.has(url):
+		return null
+	var http := HTTPRequest.new()
+	add_child(http)
+	_mall_http_requests[url] = http
+	http.request_completed.connect(func(result: int, code: int, _h: PackedStringArray, body: PackedByteArray) -> void:
+		_mall_http_requests.erase(url)
+		if result != HTTPRequest.RESULT_SUCCESS or code != 200:
+			return
+		var img := Image.new()
+		var err := img.load_webp_from_buffer(body)
+		if err != OK:
+			return
+		var tex := ImageTexture.create_from_image(img)
+		_mall_texture_cache[url] = tex
+		if is_instance_valid(_mall_grid) and not _mall_grid.is_queued_for_deletion():
+			renderGameState())
+	http.request(BackendConfig.url + url, PackedStringArray(), HTTPClient.METHOD_GET)
+	return null
+
+func renderGameState() -> void:
+	var room: Dictionary = last_room_state
+	if room == {} or not room.has("game") or room.get("game") == null:
+		return
+	_render_game(room["game"])
+
+var last_room_state: Dictionary = {}

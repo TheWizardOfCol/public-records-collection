@@ -1,0 +1,616 @@
+{
+  "deck": [
+    {
+      "id": "airhorn",
+      "label": "Airhorn",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/airhorn.mp3",
+      "bytes": 25598
+    },
+    {
+      "id": "angelic-chorus",
+      "label": "Angelic Chorus",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/angelic-chorus.mp3",
+      "bytes": 44270
+    },
+    {
+      "id": "angry-cat",
+      "label": "Angry cat",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/angry-cat.mp3",
+      "bytes": 10406
+    },
+    {
+      "id": "anime-dramatic-ting-sound",
+      "label": "Anime Dramatic TING sound",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/anime-dramatic-ting-sound.mp3",
+      "bytes": 39614
+    },
+    {
+      "id": "anime-girl-wow",
+      "label": "Anime Girl WOW",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/anime-girl-wow.mp3",
+      "bytes": 23798
+    },
+    {
+      "id": "anime-nya",
+      "label": "Anime Nya!~",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/anime-nya.mp3",
+      "bytes": 8462
+    },
+    {
+      "id": "anvil-hit",
+      "label": "Anvil hit",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/anvil-hit.mp3",
+      "bytes": 11102
+    },
+    {
+      "id": "applause-and-cheering",
+      "label": "Applause and Cheering",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/applause-and-cheering.mp3",
+      "bytes": 67790
+    },
+    {
+      "id": "bonk",
+      "label": "BONK",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/bonk.mp3",
+      "bytes": 13629
+    },
+    {
+      "id": "baby-crying",
+      "label": "Baby crying",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/baby-crying.mp3",
+      "bytes": 45811
+    },
+    {
+      "id": "balloon-pop",
+      "label": "Balloon pop",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/balloon-pop.mp3",
+      "bytes": 15278
+    },
+    {
+      "id": "baseball-fanfare",
+      "label": "Baseball Fanfare",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/baseball-fanfare.mp3",
+      "bytes": 65438
+    },
+    {
+      "id": "bicycle-horn",
+      "label": "Bicycle Horn",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/bicycle-horn.mp3",
+      "bytes": 4958
+    },
+    {
+      "id": "bowling-ball-hitting-pins",
+      "label": "Bowling ball hitting pins",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/bowling-ball-hitting-pins.mp3",
+      "bytes": 13998
+    },
+    {
+      "id": "cartoon-wobble",
+      "label": "Cartoon Wobble",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/cartoon-wobble.mp3",
+      "bytes": 14990
+    },
+    {
+      "id": "cash-register-ka-ching",
+      "label": "Cash register ka-ching",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/cash-register-ka-ching.mp3",
+      "bytes": 42432
+    },
+    {
+      "id": "ceramic-plate-breaking",
+      "label": "Ceramic plate breaking",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/ceramic-plate-breaking.mp3",
+      "bytes": 26150
+    },
+    {
+      "id": "chiptune-victory-fanfare",
+      "label": "Chiptune victory fanfare",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/chiptune-victory-fanfare.mp3",
+      "bytes": 38606
+    },
+    {
+      "id": "church-bell",
+      "label": "Church bell",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/church-bell.mp3",
+      "bytes": 17798
+    },
+    {
+      "id": "circus-organ-tune",
+      "label": "Circus Organ Tune",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/circus-organ-tune.mp3",
+      "bytes": 39518
+    },
+    {
+      "id": "clown-honk",
+      "label": "Clown Honk",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/clown-honk.mp3",
+      "bytes": 15182
+    },
+    {
+      "id": "cow-moo",
+      "label": "Cow moo",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/cow-moo.mp3",
+      "bytes": 23246
+    },
+    {
+      "id": "cowbell",
+      "label": "Cowbell",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/cowbell.mp3",
+      "bytes": 13166
+    },
+    {
+      "id": "creepy-accordion",
+      "label": "Creepy Accordion",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/creepy-accordion.mp3",
+      "bytes": 16694
+    },
+    {
+      "id": "crickets",
+      "label": "Crickets",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/crickets.mp3",
+      "bytes": 43563
+    },
+    {
+      "id": "crow-caw",
+      "label": "Crow caw",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/crow-caw.mp3",
+      "bytes": 27597
+    },
+    {
+      "id": "crunch",
+      "label": "Crunch",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/crunch.mp3",
+      "bytes": 36896
+    },
+    {
+      "id": "dial-up-internet",
+      "label": "Dial-up internet",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/dial-up-internet.mp3",
+      "bytes": 66053
+    },
+    {
+      "id": "dog-bark",
+      "label": "Dog bark",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/dog-bark.mp3",
+      "bytes": 9806
+    },
+    {
+      "id": "door-slam",
+      "label": "Door slam",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/door-slam.mp3",
+      "bytes": 11822
+    },
+    {
+      "id": "dramatic-cinematic-bwoooomp",
+      "label": "Dramatic Cinematic bwoooomp",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/dramatic-cinematic-bwoooomp.mp3",
+      "bytes": 66350
+    },
+    {
+      "id": "dramatic-horn",
+      "label": "Dramatic horn",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/dramatic-horn.mp3",
+      "bytes": 59573
+    },
+    {
+      "id": "electronic-blip",
+      "label": "Electronic blip",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/electronic-blip.mp3",
+      "bytes": 23150
+    },
+    {
+      "id": "evil-laughter",
+      "label": "Evil Laughter",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/evil-laughter.mp3",
+      "bytes": 48977
+    },
+    {
+      "id": "glass-breaking",
+      "label": "Glass breaking",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/glass-breaking.mp3",
+      "bytes": 48494
+    },
+    {
+      "id": "goblin-cackle",
+      "label": "Goblin cackle",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/goblin-cackle.mp3",
+      "bytes": 25646
+    },
+    {
+      "id": "gospel-chior",
+      "label": "Gospel Chior",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/gospel-chior.mp3",
+      "bytes": 63086
+    },
+    {
+      "id": "happy-baby",
+      "label": "Happy baby",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/happy-baby.mp3",
+      "bytes": 19982
+    },
+    {
+      "id": "harp-flourish",
+      "label": "Harp flourish",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/harp-flourish.mp3",
+      "bytes": 40334
+    },
+    {
+      "id": "hawk-caw",
+      "label": "Hawk caw",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/hawk-caw.mp3",
+      "bytes": 25511
+    },
+    {
+      "id": "high-pitched-cackling",
+      "label": "High pitched cackling",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/high-pitched-cackling.mp3",
+      "bytes": 55300
+    },
+    {
+      "id": "high-pitched-gulp",
+      "label": "High-pitched gulp",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/high-pitched-gulp.mp3",
+      "bytes": 8486
+    },
+    {
+      "id": "horse-neigh",
+      "label": "Horse neigh",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/horse-neigh.mp3",
+      "bytes": 54782
+    },
+    {
+      "id": "human-inhale",
+      "label": "Human inhale",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/human-inhale.mp3",
+      "bytes": 25886
+    },
+    {
+      "id": "kazoo-fanfare",
+      "label": "Kazoo Fanfare",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/kazoo-fanfare.mp3",
+      "bytes": 58327
+    },
+    {
+      "id": "large-explosion",
+      "label": "Large explosion",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/large-explosion.mp3",
+      "bytes": 39360
+    },
+    {
+      "id": "male-huh",
+      "label": "Male HUH",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/male-huh.mp3",
+      "bytes": 17294
+    },
+    {
+      "id": "male-gasp",
+      "label": "Male gasp",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/male-gasp.mp3",
+      "bytes": 20414
+    },
+    {
+      "id": "male-snore",
+      "label": "Male snore",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/male-snore.mp3",
+      "bytes": 36542
+    },
+    {
+      "id": "male-terrified-scream",
+      "label": "Male terrified scream",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/male-terrified-scream.mp3",
+      "bytes": 47846
+    },
+    {
+      "id": "man-burp",
+      "label": "Man Burp",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/man-burp.mp3",
+      "bytes": 49838
+    },
+    {
+      "id": "meow",
+      "label": "Meow",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/meow.mp3",
+      "bytes": 30732
+    },
+    {
+      "id": "ooga-booga",
+      "label": "Ooga Booga",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/ooga-booga.mp3",
+      "bytes": 18091
+    },
+    {
+      "id": "party-blower",
+      "label": "Party Blower",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/party-blower.mp3",
+      "bytes": 41738
+    },
+    {
+      "id": "peek-a-boo",
+      "label": "Peek-a-boo",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/peek-a-boo.mp3",
+      "bytes": 10423
+    },
+    {
+      "id": "pig-oink",
+      "label": "Pig oink",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/pig-oink.mp3",
+      "bytes": 10862
+    },
+    {
+      "id": "police-siren",
+      "label": "Police Siren",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/police-siren.mp3",
+      "bytes": 33863
+    },
+    {
+      "id": "potato-chip-chomp",
+      "label": "Potato Chip Chomp",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/potato-chip-chomp.mp3",
+      "bytes": 14782
+    },
+    {
+      "id": "raspberry",
+      "label": "Raspberry",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/raspberry.mp3",
+      "bytes": 13382
+    },
+    {
+      "id": "rimshot",
+      "label": "Rimshot",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/rimshot.mp3",
+      "bytes": 122078
+    },
+    {
+      "id": "rooster-crow",
+      "label": "Rooster crow",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/rooster-crow.mp3",
+      "bytes": 38180
+    },
+    {
+      "id": "sitcom-laugh-track",
+      "label": "SItcom laugh track",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/sitcom-laugh-track.mp3",
+      "bytes": 41432
+    },
+    {
+      "id": "sad-trumpet",
+      "label": "Sad trumpet",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/sad-trumpet.mp3",
+      "bytes": 42158
+    },
+    {
+      "id": "scary-dragon-roar",
+      "label": "Scary Dragon Roar",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/scary-dragon-roar.mp3",
+      "bytes": 58502
+    },
+    {
+      "id": "sheep-baah",
+      "label": "Sheep baah",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/sheep-baah.mp3",
+      "bytes": 11318
+    },
+    {
+      "id": "singing-bowl-ding",
+      "label": "Singing Bowl Ding",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/singing-bowl-ding.mp3",
+      "bytes": 94094
+    },
+    {
+      "id": "single-clap",
+      "label": "Single clap",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/single-clap.mp3",
+      "bytes": 9854
+    },
+    {
+      "id": "slide-whistle-down",
+      "label": "Slide whistle down",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/slide-whistle-down.mp3",
+      "bytes": 23054
+    },
+    {
+      "id": "slide-whistle-up",
+      "label": "Slide whistle up",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/slide-whistle-up.mp3",
+      "bytes": 19070
+    },
+    {
+      "id": "smack",
+      "label": "Smack",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/smack.mp3",
+      "bytes": 6711
+    },
+    {
+      "id": "small-crowd-booing",
+      "label": "Small crowd booing",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/small-crowd-booing.mp3",
+      "bytes": 67278
+    },
+    {
+      "id": "small-crowd-saying-woah",
+      "label": "Small crowd saying woah",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/small-crowd-saying-woah.mp3",
+      "bytes": 44602
+    },
+    {
+      "id": "sneeze",
+      "label": "Sneeze",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/sneeze.mp3",
+      "bytes": 13110
+    },
+    {
+      "id": "soda-can-opening",
+      "label": "Soda can opening",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/soda-can-opening.mp3",
+      "bytes": 20142
+    },
+    {
+      "id": "something-breaking-in-old-school-video-game",
+      "label": "Something breaking in old school video game",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/something-breaking-in-old-school-video-game.mp3",
+      "bytes": 32654
+    },
+    {
+      "id": "splat",
+      "label": "Splat",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/splat.mp3",
+      "bytes": 11519
+    },
+    {
+      "id": "spooky-ghost-boo",
+      "label": "Spooky Ghost Boo",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/spooky-ghost-boo.mp3",
+      "bytes": 22424
+    },
+    {
+      "id": "spooky-organ",
+      "label": "Spooky organ",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/spooky-organ.mp3",
+      "bytes": 86606
+    },
+    {
+      "id": "spring-boing",
+      "label": "Spring boing",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/spring-boing.mp3",
+      "bytes": 47438
+    },
+    {
+      "id": "squeaky-toy",
+      "label": "Squeaky toy",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/squeaky-toy.mp3",
+      "bytes": 12278
+    },
+    {
+      "id": "synthy-stab",
+      "label": "Synthy Stab",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/synthy-stab.mp3",
+      "bytes": 41472
+    },
+    {
+      "id": "tada-fanfare",
+      "label": "Tada fanfare",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/tada-fanfare.mp3",
+      "bytes": 76502
+    },
+    {
+      "id": "tea-kettle-whistle",
+      "label": "Tea Kettle Whistle",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/tea-kettle-whistle.mp3",
+      "bytes": 69959
+    },
+    {
+      "id": "thunderous-sports-applause",
+      "label": "Thunderous Sports Applause",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/thunderous-sports-applause.mp3",
+      "bytes": 56078
+    },
+    {
+      "id": "uwu",
+      "label": "UwU",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/uwu.mp3",
+      "bytes": 13056
+    },
+    {
+      "id": "vintage-phone-ringing",
+      "label": "Vintage phone ringing",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/vintage-phone-ringing.mp3",
+      "bytes": 75662
+    },
+    {
+      "id": "wacky-cartoon-machine",
+      "label": "Wacky cartoon machine",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/wacky-cartoon-machine.mp3",
+      "bytes": 65344
+    },
+    {
+      "id": "weird-female-oohohohoo-laugh",
+      "label": "Weird Female Oohohohoo Laugh",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/weird-female-oohohohoo-laugh.mp3",
+      "bytes": 22190
+    },
+    {
+      "id": "weird-horn-meledy",
+      "label": "Weird horn meledy",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/weird-horn-meledy.mp3",
+      "bytes": 37667
+    },
+    {
+      "id": "wet-fart",
+      "label": "Wet Fart",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/wet-fart.mp3",
+      "bytes": 13459
+    },
+    {
+      "id": "wine-cork-pop",
+      "label": "Wine cork pop",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/wine-cork-pop.mp3",
+      "bytes": 12942
+    },
+    {
+      "id": "wolf-howl",
+      "label": "Wolf howl",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/wolf-howl.mp3",
+      "bytes": 96388
+    },
+    {
+      "id": "woman-clearing-throat",
+      "label": "Woman Clearing Throat",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/woman-clearing-throat.mp3",
+      "bytes": 25166
+    },
+    {
+      "id": "woman-crying",
+      "label": "Woman crying",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/woman-crying.mp3",
+      "bytes": 35438
+    },
+    {
+      "id": "woosh",
+      "label": "Woosh",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/woosh.mp3",
+      "bytes": 13683
+    },
+    {
+      "id": "wrong-answer-buzzer",
+      "label": "Wrong Answer Buzzer",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/wrong-answer-buzzer.mp3",
+      "bytes": 18346
+    },
+    {
+      "id": "wuh-oh",
+      "label": "Wuh oh",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/wuh-oh.mp3",
+      "bytes": 22056
+    },
+    {
+      "id": "boing",
+      "label": "boing",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/boing.mp3",
+      "bytes": 7555
+    },
+    {
+      "id": "car-horn",
+      "label": "car horn",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/car-horn.mp3",
+      "bytes": 36697
+    },
+    {
+      "id": "distorted-cat-meow",
+      "label": "distorted cat meow",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/distorted-cat-meow.mp3",
+      "bytes": 11597
+    },
+    {
+      "id": "fart",
+      "label": "fart",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/fart.mp3",
+      "bytes": 13787
+    },
+    {
+      "id": "gun-shot",
+      "label": "gun shot",
+      "audioUrl": "/app/static/collection/assets/cryptid/sfx/gun-shot.mp3",
+      "bytes": 20498
+    }
+  ]
+}

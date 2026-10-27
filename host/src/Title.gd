@@ -3,6 +3,8 @@ extends Control
 @onready var _start_button = $StartButton
 
 func _ready() -> void:
+	if has_node("/root/MenuMusic"):
+		MenuMusic.play_menu()
 	var style = StyleBoxFlat.new()
 	style.bg_color = Color(0.12, 0.12, 0.12, 0.6)
 	style.border_color = Color(0.8, 0.7, 0.5, 0.9)

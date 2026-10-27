@@ -7,6 +7,7 @@ import com.google.inject.Singleton;
 import com.publicrecords.collection.getlit.GetLitContent;
 import com.publicrecords.collection.cryptid.CryptidCinemaContent;
 import com.publicrecords.collection.getlit.GetLitGame;
+import com.publicrecords.collection.mallrats.MallRatsContent;
 import jakarta.websocket.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,13 +53,15 @@ public class LobbyRegistry {
 
     private final GetLitContent content;
     private final CryptidCinemaContent cryptidContent;
+    private final MallRatsContent mallContent;
 
     private final Map<String, Room> rooms = new ConcurrentHashMap<>();
 
     @Inject
-    public LobbyRegistry(final GetLitContent content, final CryptidCinemaContent cryptidContent) {
+    public LobbyRegistry(final GetLitContent content, final CryptidCinemaContent cryptidContent, final MallRatsContent mallContent) {
         this.content = content;
         this.cryptidContent = cryptidContent;
+        this.mallContent = mallContent;
     }
 
     /**
@@ -117,12 +120,12 @@ public class LobbyRegistry {
     /**
      * Host-only: records the chosen game and moves the room into its {@code starting} phase.
      */
-    public void startGame(final Session session, final String gameId) {
+    public void startGame(final Session session, final String gameId, final String episodeId) {
         final Room room = requireHost(session);
         if (gameId == null || gameId.isBlank()) {
             throw new LobbyException("gameId is required");
         }
-        room.startGame(gameId.trim(), content, cryptidContent);
+        room.startGame(gameId.trim(), episodeId, content, cryptidContent, mallContent);
         broadcastState(room);
     }
 
@@ -145,6 +148,24 @@ public class LobbyRegistry {
     }
 
     /**
+     * Player action: star a Mall Rats pool gift (0-5).
+     */
+    public void rateGift(final Session session, final String giftId, final int stars) {
+        final Room room = requireRoom(session);
+        Object g = requireGame(room); if (g instanceof com.publicrecords.collection.mallrats.MallRatsGame mr) mr.rateGift(playerOf(session),giftId,stars);
+        broadcastGame(room);
+    }
+
+    /**
+     * Player action: assign a Mall Rats gift to another player.
+     */
+    public void shopGift(final Session session, final String recipientId, final String giftId) {
+        final Room room = requireRoom(session);
+        Object g = requireGame(room); if (g instanceof com.publicrecords.collection.mallrats.MallRatsGame mr) mr.shopGift(playerOf(session),recipientId,giftId);
+        broadcastGame(room);
+    }
+
+    /**
      * Player action: spend a normal or golden heart on someone else's answer (Get Lit voting).
      */
     public void castVote(final Session session, final String answerId, final boolean golden) {
@@ -158,7 +179,7 @@ public class LobbyRegistry {
      */
     public void advance(final Session session) {
         final Room room = requireHost(session);
-        Object g = requireGame(room); if (g instanceof com.publicrecords.collection.getlit.GetLitGame gl) gl.advance(); if (g instanceof com.publicrecords.collection.cryptid.CryptidCinemaGame cc) cc.advance();
+        Object g = requireGame(room); if (g instanceof com.publicrecords.collection.getlit.GetLitGame gl) gl.advance(); if (g instanceof com.publicrecords.collection.cryptid.CryptidCinemaGame cc) cc.advance(); if (g instanceof com.publicrecords.collection.mallrats.MallRatsGame mr) mr.advance();
         broadcastState(room);
     }
 
@@ -285,6 +306,8 @@ public class LobbyRegistry {
                 publicView = Wire.value(gl.publicView());
             } else if (game instanceof com.publicrecords.collection.cryptid.CryptidCinemaGame cc) {
                 publicView = Wire.value(cc.publicView());
+            } else if (game instanceof com.publicrecords.collection.mallrats.MallRatsGame mr) {
+                publicView = Wire.value(mr.publicView());
             } else {
                 return;
             }
@@ -299,6 +322,8 @@ public class LobbyRegistry {
                     message.set("you", Wire.value(gl.privateView(pid)));
                 } else if (game instanceof com.publicrecords.collection.cryptid.CryptidCinemaGame cc) {
                     message.set("you", Wire.value(cc.privateView(pid)));
+                } else if (game instanceof com.publicrecords.collection.mallrats.MallRatsGame mr) {
+                    message.set("you", Wire.value(mr.privateView(pid)));
                 }
             }
             Wire.send(session, message);
