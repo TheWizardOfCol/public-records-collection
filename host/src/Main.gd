@@ -49,6 +49,7 @@ var _cryptid_view: HBoxContainer
 var _film: VideoStreamPlayer
 var _cryptid_notes: RichTextLabel
 var _mall_view: VBoxContainer
+var _crackle_player: AudioStreamPlayer
 var _cryptid_hud: Label
 
 # Film scheduling (Godot can't seek Theora, so we play forward and pause at a mark).
@@ -329,10 +330,14 @@ func _render_game(game: Dictionary) -> void:
 	if not in_game:
 		_game_body.text = ""
 		_cryptid_view.visible = false
+		_mall_view.visible = false
 		_stop_film()
 		_audio_round = -1
 		_audio_queue = PackedStringArray()
+		_audio_gate("")
 		return
+
+	_audio_gate(phase)
 
 	last_room_state["game"] = game
 	var cryptid := game.has("episodeId")
@@ -350,6 +355,15 @@ func _render_game(game: Dictionary) -> void:
 		_stop_film()
 		_render_getlit(game, phase)
 
+
+func _audio_gate(game_phase: String) -> void:
+	# Menu music only owns the title and lobby screens; the movies and rounds
+	# bring their own sound.
+	if has_node("/root/MenuMusic"):
+		if game_phase == "":
+			MenuMusic.play_menu()
+		else:
+			MenuMusic.stop_menu()
 
 func _render_getlit(game: Dictionary, phase: String) -> void:
 	var round := int(game.get("round", 0))
@@ -433,6 +447,9 @@ func _render_cryptid(game: Dictionary, phase: String) -> void:
 		lines.append("[i]%s[/i]" % notes)
 		lines.append("")
 
+	# The crackle vinyl only rides the record phase.
+	_set_crackle(phase == "record")
+
 	match phase:
 		"brief":
 			# A new round cancels any screening left over from the last one.
@@ -448,6 +465,10 @@ func _render_cryptid(game: Dictionary, phase: String) -> void:
 			lines.append("Roll film — players are reading their lines on their devices.")
 		"record":
 			_pause_film()
+			# Mics open: leftover music dead-quiet, the vinyl keeps the room
+			# alive at a whisper.
+			_audio_player.stop()
+			_set_crackle(true)
 			lines.append("Recording…  %d of %d submitted." % [
 				int(game.get("submitted", 0)), int(game.get("players", 0))])
 		"vote":
@@ -495,6 +516,14 @@ func _render_cryptid(game: Dictionary, phase: String) -> void:
 		_cryptid_notes.text = "\n".join(lines)
 		_cryptid_notes.visible = true
 
+
+func _set_crackle(active: bool) -> void:
+	if _crackle_player == null:
+		return
+	if active and not _crackle_player.playing:
+		_crackle_player.play()
+	elif not active and _crackle_player.playing:
+		_crackle_player.stop()
 
 func _round_type_label(t: String) -> String:
 	match t:
@@ -1009,6 +1038,16 @@ func _build_ui() -> void:
 	_audio_http = HTTPRequest.new()
 	add_child(_audio_http)
 	_audio_http.request_completed.connect(_on_audio_fetched)
+
+	# Loops softly while players speak into their mics (record phase).
+	_crackle_player = AudioStreamPlayer.new()
+	_crackle_player.bus = "Music"
+	_crackle_player.volume_db = -18.0
+	var crackle_stream := load("res://assets/sfx/vinyl-crackle.mp3")
+	if crackle_stream is AudioStreamMP3:
+		crackle_stream.loop = true
+	_crackle_player.stream = crackle_stream
+	add_child(_crackle_player)
 
 	_screen_player = AudioStreamPlayer.new()
 	_screen_player.bus = "Voice"
