@@ -481,8 +481,9 @@ func _render_cryptid(game: Dictionary, phase: String) -> void:
 			if is_foundtrack:
 				_replay_film_from_start()
 				_enqueue_screening(game)
-			elif round_type == "UNKNOWABLE_SFX":
-				# Unknowable Sound screens without the film — the takes stand alone.
+			elif round_type == "UNKNOWABLE_SFX" or round_type == "UFSFX":
+				# Unknowable Sound has no take to screen over the picture and the
+				# U.F.S.F.X. pick has no window — both screen audio-only.
 				_pause_film()
 				_enqueue_screening(game)
 			else:
@@ -779,6 +780,12 @@ func _on_audio_fetched(result: int, response_code: int, _headers: PackedStringAr
 			_audio_player.stream = wav
 			_audio_player.play()
 			return
+		# Non-WAV bodies (the SFX library ships as mp3) play through the mp3 stream.
+		var mp3 := AudioStreamMP3.new()
+		mp3.data = body
+		_audio_player.stream = mp3
+		_audio_player.play()
+		return
 	_pump_audio()
 
 

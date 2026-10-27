@@ -64,11 +64,13 @@ public class CryptidCinemaContent {
                 }
                 final List<Choice> choices = new ArrayList<>();
                 for (final JsonNode c : r.path("choices")) {
-                    choices.add(new Choice(c.path("id").asText(), c.path("label").asText(), null));
+                    String url = c.path("audioUrl").asText("");
+                    choices.add(new Choice(c.path("id").asText(), c.path("label").asText(), url.isEmpty() ? null : url));
                 }
                 final List<Choice> deck = new ArrayList<>();
                 for (final JsonNode c : r.path("deck")) {
-                    deck.add(new Choice(c.path("id").asText(), c.path("label").asText(), null));
+                    String url = c.path("audioUrl").asText("");
+                    deck.add(new Choice(c.path("id").asText(), c.path("label").asText(), url.isEmpty() ? null : url));
                 }
                 rounds.add(new Round(
                         r.path("index").asInt(),

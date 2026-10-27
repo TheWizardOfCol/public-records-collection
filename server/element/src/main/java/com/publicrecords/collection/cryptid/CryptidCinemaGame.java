@@ -200,9 +200,11 @@ public class CryptidCinemaGame {
             }
         }
 
-        // Foundtrack is dealt like a hand of cards: every player gets their own
-        // five songs drawn at random from the full deck, rather than one shared set.
-        if (round.type() == RoundType.FOUNDTRACK && !round.deck().isEmpty()) {
+        // The fixed-hand choice rounds (FOUNDTRACK songs, UFSFX sound effects) are
+        // dealt like a hand of cards: every player gets their own five picks drawn
+        // at random from the full deck, rather than one shared set.
+        if (round.deck() != null && !round.deck().isEmpty()
+                && (round.type() == RoundType.FOUNDTRACK || round.type() == RoundType.UFSFX)) {
             for (final String id : playerIds) {
                 final List<Choice> shuffled = new ArrayList<>(round.deck());
                 java.util.Collections.shuffle(shuffled, random);
@@ -349,11 +351,18 @@ public class CryptidCinemaGame {
      * choice list for every other choice round.
      */
     private List<Choice> choicesFor(final String playerId, final Round round) {
-        if (round.type() != RoundType.FOUNDTRACK) {
+        if (round.type() != RoundType.FOUNDTRACK && round.type() != RoundType.UFSFX) {
             return round.choices();
         }
+        // Only the foundtrack songs preview on-device; the U.F.S.F.X. effects are
+        final boolean previews = round.type() == RoundType.FOUNDTRACK || round.type() == RoundType.UFSFX;
         return playerHands.getOrDefault(playerId, List.of()).stream()
-                .map(c -> new Choice(c.id(), c.label(), previewUrl(c.id())))
+                .map(c -> new Choice(
+                        c.id(),
+                        c.label(),
+                        previews
+                                ? (c.audioUrl() != null ? c.audioUrl() : previewUrl(c.id()))
+                                : null))
                 .toList();
     }
 
@@ -363,7 +372,9 @@ public class CryptidCinemaGame {
      * {@code choiceId} instead); other choice rounds are passed through unchanged.
      */
     private List<Choice> publicChoices(final Round round) {
-        return round.type() == RoundType.FOUNDTRACK ? List.of() : round.choices();
+        return round.type() == RoundType.FOUNDTRACK || round.type() == RoundType.UFSFX
+                ? List.of()
+                : round.choices();
     }
 
     /**
@@ -374,14 +385,25 @@ public class CryptidCinemaGame {
         if (s.recordingId != null) {
             return "/collection/recordings/" + s.recordingId;
         }
-        if (s.choiceId != null && round.type() == RoundType.FOUNDTRACK) {
-            return previewUrl(s.choiceId);
+        if (s.choiceId != null
+                && (round.type() == RoundType.FOUNDTRACK || round.type() == RoundType.UFSFX)) {
+            return choiceAudioUrl(round, s.choiceId);
         }
         return null;
     }
 
     private static String previewUrl(final String choiceId) {
         return FOUNDTRACK_MUSIC_BASE + choiceId + ".mp3";
+    }
+
+    /** A chosen option's audio: the deck entry's own URL, else the music-dir convention. */
+    private static String choiceAudioUrl(final Round round, final String choiceId) {
+        return round.deck().stream()
+                .filter(c -> c.id().equals(choiceId))
+                .map(Choice::audioUrl)
+                .filter(java.util.Objects::nonNull)
+                .findFirst()
+                .orElse(previewUrl(choiceId));
     }
 
     private void requirePhase(final String expected) {
