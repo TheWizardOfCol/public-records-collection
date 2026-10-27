@@ -19,37 +19,37 @@
         },
         {
           "id": "assorted-gummy-candy",
-          "name": "Assorted Gummy Candy",
+          "name": "An Assorted Gummy Candy",
           "image": "/app/static/collection/assets/mall-rats/cheap/assorted-gummy-candy.webp",
           "bytes": 50840
         },
         {
           "id": "bestselling-cookbook",
-          "name": "Bestselling cookbook",
+          "name": "A Bestselling cookbook",
           "image": "/app/static/collection/assets/mall-rats/cheap/bestselling-cookbook.webp",
           "bytes": 126386
         },
         {
           "id": "board-game",
-          "name": "Board Game",
+          "name": "A Board Game",
           "image": "/app/static/collection/assets/mall-rats/cheap/board-game.webp",
           "bytes": 105470
         },
         {
           "id": "book-you-might-like",
-          "name": "Book you might like",
+          "name": "A Book you might like",
           "image": "/app/static/collection/assets/mall-rats/cheap/book-you-might-like.webp",
           "bytes": 52314
         },
         {
           "id": "bowtie",
-          "name": "Bowtie",
+          "name": "A Bowtie",
           "image": "/app/static/collection/assets/mall-rats/cheap/bowtie.webp",
           "bytes": 54014
         },
         {
           "id": "boxed-sitcom-set",
-          "name": "Boxed sitcom set",
+          "name": "A Boxed sitcom set",
           "image": "/app/static/collection/assets/mall-rats/cheap/boxed-sitcom-set.webp",
           "bytes": 47936
         },
@@ -61,49 +61,49 @@
         },
         {
           "id": "character-onesie",
-          "name": "Character onesie",
+          "name": "A Character onesie",
           "image": "/app/static/collection/assets/mall-rats/cheap/character-onesie.webp",
           "bytes": 27368
         },
         {
           "id": "chemsitry-set",
-          "name": "Chemsitry set",
+          "name": "A Chemsitry set",
           "image": "/app/static/collection/assets/mall-rats/cheap/chemsitry-set.webp",
           "bytes": 49830
         },
         {
           "id": "chess-set",
-          "name": "Chess Set",
+          "name": "A Chess Set",
           "image": "/app/static/collection/assets/mall-rats/cheap/chess-set.webp",
           "bytes": 62966
         },
         {
           "id": "clown-figurine",
-          "name": "Clown Figurine",
+          "name": "A Clown Figurine",
           "image": "/app/static/collection/assets/mall-rats/cheap/clown-figurine.webp",
           "bytes": 29168
         },
         {
           "id": "coffee-shop-gift-card",
-          "name": "Coffee shop gift card",
+          "name": "A Coffee shop gift card",
           "image": "/app/static/collection/assets/mall-rats/cheap/coffee-shop-gift-card.webp",
           "bytes": 36690
         },
         {
           "id": "complete-works-of-poe",
-          "name": "Complete Works of Poe",
+          "name": "A Complete Works of Poe",
           "image": "/app/static/collection/assets/mall-rats/cheap/complete-works-of-poe.webp",
           "bytes": 137528
         },
         {
           "id": "cool-knife",
-          "name": "Cool Knife",
+          "name": "A Cool Knife",
           "image": "/app/static/collection/assets/mall-rats/cheap/cool-knife.webp",
           "bytes": 11538
         },
         {
           "id": "creepy-face-mug",
-          "name": "Creepy Face Mug",
+          "name": "A Creepy Face Mug",
           "image": "/app/static/collection/assets/mall-rats/cheap/creepy-face-mug.webp",
           "bytes": 16292
         },
@@ -115,31 +115,31 @@
         },
         {
           "id": "custom-emote",
-          "name": "Custom Emote",
+          "name": "A Custom Emote",
           "image": "/app/static/collection/assets/mall-rats/cheap/custom-emote.webp",
           "bytes": 17846
         },
         {
           "id": "custom-t-shirt",
-          "name": "Custom T-Shirt",
+          "name": "A Custom T-Shirt",
           "image": "/app/static/collection/assets/mall-rats/cheap/custom-t-shirt.webp",
           "bytes": 32522
         },
         {
           "id": "day-at-museum",
-          "name": "Day at museum",
+          "name": "A Day at museum",
           "image": "/app/static/collection/assets/mall-rats/cheap/day-at-museum.webp",
           "bytes": 34912
         },
         {
           "id": "decent-meal-of-choice",
-          "name": "Decent meal of choice",
+          "name": "A Decent meal of choice",
           "image": "/app/static/collection/assets/mall-rats/cheap/decent-meal-of-choice.webp",
           "bytes": 29294
         },
         {
           "id": "detective-novel",
-          "name": "Detective Novel",
+          "name": "A Detective Novel",
           "image": "/app/static/collection/assets/mall-rats/cheap/detective-novel.webp",
           "bytes": 27196
         },
@@ -163,13 +163,13 @@
         },
         {
           "id": "firestarter",
-          "name": "Firestarter",
+          "name": "A Firestarter",
           "image": "/app/static/collection/assets/mall-rats/cheap/firestarter.webp",
           "bytes": 42340
         },
         {
           "id": "friendslop-game",
-          "name": "Friendslop Game",
+          "name": "A Friendslop Game",
           "image": "/app/static/collection/assets/mall-rats/cheap/friendslop-game.webp",
           "bytes": 32874
         },
@@ -187,13 +187,13 @@
         },
         {
           "id": "funny-sign",
-          "name": "Funny Sign",
+          "name": "A Funny Sign",
           "image": "/app/static/collection/assets/mall-rats/cheap/funny-sign.webp",
           "bytes": 45340
         },
         {
           "id": "geode",
-          "name": "Geode",
+          "name": "A Geode",
           "image": "/app/static/collection/assets/mall-rats/cheap/geode.webp",
           "bytes": 97798
         },
@@ -211,7 +211,7 @@
         },
         {
           "id": "gold-fish",
-          "name": "Gold Fish",
+          "name": "A Gold Fish",
           "image": "/app/static/collection/assets/mall-rats/cheap/gold-fish.webp",
           "bytes": 19802
         },
@@ -228,56 +228,50 @@
           "bytes": 52746
         },
         {
-          "id": "hawaiian-cruise",
-          "name": "Hawaiian Cruise",
-          "image": "/app/static/collection/assets/mall-rats/cheap/hawaiian-cruise.webp",
-          "bytes": 12414
-        },
-        {
           "id": "hawaiin-shirt",
-          "name": "Hawaiin Shirt",
+          "name": "A Hawaiin Shirt",
           "image": "/app/static/collection/assets/mall-rats/cheap/hawaiin-shirt.webp",
           "bytes": 115528
         },
         {
           "id": "horse-mask",
-          "name": "Horse Mask",
+          "name": "A Horse Mask",
           "image": "/app/static/collection/assets/mall-rats/cheap/horse-mask.webp",
           "bytes": 70956
         },
         {
           "id": "hottest-hot-sauce",
-          "name": "Hottest Hot Sauce",
+          "name": "A Hottest Hot Sauce",
           "image": "/app/static/collection/assets/mall-rats/cheap/hottest-hot-sauce.webp",
           "bytes": 45304
         },
         {
           "id": "japanese-soda",
-          "name": "Japanese Soda",
+          "name": "A Japanese Soda",
           "image": "/app/static/collection/assets/mall-rats/cheap/japanese-soda.webp",
           "bytes": 33320
         },
         {
           "id": "meal-delivery-gift-card",
-          "name": "Meal Delivery Gift Card",
+          "name": "A Meal Delivery Gift Card",
           "image": "/app/static/collection/assets/mall-rats/cheap/meal-delivery-gift-card.webp",
           "bytes": 57288
         },
         {
           "id": "milk-frother",
-          "name": "Milk frother",
+          "name": "A Milk frother",
           "image": "/app/static/collection/assets/mall-rats/cheap/milk-frother.webp",
           "bytes": 29438
         },
         {
           "id": "mushroom-grow-kit",
-          "name": "Mushroom grow kit",
+          "name": "A Mushroom grow kit",
           "image": "/app/static/collection/assets/mall-rats/cheap/mushroom-grow-kit.webp",
           "bytes": 96868
         },
         {
           "id": "night-at-a-dive-bar",
-          "name": "Night at a dive bar",
+          "name": "A Night at a dive bar",
           "image": "/app/static/collection/assets/mall-rats/cheap/night-at-a-dive-bar.webp",
           "bytes": 142212
         },
@@ -289,13 +283,13 @@
         },
         {
           "id": "one-short-premium-ride-share",
-          "name": "ONE (Short) Premium Ride Share",
+          "name": "An ONE (Short) Premium Ride Share",
           "image": "/app/static/collection/assets/mall-rats/cheap/one-short-premium-ride-share.webp",
           "bytes": 8798
         },
         {
           "id": "peach-jam",
-          "name": "Peach Jam",
+          "name": "A Peach Jam",
           "image": "/app/static/collection/assets/mall-rats/cheap/peach-jam.webp",
           "bytes": 57166
         },
@@ -307,19 +301,19 @@
         },
         {
           "id": "robot-toy",
-          "name": "RObot Toy",
+          "name": "A RObot Toy",
           "image": "/app/static/collection/assets/mall-rats/cheap/robot-toy.webp",
           "bytes": 30134
         },
         {
           "id": "rpg-dice",
-          "name": "RPG Dice",
+          "name": "A RPG Dice",
           "image": "/app/static/collection/assets/mall-rats/cheap/rpg-dice.webp",
           "bytes": 40606
         },
         {
           "id": "silly-wig",
-          "name": "Silly wig",
+          "name": "A Silly wig",
           "image": "/app/static/collection/assets/mall-rats/cheap/silly-wig.webp",
           "bytes": 28290
         },
@@ -337,13 +331,13 @@
         },
         {
           "id": "ttrpg-rulebook",
-          "name": "TTRPG Rulebook",
+          "name": "A TTRPG Rulebook",
           "image": "/app/static/collection/assets/mall-rats/cheap/ttrpg-rulebook.webp",
           "bytes": 54542
         },
         {
           "id": "tea-party",
-          "name": "Tea Party",
+          "name": "A Tea Party",
           "image": "/app/static/collection/assets/mall-rats/cheap/tea-party.webp",
           "bytes": 39284
         },
@@ -355,43 +349,43 @@
         },
         {
           "id": "toy-dart-gun",
-          "name": "Toy Dart Gun",
+          "name": "A Toy Dart Gun",
           "image": "/app/static/collection/assets/mall-rats/cheap/toy-dart-gun.webp",
           "bytes": 45114
         },
         {
           "id": "toy-laser-sword",
-          "name": "Toy Laser Sword",
+          "name": "A Toy Laser Sword",
           "image": "/app/static/collection/assets/mall-rats/cheap/toy-laser-sword.webp",
           "bytes": 12430
         },
         {
           "id": "vintage-cat-figurine",
-          "name": "Vintage Cat Figurine",
+          "name": "A Vintage Cat Figurine",
           "image": "/app/static/collection/assets/mall-rats/cheap/vintage-cat-figurine.webp",
           "bytes": 16408
         },
         {
           "id": "vinyl-record",
-          "name": "Vinyl Record",
+          "name": "A Vinyl Record",
           "image": "/app/static/collection/assets/mall-rats/cheap/vinyl-record.webp",
           "bytes": 21792
         },
         {
           "id": "weird-soda",
-          "name": "Weird Soda",
+          "name": "A Weird Soda",
           "image": "/app/static/collection/assets/mall-rats/cheap/weird-soda.webp",
           "bytes": 113688
         },
         {
           "id": "comfy-sweater",
-          "name": "comfy sweater",
+          "name": "A comfy sweater",
           "image": "/app/static/collection/assets/mall-rats/cheap/comfy-sweater.webp",
           "bytes": 105750
         },
         {
           "id": "dinosaur-plush",
-          "name": "dinosaur plush",
+          "name": "A dinosaur plush",
           "image": "/app/static/collection/assets/mall-rats/cheap/dinosaur-plush.webp",
           "bytes": 76504
         },
@@ -403,31 +397,31 @@
         },
         {
           "id": "fire-extinguisher",
-          "name": "fire-extinguisher",
+          "name": "A fire-extinguisher",
           "image": "/app/static/collection/assets/mall-rats/cheap/fire-extinguisher.webp",
           "bytes": 43266
         },
         {
           "id": "fuzzy-blanket",
-          "name": "fuzzy blanket",
+          "name": "A fuzzy blanket",
           "image": "/app/static/collection/assets/mall-rats/cheap/fuzzy-blanket.webp",
           "bytes": 96896
         },
         {
           "id": "laser-tag",
-          "name": "laser tag",
+          "name": "A laser tag",
           "image": "/app/static/collection/assets/mall-rats/cheap/laser-tag.webp",
           "bytes": 28092
         },
         {
           "id": "megaphone",
-          "name": "megaphone",
+          "name": "A megaphone",
           "image": "/app/static/collection/assets/mall-rats/cheap/megaphone.webp",
           "bytes": 30920
         },
         {
           "id": "movie-poster",
-          "name": "movie poster",
+          "name": "A movie poster",
           "image": "/app/static/collection/assets/mall-rats/cheap/movie-poster.webp",
           "bytes": 48180
         },
@@ -439,19 +433,19 @@
         },
         {
           "id": "pizza-party",
-          "name": "pizza party",
+          "name": "A pizza party",
           "image": "/app/static/collection/assets/mall-rats/cheap/pizza-party.webp",
           "bytes": 55888
         },
         {
           "id": "recentish-video-game",
-          "name": "recentish video game",
+          "name": "A recentish video game",
           "image": "/app/static/collection/assets/mall-rats/cheap/recentish-video-game.webp",
           "bytes": 9678
         },
         {
           "id": "scarf",
-          "name": "scarf",
+          "name": "A scarf",
           "image": "/app/static/collection/assets/mall-rats/cheap/scarf.webp",
           "bytes": 50480
         },
@@ -463,19 +457,19 @@
         },
         {
           "id": "teddy-bear",
-          "name": "teddy bear",
+          "name": "A teddy bear",
           "image": "/app/static/collection/assets/mall-rats/cheap/teddy-bear.webp",
           "bytes": 12678
         },
         {
           "id": "trilobite-fossil",
-          "name": "trilobite fossil",
+          "name": "A trilobite fossil",
           "image": "/app/static/collection/assets/mall-rats/cheap/trilobite-fossil.webp",
           "bytes": 50578
         },
         {
           "id": "1-insert-relationship-here-mug",
-          "name": "“#1 (insert relationship here)” Mug",
+          "name": "A “#1 (insert relationship here)” Mug",
           "image": "/app/static/collection/assets/mall-rats/cheap/1-insert-relationship-here-mug.webp",
           "bytes": 17578
         }
@@ -643,12 +637,6 @@
           "bytes": 36956
         },
         {
-          "id": "hawaiian-cruise",
-          "name": "Hawaiian Cruise",
-          "image": "/app/static/collection/assets/mall-rats/mid-range/hawaiian-cruise.webp",
-          "bytes": 12306
-        },
-        {
           "id": "high-heels",
           "name": "High Heels",
           "image": "/app/static/collection/assets/mall-rats/mid-range/high-heels.webp",
@@ -683,12 +671,6 @@
           "name": "Mini Fridge",
           "image": "/app/static/collection/assets/mall-rats/mid-range/mini-fridge.webp",
           "bytes": 24030
-        },
-        {
-          "id": "moai-statue",
-          "name": "Moai Statue",
-          "image": "/app/static/collection/assets/mall-rats/mid-range/moai-statue.webp",
-          "bytes": 125348
         },
         {
           "id": "novelty-suit",
@@ -767,12 +749,6 @@
           "name": "Retro Video Game",
           "image": "/app/static/collection/assets/mall-rats/mid-range/retro-video-game.webp",
           "bytes": 30072
-        },
-        {
-          "id": "rip-van-winkle",
-          "name": "Rip Van Winkle",
-          "image": "/app/static/collection/assets/mall-rats/mid-range/rip-van-winkle.webp",
-          "bytes": 9520
         },
         {
           "id": "season-passes-to-amusement-park",
@@ -1206,6 +1182,12 @@
           "name": "ten thousand dollars cash",
           "image": "/app/static/collection/assets/mall-rats/expensive/ten-thousand-dollars-cash.webp",
           "bytes": 71648
+        },
+        {
+          "id": "hawaiian-cruise",
+          "name": "Hawaiian Cruise",
+          "image": "/app/static/collection/assets/mall-rats/expensive/hawaiian-cruise.webp",
+          "bytes": 12306
         }
       ]
     },

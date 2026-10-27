@@ -4,6 +4,7 @@ import com.google.inject.PrivateModule;
 import com.google.inject.Singleton;
 import com.publicrecords.collection.getlit.GetLitContent;
 import com.publicrecords.collection.cryptid.CryptidCinemaContent;
+import com.publicrecords.collection.mallrats.MallRatsContent;
 import com.publicrecords.collection.lobby.LobbyRegistry;
 import com.publicrecords.collection.media.RecordingStore;
 
@@ -20,6 +21,8 @@ public class CollectionModule extends PrivateModule {
         expose(GetLitContent.class);
         bind(CryptidCinemaContent.class).in(Singleton.class);
         expose(CryptidCinemaContent.class);
+        bind(MallRatsContent.class).in(Singleton.class);
+        expose(MallRatsContent.class);
 
         // Ephemeral store for player audio takes, shared by the recording REST endpoint
         // and the game engine.

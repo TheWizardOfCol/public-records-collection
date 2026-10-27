@@ -76,6 +76,43 @@ type CryptidSubmissionView = {
   points: number | null
 }
 
+type MallRatsPoolGift = { id: string; name: string; image: string; avgStars: number | null }
+
+type MallRatsPublicView = {
+  phase: string
+  storeId: string
+  storeName: string
+  storeMeter: string
+  cycle: number
+  pool: MallRatsPoolGift[]
+  targetScore: number
+  ratedBy: number
+  shoppedBy: number
+  players: number
+  roundScores: ScoreEntry[]
+  scores: ScoreEntry[]
+  winnerId: string | null
+  winnerName: string | null
+}
+
+type MallRatsPrivateView = {
+  phase: string
+  storeId: string
+  storeName: string
+  storeMeter: string
+  cycle: number
+  pool: MallRatsPoolGift[]
+  targetScore: number
+  myRatings: Record<string, number>
+  myRatesOutstanding: string[]
+  myAssignments: Record<string, string>
+  myRecipientsOutstanding: string[]
+  roundScores: ScoreEntry[]
+  scores: ScoreEntry[]
+  myRoundPoints: number
+  myReceivedLine: string
+}
+
 type CryptidPublicView = {
   phase: string
   episodeId: string
@@ -119,8 +156,8 @@ type CryptidPrivateView = {
   totalScore: number
 }
 
-type AnyGame = GetLitPublicView | CryptidPublicView
-type AnyYou = GetLitPrivateView | CryptidPrivateView
+type AnyGame = GetLitPublicView | CryptidPublicView | MallRatsPublicView
+type AnyYou = GetLitPrivateView | CryptidPrivateView | MallRatsPrivateView
 
 type ServerMessage = {
   type: string
@@ -140,6 +177,7 @@ const PASSAGE_LIMIT = 1200
 let socket: WebSocket | null = null
 let selfId: string | null = null
 let lastName = ''
+let lastPlayers: Player[] = []
 let lastGame: AnyGame | null = null
 let lastYou: AnyYou | null = null
 let lastSig = ''
@@ -236,6 +274,7 @@ function renderJoin(error?: string): void {
 
 function renderLobby(room: Room): void {
   const isLobby = room.phase === 'lobby'
+  lastPlayers = room.players
   const roster = room.players
     .map((p) => {
       const self = p.id === selfId ? ' (you)' : ''
@@ -307,6 +346,10 @@ function renderGame(): void {
   const g = lastGame
   const y = lastYou
   if (!g || !y) return
+  if ('storeId' in g) {
+    renderMallRats(g, y as MallRatsPrivateView)
+    return
+  }
   if ('episodeId' in g) {
     renderCryptid(g, y as CryptidPrivateView)
     return
@@ -575,7 +618,160 @@ function bindGame(): void {
   })
 }
 
+// --- Mall Rats ----------------------------------------------------------------
+
+let mallRecipient: string | null = null
+
+function mallStandings(scores: ScoreEntry[], target: number): string {
+  return scores
+    .map(
+      (s) => `<li>${escapeHtml(s.name)} — <b>${s.score}</b> / ${target} pt${s.score === 1 ? '' : 's'}</li>`,
+    )
+    .join('')
+}
+
+function renderMallRats(game: MallRatsPublicView, you: MallRatsPrivateView): void {
+  const head = `<span>Mall Rats — cycle ${game.cycle}</span><span>${escapeHtml(game.storeMeter)} ${escapeHtml(game.storeName)}</span>`
+  const mine = you.scores.find((s) => s.playerId === (selfId ?? ''))?.score ?? 0
+  const board = `<p class="board">${mine} / ${you.targetScore} pt</p>`
+
+  let body = ''
+  switch (you.phase) {
+    case 'brief':
+      body = `
+        <h2>Welcome to ${escapeHtml(you.storeName)} ${escapeHtml(you.storeMeter)}</h2>
+        <p class="hint">Get ready: rate the gifts, then shop for your friends.</p>
+        <p class="status">The host is about to open the doors.</p>
+      `
+      break
+    case 'rate': {
+      const cards = you.pool
+        .map((g) => {
+          const mine = you.myRatings[g.id]
+          const stars = [0, 1, 2, 3, 4, 5]
+            .map(
+              (n) =>
+                `<button class="star${mine !== undefined && mine === n ? ' star--on' : ''}" data-gift="${escapeHtml(g.id)}" data-stars="${n}" ${mine !== undefined ? 'disabled' : ''}>${'★'.repeat(n) || '·'}</button>`,
+            )
+            .join('')
+          return `
+            <li class="gift-card">
+              <img class="gift-card__img" src="${escapeHtml(g.image)}" alt="" />
+              <span class="gift-card__name">${escapeHtml(g.name)}</span>
+              <span class="gift-card__stars">${stars}</span>
+            </li>
+          `
+        })
+        .join('')
+      body = `
+        <h2>Rate the gifts</h2>
+        <p class="hint">0–5 stars each — your ratings set what the gifts are worth.</p>
+        <ul class="gifts">${cards}</ul>
+        <p class="status">${you.pool.length - you.myRatesOutstanding.length}/${you.pool.length} rated.</p>
+      `
+      break
+    }
+    case 'shop': {
+      const shopCards = you.pool
+        .map((g) => {
+          const recipients = Object.entries(you.myAssignments)
+            .filter(([, gid]) => gid === g.id)
+            .map(([rid]) => rid)
+          const taken = recipients.length > 0
+          return `
+            <li class="gift-card ${taken ? 'gift-card--given' : ''}" data-gift="${escapeHtml(g.id)}">
+              <img class="gift-card__img" src="${escapeHtml(g.image)}" alt="" />
+              <span class="gift-card__name">${escapeHtml(g.name)}</span>
+              ${taken ? `<span class="gift-card__name gift-card__to">→ ${escapeHtml(recipients.map((r) => nameOf(r)).join(', '))}</span>` : ''}
+            </li>
+          `
+        })
+        .join('')
+      const recipients = you.myRecipientsOutstanding
+        .map(
+          (r) => `<button class="work ${mallRecipient === r ? 'work--active' : ''}" data-recipient="${escapeHtml(r)}">
+            Give to ${escapeHtml(nameOf(r))}
+          </button>`,
+        )
+        .join('')
+      body = `
+        <h2>Shop for your friends</h2>
+        <p class="hint">Pick a friend, then pick the gift they leave with.</p>
+        <div class="answer-actions">${recipients || '<p class="status" data-state="ok">Your cart is clear.</p>'}</div>
+        <ul class="gifts">${shopCards}</ul>
+        <p class="status">${game.shoppedBy}/${game.players} have shopped for everyone.</p>
+      `
+      break
+    }
+    case 'results':
+      body = `
+        <h2>This cycle's haul</h2>
+        ${you.myReceivedLine ? `<p class="prompt">${escapeHtml(you.myReceivedLine)}</p>` : ''}
+        <p class="hint">${you.myRoundPoints} pt${you.myRoundPoints === 1 ? '' : 's'} this cycle — first to ${you.targetScore} wins.</p>
+        <ul class="scores">${mallStandings(you.roundScores, you.targetScore)}</ul>
+        <p class="status">Standings: ${mallStandings(you.scores, you.targetScore)}</p>
+      `
+      break
+    case 'finished': {
+      body = `
+        <h2>Bought out!</h2>
+        <p class="prompt">${escapeHtml(game.winnerName ?? 'The mall closes for the night.')}</p>
+        <ul class="scores">${mallStandings(you.scores, you.targetScore)}</ul>
+        <p class="status">The mall lights go out.</p>
+      `
+      break
+    }
+    default:
+      body = '<p class="status">Loading…</p>'
+  }
+
+  app.innerHTML = `
+    <main class="game mall">
+      <header class="game__head mall__head">${head}${board}</header>
+      <section class="game__body" id="game-body">${body}</section>
+      <button id="leave" class="link">Leave</button>
+    </main>
+  `
+
+  bindLeave()
+  bindMallRats()
+}
+
+function nameOf(playerId: string): string {
+  return lastPlayers.find((p) => p.id === playerId)?.name ?? 'them'
+}
+
+function bindMallRats(): void {
+  document.querySelectorAll<HTMLButtonElement>('.star').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const giftId = btn.dataset.gift
+      const stars = Number(btn.dataset.stars ?? -1)
+      if (giftId == null) return
+      send({ type: 'rate-gift', giftId, stars })
+    })
+  })
+  document.querySelectorAll<HTMLButtonElement>('[data-recipient]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      mallRecipient = btn.dataset.recipient ?? null
+      const g = lastGame as MallRatsPublicView | null
+      const y = lastYou as MallRatsPrivateView | null
+      if (g && y) renderMallRats(g, y)
+    })
+  })
+  document.querySelectorAll<HTMLLIElement>('.gift-card[data-gift]').forEach((li) => {
+    li.addEventListener('click', () => {
+      if (mallRecipient == null) return
+      const giftId = li.dataset.gift
+      if (!giftId) return
+      send({ type: 'shop-gift', recipientId: mallRecipient, giftId })
+      mallRecipient = null
+    })
+  })
+}
+
 // --- Cryptid Cinema -----------------------------------------------------------
+
+
 
 const ROUND_TYPE_LABELS: Record<string, string> = {
   UNDYINGALOG: 'Undyingalog',

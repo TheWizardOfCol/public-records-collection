@@ -48,6 +48,7 @@ var _game_body: RichTextLabel
 var _cryptid_view: HBoxContainer
 var _film: VideoStreamPlayer
 var _cryptid_notes: RichTextLabel
+var _mall_view: VBoxContainer
 var _cryptid_hud: Label
 
 # Film scheduling (Godot can't seek Theora, so we play forward and pause at a mark).
@@ -333,12 +334,18 @@ func _render_game(game: Dictionary) -> void:
 		_audio_queue = PackedStringArray()
 		return
 
+	last_room_state["game"] = game
 	var cryptid := game.has("episodeId")
+	var mall := game.has("storeId")
 	_cryptid_view.visible = cryptid
-	_game_body.visible = not cryptid
+	_game_body.visible = not cryptid and not mall
+	_mall_view.visible = mall
 
 	if cryptid:
 		_render_cryptid(game, phase)
+	elif mall:
+		_stop_film()
+		_render_mallrats(game, phase)
 	else:
 		_stop_film()
 		_render_getlit(game, phase)
@@ -829,6 +836,10 @@ func _on_start_pressed() -> void:
 		# show episode chooser in same scene to preserve room state
 		_show_episodes()
 		return
+	if GAME_IDS[_game_index] == "mall-rats":
+		# the host picks which mall store the game shops at
+		_show_stores()
+		return
 	var payload = {"type": "start", "gameId": GAME_IDS[_game_index]}
 	_ws.send_text(JSON.stringify(payload))
 
@@ -936,6 +947,41 @@ func _build_ui() -> void:
 	_cryptid_notes.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	_cryptid_view.add_child(_cryptid_notes)
 
+	_mall_view = VBoxContainer.new()
+	_mall_view.add_theme_constant_override("separation", 10)
+	_mall_view.visible = false
+	_game_panel.add_child(_mall_view)
+
+	_mall_store_title = Label.new()
+	_mall_store_title.add_theme_font_size_override("font_size", 30)
+	_mall_view.add_child(_mall_store_title)
+
+	var mall_body := HBoxContainer.new()
+	mall_body.add_theme_constant_override("separation", 20)
+	mall_body.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	_mall_view.add_child(mall_body)
+
+	_mall_standings = RichTextLabel.new()
+	_mall_standings.bbcode_enabled = true
+	_mall_standings.fit_content = true
+	_mall_standings.custom_minimum_size = Vector2(300, 0)
+	mall_body.add_child(_mall_standings)
+
+	var mall_right := VBoxContainer.new()
+	mall_right.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	mall_right.add_theme_constant_override("separation", 8)
+	mall_body.add_child(mall_right)
+
+	_mall_status_label = Label.new()
+	_mall_status_label.add_theme_font_size_override("font_size", 20)
+	mall_right.add_child(_mall_status_label)
+
+	_mall_grid = HFlowContainer.new()
+	_mall_grid.add_theme_constant_override("h_separation", 10)
+	_mall_grid.add_theme_constant_override("v_separation", 10)
+	_mall_grid.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	mall_right.add_child(_mall_grid)
+
 	_game_body = RichTextLabel.new()
 	_game_body.bbcode_enabled = true
 	_game_body.fit_content = true
@@ -956,6 +1002,7 @@ func _build_ui() -> void:
 	root.add_child(_status_label)
 
 	_audio_player = AudioStreamPlayer.new()
+	_audio_player.bus = "Music"
 	_audio_player.finished.connect(_pump_audio)
 	add_child(_audio_player)
 
@@ -964,6 +1011,7 @@ func _build_ui() -> void:
 	_audio_http.request_completed.connect(_on_audio_fetched)
 
 	_screen_player = AudioStreamPlayer.new()
+	_screen_player.bus = "Voice"
 	add_child(_screen_player)
 
 	_screen_http = HTTPRequest.new()
@@ -1120,3 +1168,190 @@ func _on_episode_selected(episode_id: String) -> void:
 	payload["episodeId"] = episode_id
 	if _ws.get_ready_state() == WebSocketPeer.STATE_OPEN:
 		_ws.send_text(JSON.stringify(payload))
+
+
+# --- Mall Rats ----------------------------------------------------------------
+
+var _stores_panel: Control = null
+var _stores_http: HTTPRequest
+var _mall_texture_cache: Dictionary = {}
+var _mall_http_requests: Dictionary = {}
+var _mall_store_title: Label
+var _mall_standings: RichTextLabel
+var _mall_status_label: Label
+var _mall_grid: HFlowContainer
+
+func _show_stores() -> void:
+	if _stores_panel != null:
+		return
+	if _stores_http == null:
+		_stores_http = HTTPRequest.new()
+		_stores_http.request_completed.connect(_on_stores_fetched)
+		add_child(_stores_http)
+	_set_status("Deciding where to shop…")
+	var err := _stores_http.request(
+		BackendConfig.url + "/app/static/collection/content/mall-rats/gifts.json",
+		PackedStringArray(), HTTPClient.METHOD_GET)
+	if err != OK:
+		_set_status("Could not reach the store list — check the backend.")
+
+func _on_stores_fetched(result: int, code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+	if result != HTTPRequest.RESULT_SUCCESS or code != 200:
+		_set_status("Store list failed to load (HTTP %d)." % code)
+		return
+	var parsed = JSON.parse_string(body.get_string_from_utf8())
+	var stores: Array = []
+	if parsed is Dictionary and parsed.has("stores"):
+		stores = parsed["stores"]
+	if stores.is_empty():
+		_set_status("No stores available.")
+		return
+	_stores_panel = _build_overlay_panel("PICK A STORE TO SHOP AT")
+	var box: VBoxContainer = _stores_panel.get_meta("box")
+	for store in stores:
+		var btn := Button.new()
+		btn.text = "%s   %s   ·   %d gifts" % [
+			str(store.get("meter", "$")), str(store.get("name", "?")),
+			str(store.get("gifts", []) as Array).length()]
+		btn.custom_minimum_size = Vector2(460, 64)
+		var sid := str(store.get("id", ""))
+		btn.pressed.connect(func() -> void: _on_store_selected(sid))
+		box.add_child(btn)
+
+func _build_overlay_panel(title_text: String) -> Control:
+	var panel := PanelContainer.new()
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color(0.08, 0.07, 0.06, 0.98)
+	style.border_color = GOLD
+	style.set_border_width_all(2)
+	style.set_corner_radius_all(8)
+	style.set_content_margin_all(28)
+	panel.add_theme_stylebox_override("panel", style)
+	panel.set_anchors_preset(Control.PRESET_CENTER)
+	add_child(panel)
+	_stores_panel = panel
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 10)
+	panel.add_child(box)
+	var title := Label.new()
+	title.text = title_text
+	title.add_theme_font_size_override("font_size", 26)
+	title.add_theme_color_override("font_color", GOLD)
+	box.add_child(title)
+	panel.set_meta("box", box)
+	return panel
+
+func _on_store_selected(store_id: String) -> void:
+	if _stores_panel != null:
+		_stores_panel.queue_free()
+		_stores_panel = null
+	var payload := {"type": "start", "gameId": "mall-rats"}
+	payload["episodeId"] = store_id
+	if _ws.get_ready_state() == WebSocketPeer.STATE_OPEN:
+		_ws.send_text(JSON.stringify(payload))
+
+func _render_mallrats(game: Dictionary, phase: String) -> void:
+	_game_title.text = "Mall Rats — %s %s · to %d pts · cycle %d" % [
+		str(game.get("storeMeter", "$")), str(game.get("storeName", "?")),
+		int(game.get("targetScore", 30)), int(game.get("cycle", 1))]
+	_mall_view.visible = true
+	_mall_store_title.text = "Shopping at %s %s" % [
+		str(game.get("storeMeter", "$")), str(game.get("storeName", "?"))]
+
+	var progress := ""
+	match phase:
+		"brief":
+			progress = "Doors opening — the gifts come out next."
+		"rate":
+			progress = "Rating %d / %d" % [
+				int(game.get("ratedBy", 0)), int(game.get("players", 0))]
+		"shop":
+			progress = "Shopped %d / %d" % [
+				int(game.get("shoppedBy", 0)), int(game.get("players", 0))]
+		"results":
+			progress = "Cycle scored!"
+		"finished":
+			progress = "%s bought out!" % str(game.get("winnerName", "?"))
+	if _mall_status_label != null:
+		_mall_status_label.text = progress
+
+	# standings
+	var scores: Array = game.get("scores", [])
+	var lines := PackedStringArray()
+	for s in scores:
+		lines.append("%s — %d / %d" % [str(s.get("name", "?")), int(s.get("score", 0)), int(game.get("targetScore", 30))])
+	_mall_standings.text = "\n".join(lines)
+
+	# gift grid (photos cached by url)
+	for child in _mall_grid.get_children():
+		child.queue_free()
+	var pool: Array = game.get("pool", [])
+	if phase == "brief":
+		var waiting := Label.new()
+		waiting.text = "The store opens…"
+		_mall_grid.add_child(waiting)
+		return
+	for gift in pool:
+		_mall_grid.add_child(_mall_gift_card(
+			str(gift.get("name", "?")),
+			str(gift.get("image", "")),
+			gift.get("avgStars")))
+
+func _mall_gift_card(name_text: String, image_url: String, avg_stars) -> Control:
+	var card := VBoxContainer.new()
+	card.custom_minimum_size = Vector2(190, 0)
+	card.add_theme_constant_override("separation", 6)
+	var icon := TextureRect.new()
+	icon.texture = _mall_cached_texture(image_url)
+	icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	icon.stretch_mode = TextureRect.STRETCH_SCALE
+	icon.custom_minimum_size = Vector2(190, 150)
+	var holder := PanelContainer.new()
+	holder.add_child(icon)
+	card.add_child(holder)
+	var caption := Label.new()
+	caption.text = name_text
+	caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	caption.add_theme_font_size_override("font_size", 15)
+	card.add_child(caption)
+	var stars_text := "—"
+	if avg_stars != null:
+		stars_text = "%.1f ★" % float(avg_stars)
+	var stars := Label.new()
+	stars.text = stars_text
+	stars.add_theme_font_size_override("font_size", 18)
+	stars.add_theme_color_override("font_color", GOLD)
+	card.add_child(stars)
+	return card
+
+func _mall_cached_texture(url: String) -> Texture2D:
+	if _mall_texture_cache.has(url):
+		return _mall_texture_cache[url]
+	_mall_texture_cache[url] = null
+	if not _mall_http_requests.is_empty() and _mall_http_requests.has(url):
+		return null
+	var http := HTTPRequest.new()
+	add_child(http)
+	_mall_http_requests[url] = http
+	http.request_completed.connect(func(result: int, code: int, _h: PackedStringArray, body: PackedByteArray) -> void:
+		_mall_http_requests.erase(url)
+		if result != HTTPRequest.RESULT_SUCCESS or code != 200:
+			return
+		var img := Image.new()
+		var err := img.load_webp_from_buffer(body)
+		if err != OK:
+			return
+		var tex := ImageTexture.create_from_image(img)
+		_mall_texture_cache[url] = tex
+		if is_instance_valid(_mall_grid) and not _mall_grid.is_queued_for_deletion():
+			renderGameState())
+	http.request(BackendConfig.url + url, PackedStringArray(), HTTPClient.METHOD_GET)
+	return null
+
+func renderGameState() -> void:
+	var room: Dictionary = last_room_state
+	if room == {} or not room.has("game") or room.get("game") == null:
+		return
+	_render_game(room["game"])
+
+var last_room_state: Dictionary = {}

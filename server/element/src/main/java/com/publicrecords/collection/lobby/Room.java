@@ -4,6 +4,8 @@ import com.publicrecords.collection.getlit.GetLitContent;
 import com.publicrecords.collection.cryptid.CryptidCinemaGame;
 import com.publicrecords.collection.cryptid.CryptidCinemaContent;
 import com.publicrecords.collection.getlit.GetLitGame;
+import com.publicrecords.collection.mallrats.MallRatsContent;
+import com.publicrecords.collection.mallrats.MallRatsGame;
 import jakarta.websocket.Session;
 
 import java.util.ArrayList;
@@ -94,7 +96,7 @@ final class Room {
      * Starts a game, snapshotting the current players into the authoritative game object
      * for {@code gameId} — Get Lit or Cryptid Cinema.
      */
-    void startGame(final String gameId, final String episodeId, final GetLitContent content, final CryptidCinemaContent ccContent) {
+    void startGame(final String gameId, final String episodeId, final GetLitContent content, final CryptidCinemaContent ccContent, final MallRatsContent mallContent) {
         synchronized (lock) {
             if (players.isEmpty()) {
                 throw new LobbyException("at least one player is required to start");
@@ -117,6 +119,20 @@ final class Room {
                                 .orElseThrow(() -> new LobbyException("no Cryptid Cinema episodes are available"));
                 this.game = new CryptidCinemaGame(
                         episode,
+                        new ArrayList<>(players.keySet()),
+                        namesLocked(),
+                        new Random());
+                this.phase = "in-progress";
+            } else if ("mall-rats".equals(gameId)) {
+                // The episodeId slot doubles as the store choice here — the host
+                // picks which mall store the game shops at.
+                final var store = (episodeId != null && !episodeId.isBlank())
+                        ? mallContent.store(episodeId)
+                                .orElseThrow(() -> new LobbyException("no such store: " + episodeId))
+                        : mallContent.first()
+                                .orElseThrow(() -> new LobbyException("no Mall Rats stores are available"));
+                this.game = new MallRatsGame(
+                        store,
                         new ArrayList<>(players.keySet()),
                         namesLocked(),
                         new Random());

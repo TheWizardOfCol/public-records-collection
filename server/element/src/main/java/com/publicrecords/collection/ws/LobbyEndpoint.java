@@ -65,6 +65,10 @@ public class LobbyEndpoint {
                 case "submit-answer" -> lobby().submitAnswer(session, text(node, "text"));
                 case "cast-vote" -> lobby().castVote(
                         session, text(node, "answerId"), node.path("golden").asBoolean(false));
+                case "rate-gift" -> lobby().rateGift(
+                        session, text(node, "giftId"), node.path("stars").asInt(-1));
+                case "shop-gift" -> lobby().shopGift(
+                        session, text(node, "recipientId"), text(node, "giftId"));
                 case "advance" -> lobby().advance(session);
                 case "leave" -> lobby().closeRoom(session);
                 case "ping" -> Wire.send(session, Wire.object().put("type", "pong"));

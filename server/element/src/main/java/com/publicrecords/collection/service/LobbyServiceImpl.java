@@ -85,6 +85,16 @@ public class LobbyServiceImpl implements LobbyService {
     }
 
     @Override
+    public void rateGift(final Session session, final String giftId, final int stars) {
+        registry.rateGift(session, giftId, stars);
+    }
+
+    @Override
+    public void shopGift(final Session session, final String recipientId, final String giftId) {
+        registry.shopGift(session, recipientId, giftId);
+    }
+
+    @Override
     public void advance(final Session session) {
         registry.advance(session);
     }
